@@ -8,25 +8,35 @@
 #include "rpg.h"
 
 static const scene_t scene_launcher[] = {
-    &launch_menu
-};
-
-static const gameloop_t gameloop[] = {
     [MENU] = &launch_menu
 };
 
+
+tool_t init_window(void)
+{
+    tool_t tools;
+
+    tools.window = create_window(1920, 1080, 64, "My_RPG");
+    init_menu(&tools.menu);
+    return (tools);
+}
+
+void destroy_window(tool_t tools)
+{
+    destroy_menu(&tools.menu);
+    sfRenderWindow_destroy(tools.window);
+}
+
 int my_rpg(void)
 {
-    tool_t tool;
-    tool.window = create_window(1820, 1080, 64, "My_RPG");
+    tool_t tools = init_window();
     int state = MENU;
 
-    init_menu();
-    while (sfRenderWindow_isOpen(tool.window)) {
-        state = scene_launcher[state]();
+    while (sfRenderWindow_isOpen(tools.window)) {
+        state = scene_launcher[state](&tools, state);
         if (state == NO_SCENE)
-            sfRenderWindow_close(tool.window);
+            sfRenderWindow_close(tools.window);
     }
-    sfRenderWindow_destroy(tool.window);
+    destroy_window(tools);
     return (0);
 }

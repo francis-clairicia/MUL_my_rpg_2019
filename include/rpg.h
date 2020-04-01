@@ -12,13 +12,13 @@
 #include "struct.h"
 typedef struct menu_s
 {
-    sfSprite *background;
+    obj_t *background;
 }menu_t;
 
 typedef struct tool_s
 {
     sfRenderWindow *window;
-
+    menu_t menu;
 }tool_t;
 
 enum scenes_number
@@ -30,12 +30,13 @@ enum scenes_number
     ENd_MENU
 };
 
-typedef int (*gameloop_t)(void);
+#define IMG_FOLDER "assets/img/"
 
-typedef int (*scene_t)(void);
+typedef int (*scene_t)(tool_t *tools, int state);
 
 /* Menu */
-int launch_menu(void);
-int init_menu(void);
+void init_menu(menu_t *menu);
+int launch_menu(tool_t *tools, int state);
+void destroy_menu(menu_t *menu);
 
 #endif /* !RPG_H_ */

@@ -9,8 +9,8 @@ MAIN				=	src/main.c
 
 SRC_GAMELOOP		=	src/my_rpg.c
 
-SRC_MENU			= 	src/menu/init_menu.c	\
-						src/menu/launch_menu.c	\
+SRC_MENU			= 	src/menu/init.c	\
+						src/menu/loop.c	\
 
 SRC_PIRATE_LIST		=	src/pirate_list_handling/add_pirate_to_list.c					\
 						src/pirate_list_handling/detach_pirate_from_list.c				\
@@ -74,7 +74,6 @@ clean:
 fclean:	clean
 	$(RM) $(NAME)
 	$(RM) $(OBJ)
-	$(RM) -r $(ASSETS)
 	$(MAKE) -C lib/my fclean
 
 re:	fclean all
