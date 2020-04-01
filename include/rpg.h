@@ -15,10 +15,34 @@ typedef struct menu_s
     obj_t *background;
 }menu_t;
 
+typedef struct mouse_tool_s {
+    sfVector2f win_pos;
+    sfVector2f pos;
+    sfVector2f win_click_pos;
+    sfVector2f click_pos;
+    sfBool hold;
+    sfBool click;
+} mouse_tool_t;
+
+typedef struct anchor_s {
+    sfVector2f topleft;
+    sfVector2f topright;
+    sfVector2f bottomleft;
+    sfVector2f bottomright;
+} anchor_t;
+
 typedef struct tool_s
 {
+
     sfRenderWindow *window;
+    sfView *view;
     menu_t menu;
+    anchor_t anchor;
+    sfVector2f size;
+    sfVector2f scale;
+    sfVideoMode video_mode;
+    sfEvent event;
+    mouse_tool_t mouse_tool;
 }tool_t;
 
 enum scenes_number
