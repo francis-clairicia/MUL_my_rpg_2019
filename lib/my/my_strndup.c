@@ -1,28 +1,28 @@
 /*
 ** EPITECH PROJECT, 2019
-** PSU_minishell1_2019
+** My_Lib_C
 ** File description:
-** duplicates a string upto a n number of itterations
+** my_strndup.c
 */
 
 #include <stdlib.h>
-#include "my.h"
 
-char *my_strndup(const char *template, int n)
+char *my_strncpy(char *dest, char const *src, int n);
+
+int my_strlen(char const *str);
+
+char *my_strndup(char const *src, int n)
 {
-    char *result = NULL;
-    int size = my_strnlen(template, n);
-    int index = 0;
+    int len = my_strlen(src);
+    char *dest;
 
-    if (!template)
+    if (src == NULL)
         return (NULL);
-    result = malloc(sizeof(char) * (size + 1));
-    if (!result)
+    if (n > len)
+        n = len;
+    dest = malloc(sizeof(char) * (n + 1));
+    if (dest == NULL)
         return (NULL);
-    result[size] = '\0';
-    while (template[index] && index < n) {
-        result[index] = template[index];
-        index += 1;
-    }
-    return (result);
+    my_strncpy(dest, src, n);
+    return (dest);
 }

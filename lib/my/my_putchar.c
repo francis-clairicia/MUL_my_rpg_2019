@@ -1,15 +1,13 @@
 /*
 ** EPITECH PROJECT, 2019
-** library
+** my_putchar
 ** File description:
-** puts a character onto the stdout
+** Display a character
 */
 
 #include <unistd.h>
 
-int my_putchar(const char c)
+int my_putchar(char c)
 {
-    if (write(1, &c, 1) < 0)
-        return (84);
-    return (0);
+    return (write(1, &c, 1) != -1);
 }

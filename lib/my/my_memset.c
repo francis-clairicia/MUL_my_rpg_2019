@@ -1,22 +1,22 @@
 /*
 ** EPITECH PROJECT, 2019
-** PSU_navy_2019
+** My_Lib_C
 ** File description:
 ** my_memset.c
 */
 
-#include <unistd.h>
+#include <sys/types.h>
+#include <stddef.h>
 
-void my_memset(char *to_write_on,
-                const char to_fill_with,
-                const size_t nb_bytes)
+void *my_memset(void *buffer, int c, size_t size)
 {
-    size_t index = 0;
+    unsigned int i = 0;
 
-    if (!to_write_on)
-        return;
-    while (index < nb_bytes) {
-        to_write_on[index] = to_fill_with;
-        index += 1;
+    if (buffer == NULL)
+        return (NULL);
+    while (i < size) {
+        ((char *)buffer)[i] = c;
+        i += 1;
     }
+    return (buffer);
 }

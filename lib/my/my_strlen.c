@@ -1,16 +1,20 @@
 /*
 ** EPITECH PROJECT, 2019
-** library
+** My str len
 ** File description:
-** gets a string length
+** Find the lenght of a string
 */
 
-#include <unistd.h>
+#include <stddef.h>
 
-ssize_t my_strlen(const char *str)
+int my_strlen(char const *str)
 {
-    ssize_t index = -1;
+    int i = 0;
 
-    while (str && str[++index]);
-    return (index);
+    if (str == NULL)
+        return (0);
+    while (str[i] != '\0') {
+        i += 1;
+    }
+    return (i);
 }

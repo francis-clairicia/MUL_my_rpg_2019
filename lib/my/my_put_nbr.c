@@ -1,28 +1,23 @@
 /*
 ** EPITECH PROJECT, 2019
-** libmy
+** Put number
 ** File description:
-** puts a nb on stdout considering its base
+** Display number entered as parameter
 */
 
-#include "my.h"
+int my_putchar(char c);
 
-void my_put_nbr(int nb, const char *base)
+int my_put_nbr(long nb)
 {
-    static int len_base = -2;
-
-    if (len_base == -2) {
-        len_base = my_strlen(base);
-        if (len_base <= 1)
-            return;
-    }
     if (nb < 0) {
+        nb = -nb;
         my_putchar('-');
-        my_put_nbr(-nb, base);
     }
-    if (nb >= len_base) {
-        my_put_nbr(nb / len_base, base);
-        my_put_nbr(nb % len_base, base);
-    } else if (nb >= 0)
-        my_putchar(base[nb]);
+    if (nb < 10) {
+        my_putchar(nb + 48);
+    } else {
+        my_put_nbr(nb / 10);
+        my_put_nbr(nb % 10);
+    }
+    return (0);
 }

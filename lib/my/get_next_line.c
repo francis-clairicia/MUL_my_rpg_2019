@@ -1,89 +1,98 @@
 /*
 ** EPITECH PROJECT, 2019
-** get_map
+** CPE_getnextline_2019
 ** File description:
-** get_map func
+** get_next_line.c
 */
 
-#include <unistd.h>
-#include <stddef.h>
 #include <stdlib.h>
-#include "my.h"
+#include <unistd.h>
 
-static int is_end_of_line(char *buffer)
+const int READ_SIZE = 4096;
+
+static int my_strlen_with_limit(char const *str, char limit)
+{
+    int count = 0;
+
+    while (str != NULL && str[count] != '\0' && str[count] != limit)
+        count += 1;
+    return (count);
+}
+
+static int my_realloc(char **str, int to_add)
+{
+    int str_size = my_strlen_with_limit(*str, 0);
+    char *new_str = malloc(sizeof(char) * (str_size + to_add + 1));
+    int i = 0;
+    int output = 1;
+
+    if (new_str == NULL) {
+        output = 0;
+    } else {
+        while (i < str_size + to_add + 1) {
+            new_str[i] = (i < str_size) ? (*str)[i] : '\0';
+            i += 1;
+        }
+    }
+    free(*str);
+    *str = new_str;
+    return (output);
+}
+
+static int my_strcat_l(char **dest, char const *src, char limit)
 {
     int i = 0;
+    int first = my_strlen_with_limit(*dest, 0);
 
-    while (buffer[i] != '\0') {
-        if (buffer[i] == '\n')
-            return (1);
-        i++;
+    if (src == NULL || src[0] == '\0'
+    || !my_realloc(dest, my_strlen_with_limit(src, limit)))
+        return (0);
+    while (src[i] != '\0' && src[i] != limit) {
+        (*dest)[first + i] = src[i];
+        i += 1;
     }
-    return (0);
+    return ((src[i] == '\0') ? 1 : 2);
 }
 
-static char *my_strdup_line(char *buffer)
+static int read_file(int fd, char *buffer, char **save)
 {
-    char *line = NULL;
     int i = 0;
+    int size = read(fd, buffer, READ_SIZE);
 
-    if (buffer && buffer[0] == '\n')
-        return (my_strdup("\n"));
-    while (buffer[i] != '\0' && buffer[i] != '\n')
-        i++;
-    line = my_strndup(buffer, i);
-    return (line);
-}
-
-static char *re_alloc_buffer(char *buffer, char *stock, int mode)
-{
-    char *new_buffer = NULL;
-    int i = 0;
-
-    if (mode) {
-        new_buffer = my_strcat(buffer, stock);
-        free(buffer);
-        return (new_buffer);
+    free(*save);
+    *save = NULL;
+    if (size <= 0)
+        return (0);
+    buffer[size] = '\0';
+    while (i < size) {
+        if (buffer[i] == '\n') {
+            my_strcat_l(save, &buffer[i + 1], 0);
+            return (2);
+        }
+        i += 1;
     }
-    while (buffer[i + 1] != '\0' && buffer[i + 1] != '\n')
-        i++;
-    if (buffer[i + 1] == '\0')
-        return (NULL);
-    new_buffer = my_strdup(buffer + i + 2);
-    free(buffer);
-    return (new_buffer);
+    return (1);
 }
 
-static char *add_in_buffer(int fd, char *buffer, int *rd)
+int get_next_line(char **line, int fd)
 {
-    char stock[128 + 1];
+    char buffer[READ_SIZE + 1];
+    static char *save = NULL;
+    char *new_save = NULL;
+    int read_status = 1;
 
-    if (stock == NULL || buffer == NULL)
-        return (NULL);
-    while (!is_end_of_line(buffer) && *rd != 0) {
-        *rd = read(fd, stock, 128);
-        if (*rd == -1)
-            return (NULL);
-        stock[*rd] = '\0';
-        buffer = re_alloc_buffer(buffer, stock, 1);
+    free(*line);
+    *line = NULL;
+    if (my_strcat_l(line, save, '\n') == 2) {
+        my_strcat_l(&new_save, &save[my_strlen_with_limit(*line, 0) + 1], 0);
+        free(save);
+        save = new_save;
+        return (1);
     }
-    return (buffer);
-}
-
-char *get_next_line(const int fd)
-{
-    static char *buffer = NULL;
-    char *line = NULL;
-    int rd = 1;
-
-    if (buffer == NULL)
-        buffer = my_strdup("\0");
-    if (fd == -1)
-        return (NULL);
-    buffer = add_in_buffer(fd, buffer, &rd);
-    if (buffer == NULL || (buffer[0] == '\0' && rd == 0))
-        return (NULL);
-    line = my_strdup_line(buffer);
-    buffer = re_alloc_buffer(buffer, buffer, 0);
-    return (line);
+    while (fd >= 0 && READ_SIZE > 0 && read_status == 1) {
+        read_status = read_file(fd, buffer, &save);
+        if (read_status != 0 && !my_strcat_l(line, buffer, '\n'))
+            break;
+    }
+    return (*line != NULL);
 }

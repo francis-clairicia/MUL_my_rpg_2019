@@ -1,46 +1,27 @@
 /*
 ** EPITECH PROJECT, 2019
-** library
+** Mystrcat
 ** File description:
-** concats two strings
+** Append string into another
 */
 
-#include <stdlib.h>
-#include "my.h"
+#include <stddef.h>
 
-static char *compute_concat(const char *core,
-                            const char *to_append,
-                            const int len_str,
-                            const int len_append)
+int my_strlen(char const *str);
+
+char *my_strcat(char *dest, char const *src)
 {
-    char *result = NULL;
-    int count_templates = 0;
-    int count_res = 0;
+    int i = 0;
+    int len = my_strlen(dest);
 
-    result = malloc(sizeof(char) * (len_str + len_append + 1));
-    if (!result)
+    if (src == NULL)
+        return (dest);
+    if (dest == NULL)
         return (NULL);
-    while (core[count_templates]) {
-        result[count_res] = core[count_templates];
-        count_templates += 1;
-        count_res += 1;
+    while (src[i] != '\0') {
+        dest[len + i] = src[i];
+        i += 1;
     }
-    count_templates = 0;
-    while (to_append[count_templates]) {
-        result[count_res] = to_append[count_templates];
-        count_templates += 1;
-        count_res += 1;
-    }
-    result[count_res] = '\0';
-    return (result);
-}
-
-char *my_strcat(const char *core, const char *to_append)
-{
-    int len_str = my_strlen(core);
-    int len_append = my_strlen(to_append);
-
-    if (len_str <= 0 || len_append <= 0)
-        return (len_str <= 0) ? my_strdup(to_append) : my_strdup(core);
-    return (compute_concat(core, to_append, len_str, len_append));
+    dest[len + i] = '\0';
+    return (dest);
 }

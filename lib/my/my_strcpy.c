@@ -1,22 +1,23 @@
 /*
 ** EPITECH PROJECT, 2019
-** my_strcpy
+** my_strcpy.c
 ** File description:
-** copies a string into another
+** Copy a string into an another
 */
 
-#include <unistd.h>
-
-ssize_t my_strlen(const char *string);
+#include <stddef.h>
 
 char *my_strcpy(char *dest, char const *src)
 {
-    int len = my_strlen(src);
     int i = 0;
 
-    while (i < len) {
+    if (dest == NULL)
+        return (NULL);
+    if (src == NULL)
+        return (dest);
+    while (src[i] != '\0') {
         dest[i] = src[i];
-        i++;
+        i += 1;
     }
     dest[i] = '\0';
     return (dest);

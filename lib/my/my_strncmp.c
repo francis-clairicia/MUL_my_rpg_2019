@@ -1,25 +1,25 @@
 /*
 ** EPITECH PROJECT, 2019
-** libmy
+** my_strncmp.c
 ** File description:
-** compares two strings for n chars
+** Compare the n first character of two strings
 */
 
-#include "my.h"
+#include <stddef.h>
 
-int my_strncmp(const char *first, const char *second, const unsigned int n)
+int my_strcmp(char const *s1, char const *s2);
+
+int my_strlen(char const *str);
+
+char *my_strncpy(char *dest, char const *src, int n);
+
+int my_strncmp(char const *s1, char const *s2, int n)
 {
-    int index = 0;
+    char s1_cut[n + 1];
 
-    if (!first || !second) {
-        if (!first && !second)
-            return (0);
-        return (1);
-    }
-    while (index < (int)n) {
-        if (first[index] != second[index])
-            return (1);
-        index += 1;
-    }
-    return (0);
+    if (s1 == NULL || s2 == NULL)
+        return (my_strcmp(s1, s2));
+    if (n >= my_strlen(s1))
+        return (my_strcmp(s1, s2));
+    return (my_strcmp(my_strncpy(s1_cut, s1, n), s2));
 }
