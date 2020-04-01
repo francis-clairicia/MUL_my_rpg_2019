@@ -22,21 +22,21 @@ typedef struct pirate_stats_s {
 
 
 typedef enum pirate_hairstyle_s {
-    BLACK,
-    BROWN,
-    GRAY,
-    BLOND,
-    BLUE,
+    HAIR_BLACK,
+    HAIR_BROWN,
+    HAIR_GRAY,
+    HAIR_BLOND,
+    HAIR_BLUE,
 } pirate_hairstyle_t;
 
 
 typedef enum pirate_eyes_s {
-    BLACK,
-    BROWN,
-    LIGHT_BLUE,
-    BLUE,
-    LIGHT_GREEN,
-    GREEN,
+    EYES_BLACK,
+    EYES_BROWN,
+    EYES_LIGHT_BLUE,
+    EYES_BLUE,
+    EYES_LIGHT_GREEN,
+    EYES_GREEN,
 } pirate_eyes_t;
 
 

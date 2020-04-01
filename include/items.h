@@ -33,7 +33,7 @@ typedef enum weapon_id_e {
     RIFFLE,
 } weapon_id_t;
 
-static const weapon_t *weapons[] = {
+static const weapon_t weapons[] = {
     {.range_method = RANGE, .range = 200, .damage = 100, .atk_speed = 1.35}
 };
 
