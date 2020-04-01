@@ -7,12 +7,17 @@
 
 MAIN				=	src/main.c
 
+SRC_GAMELOOP		=	src/my_rpg.c
+
+SRC_MENU			= 	src/menu/init_menu.c	\
+						src/menu/launch_menu.c	\
+
 SRC_PIRATE_LIST		=	src/pirate_list_handling/add_pirate_to_list.c					\
 						src/pirate_list_handling/detach_pirate_from_list.c				\
 						src/pirate_list_handling/free_pirate_list.c						\
 						src/pirate_list_handling/give_pirate_from_list.c				\
 
-SRC					=	$(MAIN) $(SRC_PIRATE_LIST) $(SRC_SAVE_LOAD)
+SRC					=	$(MAIN) $(SRC_GAMELOOP) $(SRC_MENU) $(SRC_PIRATE_LIST) $(SRC_SAVE_LOAD)
 
 override CFLAGS		+=	-Wall -Wextra
 
