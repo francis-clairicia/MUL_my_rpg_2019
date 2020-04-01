@@ -38,3 +38,11 @@ static void update_window_size(tool_t *tool)
 
     tool->size = VEC2F(window_size.x, window_size.y);
 }
+
+void update_tool(tool_t *tool)
+{
+    update_window_size(tool);
+    update_window_scale(tool);
+    update_window_anchor(tool);
+    update_mouse_tool(tool);
+}

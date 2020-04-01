@@ -17,7 +17,11 @@ SRC_PIRATE_LIST		=	src/pirate_list_handling/add_pirate_to_list.c					\
 						src/pirate_list_handling/free_pirate_list.c						\
 						src/pirate_list_handling/give_pirate_from_list.c				\
 
-SRC					=	$(MAIN) $(SRC_GAMELOOP) $(SRC_MENU) $(SRC_PIRATE_LIST) $(SRC_SAVE_LOAD)
+SRC_INPUT_HANDLING	=	src/input_handling/mouse_input.c								\
+
+SRC_UPDATE_WINDOW 	=	src/update_window/update_tool.c									\
+
+SRC					=	$(MAIN) $(SRC_GAMELOOP) $(SRC_MENU) $(SRC_PIRATE_LIST) $(SRC_SAVE_LOAD) $(SRC_INPUT_HANDLING) $(SRC_UPDATE_WINDOW)
 
 override CFLAGS		+=	-Wall -Wextra
 
@@ -37,7 +41,7 @@ all:	$(NAME)
 
 $(NAME):	CFLAGS += -O2
 $(NAME):	$(LDLIBS)
-$(NAME):	LDLIBS += -lcsfml-graphics -lcsfml-system -lcsfml-audio -lm
+$(NAME):	LDLIBS += -lcsfml-graphics -lcsfml-system -lcsfml-window -lcsfml-audio -lm
 $(NAME):	$(OBJ) #$(ASSETS)
 	$(LINK.o) -o $@ $(OBJ) $(LDFLAGS) $(LDLIBS)
 

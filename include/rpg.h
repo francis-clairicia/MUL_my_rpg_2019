@@ -8,8 +8,14 @@
 #ifndef RPG_H_
 #define RPG_H_
 
+#include <SFML/Window.h>
+#include <SFML/System.h>
+#include <SFML/Graphics.h>
+#include <SFML/Audio.h>
 #include "my.h"
 #include "struct.h"
+
+
 typedef struct menu_s
 {
     obj_t *background;
@@ -62,5 +68,9 @@ typedef int (*scene_t)(tool_t *tools, int state);
 void init_menu(menu_t *menu);
 int launch_menu(tool_t *tools, int state);
 void destroy_menu(menu_t *menu);
+
+/* Tools */
+void update_mouse_tool(tool_t *tool);
+void update_tool(tool_t *tool);
 
 #endif /* !RPG_H_ */
