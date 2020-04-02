@@ -20,7 +20,7 @@ static int check_event(tool_t *tools, int state)
 
 static void draw_menu(sfRenderWindow *window, menu_t *menu)
 {
-    sfRenderWindow_drawSprite(window, menu->background->sprite, NULL);
+    draw_object(menu->background, window);
 }
 
 int launch_menu(tool_t *tool, int state)
