@@ -39,7 +39,6 @@ typedef struct anchor_s {
 
 typedef struct tool_s
 {
-
     sfRenderWindow *window;
     sfView *view;
     menu_t menu;
