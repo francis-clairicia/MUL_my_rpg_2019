@@ -20,14 +20,6 @@ typedef struct text_s {
     sfVector2f pos;
 } text_t;
 
-typedef struct button_s {
-    sfVector2f pos;
-    sfVector2f size;
-    sfColor color;
-    sfRectangleShape *rect;
-    text_t text;
-} button_t;
-
 typedef struct game_object_s {
     char *filepath;
     sfIntRect area;
@@ -45,9 +37,17 @@ typedef struct invisible_button
     int state;
 } invisible_button_t;
 
+typedef struct button_s {
+    sfRectangleShape *rect;
+    text_t text;
+    sfColor color[3];
+    invisible_button_t *invisible;
+} button_t;
+
 typedef struct image_button
 {
-    obj_t *object;
+    sfTexture *texture;
+    sfSprite *sprite;
     invisible_button_t *invisible;
     sfIntRect rect[3];
 } image_button_t;
@@ -80,31 +80,35 @@ void set_obj_height(obj_t *obj, int height);
 void set_obj_size(obj_t *obj, int width, int height);
 
 /* button.c */
-int is_button_is_clicked(float x, float y, sfVector2f pos, sfVector2f size);
-sfRectangleShape *init_rect_shape(sfVector2f pos, sfVector2f size,
-    sfColor col);
-void init_button(button_t *button);
+button_t create_button(text_t text, sfColor background);
+void destroy_button(button_t button);
+void set_button_origin(button_t button, float x, float y);
+void draw_button(button_t button, sfRenderWindow *window);
+void move_button(button_t button, sfVector2f offset);
+void set_pos_button(button_t button, sfVector2f pos);
+sfBool is_button_clicked(button_t button, sfEvent event);
 
 /* invisible_button */
-invisible_button_t *create_button(sfFloatRect *rect);
-void destroy_button(invisible_button_t *button);
+invisible_button_t *create_invisible_button(sfFloatRect *rect);
+void destroy_invisible_button(invisible_button_t *button);
 void set_button_sound(invisible_button_t *button,
     enum SOUND_STATE sound_state, char const *sound_path);
-void set_pos_img_button(image_button_t *button, sfVector2f pos);
-void move_img_button(image_button_t *button, sfVector2f offset);
-int is_button_clicked(invisible_button_t *button, sfEvent event);
+void move_img_button(image_button_t button, sfVector2f offset);
+sfBool invisible_button_event(invisible_button_t *button, sfEvent event);
 
 /* img_button */
-image_button_t *create_img_button(char const *filepath, sfIntRect default_rect);
-void destroy_img_button(image_button_t *button);
-void draw_img_button(image_button_t *button, sfRenderWindow *window);
-int is_button_img_clicked(image_button_t *button, sfEvent event);
+image_button_t create_img_button(char const *filepath, sfIntRect default_rect);
+void destroy_img_button(image_button_t button);
+void draw_img_button(image_button_t button, sfRenderWindow *window);
+void set_pos_img_button(image_button_t button, sfVector2f pos);
+sfBool is_button_img_clicked(image_button_t button, sfEvent event);
 
 /* init_text */
 void change_text_color(sfText *text, sfColor color);
-text_t init_text(char *message, char *font_path, sfVector2f pos, int size);
+text_t init_text(char const *message, char const *font_path, int size);
 void destroy_text(text_t text);
-void draw_text(sfRenderWindow *window, text_t text);
+void draw_text(text_t text, sfRenderWindow *window);
+void set_text_origin(text_t text, float x, float y);
 
 /* init_objects.c */
 sfVector2f init_vector2f(int x, int y);

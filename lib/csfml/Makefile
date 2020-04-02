@@ -6,6 +6,9 @@
 ##
 
 SRC		= 	button.c 					\
+			button_draw.c 				\
+			button_move.c 				\
+			button_event.c 				\
 			init_objects.c 				\
 			scale_object.c 				\
 			clock.c 					\

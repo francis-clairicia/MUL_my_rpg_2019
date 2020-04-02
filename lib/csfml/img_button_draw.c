@@ -7,10 +7,10 @@
 
 #include "include/struct.h"
 
-void draw_img_button(image_button_t *button, sfRenderWindow *window)
+void draw_img_button(image_button_t button, sfRenderWindow *window)
 {
-    enum BUTTON_STATE state = button->invisible->state;
+    enum BUTTON_STATE state = button.invisible->state;
 
-    set_object_area(button->object, button->rect[state]);
-    draw_object(button->object, window);
+    sfSprite_setTextureRect(button.sprite, button.rect[state]);
+    sfRenderWindow_drawSprite(window, button.sprite, NULL);
 }

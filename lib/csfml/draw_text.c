@@ -7,7 +7,7 @@
 
 #include "include/struct.h"
 
-void draw_text(sfRenderWindow *window, text_t text)
+void draw_text(text_t text, sfRenderWindow *window)
 {
     sfRenderWindow_drawText(window, text.object, NULL);
 }

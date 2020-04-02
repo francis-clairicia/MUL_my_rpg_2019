@@ -7,12 +7,7 @@
 
 #include "include/struct.h"
 
-void change_text_color(sfText *text, sfColor color)
-{
-    sfText_setColor(text, color);
-}
-
-text_t init_text(char *message, char *font_path, sfVector2f pos, int size)
+text_t init_text(char const *message, char const *font_path, int size)
 {
     text_t text_struct;
     sfText *text = sfText_create();
@@ -20,7 +15,6 @@ text_t init_text(char *message, char *font_path, sfVector2f pos, int size)
 
     sfText_setString(text, message);
     sfText_setFont(text, font);
-    sfText_setPosition(text, pos);
     sfText_setCharacterSize(text, size);
     sfText_setColor(text, sfWhite);
     text_struct.object = text;
@@ -32,4 +26,14 @@ void destroy_text(text_t text)
 {
     sfText_destroy(text.object);
     sfFont_destroy(text.font);
+}
+
+void set_text_origin(text_t text, float x, float y)
+{
+    sfFloatRect rect = sfText_getLocalBounds(text.object);
+    sfVector2f origin = {rect.width, rect.height};
+
+    origin.x *= x;
+    origin.y *= y;
+    sfText_setOrigin(text.object, origin);
 }
