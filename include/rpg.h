@@ -64,7 +64,7 @@ enum scenes_number
 typedef int (*scene_t)(tool_t *tools, int state);
 
 /* Menu */
-void init_menu(menu_t *menu);
+sfBool init_menu(menu_t *menu);
 int launch_menu(tool_t *tools, int state);
 void destroy_menu(menu_t *menu);
 
