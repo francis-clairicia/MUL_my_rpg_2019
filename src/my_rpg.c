@@ -11,7 +11,6 @@ static const scene_t scene_launcher[] = {
     [MENU] = &launch_menu
 };
 
-
 sfBool init_window(tool_t *tools)
 {
     tools->window = create_window(1920, 1080, 32, "My_RPG");

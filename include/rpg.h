@@ -16,8 +16,7 @@
 #include "struct.h"
 
 
-typedef struct menu_s
-{
+typedef struct menu_s {
     obj_t *background;
 }menu_t;
 
@@ -37,8 +36,7 @@ typedef struct anchor_s {
     sfVector2f bottomright;
 } anchor_t;
 
-typedef struct tool_s
-{
+typedef struct tool_s {
     sfRenderWindow *window;
     sfView *view;
     menu_t menu;

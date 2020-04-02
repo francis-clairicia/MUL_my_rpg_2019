@@ -36,6 +36,9 @@ sfVector2f vec_norm(sfVector2f vec1);
 //Returns vec1 given as parameter with limited values in x and y.
 sfVector2f vec_lim(sfVector2f vec1, sfVector2f top_lim, sfVector2f bottom_lim);
 
+//Returns the right-handed normal of the given vector.
+sfVector2f vec_normal(sfVector2f vec1);
+
 //Returns the dot product of 2 vectors
 float vec_dot(sfVector2f vec1, sfVector2f vec2);
 

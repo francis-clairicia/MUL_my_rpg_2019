@@ -58,7 +58,7 @@ sfBool set_all_component(game_obj_t *obj, int fd, char *buffer)
     for (index = 0; index < obj->comp_nb + 1; index += 1)
         obj->comp[index] = NULL;
     do {
-        buffer = get_next_line(fd);
+        buffer = get_next_line(fd, &buffer);
         if (buffer && !set_component(obj, buffer))
             return (sfFalse);
     } while (buffer);

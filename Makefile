@@ -21,7 +21,21 @@ SRC_INPUT_HANDLING	=	src/input_handling/mouse_input.c								\
 
 SRC_UPDATE_WINDOW 	=	src/update_window/update_tool.c									\
 
-SRC					=	$(MAIN) $(SRC_GAMELOOP) $(SRC_MENU) $(SRC_PIRATE_LIST) $(SRC_SAVE_LOAD) $(SRC_INPUT_HANDLING) $(SRC_UPDATE_WINDOW)
+SRC_VECTOR_ENGINE 	=	src/vector_engine/min_max.c										\
+						src/vector_engine/vec_basic.c									\
+						src/vector_engine/vec_cross.c									\
+						src/vector_engine/vec_dot.c										\
+						src/vector_engine/vec_lim.c										\
+						src/vector_engine/vec_mag.c										\
+						src/vector_engine/vec_norm.c									\
+						src/vector_engine/vec_normal.c									\
+
+SRC_PHYSIC_ENGINE	=	src/physic_engine/apply_force.c									\
+						src/physic_engine/sat_collision.c								\
+						src/physic_engine/update_obb.c									\
+						src/physic_engine/update_rigid_body.c							\
+
+SRC					=	$(MAIN) $(SRC_GAMELOOP) $(SRC_MENU) $(SRC_PIRATE_LIST) $(SRC_SAVE_LOAD) $(SRC_INPUT_HANDLING) $(SRC_UPDATE_WINDOW) $(SRC_PHYSIC_ENGINE) $(SRC_VECTOR_ENGINE)
 
 override CFLAGS		+=	-Wall -Wextra
 

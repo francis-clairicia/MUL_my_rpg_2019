@@ -26,10 +26,10 @@ sfBool set_texture(game_obj_t *obj, char *buffer)
 {
     char **parsed_buffer = NULL;
 
-    parsed_buffer = my_str_to_word_array(buffer, " :;", 0);
+    parsed_buffer = my_str_to_word_array(buffer, " :;");
     if (!parsed_buffer || !obj)
         return (sfFalse);
-    if (my_arrlen((void **)parsed_buffer) != 2) {
+    if (my_array_len((void **)parsed_buffer) != 2) {
         my_printf("Set texture failed for game_object %d\n", obj->type);
         my_free_arr(parsed_buffer);
         return (sfFalse);
@@ -61,10 +61,10 @@ sfBool set_frame_nb(game_obj_t *obj, char *buffer)
 {
     char **parsed_buffer = NULL;
 
-    parsed_buffer = my_str_to_word_array(buffer, " :;", 0);
+    parsed_buffer = my_str_to_word_array(buffer, " :;");
     if (!parsed_buffer || !obj)
         return (sfFalse);
-    if (my_arrlen((void **)parsed_buffer) != 2) {
+    if (my_array_len((void **)parsed_buffer) != 2) {
         my_printf("Set frame nb failed for game_object %d\n", obj->type);
         my_free_arr(parsed_buffer);
         return (sfFalse);
@@ -81,10 +81,10 @@ sfBool set_origin(game_obj_t *obj, char *buffer)
     char **parsed_buffer = NULL;
     sfVector2f origin = {0, 0};
 
-    parsed_buffer = my_str_to_word_array(buffer, " :;", 0);
+    parsed_buffer = my_str_to_word_array(buffer, " :;");
     if (!parsed_buffer || !obj || !(obj->sprite))
         return (sfFalse);
-    if (my_arrlen((void **)parsed_buffer) != 3) {
+    if (my_array_len((void **)parsed_buffer) != 3) {
         my_printf("Set frame nb failed for game_object %d\n", obj->type);
         my_free_arr(parsed_buffer);
         return (sfFalse);

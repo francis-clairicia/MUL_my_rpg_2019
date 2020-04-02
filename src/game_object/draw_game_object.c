@@ -5,7 +5,7 @@
 ** Draws a game_obj.
 */
 
-#include "my_world.h"
+#include "rpg.h"
 #include "game_object.h"
 
 void anime_game_object(game_obj_t *obj, const int lapse)
@@ -34,11 +34,11 @@ void set_game_object_frame(game_obj_t *obj, unsigned int frame)
     obj->view_box.left = frame * obj->view_box.width;
 }
 
-void draw_game_object(win_settings_t sets, game_obj_t *obj)
+void draw_game_object(tool_t tools, game_obj_t *obj)
 {
     set_hitbox(obj);
     sfSprite_setPosition(obj->sprite, obj->pos);
     sfSprite_setTextureRect(obj->sprite, obj->view_box);
     obj->hitbox = sfSprite_getGlobalBounds(obj->sprite);
-    sfRenderWindow_drawSprite(sets.window, obj->sprite, NULL);
+    sfRenderWindow_drawSprite(tools.window, obj->sprite, NULL);
 }

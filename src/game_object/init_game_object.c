@@ -51,7 +51,7 @@ sfBool read_config_file(int fd, game_obj_t *obj)
             free(buffer);
             buffer = NULL;
         }
-        buffer = get_next_line(fd);
+        get_next_line(fd, &buffer);
         param_index = find_param(buffer);
         if (buffer && param_index != -1 &&
             !get_param_from_file[param_index](obj, buffer))
@@ -68,7 +68,7 @@ sfBool init_game_object(game_obj_t *obj)
     if (!config_path)
         config_path = get_config_path();
     if (config_path) {
-        if ((int)obj->type > my_arrlen((void **)config_path))
+        if ((int)obj->type > my_array_len((void **)config_path))
             return (sfFalse);
         fd = open(config_path[obj->type], O_RDONLY);
     }
