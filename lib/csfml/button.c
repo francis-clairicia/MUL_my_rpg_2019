@@ -7,35 +7,38 @@
 
 #include "include/struct.h"
 
-int is_button_is_clicked(float x, float y, sfVector2f pos, sfVector2f size)
+button_t create_button(text_t text, sfColor background)
 {
-    int min_x = pos.x;
-    int max_x = pos.x + size.x;
-    int min_y = pos.y;
-    int max_y = pos.y + size.y;
+    button_t button;
+    sfFloatRect text_rect = sfText_getGlobalBounds(text.object);
+    sfVector2f size = {text_rect.width, text_rect.height};
+    sfFloatRect rect = {0, 0, size.x, size.y};
 
-    if ((x > min_x && x < max_x) && (y > min_y && y < max_y)) {
-        return (1);
-    } else {
-        return (0);
-    }
+    button.rect = sfRectangleShape_create();
+    sfRectangleShape_setSize(button.rect, size);
+    sfRectangleShape_setOutlineThickness(button.rect, 3);
+    button.invisible = create_invisible_button(&rect);
+    button.color[BUTTON_NORMAL] = background;
+    button.color[BUTTON_HOVER] = background;
+    button.color[BUTTON_ACTIVE] = background;
+    button.text = text;
+    set_text_origin(text, 0.5, 0.5);
+    return (button);
 }
 
-sfRectangleShape *init_rect_shape(sfVector2f pos, sfVector2f size, sfColor col)
+void destroy_button(button_t button)
 {
-    sfRectangleShape *rectangle = sfRectangleShape_create();
-
-    sfRectangleShape_setPosition(rectangle, pos);
-    sfRectangleShape_setSize(rectangle, size);
-    sfRectangleShape_setFillColor(rectangle, col);
-    return (rectangle);
+    sfRectangleShape_destroy(button.rect);
+    destroy_invisible_button(button.invisible);
+    destroy_text(button.text);
 }
 
-void init_button(button_t *button)
+void set_button_origin(button_t button, float x, float y)
 {
-    button->rect = sfRectangleShape_create();
+    sfFloatRect rect = sfRectangleShape_getLocalBounds(button.rect);
+    sfVector2f origin = {rect.width, rect.height};
 
-    sfRectangleShape_setPosition(button->rect, button->pos);
-    sfRectangleShape_setSize(button->rect, button->size);
-    sfRectangleShape_setFillColor(button->rect, button->color);
+    origin.x *= x;
+    origin.y *= y;
+    sfRectangleShape_setOrigin(button.rect, origin);
 }

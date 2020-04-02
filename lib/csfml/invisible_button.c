@@ -7,7 +7,7 @@
 
 #include "include/struct.h"
 
-invisible_button_t *create_button(sfFloatRect *rect)
+invisible_button_t *create_invisible_button(sfFloatRect *rect)
 {
     invisible_button_t *button = malloc(sizeof(*button));
 
@@ -23,7 +23,7 @@ invisible_button_t *create_button(sfFloatRect *rect)
     return (button);
 }
 
-void destroy_button(invisible_button_t *button)
+void destroy_invisible_button(invisible_button_t *button)
 {
     int i = 0;
 

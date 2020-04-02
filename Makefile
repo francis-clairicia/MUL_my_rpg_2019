@@ -7,21 +7,42 @@
 
 MAIN				=	src/main.c
 
+# SRC_GAME_OBJ		=	src/game_object/init_advanced_component.c			\
+# 						src/game_object/set_basic_component.c				\
+# 						src/game_object/free_game_object.c					\
+# 						src/game_object/init_game_object.c					\
+# 						src/game_object/init_basic_component.c				\
+# 						src/game_object/draw_game_object.c					\
+# 						src/game_object/find_game_object.c					\
+# 						src/game_object/set_advanced_component.c			\
+# 						src/game_object/get_config_path.c					\
+# 						src/game_object/set_game_object_param.c				\
+# 						src/game_object/init_component.c					\
+# 						src/game_object/add_game_obj_to_list.c				\
+# 						src/game_object/create_game_object.c				\
+# 						src/game_object/init_game_object_param.c
+
 SRC_GAMELOOP		=	src/my_rpg.c
 
-SRC_MENU			= 	src/menu/init.c	\
-						src/menu/loop.c	\
+SRC_MENU			= 	src/menu/init.c										\
+						src/menu/loop.c										\
 
-SRC_PIRATE_LIST		=	src/pirate_list_handling/add_pirate_to_list.c					\
-						src/pirate_list_handling/detach_pirate_from_list.c				\
-						src/pirate_list_handling/free_pirate_list.c						\
-						src/pirate_list_handling/give_pirate_from_list.c				\
+SRC_PIRATE_LIST		=	src/pirate_list_handling/add_pirate_to_list.c		\
+						src/pirate_list_handling/detach_pirate_from_list.c	\
+						src/pirate_list_handling/free_pirate_list.c			\
+						src/pirate_list_handling/give_pirate_from_list.c	\
 
-SRC_INPUT_HANDLING	=	src/input_handling/mouse_input.c								\
+SRC_INPUT_HANDLING	=	src/input_handling/mouse_input.c					\
 
-SRC_UPDATE_WINDOW 	=	src/update_window/update_tool.c									\
+SRC_UPDATE_WINDOW 	=	src/update_window/update_tool.c						\
 
-SRC					=	$(MAIN) $(SRC_GAMELOOP) $(SRC_MENU) $(SRC_PIRATE_LIST) $(SRC_SAVE_LOAD) $(SRC_INPUT_HANDLING) $(SRC_UPDATE_WINDOW)
+SRC					=	$(MAIN)												\
+						$(SRC_GAMELOOP)										\
+						$(SRC_MENU)											\
+						$(SRC_PIRATE_LIST)									\
+						$(SRC_SAVE_LOAD)									\
+						$(SRC_INPUT_HANDLING)								\
+						$(SRC_UPDATE_WINDOW)
 
 override CFLAGS		+=	-Wall -Wextra
 
@@ -73,12 +94,14 @@ tests_run:	$(LDLIBS)
 clean:
 	$(RM) $(OBJ)
 	$(MAKE) -s -C lib/my clean
+	$(MAKE) -s -C lib/csfml clean
 	$(RM) unit_tests *.gc*
 
 fclean:	clean
 	$(RM) $(NAME)
 	$(RM) $(OBJ)
 	$(MAKE) -s -C lib/my fclean
+	$(MAKE) -s -C lib/csfml fclean
 
 re:	fclean all
 

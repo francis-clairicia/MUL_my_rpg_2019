@@ -7,21 +7,11 @@
 
 #include "include/struct.h"
 
-static int mouse_on_button(invisible_button_t *button, float x, float y)
-{
-    int min_x = button->rect.left;
-    int max_x = button->rect.left + button->rect.width;
-    int min_y = button->rect.top;
-    int max_y = button->rect.top + button->rect.height;
-
-    return ((x > min_x && x < max_x) && (y > min_y && y < max_y));
-}
-
 static int click_down(invisible_button_t *button, sfMouseButtonEvent event)
 {
     if (event.button != sfMouseLeft)
         return (0);
-    if (mouse_on_button(button, event.x, event.y)) {
+    if (sfFloatRect_contains(&button->rect, event.x, event.y)) {
         if (button->state == BUTTON_HOVER)
             button->state = BUTTON_ACTIVE;
     }
@@ -34,7 +24,7 @@ static int click_up(invisible_button_t *button, sfMouseButtonEvent event)
 
     if (event.button != sfMouseLeft)
         return (0);
-    if (mouse_on_button(button, event.x, event.y)) {
+    if (sfFloatRect_contains(&button->rect, event.x, event.y)) {
         if (button->state == BUTTON_ACTIVE) {
             button->state = BUTTON_HOVER;
             state = 1;
@@ -53,7 +43,7 @@ static int move(invisible_button_t *button, sfMouseMoveEvent event)
 {
     int former_state = button->state;
 
-    if (mouse_on_button(button, event.x, event.y)) {
+    if (sfFloatRect_contains(&button->rect, event.x, event.y)) {
         if (button->state == BUTTON_NORMAL)
             button->state = BUTTON_HOVER;
     } else {
@@ -67,7 +57,7 @@ static int move(invisible_button_t *button, sfMouseMoveEvent event)
     return (0);
 }
 
-int is_button_clicked(invisible_button_t *button, sfEvent event)
+sfBool invisible_button_event(invisible_button_t *button, sfEvent event)
 {
     if (event.type == sfEvtMouseButtonPressed)
         return (click_down(button, event.mouseButton));

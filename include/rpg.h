@@ -13,13 +13,7 @@
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
 #include "my.h"
-#include "struct.h"
-
-
-typedef struct menu_s
-{
-    obj_t *background;
-}menu_t;
+#include "menu.h"
 
 typedef struct mouse_tool_s {
     sfVector2f win_pos;
@@ -59,7 +53,8 @@ enum scenes_number
     ENd_MENU
 };
 
-#define IMG_FOLDER "assets/img/"
+#define IMG_FOLDER "./assets/img/"
+#define FONT_FOLDER "./assets/font/"
 
 typedef int (*scene_t)(tool_t *tools, int state);
 
