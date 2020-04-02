@@ -14,14 +14,10 @@ static const scene_t scene_launcher[] = {
 
 tool_t init_window(void)
 {
-    int width = 1920;
-    int height = 1080;
-    int bpp = 32;
     tool_t tools;
 
-    tools.video_mode = (sfVideoMode){width, height, bpp};
-    tools.window = create_window(width, height, bpp, "My_RPG");
-    tools.view = sfView_createFromRect((sfFloatRect){0, 0, width, height});
+    tools.window = create_window(1920, 1080, 32, "My_RPG");
+    tools.view = sfView_createFromRect((sfFloatRect){0, 0, 1920, 1080});
     init_menu(&tools.menu);
     return (tools);
 }
