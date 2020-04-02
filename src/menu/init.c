@@ -17,6 +17,6 @@ void init_menu(menu_t *menu)
 
 void destroy_menu(menu_t *menu)
 {
-    sfSprite_destroy(menu->background->sprite);
+    destroy_object(menu->background);
     sfTexture_destroy(menu->background->texture);
 }

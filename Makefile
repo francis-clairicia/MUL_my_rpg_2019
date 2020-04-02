@@ -56,7 +56,7 @@ $(ASSETS):
 
 debug:	CFLAGS += -g
 debug:	$(LDLIBS)
-debug:	LDLIBS += -lcsfml-graphics -lcsfml-system -lcsfml-audio -lm
+debug:	LDLIBS += -lcsfml-graphics -lcsfml-system -lcsfml-window -lcsfml-audio -lm
 debug:
 	$(CC) -o $(NAME) $(SRC) $(LDFLAGS) $(LDLIBS) $(CFLAGS) $(CPPFLAGS)
 
@@ -72,13 +72,13 @@ tests_run:	$(LDLIBS)
 
 clean:
 	$(RM) $(OBJ)
-	$(MAKE) -C lib/my clean
+	$(MAKE) -s -C lib/my clean
 	$(RM) unit_tests *.gc*
 
 fclean:	clean
 	$(RM) $(NAME)
 	$(RM) $(OBJ)
-	$(MAKE) -C lib/my fclean
+	$(MAKE) -s -C lib/my fclean
 
 re:	fclean all
 
