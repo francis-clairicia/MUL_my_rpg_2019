@@ -1,74 +1,18 @@
 /*
 ** EPITECH PROJECT, 2020
-** MUL_my_world_2019
+** MUL_my_rpg_2019
 ** File description:
-** Inits a comp.
+** init_component
 */
 
 #include <stdlib.h>
 #include "my.h"
-#include "init_comp_game_object.h"
-#include "game_object.h"
-
-static sfBool (*init_component[])(game_obj_t *obj, char *buffer);
-
-static char *component_pattern[];
-
-int find_init_component(char *buffer)
-{
-    int index = 0;
-
-    if (!buffer)
-        return (-1);
-    while (component_pattern[index]) {
-        if (my_hay_needle(buffer, component_pattern[index]) != -1)
-            return (index);
-        index += 1;
-    }
-    return (-1);
-}
-
-sfBool set_component(game_obj_t *obj, char *buffer)
-{
-    int index = 0;
-
-    if (!buffer)
-        return (sfFalse);
-    add_comp(obj, (prop_t)my_getnbr(buffer));
-    while (component_pattern[index]) {
-        if (my_hay_needle(buffer, component_pattern[index]) != -1)
-            return (init_component[index](obj, buffer));
-        index += 1;
-    }
-    return (sfFalse);
-}
-
-sfBool set_all_component(game_obj_t *obj, int fd, char *buffer)
-{
-    int index = 0;
-
-    if (!buffer || my_hay_needle(buffer, "component : ") == -1) {
-        obj->comp = NULL;
-        return (sfFalse);
-    }
-    obj->comp_nb = my_getnbr((buffer + my_strlen("component : ")));
-    obj->comp = malloc(sizeof(component_t) * (obj->comp_nb + 1));
-    if (!(obj->comp))
-        return  (sfFalse);
-    for (index = 0; index < obj->comp_nb + 1; index += 1)
-        obj->comp[index] = NULL;
-    do {
-        buffer = get_next_line(fd, &buffer);
-        if (buffer && !set_component(obj, buffer))
-            return (sfFalse);
-    } while (buffer);
-    return (sfTrue);
-}
+#include "game_object_constructor.h"
 
 component_t *add_comp(game_obj_t *obj, prop_t type)
 {
     component_t *new_prop = malloc(sizeof(component_t));
-    int index = 0;
+    register size_t index = 0;
 
     while (obj->comp[index] && index < obj->comp_nb)
         index += 1;
@@ -78,4 +22,26 @@ component_t *add_comp(game_obj_t *obj, prop_t type)
     new_prop->type = type;
     obj->comp[index] = new_prop;
     return (new_prop);
+}
+
+size_t get_component_nb(elem_t type)
+{
+    size_t index = 0;
+
+    while (comp_constructor_list[type][index].storage_type) {
+        index += 1;
+    }
+    return (index);
+}
+
+sfBool alloc_component_array(game_obj_t *obj)
+{
+    if (!obj)
+        return (sfFalse);
+    obj->comp_nb = get_component_nb(obj->type);
+    obj->comp = malloc(sizeof(component_t *) * (obj->comp_nb + 1));
+    if (!(obj->comp))
+        return (sfFalse);
+    my_memset(obj->comp, 0, sizeof(component_t *) * (obj->comp_nb + 1));
+    return (sfTrue);
 }

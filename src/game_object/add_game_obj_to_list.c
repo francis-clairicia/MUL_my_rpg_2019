@@ -1,8 +1,8 @@
 /*
-** EPITECH PROJECT, 2019
-** MUL_my_world_2019
+** EPITECH PROJECT, 2020
+** MUL_my_rpg_2019
 ** File description:
-** Adds a game_object to the end of a game_object linked list.
+** add_game_obj_to_list
 */
 
 #include "game_object.h"

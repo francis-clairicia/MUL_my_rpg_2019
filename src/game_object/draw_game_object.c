@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2020
-** MUL_my_world_2019
+** MUL_my_rpg_2019
 ** File description:
-** Draws a game_obj.
+** draw_game_object
 */
 
 #include "rpg.h"
@@ -14,7 +14,7 @@ void anime_game_object(game_obj_t *obj, const int lapse)
     sfUint32 msecond = sfTime_asMilliseconds(sfClock_getElapsedTime(clock));
     int frame = 0;
 
-    if (!(obj->view_box.width))
+    if (!(obj->view_box.width) || !clock)
         return ;
     frame = obj->view_box.left / obj->view_box.width;
     if (lapse * (frame + 1) < (int)msecond &&
@@ -36,9 +36,10 @@ void set_game_object_frame(game_obj_t *obj, unsigned int frame)
 
 void draw_game_object(tool_t tools, game_obj_t *obj)
 {
-    set_hitbox(obj);
-    sfSprite_setPosition(obj->sprite, obj->pos);
+    update_hitbox(obj);
+    sfSprite_setPosition(obj->sprite, obj->body.pos);
     sfSprite_setTextureRect(obj->sprite, obj->view_box);
+    sfSprite_setRotation(obj->sprite, obj->body.angle);
     obj->hitbox = sfSprite_getGlobalBounds(obj->sprite);
     sfRenderWindow_drawSprite(tools.window, obj->sprite, NULL);
 }

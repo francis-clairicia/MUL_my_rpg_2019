@@ -7,20 +7,20 @@
 
 MAIN				=	src/main.c
 
-# SRC_GAME_OBJ		=	src/game_object/init_advanced_component.c			\
-# 						src/game_object/set_basic_component.c				\
-# 						src/game_object/free_game_object.c					\
-# 						src/game_object/init_game_object.c					\
-# 						src/game_object/init_basic_component.c				\
-# 						src/game_object/draw_game_object.c					\
-# 						src/game_object/find_game_object.c					\
-# 						src/game_object/set_advanced_component.c			\
-# 						src/game_object/get_config_path.c					\
-# 						src/game_object/set_game_object_param.c				\
-# 						src/game_object/init_component.c					\
-# 						src/game_object/add_game_obj_to_list.c				\
-# 						src/game_object/create_game_object.c				\
-# 						src/game_object/init_game_object_param.c
+SRC_GAME_OBJ		=	src/game_object/game_object_template/templates.c	\
+						src/game_object/add_game_obj_to_list.c				\
+						src/game_object/construct_advanced_component.c		\
+						src/game_object/construct_basic_component.c			\
+						src/game_object/create_game_object.c				\
+						src/game_object/draw_game_object.c					\
+						src/game_object/find_game_object.c					\
+						src/game_object/free_game_object.c					\
+						src/game_object/init_component.c					\
+						src/game_object/init_game_object_core.c				\
+						src/game_object/init_game_object.c					\
+						src/game_object/set_advanced_component.c			\
+						src/game_object/set_basic_component.c				\
+						src/game_object/update_game_object.c				\
 
 SRC_GAMELOOP		=	src/my_rpg.c
 
@@ -36,21 +36,21 @@ SRC_INPUT_HANDLING	=	src/input_handling/mouse_input.c					\
 
 SRC_UPDATE_WINDOW 	=	src/update_window/update_tool.c						\
 
-SRC_VECTOR_ENGINE 	=	src/vector_engine/min_max.c										\
-						src/vector_engine/vec_basic.c									\
-						src/vector_engine/vec_cross.c									\
-						src/vector_engine/vec_dot.c										\
-						src/vector_engine/vec_lim.c										\
-						src/vector_engine/vec_mag.c										\
-						src/vector_engine/vec_norm.c									\
-						src/vector_engine/vec_normal.c									\
+SRC_VECTOR_ENGINE 	=	src/vector_engine/min_max.c							\
+						src/vector_engine/vec_basic.c						\
+						src/vector_engine/vec_cross.c						\
+						src/vector_engine/vec_dot.c							\
+						src/vector_engine/vec_lim.c							\
+						src/vector_engine/vec_mag.c							\
+						src/vector_engine/vec_norm.c						\
+						src/vector_engine/vec_normal.c						\
 
-SRC_PHYSIC_ENGINE	=	src/physic_engine/apply_force.c									\
-						src/physic_engine/sat_collision.c								\
-						src/physic_engine/update_obb.c									\
-						src/physic_engine/update_rigid_body.c							\
+SRC_PHYSIC_ENGINE	=	src/physic_engine/apply_force.c						\
+						src/physic_engine/sat_collision.c					\
+						src/physic_engine/update_obb.c						\
+						src/physic_engine/update_rigid_body.c				\
 
-SRC					=	$(MAIN) $(SRC_GAMELOOP) $(SRC_MENU) $(SRC_PIRATE_LIST) $(SRC_SAVE_LOAD) $(SRC_INPUT_HANDLING) $(SRC_UPDATE_WINDOW) $(SRC_PHYSIC_ENGINE) $(SRC_VECTOR_ENGINE)
+SRC					=	$(MAIN) $(SRC_GAMELOOP) $(SRC_MENU) $(SRC_PIRATE_LIST) $(SRC_SAVE_LOAD) $(SRC_INPUT_HANDLING) $(SRC_UPDATE_WINDOW) $(SRC_PHYSIC_ENGINE) $(SRC_VECTOR_ENGINE) $(SRC_GAME_OBJ)
 
 override CFLAGS		+=	-Wall -Wextra
 
@@ -87,7 +87,7 @@ debug:	CFLAGS += -g
 debug:	$(LDLIBS)
 debug:	LDLIBS += -lcsfml-graphics -lcsfml-system -lcsfml-window -lcsfml-audio -lm
 debug:
-	$(CC) -o $(NAME) $(SRC) $(LDFLAGS) $(LDLIBS) $(CFLAGS) $(CPPFLAGS)
+	$(CC) -o debug $(SRC) $(LDFLAGS) $(LDLIBS) $(CFLAGS) $(CPPFLAGS)
 
 tests_run:	LDLIBS += -lcriterion
 tests_run:	CFLAGS += --coverage

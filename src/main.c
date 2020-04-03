@@ -6,6 +6,7 @@
 */
 
 #include "rpg.h"
+#include "game_object.h"
 
 int my_rpg(void);
 

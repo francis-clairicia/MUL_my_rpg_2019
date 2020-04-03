@@ -39,7 +39,7 @@ sfBool collision_sat(rigid_body_t *body1, rigid_body_t *body2)
     int shape = 0;
     int i = 0;
 
-    for (shape = 0; shape < 2; shape +=1) {
+    for (shape = 0; shape < 2; shape += 1) {
         if (shape) {
             b1 = body2;
             b2 = body1;

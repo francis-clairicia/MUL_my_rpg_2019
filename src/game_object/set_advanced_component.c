@@ -84,7 +84,7 @@ sfBool set_comp_sound(game_obj_t *obj, prop_t type, char *path, float volume)
     int i = find_comp(obj, type);
     sfSoundBuffer *sound_buffer = sfSoundBuffer_createFromFile(path);
 
-    if (!obj || !(obj->comp))
+    if (!obj || !(obj->comp) || !sound_buffer)
         return (sfFalse);
     i = find_comp(obj, type);
     if (!(obj->comp[i]))

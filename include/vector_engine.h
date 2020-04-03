@@ -9,9 +9,12 @@
 #define VECTOR_H
 
 #include <SFML/System/Vector2.h>
+#include <SFML/Graphics/Rect.h>
 
 #define VEC2I(x, y) (sfVector2i) {x, y}
 #define VEC2F(x, y) (sfVector2f) {x, y}
+#define IRECT(a, b, x, y) (sfIntRect) {a, b, x, y}
+#define FRECT(a, b, x, y) (sfFloatRect) {a, b, x, y}
 
 //Returns the sum of vec1 and vec2.
 sfVector2f vec_add(sfVector2f vec1, sfVector2f vec2);

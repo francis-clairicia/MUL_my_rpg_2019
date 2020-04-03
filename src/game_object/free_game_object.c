@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2020
-** MUL_my_world_2019
+** MUL_my_rpg_2019
 ** File description:
-** Free's a game_obj
+** free_game_object
 */
 
 #include <stdlib.h>
