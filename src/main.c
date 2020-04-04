@@ -5,8 +5,8 @@
 ** Main function of my_rpg program.
 */
 
-#include "rpg.h"
-#include "game_object.h"
+#include <stddef.h>
+#include "my.h"
 
 int my_rpg(void);
 
@@ -24,8 +24,7 @@ static int valid_environment(char **envp)
     return (0);
 }
 
-int main(int ac __attribute__((unused)),
-    char **av __attribute__((unused)), char **envp)
+int main(int ac UNUSED, char **av UNUSED, char **envp)
 {
     if (!valid_environment(envp))
         return (84);

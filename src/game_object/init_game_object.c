@@ -10,9 +10,6 @@
 #include "game_object_constructor.h"
 #include "my.h"
 
-static sfBool (*construct_comp[])(game_obj_t *obj,
-                        comp_constructor_t constructor);
-
 static sfBool fill_game_object_components(game_obj_t *obj)
 {
     register size_t index = 0;

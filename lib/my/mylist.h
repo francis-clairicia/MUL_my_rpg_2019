@@ -22,11 +22,13 @@ int my_list_size(list_t *begin);
 int my_put_in_list(list_t **list, long data);
 int my_append_to_list(list_t **list, long data);
 void my_concat_list(list_t **begin1, list_t *begin2);
-void my_free_list(list_t **list, int free_ptr);
+void my_free_list(list_t **list, void (*free_function)());
 void my_rev_list(list_t *begin);
 char *my_list_to_str(list_t *list);
 char *my_concat_str_list(list_t *begin, char separator, int *len);
 list_t *my_node(list_t *begin, int index);
-void my_delete_node(list_t **list, int i, int free_ptr);
+list_t *my_node_from_data(list_t *begin, long data, int *index);
+list_t *my_find_node(list_t *list, list_t *node_to_find, int *index);
+void my_delete_node(list_t **list, int i, void (*free_function)());
 
 #endif

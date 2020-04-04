@@ -20,8 +20,9 @@ sfBool construct_irect(game_obj_t *obj, comp_constructor_t constructor);
 sfBool construct_i(game_obj_t *obj, comp_constructor_t constructor);
 sfBool construct_f(game_obj_t *obj, comp_constructor_t constructor);
 
-static sfBool (*construct_comp[])(game_obj_t *obj,
-                        comp_constructor_t constructor) = {
+typedef sfBool (*constructor_function_t)(game_obj_t *, comp_constructor_t);
+
+static const constructor_function_t construct_comp[] = {
     [0] = NULL,
     [TYPE_CLOCK] = construct_clock,
     [TYPE_IMAGE] = construct_image,
