@@ -30,5 +30,7 @@ list_t *my_node(list_t *begin, int index);
 list_t *my_node_from_data(list_t *begin, long data, int *index);
 list_t *my_find_node(list_t *list, list_t *node_to_find, int *index);
 void my_delete_node(list_t **list, int i, void (*free_function)());
+void my_delete_node_from_data(list_t **list, long data, void (*free_func)());
+void my_delete_node_from_node(list_t **list, list_t *node, void (*free_func)());
 
 #endif
