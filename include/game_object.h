@@ -18,6 +18,19 @@
 typedef enum element_e {
     PIRATE,
     FLORIAN,
+    SKY,
+    CLOUD1,
+    CLOUD2,
+    CLOUD3,
+    CLOUD4,
+    CLOUD5,
+    CLOUD6,
+    CLOUD7,
+    CLOUD8,
+    CLOUD9,
+    CLOUD10,
+    CLOUD11,
+    CLOUD12,
     NONE
 } elem_t;
 

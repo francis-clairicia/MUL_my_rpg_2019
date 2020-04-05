@@ -8,6 +8,7 @@
 #ifndef GAME_OBJECT_CONSTRUCTOR_H_
 #define GAME_OBJECT_CONSTRUCTOR_H_
 
+#include <stdbool.h>
 #include "game_object.h"
 
 typedef enum storage_type_e
@@ -31,6 +32,7 @@ typedef struct game_object_constructor_s
     sfVector2f origin;
     sfIntRect view_box;
     float mass;
+    bool has_comp;
 } game_obj_constructor_t;
 
 typedef struct comp_constructor_s

@@ -64,6 +64,10 @@ sfBool set_origin(game_obj_t *obj, sfVector2f origin)
 {
     if (!obj || !(obj->sprite))
         return (sfFalse);
+    if (origin.x == -1 && origin.y == -1) {
+        origin.x = obj->view_box.left + (obj->view_box.width / 2);
+        origin.y = obj->view_box.top + (obj->view_box.height / 2);
+    }
     sfSprite_setOrigin(obj->sprite, origin);
     return (sfTrue);
 }

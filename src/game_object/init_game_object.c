@@ -32,7 +32,8 @@ static sfBool fill_game_object_core(game_obj_t *obj)
     if (!set_frame_nb(obj, constructor_list[obj->type].frame_nb) ||
         !set_texture(obj, constructor_list[obj->type].path) ||
         !set_view_box(obj, constructor_list[obj->type].view_box) ||
-        !set_sprite(obj))
+        !set_sprite(obj) ||
+        !set_origin(obj, constructor_list[obj->type].origin))
         return (sfFalse);
     obj->body.mass = constructor_list[obj->type].mass;
     return (sfTrue);
@@ -42,7 +43,9 @@ sfBool init_game_object(game_obj_t *obj)
 {
     if (!alloc_component_array(obj))
         return (sfFalse);
-    if (!fill_game_object_core(obj) ||
+    if (!fill_game_object_core(obj))
+        return (sfFalse);
+    if (constructor_list[obj->type].has_comp &&
         !fill_game_object_components(obj))
         return (sfFalse);
     return (sfTrue);

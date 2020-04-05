@@ -14,7 +14,8 @@ const game_obj_constructor_t constructor_list[] = {
         .frame_nb = 3,
         .origin = VEC2F(0, 0),
         .view_box = IRECT(0, 0, 100, 100),
-        .mass = 20
+        .mass = 20,
+        .has_comp = true
     },
     [FLORIAN] =
     {
@@ -22,7 +23,80 @@ const game_obj_constructor_t constructor_list[] = {
         .frame_nb = 1,
         .origin = VEC2F(0, 0),
         .view_box = IRECT(0, 0, 100, 100),
-        .mass = 1
+        .mass = __FLT_MAX__,
+        .has_comp = true
+    },
+    [CLOUD1] =
+    {
+        .path = "insert_path",
+        .frame_nb = 1,
+        .origin = VEC2F(0, 0),
+        .view_box = IRECT(0, 0, 640, 300),
+        .mass = __FLT_MAX__,
+        .has_comp = false
+    },
+    [CLOUD2] =
+    {
+        .path = "insert_path",
+        .frame_nb = 1,
+        .origin = VEC2F(0, 0),
+        .view_box = IRECT(640, 0, 580, 200),
+        .mass = __FLT_MAX__,
+        .has_comp = false
+    },
+    [CLOUD3] =
+    {
+        .path = "insert_path",
+        .frame_nb = 1,
+        .origin = VEC2F(0, 0),
+        .view_box = IRECT(641, 201, 200, 100),
+        .mass = __FLT_MAX__,
+        .has_comp = false
+    },
+    [CLOUD4] =
+    {
+        .path = "insert_path",
+        .frame_nb = 1,
+        .origin = VEC2F(0, 0),
+        .view_box = IRECT(844, 214, 340, 120),
+        .mass = __FLT_MAX__,
+        .has_comp = false
+    },
+    [CLOUD5] =
+    {
+        .path = "insert_path",
+        .frame_nb = 1,
+        .origin = VEC2F(0, 0),
+        .view_box = IRECT(4, 305, 820, 160),
+        .mass = __FLT_MAX__,
+        .has_comp = false
+    },
+    [CLOUD6] =
+    {
+        .path = "insert_path",
+        .frame_nb = 1,
+        .origin = VEC2F(0, 0),
+        .view_box = IRECT(826, 339, 460, 151),
+        .mass = __FLT_MAX__,
+        .has_comp = false
+    },
+    [CLOUD7] =
+    {
+        .path = "insert_path",
+        .frame_nb = 1,
+        .origin = VEC2F(0, 0),
+        .view_box = IRECT(0, 472, 699, 160),
+        .mass = __FLT_MAX__,
+        .has_comp = false
+    },
+    [CLOUD8] =
+    {
+        .path = "insert_path",
+        .frame_nb = 1,
+        .origin = VEC2F(0, 0),
+        .view_box = IRECT(738, 493, 520, 140),
+        .mass = __FLT_MAX__,
+        .has_comp = false
     }
 };
 
