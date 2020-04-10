@@ -17,6 +17,51 @@ const game_obj_constructor_t constructor_list[] = {
         .mass = 20,
         .has_comp = true
     },
+    [BOAT1] =
+    {
+        .path = "assets/img/boats.png",
+        .frame_nb = 4,
+        .origin = VEC2F(0, 0),
+        .view_box = IRECT(0, 0, 32, 64),
+        .mass = __FLT_MAX__,
+        .has_comp = true
+    },
+    [BOAT2] =
+    {
+        .path = "assets/img/boats.png",
+        .frame_nb = 4,
+        .origin = VEC2F(0, 0),
+        .view_box = IRECT(0, 64, 32, 64),
+        .mass = __FLT_MAX__,
+        .has_comp = true
+    },
+    [BOAT3] =
+    {
+        .path = "assets/img/boats.png",
+        .frame_nb = 4,
+        .origin = VEC2F(0, 0),
+        .view_box = IRECT(0, 128, 32, 64),
+        .mass = __FLT_MAX__,
+        .has_comp = true
+    },
+    [BOAT4] =
+    {
+        .path = "assets/img/boats.png",
+        .frame_nb = 4,
+        .origin = VEC2F(0, 0),
+        .view_box = IRECT(0, 192, 32, 64),
+        .mass = __FLT_MAX__,
+        .has_comp = true
+    },
+    [BOAT5] =
+    {
+        .path = "assets/img/boats.png",
+        .frame_nb = 4,
+        .origin = VEC2F(0, 0),
+        .view_box = IRECT(0, 256, 32, 64),
+        .mass = __FLT_MAX__,
+        .has_comp = true
+    },
     [FLORIAN] =
     {
         .path = "insert_path",
@@ -25,6 +70,105 @@ const game_obj_constructor_t constructor_list[] = {
         .view_box = IRECT(0, 0, 100, 100),
         .mass = __FLT_MAX__,
         .has_comp = true
+    },
+    [SKY] =
+    {
+        .path = "assets/img/sky.png",
+        .frame_nb = 1,
+        .origin = VEC2F(0, 0),
+        .view_box = IRECT(0, 0, 1920, 1080),
+        .mass = __FLT_MAX__,
+        .has_comp = false
+    },
+    [WATER] =
+    {
+        .path = "assets/img/water.png",
+        .frame_nb = 4,
+        .origin = VEC2F(16, 16),
+        .view_box = IRECT(0, 0, 32, 32),
+        .mass = __FLT_MAX__,
+        .has_comp = false
+    },
+    [RAIN] =
+    {
+        .path = "assets/img/rain.png",
+        .frame_nb = 22,
+        .origin = VEC2F(0, 0),
+        .view_box = IRECT(0, 0, 480, 480),
+        .mass = __FLT_MAX__,
+        .has_comp = false
+    },
+    [WOOD1_RECT] =
+    {
+        .path = "assets/img/wood1.png",
+        .frame_nb = 1,
+        .origin = VEC2F(0, 0),
+        .view_box = IRECT(0, 0, 32, 32),
+        .mass = __FLT_MAX__,
+        .has_comp = false
+    },
+    [WOOD1_LEFT_TRIANGLE] =
+    {
+        .path = "assets/img/wood1.png",
+        .frame_nb = 1,
+        .origin = VEC2F(0, 0),
+        .view_box = IRECT(32, 0, 32, 32),
+        .mass = __FLT_MAX__,
+        .has_comp = false
+    },
+    [WOOD1_RIGHT_TRIANGLE] =
+    {
+        .path = "assets/img/wood1.png",
+        .frame_nb = 1,
+        .origin = VEC2F(0, 0),
+        .view_box = IRECT(32, 32, 32, 32),
+        .mass = __FLT_MAX__,
+        .has_comp = false
+    },
+    [WOOD2_RECT] =
+    {
+        .path = "assets/img/wood2.png",
+        .frame_nb = 1,
+        .origin = VEC2F(0, 0),
+        .view_box = IRECT(0, 0, 32, 32),
+        .mass = __FLT_MAX__,
+        .has_comp = false
+    },
+    [WOOD2_LEFT_TRIANGLE] =
+    {
+        .path = "assets/img/wood2.png",
+        .frame_nb = 1,
+        .origin = VEC2F(0, 0),
+        .view_box = IRECT(32, 0, 32, 32),
+        .mass = __FLT_MAX__,
+        .has_comp = false
+    },
+    [WOOD2_RIGHT_TRIANGLE] =
+    {
+        .path = "assets/img/wood2.png",
+        .frame_nb = 1,
+        .origin = VEC2F(0, 0),
+        .view_box = IRECT(32, 32, 32, 32),
+        .mass = __FLT_MAX__,
+        .has_comp = false
+    },
+    [FENCE] =
+    {
+        .path = "assets/img/fence.png",
+        .frame_nb = 1,
+        .origin = VEC2F(0, 0),
+        .view_box = IRECT(0, 0, 32, 32),
+        .mass = __FLT_MAX__,
+        .has_comp = false
+    },
+    [LADDER] =
+    {
+        .path = "assets/img/ladder.png",
+        .frame_nb = 1,
+        .origin = VEC2F(0, 0),
+        .view_box = IRECT(0, 0, 32, 32),
+        .mass = __FLT_MAX__,
+        .has_comp = false
     },
     [CLOUD1] =
     {
