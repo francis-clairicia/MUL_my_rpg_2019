@@ -13,12 +13,13 @@
 typedef struct menu_s
 {
     obj_t *background;
-    button_t buttons[1];
+    button_t buttons[2];
     int nb_buttons;
 }menu_t;
 
 enum MENU_BUTTONS
 {
+    MENU_PLAY,
     MENU_QUIT
 };
 

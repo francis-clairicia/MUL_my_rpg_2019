@@ -30,7 +30,8 @@ sfBool init_menu(menu_t *menu)
     if (!(menu->background))
         return (sfFalse);
     menu->nb_buttons = sizeof(menu->buttons) / sizeof(menu->buttons[0]);
-    menu->buttons[MENU_QUIT] = init_menu_button("Quit", VEC2F(1000, 500));
+    menu->buttons[MENU_PLAY] = init_menu_button("Play", VEC2F(1000, 400));
+    menu->buttons[MENU_QUIT] = init_menu_button("Quit", VEC2F(1000, 600));
     return (sfTrue);
 }
 

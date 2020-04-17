@@ -74,7 +74,7 @@ all:	$(NAME)
 $(NAME):	CFLAGS += -O2
 $(NAME):	$(LDLIBS)
 $(NAME):	LDLIBS += -lcsfml-graphics -lcsfml-system -lcsfml-window -lcsfml-audio -lm
-$(NAME):	$(OBJ) #$(ASSETS)
+$(NAME):	$(OBJ) $(ASSETS)
 	$(LINK.o) -o $@ $(OBJ) $(LDFLAGS) $(LDLIBS)
 
 -lmy:
@@ -85,6 +85,9 @@ $(NAME):	$(OBJ) #$(ASSETS)
 
 $(ASSETS):
 	tar -xf assets.tar.xz
+
+compress:
+	tar -c -f assets.tar.xz $(ASSETS)
 
 debug:	CFLAGS += -g
 debug:	$(LDLIBS)

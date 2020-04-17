@@ -47,13 +47,15 @@ enum scenes_number
 {
     NO_SCENE = -1,
     MENU,
+    SAVE_CHOOSE,
     WORLD,
     GAME,
-    ENd_MENU
+    END_MENU
 };
 
 #define IMG_FOLDER "./assets/img/"
 #define FONT_FOLDER "./assets/font/"
+#define SAVE_FOLDER "./saves/"
 
 typedef int (*scene_t)(tool_t *tools, int state);
 

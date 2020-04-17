@@ -35,6 +35,7 @@ SRC			=	my_put_nbr.c				\
 				my_compute_power_rec.c		\
 				my_strlowcase.c				\
 				my_str_to_word_array.c		\
+				my_show_word_array.c		\
 				my_array_len.c				\
 				my_array_dup.c				\
 				my_strdup.c					\
