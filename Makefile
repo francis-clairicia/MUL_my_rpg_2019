@@ -112,6 +112,7 @@ clean:
 	$(RM) unit_tests *.gc*
 
 fclean:	clean
+	$(RM) -r $(ASSETS)
 	$(RM) $(NAME)
 	$(RM) $(OBJ)
 	$(MAKE) -s -C lib/my fclean
