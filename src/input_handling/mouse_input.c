@@ -27,6 +27,13 @@ static sfVector2f get_win_mouse_pos(tool_t tool)
     return (VEC2F(mouse_pos.x, mouse_pos.y));
 }
 
+void init_mouse_tool(tool_t *tool)
+{
+    tool->mouse_tool.win_pos = get_win_mouse_pos(*tool);
+    tool->mouse_tool.pos = get_relative_mouse_pos(*tool);
+    tool->mouse_tool.hold = sfFalse;
+}
+
 void update_mouse_tool(tool_t *tool)
 {
     tool->mouse_tool.win_pos = get_win_mouse_pos(*tool);

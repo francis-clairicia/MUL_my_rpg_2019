@@ -34,12 +34,12 @@ void set_game_object_frame(game_obj_t *obj, unsigned int frame)
     obj->view_box.left = frame * obj->view_box.width;
 }
 
-void draw_game_object(tool_t tools, game_obj_t *obj)
+void draw_game_object(sfRenderWindow *window, game_obj_t *obj)
 {
     update_hitbox(obj);
     sfSprite_setPosition(obj->sprite, obj->body.pos);
     sfSprite_setTextureRect(obj->sprite, obj->view_box);
     sfSprite_setRotation(obj->sprite, obj->body.angle);
     obj->hitbox = sfSprite_getGlobalBounds(obj->sprite);
-    sfRenderWindow_drawSprite(tools.window, obj->sprite, NULL);
+    sfRenderWindow_drawSprite(window, obj->sprite, NULL);
 }

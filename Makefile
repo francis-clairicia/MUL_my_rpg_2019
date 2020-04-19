@@ -27,14 +27,13 @@ SRC_GAMELOOP		=	src/my_rpg.c
 SRC_MENU			= 	src/menu/init.c										\
 						src/menu/loop.c										\
 
-SRC_PIRATE_LIST		=	src/pirate_list_handling/add_pirate_to_list.c		\
-						src/pirate_list_handling/detach_pirate_from_list.c	\
-						src/pirate_list_handling/free_pirate_list.c			\
-						src/pirate_list_handling/give_pirate_from_list.c	\
+SRC_SAVE_LOAD		=	src/save_chooser/init.c								\
+						src/save_chooser/loop.c								\
+						src/save_chooser/load_saves.c
 
-SRC_INPUT_HANDLING	=	src/input_handling/mouse_input.c					\
+SRC_INPUT_HANDLING	=	src/input_handling/mouse_input.c
 
-SRC_UPDATE_WINDOW 	=	src/update_window/update_tool.c						\
+SRC_UPDATE_WINDOW 	=	src/update_window/update_tool.c
 
 SRC_VECTOR_ENGINE 	=	src/vector_engine/min_max.c							\
 						src/vector_engine/vec_basic.c						\
@@ -53,15 +52,29 @@ SRC_PHYSIC_ENGINE	=	src/physic_engine/apply_force.c						\
 SRC_MATH_PROCESS	=	src/math_process/get_randnb.c						\
 						src/math_process/magnet_number.c					\
 
-SRC					=	$(MAIN) $(SRC_GAMELOOP) $(SRC_MENU) $(SRC_PIRATE_LIST) $(SRC_SAVE_LOAD) $(SRC_INPUT_HANDLING) $(SRC_UPDATE_WINDOW) $(SRC_PHYSIC_ENGINE) $(SRC_VECTOR_ENGINE) $(SRC_GAME_OBJ)
+SRC					=	$(MAIN)												\
+						$(SRC_GAMELOOP)										\
+						$(SRC_MENU)											\
+						$(SRC_SAVE_LOAD)									\
+						$(SRC_INPUT_HANDLING)								\
+						$(SRC_UPDATE_WINDOW)								\
+						$(SRC_PHYSIC_ENGINE)								\
+						$(SRC_VECTOR_ENGINE)								\
+						$(SRC_GAME_OBJ)
 
 override CFLAGS		+=	-Wall -Wextra
 
-override CPPFLAGS	+=	-I./include/
+override CPPFLAGS	+=	-I./include/										\
+						-I./include/game_object/							\
+						-I./include/calculation/							\
+						-I./include/scenes/									\
+						-I./include/pirates/
+
+MY_LIBS				=	-lmy -lcsfml
 
 override LDFLAGS	=	-L./lib
 
-override LDLIBS		+=	-lmy -lcsfml
+override LDLIBS		+=	$(MY_LIBS) -lcsfml-graphics -lcsfml-system -lcsfml-window -lcsfml-audio -lm
 
 OBJ					=	$(SRC:.c=.o)
 
@@ -72,9 +85,7 @@ ASSETS				=	assets
 all:	$(NAME)
 
 $(NAME):	CFLAGS += -O2
-$(NAME):	$(LDLIBS)
-$(NAME):	LDLIBS += -lcsfml-graphics -lcsfml-system -lcsfml-window -lcsfml-audio -lm
-$(NAME):	$(OBJ) $(ASSETS)
+$(NAME):	$(MY_LIBS) $(OBJ) $(ASSETS)
 	$(LINK.o) -o $@ $(OBJ) $(LDFLAGS) $(LDLIBS)
 
 -lmy:
@@ -87,13 +98,11 @@ $(ASSETS):
 	tar -xf assets.tar.xz
 
 compress:
-	tar -c -f assets.tar.xz $(ASSETS)
+	tar -cf assets.tar.xz $(ASSETS)
 
 debug:	CFLAGS += -g
-debug:	$(LDLIBS)
-debug:	LDLIBS += -lcsfml-graphics -lcsfml-system -lcsfml-window -lcsfml-audio -lm
-debug:
-	$(CC) -o debug $(SRC) $(LDFLAGS) $(LDLIBS) $(CFLAGS) $(CPPFLAGS)
+debug:	$(MY_LIBS)
+	$(CC) -o $(NAME) $(SRC) $(LDFLAGS) $(LDLIBS) $(CFLAGS) $(CPPFLAGS)
 
 tests_run:	LDLIBS += -lcriterion
 tests_run:	CFLAGS += --coverage

@@ -6,17 +6,14 @@
 */
 
 #ifndef PIRATES_H_
-
 #define PIRATES_H_
 
-
-#include <SFML/System.h>
-
+#include <SFML/Config.h>
 #include "items.h"
 
 typedef struct pirate_stats_s {
-    size_t max_hitpoints; // -> Max HP's
-    ssize_t hitpoints; // -> Updated HP's during combat phases.
+    size_t max_hp; // -> Max HP's
+    ssize_t hp; // -> Updated HP's during combat phases.
     size_t speed; // -> Movement Speed.
 } pirate_stats_t;
 
@@ -46,15 +43,13 @@ typedef struct pirate_face_s {
 } pirate_face_t;
 
 
-typedef struct pirate_list_s {
+typedef struct pirate {
     pirate_stats_t stats;
     pirate_face_t face;
     weapon_t weapon;
     char *name;
     sfBool selected;
-    struct pirate_list_s *next;
-    struct pirate_list_s *prev;
-} pirate_list_t;
+} pirate_t;
 
 
 #endif /* PIRATES_H_ */

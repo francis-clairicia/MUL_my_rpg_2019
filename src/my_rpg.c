@@ -7,8 +7,9 @@
 
 #include "rpg.h"
 
-static const scene_t scene_launcher[] = {
-    [MENU] = &launch_menu
+static const scene_loop_t scene_launcher[] = {
+    [MENU] = &launch_menu,
+    [SAVE_CHOOSE] = &launch_save_chooser
 };
 
 sfBool init_window(tool_t *tools)
@@ -19,22 +20,24 @@ sfBool init_window(tool_t *tools)
     tools->view = sfView_createFromRect((sfFloatRect){0, 0, 1920, 1080});
     if (!(tools->view))
         return (sfFalse);
-    if (!init_menu(&(tools->menu)))
+    init_mouse_tool(tools);
+    if (!init_menu(&(tools->menu)) || !init_save_chooser(&tools->chooser))
         return (sfFalse);
     return (sfTrue);
 }
 
-void destroy_window(tool_t tools)
+void destroy_window(tool_t *tools)
 {
-    destroy_menu(&tools.menu);
-    sfView_destroy(tools.view);
-    sfRenderWindow_destroy(tools.window);
+    destroy_menu(&tools->menu);
+    destroy_save_chooser(&tools->chooser);
+    sfView_destroy(tools->view);
+    sfRenderWindow_destroy(tools->window);
 }
 
 int my_rpg(void)
 {
     tool_t tools;
-    int state = MENU;
+    scene_t state = MENU;
 
     if (!init_window(&tools))
         return (84);
@@ -43,6 +46,6 @@ int my_rpg(void)
         if (state == NO_SCENE)
             sfRenderWindow_close(tools.window);
     }
-    destroy_window(tools);
+    destroy_window(&tools);
     return (0);
 }

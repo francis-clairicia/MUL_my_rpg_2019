@@ -8,6 +8,7 @@
 #include "rpg.h"
 
 static const int button_scenes[][2] = {
+    {MENU_PLAY, SAVE_CHOOSE},
     {MENU_QUIT, NO_SCENE}
 };
 
@@ -25,13 +26,12 @@ static int button_event(button_t *buttons, sfEvent event, int state)
 
 static int check_event(tool_t *tools, int state)
 {
-    menu_t menu = tools->menu;
-    sfEvent event;
+    menu_t *menu = &tools->menu;
 
-    while (sfRenderWindow_pollEvent(tools->window, &event)) {
-        if (event.type == sfEvtClosed)
+    while (sfRenderWindow_pollEvent(tools->window, &tools->event)) {
+        if (tools->event.type == sfEvtClosed)
             return (NO_SCENE);
-        state = button_event(menu.buttons, event, state);
+        state = button_event(menu->buttons, tools->event, state);
     }
     return (state);
 }
@@ -45,7 +45,7 @@ static void draw_menu(sfRenderWindow *window, menu_t *menu)
         draw_button(menu->buttons[i], window);
 }
 
-int launch_menu(tool_t *tool, int state)
+scene_t launch_menu(tool_t *tool, scene_t state)
 {
     while (state == MENU) {
         sfRenderWindow_clear(tool->window, sfBlack);

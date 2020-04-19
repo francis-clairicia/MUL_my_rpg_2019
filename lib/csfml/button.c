@@ -11,7 +11,7 @@ button_t create_button(text_t text, sfColor background)
 {
     button_t button;
     sfFloatRect text_rect = sfText_getGlobalBounds(text.object);
-    sfVector2f size = {text_rect.width, text_rect.height};
+    sfVector2f size = {text_rect.width + 10, text_rect.height + 20};
     sfFloatRect rect = {0, 0, size.x, size.y};
 
     button.rect = sfRectangleShape_create();

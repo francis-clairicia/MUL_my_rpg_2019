@@ -10,9 +10,11 @@
 void draw_button(button_t button, sfRenderWindow *window)
 {
     enum BUTTON_STATE state = button.invisible->state;
-    sfFloatRect rect = button.invisible->rect;
+    sfFloatRect rect;
     sfVector2f middle;
 
+    button.invisible->rect = sfRectangleShape_getGlobalBounds(button.rect);
+    rect = button.invisible->rect;
     middle.x = rect.left + rect.width / 2;
     middle.y = rect.top + rect.height / 2;
     sfRectangleShape_setFillColor(button.rect, button.color[state]);

@@ -12,60 +12,9 @@
 #include <SFML/System.h>
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
+#include "constants.h"
 #include "my.h"
-#include "menu.h"
-
-typedef struct mouse_tool_s {
-    sfVector2f win_pos;
-    sfVector2f pos;
-    sfVector2f win_click_pos;
-    sfVector2f click_pos;
-    sfBool hold;
-    sfBool click;
-} mouse_tool_t;
-
-typedef struct anchor_s {
-    sfVector2f topleft;
-    sfVector2f topright;
-    sfVector2f bottomleft;
-    sfVector2f bottomright;
-} anchor_t;
-
-typedef struct tool_s {
-    sfRenderWindow *window;
-    sfView *view;
-    menu_t menu;
-    anchor_t anchor;
-    sfVector2f size;
-    sfVector2f scale;
-    sfVideoMode video_mode;
-    sfEvent event;
-    mouse_tool_t mouse_tool;
-}tool_t;
-
-enum scenes_number
-{
-    NO_SCENE = -1,
-    MENU,
-    SAVE_CHOOSE,
-    WORLD,
-    GAME,
-    END_MENU
-};
-
-#define IMG_FOLDER "./assets/img/"
-#define FONT_FOLDER "./assets/font/"
-#define SAVE_FOLDER "./saves/"
-
-typedef int (*scene_t)(tool_t *tools, int state);
-
-/* Menu */
-sfBool init_menu(menu_t *menu);
-int launch_menu(tool_t *tools, int state);
-void destroy_menu(menu_t *menu);
-
-/* Tools */
-void update_mouse_tool(tool_t *tool);
-void update_tool(tool_t *tool);
+#include "scenes.h"
+#include "tools.h"
 
 #endif /* !RPG_H_ */

@@ -25,7 +25,8 @@ static button_t init_menu_button(char const *message, sfVector2f pos)
 
 sfBool init_menu(menu_t *menu)
 {
-
+    if (menu == NULL)
+        return (sfFalse);
     menu->background = create_object(IMG_FOLDER "background_menu.jpeg", NULL);
     if (!(menu->background))
         return (sfFalse);
@@ -39,6 +40,8 @@ void destroy_menu(menu_t *menu)
 {
     int i = 0;
 
+    if (menu == NULL)
+        return;
     destroy_object(menu->background);
     for (i = 0; i < menu->nb_buttons; i += 1)
         destroy_button(menu->buttons[i]);

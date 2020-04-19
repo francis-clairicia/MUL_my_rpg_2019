@@ -12,7 +12,7 @@
 #include <stddef.h>
 
 //NULL-terminated array of sample names.
-static const char *pirates_names[5]  = {
+static const char *pirates_names[]  = {
     "Florian", "Robert", "William", "Carlos", NULL
 };
 

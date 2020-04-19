@@ -23,4 +23,8 @@ enum MENU_BUTTONS
     MENU_QUIT
 };
 
+/* Menu */
+sfBool init_menu(menu_t *menu);
+void destroy_menu(menu_t *menu);
+
 #endif

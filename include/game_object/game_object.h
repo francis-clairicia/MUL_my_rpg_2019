@@ -131,6 +131,9 @@ void set_game_object_frame(game_obj_t *obj, unsigned int frame);
 //lapse of time in ms between each frame.
 void anime_game_object(game_obj_t *obj, const int lapse);
 
+// Draw the game object on a Window
+void draw_game_object(sfRenderWindow *window, game_obj_t *obj);
+
 //Updates the hitbox of a game object considering his pos and his size.
 //Hitbox will be relative to world's coord, not window'scoords.
 void update_hitbox(game_obj_t *obj);

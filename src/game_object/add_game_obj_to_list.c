@@ -20,8 +20,8 @@ sfBool add_game_obj_to_list(game_obj_t **list, const elem_t element)
     if (!(*list))
         (*list) = obj;
     else {
-        for (tmp = (*list); tmp->next; tmp = tmp->next);
-        tmp->next = obj;
+        for (tmp = (*list); tmp->next; tmp = tmp->next)
+            tmp->next = obj;
     }
     return (sfTrue);
 }
