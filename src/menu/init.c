@@ -25,14 +25,17 @@ static button_t init_menu_button(char const *message, sfVector2f pos)
 
 sfBool init_menu(menu_t *menu)
 {
+    int x = 400;
+    int y = 400;
+
     if (menu == NULL)
         return (sfFalse);
     menu->background = create_object(IMG_FOLDER "background_menu.jpeg", NULL);
     if (!(menu->background))
         return (sfFalse);
     menu->nb_buttons = sizeof(menu->buttons) / sizeof(menu->buttons[0]);
-    menu->buttons[MENU_PLAY] = init_menu_button("Play", VEC2F(1000, 400));
-    menu->buttons[MENU_QUIT] = init_menu_button("Quit", VEC2F(1000, 600));
+    menu->buttons[MENU_PLAY] = init_menu_button("Play", VEC2F(x, y));
+    menu->buttons[MENU_QUIT] = init_menu_button("Quit", VEC2F(x, y + 200));
     return (sfTrue);
 }
 
