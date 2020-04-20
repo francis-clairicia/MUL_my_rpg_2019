@@ -6,6 +6,7 @@
 */
 
 #include "rpg.h"
+#include "game_object.h"
 
 static const scene_loop_t scene_launcher[] = {
     [MENU] = &launch_menu,

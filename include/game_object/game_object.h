@@ -8,6 +8,7 @@
 #ifndef GAME_OBJECT_H_
 #define GAME_OBJECT_H_
 
+#include <stdbool.h>
 #include "SFML/Audio.h"
 #include "SFML/Window.h"
 #include "SFML/System.h"
@@ -57,7 +58,8 @@ typedef enum properties_e {
     POS,
     TEXT,
     BOOL,
-    SIZE
+    SIZE,
+    STATE
 } prop_t;
 
 typedef struct component_s {
@@ -77,7 +79,7 @@ typedef struct game_obj {
     component_t **comp;
     unsigned int comp_nb;
     rigid_body_t body;
-    sfIntRect view_box;
+    sfIntRect *view_box;
     sfFloatRect hitbox;
     unsigned int frame_nb;
     sfTexture *texture;
@@ -124,6 +126,12 @@ game_obj_t *find_game_object(game_obj_t *list, const elem_t type);
 //Returns 0 in case of error.
 int find_comp(game_obj_t *obj, prop_t type);
 
+//Checks if a game object has a component corresponding to the given type
+//Returns true if it has the wanted comp
+//Returns false in other cases
+bool has_comp(game_obj_t *obj, const prop_t type);
+
+
 //Set the X frame of a game object.
 void set_game_object_frame(game_obj_t *obj, unsigned int frame);
 
@@ -137,6 +145,10 @@ void draw_game_object(sfRenderWindow *window, game_obj_t *obj);
 //Updates the hitbox of a game object considering his pos and his size.
 //Hitbox will be relative to world's coord, not window'scoords.
 void update_hitbox(game_obj_t *obj);
+
+//Returns an int corresponding to the state of a game object
+//Returns 0 if no state has been found
+int get_game_object_state(game_obj_t *obj);
 
 //Finds a component with the given type and set new given value.
 sfBool set_comp_int(game_obj_t *obj, prop_t type, int nb);

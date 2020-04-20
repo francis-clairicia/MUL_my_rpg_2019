@@ -2,12 +2,11 @@
 ** EPITECH PROJECT, 2020
 ** MUL_my_rpg_2019
 ** File description:
-** Creates a game_object / Finds its component.
+** comp_utils
 */
 
-#include <stdlib.h>
-#include "my.h"
-#include "init_game_object.h"
+#include <stdbool.h>
+#include "game_object.h"
 
 int find_comp(game_obj_t *obj, const prop_t type)
 {
@@ -23,15 +22,16 @@ int find_comp(game_obj_t *obj, const prop_t type)
     return (index);
 }
 
-game_obj_t *create_game_obj(const elem_t type)
+bool has_comp(game_obj_t *obj, const prop_t type)
 {
-    game_obj_t *obj = malloc(sizeof(game_obj_t));
+    register size_t index = 0;
 
-    if (!obj)
-        return (NULL);
-    my_memset(obj, 0, sizeof(game_obj_t));
-    obj->type = type;
-    if (!init_game_object(obj))
-        return (NULL);
-    return (obj);
+    if (!obj || !(obj->comp))
+        return (false);
+    while (obj->comp[index] && index < obj->comp_nb) {
+        if (obj->comp[index]->type == type)
+            return (true);
+        index += 1;
+    }
+    return (false);
 }

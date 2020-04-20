@@ -52,7 +52,8 @@ SRC			=	my_put_nbr.c				\
 				my_str_contains_only.c		\
 				my_memset.c					\
 				my_malloc_array.c			\
-				my_array_contains.c
+				my_array_contains.c			\
+				my_memcpy.c					\
 
 LINKED_LIST	=	my_put_in_list.c			\
 				my_append_to_list.c			\

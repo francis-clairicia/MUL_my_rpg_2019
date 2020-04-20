@@ -25,7 +25,7 @@ size_t get_component_nb(elem_t type);
 //Generic fonction that redirect to set_comp function below
 sfBool set_sprite(game_obj_t *obj);
 sfBool set_texture(game_obj_t *obj, char *path);
-sfBool set_view_box(game_obj_t *obj, sfIntRect rect);
+sfBool set_view_box(game_obj_t *obj, sfIntRect *rect);
 sfBool set_frame_nb(game_obj_t *obj, unsigned int nb);
 sfBool set_origin(game_obj_t *obj, sfVector2f origin);
 

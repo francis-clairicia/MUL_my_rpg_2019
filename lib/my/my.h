@@ -69,5 +69,6 @@ char *join_path(char const *path_1, char const *path_2);
 void *my_memset(void *buffer, int c, size_t size);
 void *my_malloc_array(size_t width, size_t height, size_t size);
 void my_free_array(void *array);
+void *my_memcpy(void *dest, const void *src, size_t n);
 
 #endif

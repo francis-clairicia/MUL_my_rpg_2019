@@ -10,10 +10,15 @@
 const game_obj_constructor_t constructor_list[] = {
     [PIRATE] =
     {
-        .path = "insert_path",
+        .path = "assets/img/boats.png",
         .frame_nb = 3,
         .origin = VEC2F(0, 0),
-        .view_box = IRECT(0, 0, 100, 100),
+        .view_box = (sfIntRect[]){
+                    {15, 10, 100, 100},
+                    {20, 20, 30, 30},
+                    {20, 20, 30, 30},
+                    {20, 20, 30, 30},
+                    {-1, -1, -1, -1}},
         .mass = 20,
         .has_comp = true
     },
@@ -22,7 +27,9 @@ const game_obj_constructor_t constructor_list[] = {
         .path = "assets/img/boats.png",
         .frame_nb = 4,
         .origin = VEC2F(0, 0),
-        .view_box = IRECT(0, 0, 32, 64),
+        .view_box = (sfIntRect[]){
+                    {0, 0, 32, 64},
+                    {-1, -1, -1, -1}},
         .mass = __FLT_MAX__,
         .has_comp = true
     },
@@ -31,7 +38,9 @@ const game_obj_constructor_t constructor_list[] = {
         .path = "assets/img/boats.png",
         .frame_nb = 4,
         .origin = VEC2F(0, 0),
-        .view_box = IRECT(0, 64, 32, 64),
+        .view_box = (sfIntRect[]){
+                    {0, 64, 32, 64},
+                    {-1, -1, -1, -1}},
         .mass = __FLT_MAX__,
         .has_comp = true
     },
@@ -40,7 +49,9 @@ const game_obj_constructor_t constructor_list[] = {
         .path = "assets/img/boats.png",
         .frame_nb = 4,
         .origin = VEC2F(0, 0),
-        .view_box = IRECT(0, 128, 32, 64),
+        .view_box = (sfIntRect[]){
+                    {0, 128, 32, 64},
+                    {-1, -1, -1, -1}},
         .mass = __FLT_MAX__,
         .has_comp = true
     },
@@ -49,7 +60,9 @@ const game_obj_constructor_t constructor_list[] = {
         .path = "assets/img/boats.png",
         .frame_nb = 4,
         .origin = VEC2F(0, 0),
-        .view_box = IRECT(0, 192, 32, 64),
+        .view_box = (sfIntRect[]){
+                    {0, 192, 32, 64},
+                    {-1, -1, -1, -1}},
         .mass = __FLT_MAX__,
         .has_comp = true
     },
@@ -58,7 +71,9 @@ const game_obj_constructor_t constructor_list[] = {
         .path = "assets/img/boats.png",
         .frame_nb = 4,
         .origin = VEC2F(0, 0),
-        .view_box = IRECT(0, 256, 32, 64),
+        .view_box = (sfIntRect[]){
+                    {0, 256, 32, 64},
+                    {-1, -1, -1, -1}},
         .mass = __FLT_MAX__,
         .has_comp = true
     },
@@ -67,7 +82,9 @@ const game_obj_constructor_t constructor_list[] = {
         .path = "insert_path",
         .frame_nb = 1,
         .origin = VEC2F(0, 0),
-        .view_box = IRECT(0, 0, 100, 100),
+        .view_box = (sfIntRect[]){
+                    {0, 0, 100, 100},
+                    {-1, -1, -1, -1}},
         .mass = __FLT_MAX__,
         .has_comp = true
     },
@@ -76,7 +93,9 @@ const game_obj_constructor_t constructor_list[] = {
         .path = "assets/img/sky.png",
         .frame_nb = 1,
         .origin = VEC2F(0, 0),
-        .view_box = IRECT(0, 0, 1920, 1080),
+        .view_box = (sfIntRect[]){
+                    {0, 0, 1920, 1080},
+                    {-1, -1, -1, -1}},
         .mass = __FLT_MAX__,
         .has_comp = false
     },
@@ -85,7 +104,9 @@ const game_obj_constructor_t constructor_list[] = {
         .path = "assets/img/water.png",
         .frame_nb = 4,
         .origin = VEC2F(16, 16),
-        .view_box = IRECT(0, 0, 32, 32),
+        .view_box = (sfIntRect[]){
+                    {0, 0, 32, 32},
+                    {-1, -1, -1, -1}},
         .mass = __FLT_MAX__,
         .has_comp = false
     },
@@ -94,7 +115,9 @@ const game_obj_constructor_t constructor_list[] = {
         .path = "assets/img/rain.png",
         .frame_nb = 22,
         .origin = VEC2F(0, 0),
-        .view_box = IRECT(0, 0, 480, 480),
+        .view_box = (sfIntRect[]){
+                    {0, 0, 480, 480},
+                    {-1, -1, -1, -1}},
         .mass = __FLT_MAX__,
         .has_comp = false
     },
@@ -103,7 +126,9 @@ const game_obj_constructor_t constructor_list[] = {
         .path = "assets/img/wood1.png",
         .frame_nb = 1,
         .origin = VEC2F(0, 0),
-        .view_box = IRECT(0, 0, 32, 32),
+        .view_box = (sfIntRect[]){
+                    {0, 0, 32, 32},
+                    {-1, -1, -1, -1}},
         .mass = __FLT_MAX__,
         .has_comp = false
     },
@@ -112,7 +137,9 @@ const game_obj_constructor_t constructor_list[] = {
         .path = "assets/img/wood1.png",
         .frame_nb = 1,
         .origin = VEC2F(0, 0),
-        .view_box = IRECT(32, 0, 32, 32),
+        .view_box = (sfIntRect[]){
+                    {32, 0, 32, 32},
+                    {-1, -1, -1, -1}},
         .mass = __FLT_MAX__,
         .has_comp = false
     },
@@ -121,7 +148,9 @@ const game_obj_constructor_t constructor_list[] = {
         .path = "assets/img/wood1.png",
         .frame_nb = 1,
         .origin = VEC2F(0, 0),
-        .view_box = IRECT(32, 32, 32, 32),
+        .view_box = (sfIntRect[]){
+                    {32, 32, 32, 32},
+                    {-1, -1, -1, -1}},
         .mass = __FLT_MAX__,
         .has_comp = false
     },
@@ -130,7 +159,9 @@ const game_obj_constructor_t constructor_list[] = {
         .path = "assets/img/wood2.png",
         .frame_nb = 1,
         .origin = VEC2F(0, 0),
-        .view_box = IRECT(0, 0, 32, 32),
+        .view_box = (sfIntRect[]){
+                    {0, 0, 32, 32},
+                    {-1, -1, -1, -1}},
         .mass = __FLT_MAX__,
         .has_comp = false
     },
@@ -139,7 +170,9 @@ const game_obj_constructor_t constructor_list[] = {
         .path = "assets/img/wood2.png",
         .frame_nb = 1,
         .origin = VEC2F(0, 0),
-        .view_box = IRECT(32, 0, 32, 32),
+        .view_box = (sfIntRect[]){
+                    {32, 0, 32, 32},
+                    {-1, -1, -1, -1}},
         .mass = __FLT_MAX__,
         .has_comp = false
     },
@@ -148,7 +181,9 @@ const game_obj_constructor_t constructor_list[] = {
         .path = "assets/img/wood2.png",
         .frame_nb = 1,
         .origin = VEC2F(0, 0),
-        .view_box = IRECT(32, 32, 32, 32),
+        .view_box = (sfIntRect[]){
+                    {32, 32, 32, 32},
+                    {-1, -1, -1, -1}},
         .mass = __FLT_MAX__,
         .has_comp = false
     },
@@ -157,7 +192,9 @@ const game_obj_constructor_t constructor_list[] = {
         .path = "assets/img/fence.png",
         .frame_nb = 1,
         .origin = VEC2F(0, 0),
-        .view_box = IRECT(0, 0, 32, 32),
+        .view_box = (sfIntRect[]){
+                    {0, 0, 32, 32},
+                    {-1, -1, -1, -1}},
         .mass = __FLT_MAX__,
         .has_comp = false
     },
@@ -166,7 +203,9 @@ const game_obj_constructor_t constructor_list[] = {
         .path = "assets/img/ladder.png",
         .frame_nb = 1,
         .origin = VEC2F(0, 0),
-        .view_box = IRECT(0, 0, 32, 32),
+        .view_box = (sfIntRect[]){
+                    {0, 0, 32, 32},
+                    {-1, -1, -1, -1}},
         .mass = __FLT_MAX__,
         .has_comp = false
     },
@@ -175,7 +214,9 @@ const game_obj_constructor_t constructor_list[] = {
         .path = "insert_path",
         .frame_nb = 1,
         .origin = VEC2F(0, 0),
-        .view_box = IRECT(0, 0, 640, 300),
+        .view_box = (sfIntRect[]){
+                    {0, 0, 640, 300},
+                    {-1, -1, -1, -1}},
         .mass = __FLT_MAX__,
         .has_comp = false
     },
@@ -184,7 +225,9 @@ const game_obj_constructor_t constructor_list[] = {
         .path = "insert_path",
         .frame_nb = 1,
         .origin = VEC2F(0, 0),
-        .view_box = IRECT(640, 0, 580, 200),
+        .view_box = (sfIntRect[]){
+                    {640, 0, 580, 200},
+                    {-1, -1, -1, -1}},
         .mass = __FLT_MAX__,
         .has_comp = false
     },
@@ -193,7 +236,9 @@ const game_obj_constructor_t constructor_list[] = {
         .path = "insert_path",
         .frame_nb = 1,
         .origin = VEC2F(0, 0),
-        .view_box = IRECT(641, 201, 200, 100),
+        .view_box = (sfIntRect[]){
+                    {641, 201, 200, 100},
+                    {-1, -1, -1, -1}},
         .mass = __FLT_MAX__,
         .has_comp = false
     },
@@ -202,7 +247,9 @@ const game_obj_constructor_t constructor_list[] = {
         .path = "insert_path",
         .frame_nb = 1,
         .origin = VEC2F(0, 0),
-        .view_box = IRECT(844, 214, 340, 120),
+        .view_box = (sfIntRect[]){
+                    {844, 214, 340, 120},
+                    {-1, -1, -1, -1}},
         .mass = __FLT_MAX__,
         .has_comp = false
     },
@@ -211,7 +258,9 @@ const game_obj_constructor_t constructor_list[] = {
         .path = "insert_path",
         .frame_nb = 1,
         .origin = VEC2F(0, 0),
-        .view_box = IRECT(4, 305, 820, 160),
+        .view_box = (sfIntRect[]){
+                    {4, 305, 820, 160},
+                    {-1, -1, -1, -1}},
         .mass = __FLT_MAX__,
         .has_comp = false
     },
@@ -220,7 +269,9 @@ const game_obj_constructor_t constructor_list[] = {
         .path = "insert_path",
         .frame_nb = 1,
         .origin = VEC2F(0, 0),
-        .view_box = IRECT(826, 339, 460, 151),
+        .view_box = (sfIntRect[]){
+                    {826, 339, 460, 151},
+                    {-1, -1, -1, -1}},
         .mass = __FLT_MAX__,
         .has_comp = false
     },
@@ -229,7 +280,9 @@ const game_obj_constructor_t constructor_list[] = {
         .path = "insert_path",
         .frame_nb = 1,
         .origin = VEC2F(0, 0),
-        .view_box = IRECT(0, 472, 699, 160),
+        .view_box = (sfIntRect[]){
+                    {0, 472, 699, 160},
+                    {-1, -1, -1, -1}},
         .mass = __FLT_MAX__,
         .has_comp = false
     },
@@ -238,7 +291,9 @@ const game_obj_constructor_t constructor_list[] = {
         .path = "insert_path",
         .frame_nb = 1,
         .origin = VEC2F(0, 0),
-        .view_box = IRECT(738, 493, 520, 140),
+        .view_box = (sfIntRect[]){
+                    {738, 493, 520, 140},
+                    {-1, -1, -1, -1}},
         .mass = __FLT_MAX__,
         .has_comp = false
     }
@@ -250,6 +305,12 @@ const comp_constructor_t *comp_constructor_list[] = {
         {
             .storage_type = TYPE_CLOCK,
             .type = CLOCK
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = STATE,
+            .data = (int [1]){0},
+            .data2 = NULL
         },
         {
             .storage_type = TYPE_END
