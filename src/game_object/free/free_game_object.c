@@ -38,16 +38,15 @@ sfBool free_all_comp(game_obj_t *obj)
     return (sfTrue);
 }
 
-sfBool free_obj(game_obj_t *obj)
+void free_obj(game_obj_t *obj)
 {
     if (!obj)
-        return (sfFalse);
+        return;
     free_all_comp(obj);
     if (obj->sprite)
         sfSprite_destroy(obj->sprite);
     if (obj->texture)
     sfTexture_destroy(obj->texture);
-    return (sfTrue);
 }
 
 sfBool free_obj_list(game_obj_t *obj)

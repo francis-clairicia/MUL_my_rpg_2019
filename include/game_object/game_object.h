@@ -98,9 +98,7 @@ sfBool free_obj_list(game_obj_t *obj);
 
 //Entirely frees a game_object.
 //
-//Returns sfTrue if the given pointer isn't NULL.
-//Returns sfFalse otherwise.
-sfBool free_obj(game_obj_t *obj);
+void free_obj(game_obj_t *obj);
 
 //Frees the components of a game_object (clock, images ...).
 //

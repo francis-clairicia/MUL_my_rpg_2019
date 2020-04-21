@@ -54,15 +54,18 @@ SRC_PHYSIC_ENGINE	=	src/physic_engine/apply_force.c							\
 SRC_MATH_PROCESS	=	src/math_process/get_randnb.c							\
 						src/math_process/magnet_number.c						\
 
+SRC_BOAT			=	src/boat/load_boat_from_file.c
+
 SRC					=	$(MAIN)													\
-						$(SRC_GAMELOOP)											\
-						$(SRC_MENU)												\
-						$(SRC_SAVE_LOAD)										\
+						$(SRC_GAME_OBJ)											\
 						$(SRC_INPUT_HANDLING)									\
 						$(SRC_UPDATE_WINDOW)									\
 						$(SRC_PHYSIC_ENGINE)									\
 						$(SRC_VECTOR_ENGINE)									\
-						$(SRC_GAME_OBJ)
+						$(SRC_GAMELOOP)											\
+						$(SRC_MENU)												\
+						$(SRC_SAVE_LOAD)										\
+						$(SRC_BOAT)
 
 override CFLAGS		+=	-Wall -Wextra
 
