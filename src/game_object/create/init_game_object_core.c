@@ -35,39 +35,54 @@ sfBool set_texture(game_obj_t *obj, char *path)
     return (sfTrue);
 }
 
-sfBool set_view_box(game_obj_t *obj, sfIntRect *rect)
+sfBool set_view_box(game_obj_t *obj, sfIntRect *rect, size_t size)
 {
     register size_t index = 0;
 
     if (!obj || !(obj->texture) || !(obj->frame_nb) || !rect)
         return (sfFalse);
-    while (rect[index].left != -1 && rect[index].top != -1
-        && rect[index].width != -1 && rect[index].height != -1) {
-            index += 1;
-    }
-    obj->view_box = malloc(sizeof(sfIntRect) * index);
+    obj->view_box = malloc(sizeof(sfIntRect) * size);
     if (!(obj->view_box))
         return (sfFalse);
     my_memcpy(obj->view_box, rect, sizeof(sfIntRect) * index);
     return (sfTrue);
 }
 
-sfBool set_frame_nb(game_obj_t *obj, unsigned int nb)
+sfBool set_frame_nb(game_obj_t *obj, unsigned int *nb, size_t size)
 {
-    obj->frame_nb = nb;
+    register size_t index = 0;
+
+    obj->frame_nb = malloc(sizeof(int) * size);
     if (!(obj->frame_nb))
         return (sfFalse);
+    for (index = 0; index < size; index += 1) {
+        obj->frame_nb[index] = nb[index];
+        if (!(obj->frame_nb[index])) {
+            my_printf("Game object frame_nb must be > 1\n");
+            return (sfFalse);
+        }
+    }
     return (sfTrue);
 }
 
-sfBool set_origin(game_obj_t *obj, sfVector2f origin)
+sfBool set_origin(game_obj_t *obj, sfVector2f *origin, size_t size)
 {
+    register size_t index = 0;
+
     if (!obj || !(obj->sprite))
         return (sfFalse);
-    if (origin.x <= 0 && origin.y <= 0) {
-        origin.x = obj->view_box[0].left + (obj->view_box[0].width / -origin.x);
-        origin.y = obj->view_box[0].top + (obj->view_box[0].height / -origin.y);
+    obj->origin = malloc(sizeof(sfVector2f) * size);
+    if (!(obj->origin))
+        return (sfFalse);
+    for (index = 0; index < size; index += 1) {
+        obj->origin[index] = origin[index];
+        if (origin[index].x <= 0 && origin[index].y <= 0) {
+            obj->origin[index].x = obj->view_box[0].left;
+            obj->origin[index].x += (obj->view_box[0].width / -origin[index].x);
+            obj->origin[index].y = obj->view_box[0].top;
+            obj->origin[index].y += (obj->view_box[0].height / -origin[index].y);
+        }
     }
-    sfSprite_setOrigin(obj->sprite, origin);
+    sfSprite_setOrigin(obj->sprite, obj->origin[0]);
     return (sfTrue);
 }

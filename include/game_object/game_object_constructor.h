@@ -27,9 +27,10 @@ typedef enum storage_type_e
 typedef struct game_object_constructor_s
 {
     char *path;
-    unsigned int frame_nb;
-    sfVector2f origin;
+    unsigned int *frame_nb;
+    sfVector2f *origin;
     sfIntRect *view_box;
+    unsigned int state_nb;
     float mass;
     bool has_comp;
 } game_obj_constructor_t;

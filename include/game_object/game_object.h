@@ -58,8 +58,7 @@ typedef enum properties_e {
     POS,
     TEXT,
     BOOL,
-    SIZE,
-    STATE
+    SIZE
 } prop_t;
 
 typedef struct component_s {
@@ -79,9 +78,11 @@ typedef struct game_obj {
     component_t **comp;
     unsigned int comp_nb;
     rigid_body_t body;
+    sfVector2f *origin;
     sfIntRect *view_box;
+    unsigned int *frame_nb;
+    unsigned int state;
     sfFloatRect hitbox;
-    unsigned int frame_nb;
     sfTexture *texture;
     sfSprite *sprite;
     struct game_obj *next;
@@ -145,10 +146,6 @@ void draw_game_object(sfRenderWindow *window, game_obj_t *obj);
 //Updates the hitbox of a game object considering his pos and his size.
 //Hitbox will be relative to world's coord, not window'scoords.
 void update_hitbox(game_obj_t *obj);
-
-//Returns an int corresponding to the state of a game object
-//Returns 0 if no state has been found
-int get_game_object_state(game_obj_t *obj);
 
 //Finds a component with the given type and set new given value.
 sfBool set_comp_int(game_obj_t *obj, prop_t type, int nb);
