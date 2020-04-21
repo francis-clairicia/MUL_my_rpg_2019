@@ -48,11 +48,8 @@ static void draw_menu(sfRenderWindow *window, menu_t *menu)
 
 scene_t launch_menu(tool_t *tool, scene_t state)
 {
-    game_obj_t *p = create_game_obj(PIRATE);
-
     while (state == MENU) {
         sfRenderWindow_clear(tool->window, sfBlack);
-        draw_game_object(tool->window, p);
         update_tool(tool);
         draw_menu(tool->window, &tool->menu);
         sfRenderWindow_display(tool->window);

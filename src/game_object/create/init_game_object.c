@@ -27,13 +27,16 @@ static sfBool fill_game_object_components(game_obj_t *obj)
 
 static sfBool fill_game_object_core(game_obj_t *obj)
 {
+    size_t state_nb = 0;
+
     if (!obj)
         return (sfFalse);
-    if (!set_frame_nb(obj, constructor_list[obj->type].frame_nb) ||
+    state_nb = constructor_list[obj->type].state_nb;
+    if (!set_frame_nb(obj, constructor_list[obj->type].frame_nb, state_nb) ||
         !set_texture(obj, constructor_list[obj->type].path) ||
-        !set_view_box(obj, constructor_list[obj->type].view_box) ||
+        !set_view_box(obj, constructor_list[obj->type].view_box, state_nb) ||
         !set_sprite(obj) ||
-        !set_origin(obj, constructor_list[obj->type].origin))
+        !set_origin(obj, constructor_list[obj->type].origin, state_nb))
         return (sfFalse);
     obj->body.mass = constructor_list[obj->type].mass;
     return (sfTrue);
