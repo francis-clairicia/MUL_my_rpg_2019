@@ -19,5 +19,6 @@ void update_hitbox(game_obj_t *obj)
 
 void update_sprite(game_obj_t *obj)
 {
+    sfSprite_setOrigin(obj->sprite, obj->origin[obj->state]);
     sfSprite_setPosition(obj->sprite, obj->body.pos);
 }

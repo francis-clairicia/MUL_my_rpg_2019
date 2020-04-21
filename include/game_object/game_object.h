@@ -130,6 +130,14 @@ int find_comp(game_obj_t *obj, prop_t type);
 //Returns false in other cases
 bool has_comp(game_obj_t *obj, const prop_t type);
 
+//Set game object'sprite position and update sprite
+void set_game_object_pos(game_obj_t *obj, sfVector2f pos);
+
+//Set game object'sprite origin and update sprite
+void set_game_object_origin(game_obj_t *obj, sfVector2f origin);
+
+//Set game object'sprite scale
+void set_game_object_scale(game_obj_t *obj, sfVector2f scale);
 
 //Set the X frame of a game object.
 void set_game_object_frame(game_obj_t *obj, unsigned int frame);

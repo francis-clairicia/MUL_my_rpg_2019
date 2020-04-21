@@ -22,6 +22,9 @@ SRC_GAME_OBJ		=	src/game_object/create/construct_advanced_component.c	\
 						src/game_object/comp_utils.c							\
 						src/game_object/draw_game_object.c						\
 						src/game_object/find_game_object.c						\
+						src/game_object/set_game_object_origin.c				\
+						src/game_object/set_game_object_pos.c					\
+						src/game_object/set_game_object_scale.c					\
 						src/game_object/update_game_object.c					\
 						src/game_object/update_state.c							\
 
