@@ -37,14 +37,14 @@ const game_obj_constructor_t constructor_list[] = {
                     4,
                     },
         .origin = (sfVector2f[]){
-                    {0, 0}
+                    {32, 32}
                     },
         .view_box = (sfIntRect[]){
                     {0, 0, 32, 64}
                     },
         .state_nb = 1,
-        .mass = __FLT_MAX__,
-        .has_comp = true
+        .mass = 2000,
+        .has_comp = false
     },
     [BOAT2] =
     {
@@ -59,8 +59,8 @@ const game_obj_constructor_t constructor_list[] = {
                     {0, 64, 32, 64}
                     },
         .state_nb = 1,
-        .mass = __FLT_MAX__,
-        .has_comp = true
+        .mass = 2000,
+        .has_comp = false
     },
     [BOAT3] =
     {
@@ -75,8 +75,8 @@ const game_obj_constructor_t constructor_list[] = {
                     {0, 128, 32, 64}
                     },
         .state_nb = 1,
-        .mass = __FLT_MAX__,
-        .has_comp = true
+        .mass = 2000,
+        .has_comp = false
     },
     [BOAT4] =
     {
@@ -91,8 +91,8 @@ const game_obj_constructor_t constructor_list[] = {
                     {0, 192, 32, 64}
                     },
         .state_nb = 1,
-        .mass = __FLT_MAX__,
-        .has_comp = true
+        .mass = 2000,
+        .has_comp = false
     },
     [BOAT5] =
     {
@@ -107,8 +107,8 @@ const game_obj_constructor_t constructor_list[] = {
                     {0, 256, 32, 64}
                     },
         .state_nb = 1,
-        .mass = __FLT_MAX__,
-        .has_comp = true
+        .mass = 2000,
+        .has_comp = false
     },
     [SKY] =
     {

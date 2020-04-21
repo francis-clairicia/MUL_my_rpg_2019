@@ -13,7 +13,7 @@ game_obj_t *create_game_obj(const elem_t type)
 {
     game_obj_t *obj = malloc(sizeof(game_obj_t));
 
-    if (!obj)
+    if (!obj || type < 0)
         return (NULL);
     my_memset(obj, 0, sizeof(game_obj_t));
     obj->type = type;

@@ -44,7 +44,8 @@ static sfBool fill_game_object_core(game_obj_t *obj)
 
 sfBool init_game_object(game_obj_t *obj)
 {
-    if (!alloc_component_array(obj))
+    if (constructor_list[obj->type].has_comp &&
+        !alloc_component_array(obj))
         return (sfFalse);
     if (!fill_game_object_core(obj))
         return (sfFalse);

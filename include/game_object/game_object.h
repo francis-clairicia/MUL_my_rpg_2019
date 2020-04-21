@@ -145,6 +145,9 @@ void draw_game_object(sfRenderWindow *window, game_obj_t *obj);
 //Hitbox will be relative to world's coord, not window'scoords.
 void update_hitbox(game_obj_t *obj);
 
+//Update sprite position to object position
+void update_sprite(game_obj_t *obj);
+
 //Sets state as new value for obj's state
 //Updates the new origin linked to the state
 //Returns true if no error

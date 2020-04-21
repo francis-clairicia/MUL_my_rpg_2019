@@ -16,3 +16,8 @@ void update_hitbox(game_obj_t *obj)
     obj->hitbox.width = obj->view_box[state].width;
     obj->hitbox.height = obj->view_box[state].height;
 }
+
+void update_sprite(game_obj_t *obj)
+{
+    sfSprite_setPosition(obj->sprite, obj->body.pos);
+}
