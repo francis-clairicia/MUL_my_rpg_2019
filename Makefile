@@ -18,10 +18,12 @@ SRC_GAME_OBJ		=	src/game_object/create/construct_advanced_component.c	\
 						src/game_object/free/free_game_object.c					\
 						src/game_object/template/templates.c					\
 						src/game_object/add_game_obj_to_list.c					\
+						src/game_object/collision.c								\
 						src/game_object/comp_utils.c							\
 						src/game_object/draw_game_object.c						\
 						src/game_object/find_game_object.c						\
 						src/game_object/update_game_object.c					\
+						src/game_object/update_state.c							\
 
 SRC_GAMELOOP		=	src/my_rpg.c
 
@@ -96,7 +98,7 @@ $(NAME):	$(MY_LIBS) $(OBJ) $(ASSETS)
 	$(MAKE) -s -C ./lib/csfml
 
 $(ASSETS):
-	tar -xf assets.tar.xz
+	tar -xf $@.tar.xz
 
 compress:
 	tar -cf assets.tar.xz $(ASSETS)

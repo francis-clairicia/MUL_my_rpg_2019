@@ -8,6 +8,8 @@
 #ifndef MATH_PROCESS_H_
 #define MATH_PROCESS_H_
 
+#define ABS(x) ((x > 0) ? (x) : (-x))
+
 //Returns a random integer between the given boudings.
 int get_randomnb(int min, int max);
 

@@ -147,6 +147,20 @@ void draw_game_object(sfRenderWindow *window, game_obj_t *obj);
 //Hitbox will be relative to world's coord, not window'scoords.
 void update_hitbox(game_obj_t *obj);
 
+//Sets state as new value for obj's state
+//Updates the new origin linked to the state
+//Returns true if no error
+//Returns false if error
+sfBool update_game_object_state(game_obj_t *obj, unsigned int state);
+
+//Detect and solve a collision between two game objects
+//Returns true if collision is detected and resolved
+//Returns false is the following case :
+//-Bad parameters
+//-No collision
+//-Both object have mass 0 or FLT MAX mass
+sfBool game_object_aabb_collision(game_obj_t *obj1, game_obj_t *obj2);
+
 //Finds a component with the given type and set new given value.
 sfBool set_comp_int(game_obj_t *obj, prop_t type, int nb);
 sfBool set_comp_float(game_obj_t *obj, prop_t type, float nb);

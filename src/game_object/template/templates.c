@@ -10,21 +10,20 @@
 const game_obj_constructor_t constructor_list[] = {
     [PIRATE] =
     {
-        .path = "assets/img/boats.png",
+        .path = "assets/img/pirate.png",
         .frame_nb = (unsigned int[]){
-                    3,
-                    5,
-                    10
+                    4,
+                    10,
+                    6
                     },
         .origin = (sfVector2f[]){
-                    {0, 0},
-                    {0, 0},
-                    {0, 0},
+                    {42, 60},
+                    {50, 60},
+                    {55, 60},
                     },
         .view_box = (sfIntRect[]){
-                    {15, 10, 100, 100},
-                    {20, 20, 30, 30},
-                    {20, 20, 30, 30},
+                    {0, 0, 69, 60},
+                    {0, 60, 84, 60},
                     {20, 20, 30, 30}
                     },
         .state_nb = 3,
