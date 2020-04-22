@@ -22,6 +22,7 @@ SRC_GAME_OBJ		=	src/game_object/create/construct_advanced_component.c	\
 						src/game_object/comp_utils.c							\
 						src/game_object/draw_game_object_list.c					\
 						src/game_object/draw_game_object.c						\
+						src/game_object/expand_game_object.c					\
 						src/game_object/find_game_object.c						\
 						src/game_object/set_game_object_origin.c				\
 						src/game_object/set_game_object_pos.c					\
@@ -34,6 +35,7 @@ SRC_GAMELOOP		=	src/my_rpg.c											\
 SRC_SCENE			= 	src/scene/battle/draw.c									\
 						src/scene/battle/init.c									\
 						src/scene/battle/loop.c									\
+						src/scene/battle/update_boats.c							\
 						src/scene/menu/init.c									\
 						src/scene/menu/loop.c									\
 						src/scene/save_chooser/init.c							\
@@ -55,6 +57,7 @@ SRC_VECTOR_ENGINE 	=	src/vector_engine/min_max.c								\
 						src/vector_engine/vec_normal.c							\
 
 SRC_PHYSIC_ENGINE	=	src/physic_engine/apply_force.c							\
+						src/physic_engine/body_add_acc.c						\
 						src/physic_engine/sat_collision.c						\
 						src/physic_engine/update_obb.c							\
 						src/physic_engine/update_rigid_body.c					\

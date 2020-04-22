@@ -142,6 +142,22 @@ const game_obj_constructor_t constructor_list[] = {
         .mass = __FLT_MAX__,
         .has_comp = false
     },
+    [WATER2] =
+    {
+        .path = "assets/img/water2.png",
+        .frame_nb = (unsigned int[]){
+                    12
+                    },
+        .origin = (sfVector2f[]){
+                    {256, 64}
+                    },
+        .view_box = (sfIntRect[]){
+                    {0, 0, 512, 128}
+                    },
+        .state_nb = 1,
+        .mass = __FLT_MAX__,
+        .has_comp = true
+    },
     [RAIN] =
     {
         .path = "assets/img/rain.png",
@@ -232,7 +248,7 @@ const game_obj_constructor_t constructor_list[] = {
                     {16, 16}
                     },
         .view_box = (sfIntRect[]){
-                    {32, 0, 32, 32}
+                    {0, 32, 32, 32}
                     },
         .state_nb = 1,
         .mass = __FLT_MAX__,
@@ -418,6 +434,16 @@ const game_obj_constructor_t constructor_list[] = {
 
 const comp_constructor_t *comp_constructor_list[] = {
     [PIRATE] =
+    (comp_constructor_t[]){
+        {
+            .storage_type = TYPE_CLOCK,
+            .type = CLOCK
+        },
+        {
+            .storage_type = TYPE_END
+        }
+    },
+    [WATER2] =
     (comp_constructor_t[]){
         {
             .storage_type = TYPE_CLOCK,

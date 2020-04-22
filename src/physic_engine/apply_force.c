@@ -11,6 +11,8 @@ void traction_force(rigid_body_t *body)
 {
     sfVector2f head;
 
+    if (!body)
+        return ;
     head.x = cos((RAD(body->angle + 90)));
     head.y = sin((RAD(body->angle + 90)));
     head = vec_norm(head);
@@ -21,6 +23,8 @@ void friction_force(rigid_body_t *body, float intensity)
 {
     sfVector2f friction;
 
+    if (!body)
+        return ;
     friction = vec_norm(body->vel);
     friction = vec_mult(friction, -intensity);
     apply_force(body, friction);
@@ -28,6 +32,8 @@ void friction_force(rigid_body_t *body, float intensity)
 
 void apply_force(rigid_body_t *body, sfVector2f force)
 {
+    if (!body)
+        return ;
     force = vec_mult(force, 1 / body->mass);
     body->acc = vec_add(force, body->acc);
 }

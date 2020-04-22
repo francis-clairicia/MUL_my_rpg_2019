@@ -20,11 +20,13 @@ sfBool init_window(tool_t *tools)
     if (!(tools->window))
         return (sfFalse);
     tools->view = sfView_createFromRect((sfFloatRect){0, 0, 1920, 1080});
-    if (!(tools->view))
+    tools->clock = sfClock_create();
+    if (!(tools->view) || !(tools->clock))
         return (sfFalse);
     init_mouse_tool(tools);
     if (!init_menu(&(tools->menu)) || !init_save_chooser(&tools->chooser))
         return (sfFalse);
+    update_tool(tools);
     return (sfTrue);
 }
 

@@ -12,11 +12,12 @@ scene_t launch_battle(tool_t *tool, scene_t state)
 {
     battle_t battle;
 
-    if (!tool || !init_battle(&(tool->player), &battle))
+    if (!tool || !init_battle(tool, &battle))
         return (MENU);
     while (state == BATTLE) {
         sfRenderWindow_clear(tool->window, sfBlack);
         update_tool(tool);
+        update_boats(battle.player->boat_bg);
         draw_battle(tool, battle);
         sfRenderWindow_display(tool->window);
     }

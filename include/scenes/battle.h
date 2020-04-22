@@ -18,14 +18,16 @@ typedef struct battle_s
     list_t *ennemy_boat_fg;
     list_t *ennemy_boat_bg;
     list_t *ennemy_crew;
+    list_t *water;
     game_obj_t *background;
     game_obj_t *weather;
 } battle_t;
 
-sfBool init_battle(player_t *player, battle_t *battle);
+sfBool init_battle(tool_t *tool, battle_t *battle);
+list_t *load_boat_from_file(char const *file);
 
 void draw_battle(tool_t *tool, battle_t battle);
 
-list_t *load_boat_from_file(char const *file);
+void update_boats(list_t *list);
 
 #endif /* !BATTLE_H_ */

@@ -45,6 +45,9 @@ typedef struct tool_s {
     save_chooser_t chooser;
     //Gameplay tools
     player_t player;
+    //Game clock
+    sfClock *clock;
+    float dtime;
 } tool_t;
 
 /* Tools */

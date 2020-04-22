@@ -27,6 +27,7 @@ typedef enum element_e {
     BOAT5,
     SKY,
     WATER,
+    WATER2,
     RAIN,
     WOOD1_RECT,
     WOOD1_LEFT_TRIANGLE,
@@ -165,6 +166,12 @@ void update_sprite(game_obj_t *obj);
 //Returns true if no error
 //Returns false if error
 sfBool update_game_object_state(game_obj_t *obj, unsigned int state);
+
+//Expands list horizontaly if last node's position is higher than offset
+void expand_game_object_right(list_t **list, float offset);
+
+//Expands list horizontaly if first node's position is lower than offset
+void expand_game_object_left(list_t **list, float offset);
 
 //Detect and solve a collision between two game objects
 //Returns true if collision is detected and resolved

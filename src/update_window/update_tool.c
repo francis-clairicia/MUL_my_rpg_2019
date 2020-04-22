@@ -39,10 +39,19 @@ static void update_window_size(tool_t *tool)
     tool->size = VEC2F(window_size.x, window_size.y);
 }
 
+static void update_tool_clock(tool_t *tool)
+{
+    sfTime time = sfClock_getElapsedTime(tool->clock);
+
+    tool->dtime = sfTime_asSeconds(time);
+    sfClock_restart(tool->clock);
+}
+
 void update_tool(tool_t *tool)
 {
     update_window_size(tool);
     update_window_scale(tool);
     update_window_anchor(tool);
     update_mouse_tool(tool);
+    update_tool_clock(tool);
 }

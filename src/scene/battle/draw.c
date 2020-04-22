@@ -11,4 +11,5 @@ void draw_battle(tool_t *tool, battle_t battle)
 {
     draw_game_object(tool->window, battle.background);
     draw_game_object_list(tool->window, battle.player->boat_bg);
+    draw_game_object_list(tool->window, battle.water);
 }
