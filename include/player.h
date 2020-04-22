@@ -16,7 +16,8 @@ typedef struct player
     char *pseudo;
     save_t save;
     list_t *crew;
-    list_t *boat;
+    list_t *boat_fg;
+    list_t *boat_bg;
     sfVector2f pos;
 } player_t;
 

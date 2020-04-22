@@ -12,7 +12,7 @@ scene_t launch_battle(tool_t *tool, scene_t state)
 {
     battle_t battle;
 
-    if (!tool || !init_battle(tool->player.save, &battle))
+    if (!tool || !init_battle(&(tool->player), &battle))
         return (MENU);
     while (state == BATTLE) {
         sfRenderWindow_clear(tool->window, sfBlack);

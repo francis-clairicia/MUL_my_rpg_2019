@@ -12,21 +12,17 @@
 #include "tools.h"
 #include "boat.h"
 
-typedef struct boat_s
-{
-    list_t *fg;
-    list_t *bg;
-} boat_t;
-
 typedef struct battle_s
 {
-    boat_t ally;
-    boat_t ennemy;
+    player_t *player;
+    list_t *ennemy_boat_fg;
+    list_t *ennemy_boat_bg;
+    list_t *ennemy_crew;
     game_obj_t *background;
     game_obj_t *weather;
 } battle_t;
 
-sfBool init_battle(save_t save, battle_t *battle);
+sfBool init_battle(player_t *player, battle_t *battle);
 
 void draw_battle(tool_t *tool, battle_t battle);
 

@@ -16,25 +16,25 @@ static sfBool init_background(battle_t *battle)
     return (sfTrue);
 }
 
-static sfBool init_ally_boat(save_t save, battle_t *battle)
+static sfBool init_ally_boat(player_t *player, battle_t *battle)
 {
-    save.folder = "saves/save01";
-    char *boat_path = join_path(save.folder, "boat");
+    char *boat_path = join_path("saves/save01", "boat");
 
-    battle->ally.bg = load_boat_from_file(boat_path);
-    if (!(battle->ally.bg) || !boat_path)
+    player->boat_bg = load_boat_from_file(boat_path);
+    if (!(player->boat_bg) || !boat_path)
         return (sfFalse);
     free(boat_path);
+    battle->player = player;
     return (sfTrue);
 }
 
-sfBool init_battle(save_t save, battle_t *battle)
+sfBool init_battle(player_t *player, battle_t *battle)
 {
     if (!battle)
         return (sfFalse);
     if (!init_background(battle))
         return (sfFalse);
-    if (!init_ally_boat(save, battle)) {
+    if (!init_ally_boat(player, battle)) {
         free_game_object(battle->background);
         return (sfFalse);
     }

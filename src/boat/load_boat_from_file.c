@@ -57,7 +57,7 @@ static bool set_config(char const *file)
 
 static bool create_line(list_t **list, char const *line, size_t line_nb)
 {
-    elem_t element;
+    int element;
     game_obj_t *obj = NULL;
     int i = 0;
 

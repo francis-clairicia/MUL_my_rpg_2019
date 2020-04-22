@@ -184,7 +184,7 @@ const game_obj_constructor_t constructor_list[] = {
                     {16, 16}
                     },
         .view_box = (sfIntRect[]){
-                    {32, 0, 32, 32}
+                    {0, 32, 32, 32}
                     },
         .state_nb = 1,
         .mass = __FLT_MAX__,
