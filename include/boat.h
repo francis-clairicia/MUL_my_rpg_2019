@@ -15,12 +15,12 @@ typedef struct boat_config
 {
     char const *variable;
     char on_txt;
-    elem_t element;
+    int element;
 } boat_config_t;
 
 list_t *load_boat_from_file(char const *file);
 
-static inline elem_t get_element(boat_config_t config_table[], char c)
+static inline int get_element(boat_config_t config_table[], char c)
 {
     int i = 0;
 
