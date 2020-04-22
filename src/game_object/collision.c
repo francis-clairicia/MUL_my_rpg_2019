@@ -41,7 +41,7 @@ static sfBool game_object_collision_solving(game_obj_t *obj1,
     dpth = vec_mult(dpth, 0.0005);
     if (obj1->body.mass == __FLT_MAX__ || obj2->body.mass == __FLT_MAX__)
         return (game_object_special_collision_solving(obj1, obj2, dpth));
-    obj1->body.acc = vec_add(obj1->body.acc,vec_mult(dpth, obj2->body.mass /
+    obj1->body.acc = vec_add(obj1->body.acc, vec_mult(dpth, obj2->body.mass /
                                         (obj1->body.mass + obj2->body.mass)));
     obj2->body.acc = vec_add(obj2->body.acc, vec_mult(dpth, -(obj1->body.mass /
                                         (obj1->body.mass + obj2->body.mass))));
