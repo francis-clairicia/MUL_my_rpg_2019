@@ -55,7 +55,7 @@ static bool set_config(char const *file)
     return ((fd != -1) && status == true);
 }
 
-static bool create_line(list_t **list, char const *line)
+static bool create_line(list_t **list, char const *line, size_t line_nb)
 {
     elem_t element;
     game_obj_t *obj = NULL;
@@ -69,6 +69,8 @@ static bool create_line(list_t **list, char const *line)
         if (obj == NULL)
             return (false);
         MY_APPEND_TO_LIST(list, obj);
+        set_game_object_pos(obj, VEC2F(i * obj->view_box[0].width,
+                                line_nb * obj->view_box[0].height));
     }
     return (true);
 }
@@ -80,11 +82,12 @@ static bool load_boat(list_t **list, char const *file)
     int fd = 0;
     char *line = NULL;
     bool status = true;
+    register size_t line_nb = 0;
 
     my_strcat(my_strcpy(txt, file), extension);
     fd = open(txt, O_RDONLY);
     while (status == true && get_next_line(&line, fd))
-        status = create_line(list, line);
+        status = create_line(list, line, line_nb++);
     if (line != NULL)
         free(line);
     if (fd != -1)
@@ -99,6 +102,6 @@ list_t *load_boat_from_file(char const *file)
     if (file == NULL || !set_config(file))
         return (NULL);
     if (!load_boat(&list, file))
-        my_free_list(&list, &free_obj);
+        my_free_list(&list, &free_game_object);
     return (list);
 }

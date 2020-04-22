@@ -20,6 +20,7 @@ SRC_GAME_OBJ		=	src/game_object/create/construct_advanced_component.c	\
 						src/game_object/add_game_obj_to_list.c					\
 						src/game_object/collision.c								\
 						src/game_object/comp_utils.c							\
+						src/game_object/draw_game_object_list.c					\
 						src/game_object/draw_game_object.c						\
 						src/game_object/find_game_object.c						\
 						src/game_object/set_game_object_origin.c				\
@@ -28,14 +29,17 @@ SRC_GAME_OBJ		=	src/game_object/create/construct_advanced_component.c	\
 						src/game_object/update_game_object.c					\
 						src/game_object/update_state.c							\
 
-SRC_GAMELOOP		=	src/my_rpg.c
+SRC_GAMELOOP		=	src/my_rpg.c											\
 
-SRC_MENU			= 	src/menu/init.c											\
-						src/menu/loop.c											\
+SRC_SCENE			= 	src/scene/battle/draw.c									\
+						src/scene/battle/init.c									\
+						src/scene/battle/loop.c									\
+						src/scene/menu/init.c									\
+						src/scene/menu/loop.c									\
+						src/scene/save_chooser/init.c							\
+						src/scene/save_chooser/loop.c							\
+						src/scene/save_chooser/load_saves.c						\
 
-SRC_SAVE_LOAD		=	src/save_chooser/init.c									\
-						src/save_chooser/loop.c									\
-						src/save_chooser/load_saves.c
 
 SRC_INPUT_HANDLING	=	src/input_handling/mouse_input.c
 
@@ -67,9 +71,8 @@ SRC					=	$(MAIN)													\
 						$(SRC_PHYSIC_ENGINE)									\
 						$(SRC_VECTOR_ENGINE)									\
 						$(SRC_GAMELOOP)											\
-						$(SRC_MENU)												\
-						$(SRC_SAVE_LOAD)										\
-						$(SRC_BOAT)
+						$(SRC_SCENE)											\
+						$(SRC_BOAT)												\
 
 override CFLAGS		+=	-Wall -Wextra
 
@@ -77,7 +80,7 @@ override CPPFLAGS	+=	-I./include/											\
 						-I./include/game_object/								\
 						-I./include/calculation/								\
 						-I./include/scenes/										\
-						-I./include/pirates/
+						-I./include/pirates/									\
 
 MY_LIBS				=	-lmy -lcsfml
 

@@ -18,7 +18,8 @@ typedef enum SCENES_NUMBER
     PERSO_CREATION,
     WORLD,
     GAME,
-    END_MENU
+    END_MENU,
+    BATTLE
 } scene_t;
 
 typedef scene_t (*scene_loop_t)(tool_t *tools, scene_t state);
@@ -26,5 +27,6 @@ typedef scene_t (*scene_loop_t)(tool_t *tools, scene_t state);
 /* Scenes */
 scene_t launch_menu(tool_t *tool, scene_t state);
 scene_t launch_save_chooser(tool_t *tool, scene_t state);
+scene_t launch_battle(tool_t *tool, scene_t state);
 
 #endif

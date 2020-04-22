@@ -9,7 +9,6 @@
 #define RPG_PLAYER_H_
 
 #include "mylist.h"
-#include "scenes.h"
 #include "save.h"
 
 typedef struct player

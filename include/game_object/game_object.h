@@ -14,6 +14,7 @@
 #include "SFML/System.h"
 #include "SFML/Graphics.h"
 
+#include "mylist.h"
 #include "physic_engine.h"
 
 typedef enum element_e {
@@ -95,11 +96,11 @@ typedef struct game_obj {
 //Returns a NULL pointer otherwise.
 game_obj_t *create_game_obj(const elem_t type);
 
-sfBool free_obj_list(game_obj_t *obj);
+sfBool free_game_object_list(game_obj_t *obj);
 
 //Entirely frees a game_object.
 //
-void free_obj(game_obj_t *obj);
+void free_game_object(game_obj_t *obj);
 
 //Frees the components of a game_object (clock, images ...).
 //
@@ -130,24 +131,27 @@ int find_comp(game_obj_t *obj, prop_t type);
 //Returns false in other cases
 bool has_comp(game_obj_t *obj, const prop_t type);
 
-//Set game object'sprite position and update sprite
+//Sets game object'sprite position and update sprite
 void set_game_object_pos(game_obj_t *obj, sfVector2f pos);
 
-//Set game object'sprite origin and update sprite
+//Sets game object'sprite origin and update sprite
 void set_game_object_origin(game_obj_t *obj, sfVector2f origin);
 
-//Set game object'sprite scale
+//Sets game object'sprite scale
 void set_game_object_scale(game_obj_t *obj, sfVector2f scale);
 
-//Set the X frame of a game object.
+//Sets the X frame of a game object.
 void set_game_object_frame(game_obj_t *obj, unsigned int frame);
 
-//Animate game object having CLOCK component with a given
+//Animates game object having CLOCK component with a given
 //lapse of time in ms between each frame.
 void anime_game_object(game_obj_t *obj, const int lapse);
 
-// Draw the game object on a Window
+// Draws the game object on a Window
 void draw_game_object(sfRenderWindow *window, game_obj_t *obj);
+
+//Draws every game object in list (from mylist.h)
+void draw_game_object_list(sfRenderWindow *window, list_t *list);
 
 //Updates the hitbox of a game object considering his pos and his size.
 //Hitbox will be relative to world's coord, not window'scoords.

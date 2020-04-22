@@ -39,8 +39,11 @@ void set_game_object_frame(game_obj_t *obj, unsigned int frame)
 
 void draw_game_object(sfRenderWindow *window, game_obj_t *obj)
 {
-    int state = obj->state;
+    int state = 0;
 
+    if (!window || !obj)
+        return;
+    state = obj->state;
     update_hitbox(obj);
     sfSprite_setPosition(obj->sprite, obj->body.pos);
     sfSprite_setTextureRect(obj->sprite, obj->view_box[state]);

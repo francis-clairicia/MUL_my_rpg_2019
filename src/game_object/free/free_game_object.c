@@ -38,7 +38,7 @@ sfBool free_all_comp(game_obj_t *obj)
     return (sfTrue);
 }
 
-void free_obj(game_obj_t *obj)
+void free_game_object(game_obj_t *obj)
 {
     if (!obj)
         return;
@@ -46,10 +46,16 @@ void free_obj(game_obj_t *obj)
     if (obj->sprite)
         sfSprite_destroy(obj->sprite);
     if (obj->texture)
-    sfTexture_destroy(obj->texture);
+        sfTexture_destroy(obj->texture);
+    if (obj->view_box)
+        free(obj->view_box);
+    if (obj->origin)
+        free(obj->origin);
+    if (obj->frame_nb)
+        free(obj->frame_nb);
 }
 
-sfBool free_obj_list(game_obj_t *obj)
+sfBool free_game_object_list(game_obj_t *obj)
 {
     game_obj_t *tmp = obj;
 
@@ -59,7 +65,7 @@ sfBool free_obj_list(game_obj_t *obj)
         tmp = obj;
         obj = obj->next;
         if (tmp)
-            free_obj(tmp);
+            free_game_object(tmp);
     } while (obj);
     return (sfTrue);
 }
