@@ -18,11 +18,13 @@ SRC_GAME_OBJ		=	src/game_object/create/construct_advanced_component.c	\
 						src/game_object/free/free_game_object.c					\
 						src/game_object/template/templates.c					\
 						src/game_object/add_game_obj_to_list.c					\
+						src/game_object/apply_game_object_list_force.c			\
 						src/game_object/collision.c								\
 						src/game_object/comp_utils.c							\
 						src/game_object/draw_game_object_list.c					\
 						src/game_object/draw_game_object.c						\
 						src/game_object/expand_game_object.c					\
+						src/game_object/find_game_object_by_pos.c				\
 						src/game_object/find_game_object.c						\
 						src/game_object/set_game_object_origin.c				\
 						src/game_object/set_game_object_pos.c					\
@@ -32,10 +34,11 @@ SRC_GAME_OBJ		=	src/game_object/create/construct_advanced_component.c	\
 
 SRC_GAMELOOP		=	src/my_rpg.c											\
 
-SRC_SCENE			= 	src/scene/battle/draw.c									\
-						src/scene/battle/init.c									\
+SRC_SCENE			= 	src/scene/battle/init/init.c							\
+						src/scene/battle/update/buoyancy_force.c				\
+						src/scene/battle/update/update_boats.c					\
+						src/scene/battle/draw.c									\
 						src/scene/battle/loop.c									\
-						src/scene/battle/update_boats.c							\
 						src/scene/menu/init.c									\
 						src/scene/menu/loop.c									\
 						src/scene/save_chooser/init.c							\

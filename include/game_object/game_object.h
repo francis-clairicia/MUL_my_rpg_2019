@@ -181,6 +181,16 @@ void expand_game_object_left(list_t **list, float offset);
 //-Both object have mass 0 or FLT MAX mass
 sfBool game_object_aabb_collision(game_obj_t *obj1, game_obj_t *obj2);
 
+//Appply force to all game object in list
+void apply_game_object_list_force(list_t *list, sfVector2f force);
+
+//Returns the game object in the list which has the lowest/highest x/y
+//Returns NULL in case of error
+game_obj_t *find_game_object_highest_y(list_t *list);
+game_obj_t *find_game_object_lowest_x(list_t *list);
+game_obj_t *find_game_object_highest_x(list_t *list);
+game_obj_t *find_game_object_lowest_y(list_t *list);
+
 //Finds a component with the given type and set new given value.
 sfBool set_comp_int(game_obj_t *obj, prop_t type, int nb);
 sfBool set_comp_float(game_obj_t *obj, prop_t type, float nb);

@@ -37,6 +37,6 @@ void friction_force(rigid_body_t *body, float intensity);
 
 sfBool collision_sat(rigid_body_t *body1, rigid_body_t *body2);
 
-void update_body(rigid_body_t *body);
+void update_body(rigid_body_t *body, float dtime);
 
 #endif /* !PHYSIC_ENGINE_H_ */

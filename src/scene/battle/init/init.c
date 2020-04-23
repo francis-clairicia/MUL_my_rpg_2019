@@ -30,12 +30,14 @@ static sfBool init_ally_boat(player_t *player, battle_t *battle)
 
 static sfBool init_water(tool_t *tool, battle_t *battle)
 {
+    game_obj_t *obj = NULL;
+
     battle->water = my_list(1, create_game_obj(WATER2));
     if (!(battle->water))
         return (sfFalse);
-    set_game_object_pos(NODE_DATA(battle->water, game_obj_t *),
-                                        VEC2F(0, tool->size.y));
-    expand_game_object_right(&(battle->water), 500);
+    obj = NODE_DATA(battle->water, game_obj_t *);
+    set_game_object_pos(obj, VEC2F(0, tool->size.y - obj->origin[0].y));
+    expand_game_object_right(&(battle->water), tool->size.x);
     return (sfTrue);
 }
 

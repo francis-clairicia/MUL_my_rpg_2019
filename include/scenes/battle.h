@@ -28,6 +28,8 @@ list_t *load_boat_from_file(char const *file);
 
 void draw_battle(tool_t *tool, battle_t battle);
 
-void update_boats(list_t *list);
+void update_boats(tool_t *tool, list_t *list);
+
+void buoyancy_boat_water(list_t *boat, list_t *water);
 
 #endif /* !BATTLE_H_ */

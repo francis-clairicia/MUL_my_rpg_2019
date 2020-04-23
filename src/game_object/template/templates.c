@@ -146,13 +146,13 @@ const game_obj_constructor_t constructor_list[] = {
     {
         .path = "assets/img/water2.png",
         .frame_nb = (unsigned int[]){
-                    12
+                    1
                     },
         .origin = (sfVector2f[]){
-                    {256, 64}
+                    {64, 64}
                     },
         .view_box = (sfIntRect[]){
-                    {0, 0, 512, 128}
+                    {0, 0, 128, 128}
                     },
         .state_nb = 1,
         .mass = __FLT_MAX__,
@@ -187,7 +187,7 @@ const game_obj_constructor_t constructor_list[] = {
                     {0, 0, 32, 32}
                     },
         .state_nb = 1,
-        .mass = __FLT_MAX__,
+        .mass = 690,
         .has_comp = false
     },
     [WOOD1_LEFT_TRIANGLE] =
@@ -203,7 +203,7 @@ const game_obj_constructor_t constructor_list[] = {
                     {0, 32, 32, 32}
                     },
         .state_nb = 1,
-        .mass = __FLT_MAX__,
+        .mass = 690,
         .has_comp = false
     },
     [WOOD1_RIGHT_TRIANGLE] =
@@ -219,7 +219,7 @@ const game_obj_constructor_t constructor_list[] = {
                     {32, 32, 32, 32}
                     },
         .state_nb = 1,
-        .mass = __FLT_MAX__,
+        .mass = 690,
         .has_comp = false
     },
     [WOOD2_RECT] =

@@ -15,7 +15,9 @@ sfVector2f vec_norm(sfVector2f vec1)
     sfVector2f res;
     float mag = vec_mag(vec1);
 
-    res.x = vec1.x / mag;
-    res.y = vec1.y / mag;
+    if (mag) {
+        res.x = vec1.x / mag;
+        res.y = vec1.y / mag;
+    }
     return (res);
 }
