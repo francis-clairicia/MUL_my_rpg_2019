@@ -24,6 +24,9 @@ typedef struct battle_s
 } battle_t;
 
 sfBool init_battle(tool_t *tool, battle_t *battle);
+
+void update_battle(tool_t *tool, battle_t *battle);
+
 list_t *load_boat_from_file(char const *file);
 
 void draw_battle(tool_t *tool, battle_t battle);

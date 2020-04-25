@@ -16,27 +16,31 @@ SRC_GAME_OBJ		=	src/game_object/create/construct_advanced_component.c	\
 						src/game_object/create/set_advanced_component.c			\
 						src/game_object/create/set_basic_component.c			\
 						src/game_object/free/free_game_object.c					\
+						src/game_object/list_utils/body_list_utils.c			\
+						src/game_object/list_utils/draw_list.c					\
+						src/game_object/list_utils/expand.c						\
+						src/game_object/list_utils/find_by_pos.c				\
+						src/game_object/list_utils/game_object_list_utils.c		\
 						src/game_object/template/templates.c					\
-						src/game_object/add_game_obj_to_list.c					\
-						src/game_object/apply_game_object_list_force.c			\
 						src/game_object/collision.c								\
 						src/game_object/comp_utils.c							\
-						src/game_object/draw_game_object_list.c					\
-						src/game_object/draw_game_object.c						\
-						src/game_object/expand_game_object.c					\
-						src/game_object/find_game_object_by_pos.c				\
-						src/game_object/find_game_object.c						\
-						src/game_object/set_game_object_origin.c				\
-						src/game_object/set_game_object_pos.c					\
-						src/game_object/set_game_object_scale.c					\
-						src/game_object/update_game_object.c					\
+						src/game_object/draw.c									\
+						src/game_object/find.c									\
+						src/game_object/set_origin.c							\
+						src/game_object/set_pos.c								\
+						src/game_object/set_scale.c								\
 						src/game_object/update_state.c							\
+						src/game_object/update.c								\
 
 SRC_GAMELOOP		=	src/my_rpg.c											\
 
-SRC_SCENE			= 	src/scene/battle/init/init.c							\
+SRC_SCENE			= 	src/scene/battle/init/init_background.c					\
+						src/scene/battle/init/init_boat.c						\
+						src/scene/battle/init/init_water.c						\
+						src/scene/battle/init/init.c							\
 						src/scene/battle/update/buoyancy_force.c				\
 						src/scene/battle/update/update_boats.c					\
+						src/scene/battle/update/update.c						\
 						src/scene/battle/draw.c									\
 						src/scene/battle/loop.c									\
 						src/scene/menu/init.c									\
@@ -86,6 +90,7 @@ override CPPFLAGS	+=	-I./include/											\
 						-I./include/game_object/								\
 						-I./include/calculation/								\
 						-I./include/scenes/										\
+						-I./include/scenes/battle								\
 						-I./include/pirates/									\
 
 MY_LIBS				=	-lmy -lcsfml

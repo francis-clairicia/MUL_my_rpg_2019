@@ -109,12 +109,6 @@ void free_game_object(game_obj_t *obj);
 //Returns sfFalse otherwise.
 sfBool free_all_comp(game_obj_t *obj);
 
-//Adds a new uninitialized game_object to a game_object linked list.
-//
-//Returns sfTrue if the operation was a success.
-//Returns sfFalse otherwise.
-sfBool add_game_obj_to_list(game_obj_t **list, const elem_t element);
-
 //Returns a pointer towards a looked-for game_object in a game_object linked
 //list.
 //
@@ -181,8 +175,13 @@ void expand_game_object_left(list_t **list, float offset);
 //-Both object have mass 0 or FLT MAX mass
 sfBool game_object_aabb_collision(game_obj_t *obj1, game_obj_t *obj2);
 
-//Appply force to all game object in list
-void apply_game_object_list_force(list_t *list, sfVector2f force);
+//Use func passed as parameter for all game object in list with vec2f
+void game_object_list_vec2f(list_t *list,
+                            void (*vec2f_func)(game_obj_t *, sfVector2f),
+                            sfVector2f vec);
+void body_list_vec2f(list_t *list,
+                            void (*vec2f_func)(rigid_body_t *, sfVector2f),
+                            sfVector2f vec);
 
 //Returns the game object in the list which has the lowest/highest x/y
 //Returns NULL in case of error

@@ -63,5 +63,5 @@ void buoyancy_boat_water(list_t *boat, list_t *water)
     if (depth <= 0 || boat_width <= 0)
         return ;
     buoyancy = vec_mult(buoyancy, boat_density * depth * boat_width);
-    apply_game_object_list_force(boat, buoyancy);
+    body_list_vec2f(boat, apply_force, buoyancy);
 }
