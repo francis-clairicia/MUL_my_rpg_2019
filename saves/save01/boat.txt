@@ -1,27 +1,19 @@
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-L                 R
- L               R
-  LXXXXXXXXXXXXXR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     L                 R
+      L               R
+       LXXXXXXXXXXXXXR

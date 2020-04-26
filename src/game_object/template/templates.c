@@ -188,7 +188,7 @@ const game_obj_constructor_t constructor_list[] = {
                     },
         .state_nb = 1,
         .mass = 690,
-        .has_comp = false
+        .has_comp = true
     },
     [WOOD1_LEFT_TRIANGLE] =
     {
@@ -204,7 +204,7 @@ const game_obj_constructor_t constructor_list[] = {
                     },
         .state_nb = 1,
         .mass = 690,
-        .has_comp = false
+        .has_comp = true
     },
     [WOOD1_RIGHT_TRIANGLE] =
     {
@@ -220,7 +220,7 @@ const game_obj_constructor_t constructor_list[] = {
                     },
         .state_nb = 1,
         .mass = 690,
-        .has_comp = false
+        .has_comp = true
     },
     [WOOD2_RECT] =
     {
@@ -236,7 +236,7 @@ const game_obj_constructor_t constructor_list[] = {
                     },
         .state_nb = 1,
         .mass = __FLT_MAX__,
-        .has_comp = false
+        .has_comp = true
     },
     [WOOD2_LEFT_TRIANGLE] =
     {
@@ -252,7 +252,7 @@ const game_obj_constructor_t constructor_list[] = {
                     },
         .state_nb = 1,
         .mass = __FLT_MAX__,
-        .has_comp = false
+        .has_comp = true
     },
     [WOOD2_RIGHT_TRIANGLE] =
     {
@@ -268,7 +268,7 @@ const game_obj_constructor_t constructor_list[] = {
                     },
         .state_nb = 1,
         .mass = __FLT_MAX__,
-        .has_comp = false
+        .has_comp = true
     },
     [FENCE] =
     {
@@ -453,24 +453,74 @@ const comp_constructor_t *comp_constructor_list[] = {
             .storage_type = TYPE_END
         }
     },
-    [FLORIAN] =
+    [WOOD1_RECT] =
     (comp_constructor_t[]){
         {
-            .storage_type = TYPE_CLOCK,
-            .type = CLOCK
-        },
-        {
             .storage_type = TYPE_VECTOR_2F,
-            .type = OFFSET,
-            .data = (sfVector2f [1]){{10, 10}},
+            .type = SIZE,
+            .data = (sfVector2f [1]){{0, 0}},
             .data2 = NULL
         },
         {
-            .storage_type = TYPE_SOUND,
-            .type = SOUND,
-            .data = "insert_path",
-            .data2 = (int [1]){10}
-            },
+            .storage_type = TYPE_END
+        }
+    },
+    [WOOD1_LEFT_TRIANGLE] =
+    (comp_constructor_t[]){
+        {
+            .storage_type = TYPE_VECTOR_2F,
+            .type = SIZE,
+            .data = (sfVector2f [1]){{0, 0}},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_END
+        }
+    },
+    [WOOD1_RIGHT_TRIANGLE] =
+    (comp_constructor_t[]){
+        {
+            .storage_type = TYPE_VECTOR_2F,
+            .type = SIZE,
+            .data = (sfVector2f [1]){{0, 0}},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_END
+        }
+    },
+    [WOOD2_RECT] =
+    (comp_constructor_t[]){
+        {
+            .storage_type = TYPE_VECTOR_2F,
+            .type = SIZE,
+            .data = (sfVector2f [1]){{0, 0}},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_END
+        }
+    },
+    [WOOD2_LEFT_TRIANGLE] =
+    (comp_constructor_t[]){
+        {
+            .storage_type = TYPE_VECTOR_2F,
+            .type = SIZE,
+            .data = (sfVector2f [1]){{0, 0}},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_END
+        }
+    },
+    [WOOD2_RIGHT_TRIANGLE] =
+    (comp_constructor_t[]){
+        {
+            .storage_type = TYPE_VECTOR_2F,
+            .type = SIZE,
+            .data = (sfVector2f [1]){{0, 0}},
+            .data2 = NULL
+        },
         {
             .storage_type = TYPE_END
         }

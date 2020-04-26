@@ -14,3 +14,14 @@ void set_game_object_origin(game_obj_t *obj, sfVector2f origin)
     obj->origin[obj->state] = origin;
     update_sprite(obj);
 }
+
+void set_game_object_origin_ptr(game_obj_t *obj, void *data)
+{
+    sfVector2f origin;
+
+    if (!obj || !data)
+        return ;
+    origin = *(sfVector2f *)data;
+    obj->origin[obj->state] = origin;
+    update_sprite(obj);
+}

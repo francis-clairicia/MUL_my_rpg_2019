@@ -31,9 +31,16 @@ typedef struct rigid_body_s
 void update_obb(rigid_body_t *body);
 
 void apply_force(rigid_body_t *body, sfVector2f force);
+void apply_force_ptr(rigid_body_t *body, void *data);
+
 void body_add_acc(rigid_body_t *body, sfVector2f vec);
-void traction_force(rigid_body_t *body);
+void body_add_acc_ptr(rigid_body_t *body, void *data);
+
+void traction_force(rigid_body_t *body, float intensity);
+void traction_force_ptr(rigid_body_t *body, void *data);
+
 void friction_force(rigid_body_t *body, float intensity);
+void friction_force_ptr(rigid_body_t *body, void *data);
 
 sfBool collision_sat(rigid_body_t *body1, rigid_body_t *body2);
 

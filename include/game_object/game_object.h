@@ -128,19 +128,24 @@ bool has_comp(game_obj_t *obj, const prop_t type);
 
 //Sets game object'sprite position and update sprite
 void set_game_object_pos(game_obj_t *obj, sfVector2f pos);
+void set_game_object_pos_ptr(game_obj_t *obj, void *data);
 
 //Sets game object'sprite origin and update sprite
 void set_game_object_origin(game_obj_t *obj, sfVector2f origin);
+void set_game_object_origin_ptr(game_obj_t *obj, void *data);
 
 //Sets game object'sprite scale
 void set_game_object_scale(game_obj_t *obj, sfVector2f scale);
+void set_game_object_scale_ptr(game_obj_t *obj, void *data);
 
 //Sets the X frame of a game object.
 void set_game_object_frame(game_obj_t *obj, unsigned int frame);
+void set_game_object_frame_ptr(game_obj_t *obj, void *data);
 
 //Animates game object having CLOCK component with a given
 //lapse of time in ms between each frame.
 void anime_game_object(game_obj_t *obj, const int lapse);
+void anime_game_object_ptr(game_obj_t *obj, void *data);
 
 // Draws the game object on a Window
 void draw_game_object(sfRenderWindow *window, game_obj_t *obj);
@@ -160,6 +165,7 @@ void update_sprite(game_obj_t *obj);
 //Returns true if no error
 //Returns false if error
 sfBool update_game_object_state(game_obj_t *obj, unsigned int state);
+sfBool update_game_object_state_ptr(game_obj_t *obj, void *data);
 
 //Expands list horizontaly if last node's position is higher than offset
 void expand_game_object_right(list_t **list, float offset);
@@ -175,13 +181,13 @@ void expand_game_object_left(list_t **list, float offset);
 //-Both object have mass 0 or FLT MAX mass
 sfBool game_object_aabb_collision(game_obj_t *obj1, game_obj_t *obj2);
 
-//Use func passed as parameter for all game object in list with vec2f
-void game_object_list_vec2f(list_t *list,
-                            void (*vec2f_func)(game_obj_t *, sfVector2f),
-                            sfVector2f vec);
-void body_list_vec2f(list_t *list,
-                            void (*vec2f_func)(rigid_body_t *, sfVector2f),
-                            sfVector2f vec);
+//Use func passed as parameter for all game object in list
+void game_object_list(list_t *list,
+                        void (*func)(game_obj_t *, void *),
+                        void *data);
+void body_list(list_t *list,
+                void (*func)(rigid_body_t *, void *),
+                void *data);
 
 //Returns the game object in the list which has the lowest/highest x/y
 //Returns NULL in case of error

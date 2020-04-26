@@ -39,6 +39,7 @@ SRC_SCENE			= 	src/scene/battle/init/init_background.c					\
 						src/scene/battle/init/init_water.c						\
 						src/scene/battle/init/init.c							\
 						src/scene/battle/update/buoyancy_force.c				\
+						src/scene/battle/update/update_boat_param.c				\
 						src/scene/battle/update/update_boats.c					\
 						src/scene/battle/update/update.c						\
 						src/scene/battle/draw.c									\
@@ -63,7 +64,9 @@ SRC_VECTOR_ENGINE 	=	src/vector_engine/min_max.c								\
 						src/vector_engine/vec_norm.c							\
 						src/vector_engine/vec_normal.c							\
 
-SRC_PHYSIC_ENGINE	=	src/physic_engine/apply_force.c							\
+SRC_PHYSIC_ENGINE	=	src/physic_engine/force/apply_force.c					\
+						src/physic_engine/force/friction_force.c				\
+						src/physic_engine/force/traction_force.c				\
 						src/physic_engine/body_add_acc.c						\
 						src/physic_engine/sat_collision.c						\
 						src/physic_engine/update_obb.c							\

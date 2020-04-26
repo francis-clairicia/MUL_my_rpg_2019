@@ -7,16 +7,16 @@
 
 #include "game_object.h"
 
-void game_object_list_vec2f(list_t *list,
-                            void (*vec2f_func)(game_obj_t *, sfVector2f),
-                            sfVector2f vec)
+void game_object_list(list_t *list,
+                            void (*func)(game_obj_t *, void *),
+                            void *data)
 {
     game_obj_t *tmp = NULL;
 
-    if (!vec2f_func || !list)
+    if (!func || !list || !data)
         return ;
     for (; list && list->data; list = list->next) {
         tmp = NODE_DATA(list, game_obj_t *);
-        (*vec2f_func)(tmp, vec);
+        func(tmp, data);
     }
 }

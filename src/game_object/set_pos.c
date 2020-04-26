@@ -14,3 +14,14 @@ void set_game_object_pos(game_obj_t *obj, sfVector2f pos)
     obj->body.pos = pos;
     update_sprite(obj);
 }
+
+void set_game_object_pos_ptr(game_obj_t *obj, void *data)
+{
+    sfVector2f pos;
+
+    if (!obj || !data)
+        return ;
+    pos = *(sfVector2f *)data;
+    obj->body.pos = pos;
+    update_sprite(obj);
+}

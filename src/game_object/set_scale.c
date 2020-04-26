@@ -13,3 +13,13 @@ void set_game_object_scale(game_obj_t *obj, sfVector2f scale)
         return ;
     sfSprite_setScale(obj->sprite, scale);
 }
+
+void set_game_object_scale_ptr(game_obj_t *obj, void *data)
+{
+    sfVector2f scale;
+
+    if (!obj || !data)
+        return ;
+    scale = *(sfVector2f *)data;
+    sfSprite_setScale(obj->sprite, scale);
+}

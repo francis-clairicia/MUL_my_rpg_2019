@@ -15,3 +15,15 @@ sfBool update_game_object_state(game_obj_t *obj, unsigned int state)
     sfSprite_setOrigin(obj->sprite, obj->origin[state]);
     return (sfTrue);
 }
+
+sfBool update_game_object_state_ptr(game_obj_t *obj, void *data)
+{
+    unsigned int state = 0;
+
+    if (!obj || !data)
+        return (sfFalse);
+    state = *(unsigned int *)data;
+    obj->state = state;
+    sfSprite_setOrigin(obj->sprite, obj->origin[state]);
+    return (sfTrue);
+}

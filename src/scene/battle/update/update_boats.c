@@ -9,9 +9,12 @@
 
 void update_boats(tool_t *tool, list_t *list)
 {
+    rigid_body_t *body = NULL;
+
     for (; list && list->data; list = list->next) {
-        body_add_acc(&(NODE_DATA(list, game_obj_t *)->body), VEC2F(0, 98));
-        friction_force(&(NODE_DATA(list, game_obj_t *)->body), 10000);
-        update_body(&(NODE_DATA(list, game_obj_t *)->body), tool->dtime);
+        body = &(NODE_DATA(list, game_obj_t *)->body);
+        body_add_acc(body, VEC2F(0, 9.8));
+        friction_force(body, 1000);
+        update_body(body, tool->dtime);
     }
 }

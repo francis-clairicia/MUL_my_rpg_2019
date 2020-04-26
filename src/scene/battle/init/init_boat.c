@@ -17,6 +17,7 @@ static sfBool init_ally_boat(player_t *player, battle_t *battle)
         return (sfFalse);
     free(boat_path);
     battle->player = player;
+    update_boat_size(player->boat_bg);
     return (sfTrue);
 }
 
