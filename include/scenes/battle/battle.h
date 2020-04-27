@@ -15,8 +15,7 @@
 typedef struct battle_s
 {
     player_t *player;
-    list_t *ennemy_boat_fg;
-    list_t *ennemy_boat_bg;
+    list_t *ennemy_boat;
     list_t *ennemy_crew;
     list_t *water;
     game_obj_t *background;

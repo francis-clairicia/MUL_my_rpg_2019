@@ -10,6 +10,6 @@
 
 void update_battle(tool_t *tool, battle_t *battle)
 {
-    update_boats(tool, battle->player->boat_bg);
-    buoyancy_boat_water(battle->player->boat_bg, battle->water);
+    update_boats(tool, battle->player->boat);
+    buoyancy_boat_water(battle->player->boat, battle->water);
 }

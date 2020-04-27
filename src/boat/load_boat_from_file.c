@@ -17,6 +17,8 @@ static boat_config_t config_table[] = {
     {"WOOD2_RECT", 0, WOOD2_RECT},
     {"WOOD2_LEFT_TRIANGLE", 0, WOOD2_LEFT_TRIANGLE},
     {"WOOD2_RIGHT_TRIANGLE", 0, WOOD2_RIGHT_TRIANGLE},
+    {"TILLER", 0, TILLER},
+    {"FENCE", 0, FENCE},
     {NULL, 0, -1}
 };
 

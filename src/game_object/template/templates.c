@@ -235,7 +235,7 @@ const game_obj_constructor_t constructor_list[] = {
                     {0, 0, 32, 32}
                     },
         .state_nb = 1,
-        .mass = __FLT_MAX__,
+        .mass = 690,
         .has_comp = true
     },
     [WOOD2_LEFT_TRIANGLE] =
@@ -251,7 +251,7 @@ const game_obj_constructor_t constructor_list[] = {
                     {0, 32, 32, 32}
                     },
         .state_nb = 1,
-        .mass = __FLT_MAX__,
+        .mass = 690,
         .has_comp = true
     },
     [WOOD2_RIGHT_TRIANGLE] =
@@ -267,7 +267,7 @@ const game_obj_constructor_t constructor_list[] = {
                     {32, 32, 32, 32}
                     },
         .state_nb = 1,
-        .mass = __FLT_MAX__,
+        .mass = 690,
         .has_comp = true
     },
     [FENCE] =
@@ -283,7 +283,7 @@ const game_obj_constructor_t constructor_list[] = {
                     {0, 0, 32, 32}
                     },
         .state_nb = 1,
-        .mass = __FLT_MAX__,
+        .mass = 690,
         .has_comp = false
     },
     [LADDER] =
@@ -299,12 +299,12 @@ const game_obj_constructor_t constructor_list[] = {
                     {0, 0, 32, 32}
                     },
         .state_nb = 1,
-        .mass = __FLT_MAX__,
+        .mass = 690,
         .has_comp = false
     },
     [CLOUD1] =
     {
-        .path = "insert_path",
+        .path = "assets/img/cloud.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -320,7 +320,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [CLOUD2] =
     {
-        .path = "insert_path",
+        .path = "assets/img/cloud.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -336,7 +336,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [CLOUD3] =
     {
-        .path = "insert_path",
+        .path = "assets/img/cloud.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -352,7 +352,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [CLOUD4] =
     {
-        .path = "insert_path",
+        .path = "assets/img/cloud.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -368,7 +368,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [CLOUD5] =
     {
-        .path = "insert_path",
+        .path = "assets/img/cloud.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -384,7 +384,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [CLOUD6] =
     {
-        .path = "insert_path",
+        .path = "assets/img/cloud.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -400,7 +400,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [CLOUD7] =
     {
-        .path = "insert_path",
+        .path = "assets/img/cloud.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -416,7 +416,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [CLOUD8] =
     {
-        .path = "insert_path",
+        .path = "assets/img/cloud.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -429,7 +429,23 @@ const game_obj_constructor_t constructor_list[] = {
         .state_nb = 1,
         .mass = __FLT_MAX__,
         .has_comp = false
-    }
+    },
+    [TILLER] =
+    {
+        .path = "assets/img/tiller.png",
+        .frame_nb = (unsigned int[]){
+                    1
+                    },
+        .origin = (sfVector2f[]){
+                    {16, 16}
+                    },
+        .view_box = (sfIntRect[]){
+                    {0, 0, 32, 32}
+                    },
+        .state_nb = 1,
+        .mass = 690,
+        .has_comp = false
+    },
 };
 
 const comp_constructor_t *comp_constructor_list[] = {

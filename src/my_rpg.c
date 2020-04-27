@@ -27,6 +27,8 @@ sfBool init_window(tool_t *tools)
     if (!init_menu(&(tools->menu)) || !init_save_chooser(&tools->chooser))
         return (sfFalse);
     update_tool(tools);
+    if (!init_control(&tools->player))
+        return (sfFalse);
     return (sfTrue);
 }
 

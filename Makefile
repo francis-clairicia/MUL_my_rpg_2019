@@ -28,7 +28,7 @@ SRC_GAME_OBJ		=	src/game_object/create/construct_advanced_component.c	\
 						src/game_object/comp_utils.c							\
 						src/game_object/draw.c									\
 						src/game_object/find.c									\
-						src/game_object/set_frame.c							\
+						src/game_object/set_frame.c								\
 						src/game_object/set_origin.c							\
 						src/game_object/set_pos.c								\
 						src/game_object/set_scale.c								\
@@ -80,6 +80,9 @@ SRC_MATH_PROCESS	=	src/math_process/get_randnb.c							\
 
 SRC_BOAT			=	src/boat/load_boat_from_file.c
 
+SRC_CONTROL			=	src/control/init_control.c								\
+						src/control/template.c									\
+
 SRC					=	$(MAIN)													\
 						$(SRC_GAME_OBJ)											\
 						$(SRC_INPUT_HANDLING)									\
@@ -89,6 +92,7 @@ SRC					=	$(MAIN)													\
 						$(SRC_GAMELOOP)											\
 						$(SRC_SCENE)											\
 						$(SRC_BOAT)												\
+						$(SRC_CONTROL)											\
 
 override CFLAGS		+=	-Wall -Wextra
 
