@@ -22,10 +22,13 @@ SRC_GAME_OBJ		=	src/game_object/create/construct_advanced_component.c	\
 						src/game_object/list_utils/find_by_pos.c				\
 						src/game_object/list_utils/game_object_list_utils.c		\
 						src/game_object/template/templates.c					\
+						src/game_object/add_pos.c								\
+						src/game_object/animate.c								\
 						src/game_object/collision.c								\
 						src/game_object/comp_utils.c							\
 						src/game_object/draw.c									\
 						src/game_object/find.c									\
+						src/game_object/set_frame.c							\
 						src/game_object/set_origin.c							\
 						src/game_object/set_pos.c								\
 						src/game_object/set_scale.c								\

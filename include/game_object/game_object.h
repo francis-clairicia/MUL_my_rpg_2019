@@ -130,6 +130,10 @@ bool has_comp(game_obj_t *obj, const prop_t type);
 void set_game_object_pos(game_obj_t *obj, sfVector2f pos);
 void set_game_object_pos_ptr(game_obj_t *obj, void *data);
 
+//Add pos to game object'sprite position and update sprite
+void add_game_object_pos(game_obj_t *obj, sfVector2f pos);
+void add_game_object_pos_ptr(game_obj_t *obj, void *data);
+
 //Sets game object'sprite origin and update sprite
 void set_game_object_origin(game_obj_t *obj, sfVector2f origin);
 void set_game_object_origin_ptr(game_obj_t *obj, void *data);
