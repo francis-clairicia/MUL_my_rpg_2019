@@ -27,8 +27,9 @@ void update_battle_player(tool_t *tool, battle_t *battle)
 
     for (; player_list && player_list->data; player_list = player_list->next) {
         pirate = NODE_DATA(player_list, game_obj_t *);
-        body_add_acc(&(pirate->body), VEC2F(0, 9.8));
+        body_add_acc(&(pirate->body), VEC2F(0, GRAVITY));
         pirate_collide_boat(pirate, tool->player.boat);
+        control_player(tool->player.control, pirate);
         update_body(&(pirate->body), tool->dtime);
     }
 }

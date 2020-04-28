@@ -38,4 +38,6 @@ void update_battle_player(tool_t *tool, battle_t *battle);
 
 void buoyancy_boat_water(list_t *boat, list_t *water);
 
+void control_player(control_t control, game_obj_t *pirate);
+
 #endif /* !BATTLE_H_ */
