@@ -24,6 +24,4 @@ typedef struct control_s
     sfKeyCode keys[5];
 } control_t;
 
-extern control_t control_template;
-
 #endif /* !CONTROL_H_ */

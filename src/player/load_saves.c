@@ -19,9 +19,9 @@ static void create_config_file(char const *config)
     close(fd);
 }
 
-static bool load_one_save(save_t *save, char const *folder)
+bool load_one_save(save_t *save, char const *folder)
 {
-    char *config = join_path(folder, "save.conf");
+    char *config = join_path(folder, CONFIG_SAVE_FILE);
     char *line = NULL;
     int fd = 0;
 
