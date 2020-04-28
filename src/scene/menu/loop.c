@@ -10,6 +10,7 @@
 
 static const int button_scenes[][2] = {
     {MENU_PLAY, SAVE_CHOOSE},
+    {MENU_SETT, SETTINGS},
     {MENU_QUIT, NO_SCENE}
 };
 
@@ -33,6 +34,8 @@ static int check_event(tool_t *tools, int state)
         if (tools->event.type == sfEvtClosed)
             return (NO_SCENE);
         state = button_event(menu->buttons, tools->event, state);
+        if (state == SETTINGS)
+            state = launch_settings(tools, state);
     }
     return (state);
 }
@@ -48,12 +51,12 @@ static void draw_menu(sfRenderWindow *window, menu_t *menu)
 
 scene_t launch_menu(tool_t *tool, scene_t state)
 {
-    while (state == MENU) {
+    while (state == MENU || state == SETTINGS) {
         sfRenderWindow_clear(tool->window, sfBlack);
         update_tool(tool);
         draw_menu(tool->window, &tool->menu);
-        sfRenderWindow_display(tool->window);
         state = check_event(tool, state);
+        sfRenderWindow_display(tool->window);
     }
     return (state);
 }

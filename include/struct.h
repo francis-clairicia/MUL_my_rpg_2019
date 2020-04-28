@@ -121,7 +121,6 @@ void decrement_pos(float *pos, float offset, int max_value, int reset);
 int random_value(int modulo);
 
 /* clock.c */
-
 int elapsed_time(float milliseconds, sfClock *clock);
 
 #endif /* !PROTO_H_ */

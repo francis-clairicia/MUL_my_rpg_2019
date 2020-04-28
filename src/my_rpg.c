@@ -18,6 +18,8 @@ static sfBool init_scene(tool_t *tools)
 {
     if (!init_menu(&(tools->menu)) || !init_save_chooser(&tools->chooser))
         return (sfFalse);
+    if (!init_settings(&(tools->settings)))
+        return (sfFalse);
     return (sfTrue);
 }
 
@@ -51,7 +53,7 @@ static void destroy_window(tool_t *tools)
 int my_rpg(void)
 {
     tool_t tools;
-    scene_t state = BATTLE;
+    scene_t state = MENU;
 
     if (!init_window(&tools))
         return (84);

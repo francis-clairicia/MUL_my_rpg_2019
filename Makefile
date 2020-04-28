@@ -51,6 +51,8 @@ SRC_SCENE			= 	src/scene/battle/init/init_background.c					\
 						src/scene/battle/loop.c									\
 						src/scene/menu/init.c									\
 						src/scene/menu/loop.c									\
+						src/scene/settings/init.c								\
+						src/scene/settings/loop.c								\
 						src/scene/save_chooser/init.c							\
 						src/scene/save_chooser/loop.c
 

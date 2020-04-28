@@ -10,7 +10,7 @@
 
 static button_t init_menu_button(char const *message, sfVector2f pos)
 {
-    text_t text = init_text(message, FONT_FOLDER "skull.ttf", 100);
+    text_t text = init_text(message, FONT_FOLDER "skull.ttf", 120);
     sfColor default_color = sfColor_fromRGB(33, 170, 217);
     sfColor hover_color = sfColor_fromRGB(0, 220, 255);
     sfColor active_color = sfColor_fromRGB(100, 100, 100);
@@ -26,7 +26,7 @@ static button_t init_menu_button(char const *message, sfVector2f pos)
 sfBool init_menu(menu_t *menu)
 {
     int x = 400;
-    int y = 400;
+    int y = 300;
 
     if (menu == NULL)
         return (sfFalse);
@@ -35,7 +35,8 @@ sfBool init_menu(menu_t *menu)
         return (sfFalse);
     menu->nb_buttons = sizeof(menu->buttons) / sizeof(menu->buttons[0]);
     menu->buttons[MENU_PLAY] = init_menu_button("Play", VEC2F(x, y));
-    menu->buttons[MENU_QUIT] = init_menu_button("Quit", VEC2F(x, y + 200));
+    menu->buttons[MENU_SETT] = init_menu_button("Settings", VEC2F(x, y + 200));
+    menu->buttons[MENU_QUIT] = init_menu_button("Quit", VEC2F(x, y + 400));
     return (sfTrue);
 }
 
