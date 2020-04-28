@@ -115,7 +115,7 @@ sfBool free_all_comp(game_obj_t *obj);
 //
 //Returns a pointer towards the game_object if it has been found.
 //Returns a NULL pointer otherwise.
-game_obj_t *find_game_object(game_obj_t *list, const elem_t type);
+game_obj_t *find_game_object(list_t *list, elem_t type);
 
 //Finds a component thanks to the given type and
 //returns the index relative to his game object array position's.

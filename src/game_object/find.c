@@ -7,11 +7,16 @@
 
 #include "game_object.h"
 
-game_obj_t *find_game_object(game_obj_t *list, elem_t type)
+game_obj_t *find_game_object(list_t *list, elem_t type)
 {
-    game_obj_t *tmp = list;
+    game_obj_t *obj = NULL;
 
-    while (tmp && tmp->type != type)
-        tmp = tmp->next;
-    return (tmp);
+    if (!list)
+        return (NULL);
+    for (; list && list->data; list = list->next) {
+        obj = NODE_DATA(list, game_obj_t *);
+        if (obj->type == type)
+            return (obj);
+    }
+    return (NULL);
 }

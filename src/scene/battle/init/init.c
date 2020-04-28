@@ -16,6 +16,8 @@ sfBool init_battle(tool_t *tool, battle_t *battle)
         return (sfFalse);
     if (!init_battle_boat(&(tool->player), battle))
         return (sfFalse);
+    if (!init_battle_player(&(tool->player)))
+        return (sfFalse);
     if (!init_battle_background(battle))
         return (sfFalse);
     return (sfTrue);

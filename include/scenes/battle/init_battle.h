@@ -10,8 +10,9 @@
 
 #include "battle.h"
 
-sfBool init_battle_boat(player_t *player, battle_t *battle);
-sfBool init_battle_background(battle_t *battle);
 sfBool init_battle_water(tool_t *tool, battle_t *battle);
+sfBool init_battle_boat(player_t *player, battle_t *battle);
+sfBool init_battle_player(player_t *player);
+sfBool init_battle_background(battle_t *battle);
 
 #endif /* !INIT_BATTLE_H_ */

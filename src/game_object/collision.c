@@ -26,26 +26,18 @@ static sfBool game_object_special_collision_solving(game_obj_t *obj1,
 static sfBool game_object_collision_solving(game_obj_t *obj1,
                                                 game_obj_t *obj2)
 {
-    sfFloatRect rect1 = sfSprite_getGlobalBounds(obj1->sprite);
-    sfFloatRect rect2 = sfSprite_getGlobalBounds(obj2->sprite);
-    sfVector2f mid1 = VEC2F(rect1.left + (rect1.width / 2),
-                            rect1.top + (rect1.height / 2));
-    sfVector2f mid2 = VEC2F(rect2.left + (rect2.width / 2),
-                            rect2.top + (rect2.height / 2));
-    sfVector2f diff = VEC2F(mid2.x - mid1.x, mid2.y - mid1.y);
-    sfVector2f dpth = VEC2F(((rect1.width / 2) + (rect2.width / 2)) - diff.x,
-                            ((rect1.height / 2) + (rect2.height / 2)) - diff.y);
+    sfVector2f rv = vec_sub(obj2->body.vel, obj1->body.vel);
+    float rv_magn = vec_mag(rv);
+    float j = 0;
+    sfVector2f impulse;
+    sfVector2f normal = vec_norm(rv);
 
-    if (obj1->body.mass == 0 && obj2->body.mass == 0)
-        return (sfFalse);
-    dpth = vec_mult(dpth, 0.0005);
-    if (obj1->body.mass == __FLT_MAX__ || obj2->body.mass == __FLT_MAX__)
-        return (game_object_special_collision_solving(obj1, obj2, dpth));
-    obj1->body.acc = vec_add(obj1->body.acc, vec_mult(dpth, obj2->body.mass /
-                                        (obj1->body.mass + obj2->body.mass)));
-    obj2->body.acc = vec_add(obj2->body.acc, vec_mult(dpth, -(obj1->body.mass /
-                                        (obj1->body.mass + obj2->body.mass))));
-    return (true);
+    j = -(1 + 0.8) * rv_magn;
+    j /= (1 / obj1->body.mass) + (1 / obj2->body.mass);
+    impulse = vec_mult(normal, j);
+    obj1->body.vel = vec_sub(obj1->body.vel,
+            vec_mult(impulse, 1 / obj1->body.mass));
+    return (sfTrue);
 }
 
 sfBool game_object_aabb_collision(game_obj_t *obj1, game_obj_t *obj2)

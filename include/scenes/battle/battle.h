@@ -34,6 +34,8 @@ void draw_battle(tool_t *tool, battle_t battle);
 
 void update_boats(tool_t *tool, list_t *list);
 
+void update_battle_player(tool_t *tool, battle_t *battle);
+
 void buoyancy_boat_water(list_t *boat, list_t *water);
 
 #endif /* !BATTLE_H_ */

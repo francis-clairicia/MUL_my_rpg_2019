@@ -39,11 +39,13 @@ SRC_GAMELOOP		=	src/my_rpg.c											\
 
 SRC_SCENE			= 	src/scene/battle/init/init_background.c					\
 						src/scene/battle/init/init_boat.c						\
+						src/scene/battle/init/init_player.c						\
 						src/scene/battle/init/init_water.c						\
 						src/scene/battle/init/init.c							\
 						src/scene/battle/update/buoyancy_force.c				\
 						src/scene/battle/update/update_boat_param.c				\
 						src/scene/battle/update/update_boats.c					\
+						src/scene/battle/update/update_player.c					\
 						src/scene/battle/update/update.c						\
 						src/scene/battle/draw.c									\
 						src/scene/battle/loop.c									\

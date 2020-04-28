@@ -47,4 +47,5 @@ void buoyancy_boat_water(list_t *boat, list_t *water)
         return ;
     buoyancy = vec_mult(buoyancy, depth * boat_width);
     body_list(boat, apply_force_ptr, &buoyancy);
+    body_list(boat, friction_force_ptr, (float[1]){10000});
 }

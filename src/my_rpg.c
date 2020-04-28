@@ -14,7 +14,14 @@ static const scene_loop_t scene_launcher[] = {
     [BATTLE] = &launch_battle
 };
 
-sfBool init_window(tool_t *tools)
+static sfBool init_scene(tool_t *tools)
+{
+    if (!init_menu(&(tools->menu)) || !init_save_chooser(&tools->chooser))
+        return (sfFalse);
+    return (sfTrue);
+}
+
+static sfBool init_window(tool_t *tools)
 {
     tools->window = create_window(1920, 1080, 32, "My_RPG");
     if (!(tools->window))
@@ -23,16 +30,17 @@ sfBool init_window(tool_t *tools)
     tools->clock = sfClock_create();
     if (!(tools->view) || !(tools->clock))
         return (sfFalse);
+    my_memset(&(tools->player), 0, sizeof(player_t));
     init_mouse_tool(tools);
-    if (!init_menu(&(tools->menu)) || !init_save_chooser(&tools->chooser))
-        return (sfFalse);
     update_tool(tools);
+    if (!init_scene(tools))
+        return (sfFalse);
     if (!init_control(&tools->player))
         return (sfFalse);
     return (sfTrue);
 }
 
-void destroy_window(tool_t *tools)
+static void destroy_window(tool_t *tools)
 {
     destroy_menu(&tools->menu);
     destroy_save_chooser(&tools->chooser);
