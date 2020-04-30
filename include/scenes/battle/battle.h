@@ -38,6 +38,9 @@ void update_battle_player(tool_t *tool, battle_t *battle);
 
 void buoyancy_boat_water(list_t *boat, list_t *water);
 
-void control_player(control_t control, game_obj_t *pirate);
+void control_player(game_obj_t *pirate, list_t *boat_list,
+                                        control_t control);
 
+sfBool pirate_collision_solving(rigid_body_t *b1, rigid_body_t *b2,
+                                                            float overlap);
 #endif /* !BATTLE_H_ */

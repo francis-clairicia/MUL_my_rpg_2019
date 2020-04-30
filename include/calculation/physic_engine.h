@@ -11,7 +11,7 @@
 #include <math.h>
 #include "vector_engine.h"
 
-#define GRAVITY (0.00098)
+#define GRAVITY (0.98)
 
 #define RAD(degree) (degree * (M_PI / 180))
 #define DEG(radian) (radian * (180 / M_PI))
@@ -25,6 +25,7 @@ typedef struct rigid_body_s
     float torque;
     sfVector2f size;
     sfVector2f pos;
+    sfVector2f center;
     sfVector2f vel;
     sfVector2f acc;
     sfVector2f obb[4];
@@ -44,7 +45,8 @@ void traction_force_ptr(rigid_body_t *body, void *data);
 void friction_force(rigid_body_t *body, float intensity);
 void friction_force_ptr(rigid_body_t *body, void *data);
 
-sfBool collision_sat(rigid_body_t *body1, rigid_body_t *body2);
+sfBool collision_sat(rigid_body_t *body1, rigid_body_t *body2,
+                sfBool (*res_func)(rigid_body_t *, rigid_body_t *, float));
 
 void update_body(rigid_body_t *body, float dtime);
 

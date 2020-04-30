@@ -7,33 +7,40 @@
 
 MAIN				=	src/main.c
 
-SRC_GAME_OBJ		=	src/game_object/create/construct_advanced_component.c	\
-						src/game_object/create/construct_basic_component.c		\
-						src/game_object/create/create_game_object.c				\
-						src/game_object/create/init_component.c					\
-						src/game_object/create/init_game_object_core.c			\
-						src/game_object/create/init_game_object.c				\
-						src/game_object/create/set_advanced_component.c			\
-						src/game_object/create/set_basic_component.c			\
-						src/game_object/free/free_game_object.c					\
-						src/game_object/list_utils/body_list_utils.c			\
-						src/game_object/list_utils/draw_list.c					\
-						src/game_object/list_utils/expand.c						\
-						src/game_object/list_utils/find_by_pos.c				\
-						src/game_object/list_utils/game_object_list_utils.c		\
-						src/game_object/template/templates.c					\
-						src/game_object/add_pos.c								\
-						src/game_object/animate.c								\
-						src/game_object/collision.c								\
-						src/game_object/comp_utils.c							\
-						src/game_object/draw.c									\
-						src/game_object/find.c									\
-						src/game_object/set_frame.c								\
-						src/game_object/set_origin.c							\
-						src/game_object/set_pos.c								\
-						src/game_object/set_scale.c								\
-						src/game_object/update_state.c							\
-						src/game_object/update.c								\
+SRC_GAME_OBJ		=	src/game_object/create/init_component/construct_advanced_component.c	\
+						src/game_object/create/init_component/construct_basic_component.c		\
+						src/game_object/create/init_component/init_component.c					\
+						src/game_object/create/init_component/set_advanced_component.c			\
+						src/game_object/create/init_component/set_basic_component.c				\
+						src/game_object/create/create_game_object.c								\
+						src/game_object/create/init_core/set_frame_nb.c							\
+						src/game_object/create/init_core/set_lapse.c							\
+						src/game_object/create/init_core/set_origin.c							\
+						src/game_object/create/init_core/set_sprite.c							\
+						src/game_object/create/init_core/set_texture.c							\
+						src/game_object/create/init_core/set_view_box.c							\
+						src/game_object/create/init_game_object.c								\
+						src/game_object/free/free_game_object.c									\
+						src/game_object/list_utils/body_list_utils.c							\
+						src/game_object/list_utils/draw_list.c									\
+						src/game_object/list_utils/expand.c										\
+						src/game_object/list_utils/find_by_pos.c								\
+						src/game_object/list_utils/game_object_list_utils.c						\
+						src/game_object/template/templates.c									\
+						src/game_object/add_pos.c												\
+						src/game_object/animate.c												\
+						src/game_object/collision.c												\
+						src/game_object/comp_utils.c											\
+						src/game_object/draw.c													\
+						src/game_object/find.c													\
+						src/game_object/get_center.c											\
+						src/game_object/set_frame.c												\
+						src/game_object/set_origin.c											\
+						src/game_object/set_pos.c												\
+						src/game_object/set_scale.c												\
+						src/game_object/update_center.c											\
+						src/game_object/update_state.c											\
+						src/game_object/update.c												\
 
 SRC_GAMELOOP		=	src/my_rpg.c											\
 
@@ -43,7 +50,8 @@ SRC_SCENE			= 	src/scene/battle/init/init_background.c					\
 						src/scene/battle/init/init_water.c						\
 						src/scene/battle/init/init.c							\
 						src/scene/battle/update/buoyancy_force.c				\
-						src/scene/battle/update/control_player.c				\
+						src/scene/battle/update/pirate_collision_solving.c		\
+						src/scene/battle/update/player_control.c				\
 						src/scene/battle/update/update_boat_param.c				\
 						src/scene/battle/update/update_boats.c					\
 						src/scene/battle/update/update_player.c					\
@@ -61,8 +69,7 @@ SRC_INPUT_HANDLING	=	src/input_handling/mouse_input.c
 
 SRC_UPDATE_WINDOW 	=	src/update_window/update_tool.c
 
-SRC_VECTOR_ENGINE 	=	src/vector_engine/min_max.c								\
-						src/vector_engine/vec_basic.c							\
+SRC_VECTOR_ENGINE 	=	src/vector_engine/vec_basic.c							\
 						src/vector_engine/vec_cross.c							\
 						src/vector_engine/vec_dot.c								\
 						src/vector_engine/vec_lim.c								\

@@ -16,7 +16,7 @@ static void set_battle_player_pos(player_t *player, list_t *boat_list)
     if (!boat_obj)
         boat_obj = NODE_DATA(boat_list, game_obj_t *);
     pos = boat_obj->body.pos;
-    pos = vec_add(pos, VEC2F(128, -10));
+    pos = vec_add(pos, VEC2F(10, -10));
     set_game_object_pos(pirate, pos);
 }
 

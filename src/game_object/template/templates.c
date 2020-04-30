@@ -16,6 +16,11 @@ const game_obj_constructor_t constructor_list[] = {
                     10,
                     6
                     },
+        .lapse = (unsigned int[]){
+                    100,
+                    100,
+                    100
+                    },
         .origin = (sfVector2f[]){
                     {42, 60},
                     {50, 60},
@@ -36,6 +41,7 @@ const game_obj_constructor_t constructor_list[] = {
         .frame_nb = (unsigned int[]){
                     4,
                     },
+        .lapse = NULL,
         .origin = (sfVector2f[]){
                     {32, 32}
                     },
@@ -52,6 +58,7 @@ const game_obj_constructor_t constructor_list[] = {
         .frame_nb = (unsigned int[]){
                     4
                     },
+        .lapse = NULL,
         .origin = (sfVector2f[]){
                     {0, 0}
                     },
@@ -68,6 +75,7 @@ const game_obj_constructor_t constructor_list[] = {
         .frame_nb = (unsigned int[]){
                     4
                     },
+        .lapse = NULL,
         .origin = (sfVector2f[]){
                     {0, 0}
                     },
@@ -84,6 +92,7 @@ const game_obj_constructor_t constructor_list[] = {
         .frame_nb = (unsigned int[]){
                     4
                     },
+        .lapse = NULL,
         .origin = (sfVector2f[]){
                     {0, 0}
                     },
@@ -100,6 +109,7 @@ const game_obj_constructor_t constructor_list[] = {
         .frame_nb = (unsigned int[]){
                     4
                     },
+        .lapse = NULL,
         .origin = (sfVector2f[]){
                     {0, 0}
                     },
@@ -116,6 +126,7 @@ const game_obj_constructor_t constructor_list[] = {
         .frame_nb = (unsigned int[]){
                     1
                     },
+        .lapse = NULL,
         .origin = (sfVector2f[]){
                     {0, 0}
                     },
@@ -131,6 +142,9 @@ const game_obj_constructor_t constructor_list[] = {
         .path = "assets/img/water.png",
         .frame_nb = (unsigned int[]){
                     4
+                    },
+        .lapse = (unsigned int[]){
+                    100,
                     },
         .origin = (sfVector2f[]){
                     {16, 16}
@@ -148,6 +162,9 @@ const game_obj_constructor_t constructor_list[] = {
         .frame_nb = (unsigned int[]){
                     1
                     },
+        .lapse = (unsigned int[]){
+                    100
+                    },
         .origin = (sfVector2f[]){
                     {64, 64}
                     },
@@ -163,6 +180,9 @@ const game_obj_constructor_t constructor_list[] = {
         .path = "assets/img/rain.png",
         .frame_nb = (unsigned int[]){
                     22
+                    },
+        .lapse = (unsigned int[]){
+                    100
                     },
         .origin = (sfVector2f[]){
                     {0, 0}
@@ -180,6 +200,7 @@ const game_obj_constructor_t constructor_list[] = {
         .frame_nb = (unsigned int[]){
                     1
                     },
+        .lapse = NULL,
         .origin = (sfVector2f[]){
                     {16, 16}
                     },
@@ -196,6 +217,7 @@ const game_obj_constructor_t constructor_list[] = {
         .frame_nb = (unsigned int[]){
                     1
                     },
+        .lapse = NULL,
         .origin = (sfVector2f[]){
                     {16, 16}
                     },
@@ -212,6 +234,7 @@ const game_obj_constructor_t constructor_list[] = {
         .frame_nb = (unsigned int[]){
                     1
                     },
+        .lapse = NULL,
         .origin = (sfVector2f[]){
                     {16, 16}
                     },
@@ -228,6 +251,7 @@ const game_obj_constructor_t constructor_list[] = {
         .frame_nb = (unsigned int[]){
                     1
                     },
+        .lapse = NULL,
         .origin = (sfVector2f[]){
                     {16, 16}
                     },
@@ -244,6 +268,7 @@ const game_obj_constructor_t constructor_list[] = {
         .frame_nb = (unsigned int[]){
                     1
                     },
+        .lapse = NULL,
         .origin = (sfVector2f[]){
                     {16, 16}
                     },
@@ -260,6 +285,7 @@ const game_obj_constructor_t constructor_list[] = {
         .frame_nb = (unsigned int[]){
                     1
                     },
+        .lapse = NULL,
         .origin = (sfVector2f[]){
                     {16, 16}
                     },
@@ -276,6 +302,7 @@ const game_obj_constructor_t constructor_list[] = {
         .frame_nb = (unsigned int[]){
                     1
                     },
+        .lapse = NULL,
         .origin = (sfVector2f[]){
                     {16, 16}
                     },
@@ -292,6 +319,7 @@ const game_obj_constructor_t constructor_list[] = {
         .frame_nb = (unsigned int[]){
                     1
                     },
+        .lapse = NULL,
         .origin = (sfVector2f[]){
                     {16, 16}
                     },
@@ -308,6 +336,7 @@ const game_obj_constructor_t constructor_list[] = {
         .frame_nb = (unsigned int[]){
                     1
                     },
+        .lapse = NULL,
         .origin = (sfVector2f[]){
                     {0, 0}
                     },
@@ -324,6 +353,7 @@ const game_obj_constructor_t constructor_list[] = {
         .frame_nb = (unsigned int[]){
                     1
                     },
+        .lapse = NULL,
         .origin = (sfVector2f[]){
                     {0, 0}
                     },
@@ -340,6 +370,7 @@ const game_obj_constructor_t constructor_list[] = {
         .frame_nb = (unsigned int[]){
                     1
                     },
+        .lapse = NULL,
         .origin = (sfVector2f[]){
                     {0, 0}
                     },
@@ -356,6 +387,7 @@ const game_obj_constructor_t constructor_list[] = {
         .frame_nb = (unsigned int[]){
                     1
                     },
+        .lapse = NULL,
         .origin = (sfVector2f[]){
                     {0, 0}
                     },
@@ -372,6 +404,7 @@ const game_obj_constructor_t constructor_list[] = {
         .frame_nb = (unsigned int[]){
                     1
                     },
+        .lapse = NULL,
         .origin = (sfVector2f[]){
                     {0, 0}
                     },
@@ -388,6 +421,7 @@ const game_obj_constructor_t constructor_list[] = {
         .frame_nb = (unsigned int[]){
                     1
                     },
+        .lapse = NULL,
         .origin = (sfVector2f[]){
                     {0, 0}
                     },
@@ -404,6 +438,7 @@ const game_obj_constructor_t constructor_list[] = {
         .frame_nb = (unsigned int[]){
                     1
                     },
+        .lapse = NULL,
         .origin = (sfVector2f[]){
                     {0, 0}
                     },
@@ -420,6 +455,7 @@ const game_obj_constructor_t constructor_list[] = {
         .frame_nb = (unsigned int[]){
                     1
                     },
+        .lapse = NULL,
         .origin = (sfVector2f[]){
                     {0, 0}
                     },
@@ -436,6 +472,7 @@ const game_obj_constructor_t constructor_list[] = {
         .frame_nb = (unsigned int[]){
                     1
                     },
+        .lapse = NULL,
         .origin = (sfVector2f[]){
                     {16, 16}
                     },
@@ -454,6 +491,12 @@ const comp_constructor_t *comp_constructor_list[] = {
         {
             .storage_type = TYPE_CLOCK,
             .type = CLOCK
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = IS_DRIVING,
+            .data = (int[1]){0},
+            .data2 = NULL
         },
         {
             .storage_type = TYPE_END

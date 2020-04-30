@@ -61,7 +61,8 @@ typedef enum properties_e {
     POS,
     TEXT,
     BOOL,
-    SIZE
+    SIZE,
+    IS_DRIVING
 } prop_t;
 
 typedef struct component_s {
@@ -81,9 +82,10 @@ typedef struct game_obj {
     component_t **comp;
     unsigned int comp_nb;
     rigid_body_t body;
+    unsigned int *frame_nb;
+    unsigned int *lapse;
     sfVector2f *origin;
     sfIntRect *view_box;
-    unsigned int *frame_nb;
     unsigned int state;
     sfFloatRect hitbox;
     sfTexture *texture;
@@ -158,6 +160,10 @@ void draw_game_object(sfRenderWindow *window, game_obj_t *obj);
 //Draws every game object in list (from mylist.h)
 void draw_game_object_list(sfRenderWindow *window, list_t *list);
 
+//Returns the center of a given game object considering
+//the hitbox, the pos and the origin of the actual state
+sfVector2f get_game_objet_center(game_obj_t *obj);
+
 //Updates the hitbox of a game object considering his pos and his size.
 //Hitbox will be relative to world's coord, not window'scoords.
 void update_hitbox(game_obj_t *obj);
@@ -172,19 +178,29 @@ void update_sprite(game_obj_t *obj);
 sfBool update_game_object_state(game_obj_t *obj, unsigned int state);
 sfBool update_game_object_state_ptr(game_obj_t *obj, void *data);
 
+void update_game_object_center(game_obj_t *obj);
+
 //Expands list horizontaly if last node's position is higher than offset
 void expand_game_object_right(list_t **list, float offset);
 
 //Expands list horizontaly if first node's position is lower than offset
 void expand_game_object_left(list_t **list, float offset);
 
-//Detect and solve a collision between two game objects
+//Detects and solves a collision between two game objects
 //Returns true if collision is detected and resolved
 //Returns false is the following case :
 //-Bad parameters
 //-No collision
 //-Both object have mass 0 or FLT MAX mass
-sfBool game_object_aabb_collision(game_obj_t *obj1, game_obj_t *obj2);
+//Apply the function given as parameter if there is a collision
+sfBool game_object_collision(game_obj_t *obj1, game_obj_t *obj2,
+                                sfBool (*res_func)
+                                (rigid_body_t *, rigid_body_t *, float));
+
+//Detects a AABB collision between 2 game object
+//Returns true if collision is detected
+//Returns false in any other cases
+sfBool is_game_object_collision(game_obj_t *obj1, game_obj_t *obj2);
 
 //Use func passed as parameter for all game object in list
 void game_object_list(list_t *list,

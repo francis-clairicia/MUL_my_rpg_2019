@@ -28,8 +28,8 @@ void update_obb(rigid_body_t *body)
                                                             body->angle);
     body->obb[3] = rotate_pt(VEC2F(body->size.x / 2, -(body->size.y / 2)),
                                                             body->angle);
-    body->obb[0] = vec_add(body->obb[0], body->pos);
-    body->obb[1] = vec_add(body->obb[1], body->pos);
-    body->obb[2] = vec_add(body->obb[2], body->pos);
-    body->obb[3] = vec_add(body->obb[3], body->pos);
+    body->obb[0] = vec_add(body->obb[0], body->center);
+    body->obb[1] = vec_add(body->obb[1], body->center);
+    body->obb[2] = vec_add(body->obb[2], body->center);
+    body->obb[3] = vec_add(body->obb[3], body->center);
 }

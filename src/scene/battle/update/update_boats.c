@@ -13,7 +13,7 @@ void update_boats(tool_t *tool, list_t *list)
 
     for (; list && list->data; list = list->next) {
         body = &(NODE_DATA(list, game_obj_t *)->body);
-        body_add_acc(body, VEC2F(0, GRAVITY));
+        friction_force(body, 100);
         update_body(body, tool->dtime);
     }
 }
