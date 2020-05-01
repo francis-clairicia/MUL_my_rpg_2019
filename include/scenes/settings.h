@@ -13,18 +13,17 @@
 typedef struct settings_s
 {
     sfRectangleShape *box;
-    button_t **buttons;
-    sfVector2f pos;
-    sfVector2f size;
+    button_t buttons[5];
+    int nb_buttons;
     text_t title;
 }settings_t;
 
 enum SETTINGS_BUTTONS {
-    RESUME,
-    VOlUME_UP,
     VOLUME_DOWN,
+    VOLUME_UP,
     SAVE,
-    QUIT
+    BACK_MENU,
+    CLOSE
 };
 
 /* Settings */

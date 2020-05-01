@@ -21,8 +21,12 @@ static int check_event(tool_t *tools, int state)
 
 static void draw_settings(sfRenderWindow *window, settings_t *settings)
 {
+    int i = 0;
+
     sfRenderWindow_drawRectangleShape(window, settings->box, NULL);
-    // sfRenderWindow_drawText(window, settings->title.object, NULL);
+    sfRenderWindow_drawText(window, settings->title.object, NULL);
+    for (i = 0; i < settings->nb_buttons; i += 1)
+        draw_button(settings->buttons[i], window);
 }
 
 scene_t launch_settings(tool_t *tools, scene_t state)
