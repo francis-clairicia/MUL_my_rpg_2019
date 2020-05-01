@@ -57,5 +57,6 @@ void update_battle_player(tool_t *tool, battle_t *battle)
     body_add_acc(&(pirate->body), VEC2F(0, GRAVITY));
     control_player(pirate, tool->player.boat, tool->player.control);
     pirate_boat_interact(tool, tool->player.boat);
+    friction_force(&(pirate->body), 10);
     update_body(&(pirate->body), tool->dtime);
 }
