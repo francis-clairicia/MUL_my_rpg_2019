@@ -8,8 +8,10 @@
 #include "rpg.h"
 #include "battle.h"
 
-void update_battle(tool_t *tool, battle_t *battle)
+void update_battle(tool_t *tool, battle_t *battle, scene_t *state)
 {
     update_boats(tool, battle->player->boat);
     update_battle_player(tool, battle);
+    if (sfKeyboard_isKeyPressed(sfKeyEscape))
+        *state = MENU;
 }

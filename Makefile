@@ -44,7 +44,12 @@ SRC_GAME_OBJ		=	src/game_object/create/init_component/construct_advanced_compone
 
 SRC_GAMELOOP		=	src/my_rpg.c											\
 
-SRC_SCENE			= 	src/scene/battle/init/init_background.c					\
+SRC_SCENE			= 	src/scene/battle/destroy/destroy_background.c			\
+						src/scene/battle/destroy/destroy_ennemy.c				\
+						src/scene/battle/destroy/destroy_water.c				\
+						src/scene/battle/destroy/destroy_weather.c				\
+						src/scene/battle/destroy/destroy.c						\
+						src/scene/battle/init/init_background.c					\
 						src/scene/battle/init/init_boat.c						\
 						src/scene/battle/init/init_player.c						\
 						src/scene/battle/init/init_water.c						\

@@ -12,6 +12,7 @@ sfBool init_battle(tool_t *tool, battle_t *battle)
 {
     if (!battle)
         return (sfFalse);
+    my_memset(battle, 0, sizeof(battle_t));
     if (!init_battle_water(tool, battle))
         return (sfFalse);
     if (!init_battle_boat(&(tool->player), battle))

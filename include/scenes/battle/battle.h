@@ -23,10 +23,11 @@ typedef struct battle_s
 } battle_t;
 
 sfBool init_battle(tool_t *tool, battle_t *battle);
+void destroy_battle(battle_t *battle);
 
 void update_boat_size(list_t *boat);
 
-void update_battle(tool_t *tool, battle_t *battle);
+void update_battle(tool_t *tool, battle_t *battle, scene_t *state);
 
 list_t *load_boat_from_file(char const *file);
 
