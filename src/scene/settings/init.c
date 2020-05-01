@@ -22,25 +22,27 @@ static button_t init_settings_button(char const *message, sfVector2f pos, int si
     return (button);
 }
 
-static sfRectangleShape *create_box(void)
+static void create_box(sfRectangleShape *box, text_t *title)
 {
-    sfRectangleShape *box = sfRectangleShape_create();
     sfVector2f pos = init_vector2f(500, 200);
+    sfVector2f pos_txt = init_vector2f(pos.x / 2 - 100, 210);
     sfVector2f size = init_vector2f(1000, 800);
 
+    box = sfRectangleShape_create();
     sfRectangleShape_setFillColor(box, init_color(0, 31, 139, 255));
     sfRectangleShape_setOutlineColor(box, init_color(9, 214, 248, 255));
     sfRectangleShape_setPosition(box, pos);
     sfRectangleShape_setSize(box, size);
-    return (box);
+    // *title = init_text("SETTINGS", FONT_FOLDER "skull.ttf", 200);
+    // sfText_setPosition(title->object, pos_txt);
 }
 
 sfBool init_settings(settings_t *settings) 
 {
     if (settings == NULL)
         return (sfFalse);
-    settings->box = create_box();
-    if (!settings->box)
+    create_box(settings->box, &settings->title);
+    if (!settings->box || !settings->title.object)
         return (sfFalse);
     return (sfTrue);
 }
@@ -48,4 +50,5 @@ sfBool init_settings(settings_t *settings)
 void destroy_settings(settings_t *settings)
 {
     sfRectangleShape_destroy(settings->box);
+    // destroy_text(settings->title);
 }

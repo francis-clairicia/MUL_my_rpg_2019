@@ -16,6 +16,7 @@ typedef struct settings_s
     button_t **buttons;
     sfVector2f pos;
     sfVector2f size;
+    text_t title;
 }settings_t;
 
 enum SETTINGS_BUTTONS {
@@ -28,5 +29,6 @@ enum SETTINGS_BUTTONS {
 
 /* Settings */
 sfBool init_settings(settings_t *settings);
+void destroy_settings(settings_t *settings);
 
 #endif /* !SETTINGS_H_ */
