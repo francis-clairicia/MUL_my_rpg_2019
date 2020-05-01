@@ -13,6 +13,7 @@
 #include "menu.h"
 #include "save_chooser.h"
 #include "player.h"
+#include "settings.h"
 
 typedef struct mouse_tool_s {
     sfVector2f win_pos;
@@ -42,6 +43,7 @@ typedef struct tool_s {
     mouse_tool_t mouse_tool;
     // Scenes structures
     menu_t menu;
+    settings_t settings;
     save_chooser_t chooser;
     //Gameplay tools
     player_t player;
