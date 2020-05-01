@@ -8,8 +8,8 @@
 #ifndef BATTLE_H_
 #define BATTLE_H_
 
+#include "rpg.h"
 #include "game_object.h"
-#include "tools.h"
 #include "boat.h"
 
 typedef struct battle_s

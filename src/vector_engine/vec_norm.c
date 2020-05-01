@@ -12,7 +12,7 @@ float vec_mag(sfVector2f vec1);
 
 sfVector2f vec_norm(sfVector2f vec1)
 {
-    sfVector2f res;
+    sfVector2f res = {0, 0};
     float mag = vec_mag(vec1);
 
     if (mag) {

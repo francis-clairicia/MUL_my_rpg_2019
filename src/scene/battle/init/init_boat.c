@@ -40,7 +40,8 @@ static sfBool init_ally_boat(player_t *player, battle_t *battle)
 
 sfBool init_battle_boat(player_t *player, battle_t *battle)
 {
-    if (!init_ally_boat(player, battle))
+    if (!player->boat &&
+        !init_ally_boat(player, battle))
         return (sfFalse);
     return (sfTrue);
 }

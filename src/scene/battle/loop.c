@@ -5,7 +5,6 @@
 ** loop
 */
 
-#include "rpg.h"
 #include "battle.h"
 
 scene_t launch_battle(tool_t *tool, scene_t state)
