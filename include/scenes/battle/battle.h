@@ -43,4 +43,6 @@ void control_player(game_obj_t *pirate, list_t *boat_list,
 
 sfBool pirate_collision_solving(rigid_body_t *b1, rigid_body_t *b2,
                                                             float overlap);
+void pirate_boat_interact(tool_t *tool, list_t *boat_list);
+
 #endif /* !BATTLE_H_ */

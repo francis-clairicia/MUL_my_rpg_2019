@@ -51,6 +51,7 @@ SRC_SCENE			= 	src/scene/battle/init/init_background.c					\
 						src/scene/battle/init/init.c							\
 						src/scene/battle/update/buoyancy_force.c				\
 						src/scene/battle/update/pirate_collision_solving.c		\
+						src/scene/battle/update/player_boat_interact.c			\
 						src/scene/battle/update/player_control.c				\
 						src/scene/battle/update/update_boat_param.c				\
 						src/scene/battle/update/update_boats.c					\
