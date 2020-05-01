@@ -5,7 +5,7 @@
 ** update_player
 */
 
-#include "battle.h"
+#include "update_battle.h"
 
 void update_battle_player(tool_t *tool, battle_t *battle)
 {

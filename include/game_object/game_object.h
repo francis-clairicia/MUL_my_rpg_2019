@@ -62,7 +62,8 @@ typedef enum properties_e {
     TEXT,
     BOOL,
     SIZE,
-    IS_DRIVING
+    IS_DRIVING,
+    CAN_JUMP
 } prop_t;
 
 typedef struct component_s {

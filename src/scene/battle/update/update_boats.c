@@ -7,7 +7,7 @@
 
 #include "battle.h"
 
-void update_boats(tool_t *tool, list_t *list)
+void update_battle_boats(tool_t *tool, list_t *list)
 {
     rigid_body_t *body = NULL;
 

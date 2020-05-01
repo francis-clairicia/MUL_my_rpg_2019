@@ -8,6 +8,8 @@
 #include "battle.h"
 #include "my.h"
 
+void update_boat_size(list_t *boat);
+
 static void set_ally_boat_pos(player_t *player, list_t *water_list)
 {
     game_obj_t *water = NODE_DATA(water_list, game_obj_t *);

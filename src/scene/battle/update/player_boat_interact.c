@@ -5,7 +5,7 @@
 ** player_boat_interact
 */
 
-#include "battle.h"
+#include "update_battle.h"
 
 void player_boat_collision(game_obj_t *pirate, game_obj_t *boat)
 {
@@ -14,7 +14,8 @@ void player_boat_collision(game_obj_t *pirate, game_obj_t *boat)
     if (boat->type < WOOD1_RECT ||
         boat->type > WOOD1_RIGHT_TRIANGLE)
         return ;
-    game_object_collision(pirate, boat, pirate_collision_solving);
+    if (game_object_collision(pirate, boat, pirate_collision_solving))
+        pirate->comp[find_comp(pirate, CAN_JUMP)]->i = 1;
 }
 
 void player_control_boat(game_obj_t *pirate, game_obj_t *boat,

@@ -17,6 +17,11 @@ static void player_control_player(game_obj_t *pirate, control_t control)
         apply_force(&(pirate->body), VEC2F(1000, 0));
     } else
         update_game_object_state(pirate, 0);
+    if (sfKeyboard_isKeyPressed(control.keys[CONTROL_UP]) &&
+        pirate->comp[find_comp(pirate, CAN_JUMP)]->i) {
+        apply_force(&(pirate->body), VEC2F(0, -100000));
+        pirate->comp[find_comp(pirate, CAN_JUMP)]->i = 0;
+        }
 }
 
 static void player_control_ship(list_t *boat_list, control_t control)
