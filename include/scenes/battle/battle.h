@@ -8,8 +8,8 @@
 #ifndef BATTLE_H_
 #define BATTLE_H_
 
+#include "rpg.h"
 #include "game_object.h"
-#include "tools.h"
 #include "boat.h"
 
 typedef struct battle_s
@@ -23,10 +23,11 @@ typedef struct battle_s
 } battle_t;
 
 sfBool init_battle(tool_t *tool, battle_t *battle);
+void destroy_battle(battle_t *battle);
 
 void update_boat_size(list_t *boat);
 
-void update_battle(tool_t *tool, battle_t *battle);
+void update_battle(tool_t *tool, battle_t *battle, scene_t *state);
 
 list_t *load_boat_from_file(char const *file);
 
@@ -37,5 +38,12 @@ void update_boats(tool_t *tool, list_t *list);
 void update_battle_player(tool_t *tool, battle_t *battle);
 
 void buoyancy_boat_water(list_t *boat, list_t *water);
+
+void control_player(game_obj_t *pirate, list_t *boat_list,
+                                        control_t control);
+
+sfBool pirate_collision_solving(rigid_body_t *b1, rigid_body_t *b2,
+                                                            float overlap);
+void pirate_boat_interact(tool_t *tool, list_t *boat_list);
 
 #endif /* !BATTLE_H_ */

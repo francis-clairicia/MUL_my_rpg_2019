@@ -20,7 +20,7 @@ static void set_ally_boat_pos(player_t *player, list_t *water_list)
     pos = vec_mult(boat->body.pos, -1);
     size = boat->comp[find_comp(boat, SIZE)]->v2f;
     game_object_list(player->boat, add_game_object_pos_ptr, &pos);
-    pos = VEC2F(0, water->body.pos.y - size.y - 65);
+    pos = VEC2F(0, water->body.pos.y - size.y - 50);
     game_object_list(player->boat, add_game_object_pos_ptr, &pos);
 }
 
@@ -40,7 +40,8 @@ static sfBool init_ally_boat(player_t *player, battle_t *battle)
 
 sfBool init_battle_boat(player_t *player, battle_t *battle)
 {
-    if (!init_ally_boat(player, battle))
+    if (!player->boat &&
+        !init_ally_boat(player, battle))
         return (sfFalse);
     return (sfTrue);
 }

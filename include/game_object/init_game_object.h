@@ -28,5 +28,6 @@ sfBool set_texture(game_obj_t *obj, char *path);
 sfBool set_view_box(game_obj_t *obj, sfIntRect *rect, size_t size);
 sfBool set_frame_nb(game_obj_t *obj, unsigned int *nb, size_t size);
 sfBool set_origin(game_obj_t *obj, sfVector2f *origin, size_t size);
+sfBool set_lapse(game_obj_t *obj, unsigned int *nb, size_t size);
 
 #endif /* !INIT_GAME_OBJECT_H_ */

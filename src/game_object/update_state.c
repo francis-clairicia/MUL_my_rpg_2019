@@ -13,6 +13,8 @@ sfBool update_game_object_state(game_obj_t *obj, unsigned int state)
         return (sfFalse);
     obj->state = state;
     sfSprite_setOrigin(obj->sprite, obj->origin[state]);
+    obj->body.size = VEC2F(obj->view_box[state].width,
+                            obj->view_box[state].height);
     return (sfTrue);
 }
 

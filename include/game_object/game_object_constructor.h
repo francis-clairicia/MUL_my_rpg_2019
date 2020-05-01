@@ -28,6 +28,7 @@ typedef struct game_object_constructor_s
 {
     char *path;
     unsigned int *frame_nb;
+    unsigned int *lapse;
     sfVector2f *origin;
     sfIntRect *view_box;
     unsigned int state_nb;

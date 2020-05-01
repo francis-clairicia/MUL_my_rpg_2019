@@ -54,7 +54,7 @@ static void destroy_window(tool_t *tools)
 int my_rpg(void)
 {
     tool_t tools;
-    scene_t state = MENU;
+    scene_t state = BATTLE;
 
     if (!init_window(&tools))
         return (84);
