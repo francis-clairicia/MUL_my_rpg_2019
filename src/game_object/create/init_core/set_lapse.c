@@ -14,8 +14,7 @@ sfBool set_lapse(game_obj_t *obj, unsigned int *nb, size_t size)
     obj->lapse = malloc(sizeof(int) * size);
     if (!(obj->lapse))
         return (sfFalse);
-    if (nb) {
-        my_memcpy(obj->lapse, nb, size);
-    }
+    if (nb)
+        my_memcpy(obj->lapse, nb, size * sizeof(unsigned int));
     return (sfTrue);
 }

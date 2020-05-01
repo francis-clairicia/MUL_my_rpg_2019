@@ -14,9 +14,11 @@ const game_obj_constructor_t constructor_list[] = {
         .frame_nb = (unsigned int[]){
                     4,
                     10,
+                    10,
                     6
                     },
         .lapse = (unsigned int[]){
+                    2000,
                     100,
                     100,
                     100
@@ -24,14 +26,16 @@ const game_obj_constructor_t constructor_list[] = {
         .origin = (sfVector2f[]){
                     {42, 60},
                     {50, 60},
-                    {55, 60},
+                    {35, 60},
+                    {55, 60}
                     },
         .view_box = (sfIntRect[]){
                     {0, 0, 69, 60},
                     {0, 60, 84, 60},
-                    {20, 20, 30, 30}
+                    {0, 120, 84, 60},
+                    {0, 180, 96, 60}
                     },
-        .state_nb = 3,
+        .state_nb = 4,
         .mass = 20,
         .has_comp = true
     },

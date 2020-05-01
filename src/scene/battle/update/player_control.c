@@ -9,10 +9,14 @@
 
 static void player_control_player(game_obj_t *pirate, control_t control)
 {
-    if (sfKeyboard_isKeyPressed(control.keys[CONTROL_LEFT]))
+    if (sfKeyboard_isKeyPressed(control.keys[CONTROL_LEFT])) {
+        update_game_object_state(pirate, 1);
         apply_force(&(pirate->body), VEC2F(-1000, 0));
-    if (sfKeyboard_isKeyPressed(control.keys[CONTROL_RIGHT]))
+    } else if (sfKeyboard_isKeyPressed(control.keys[CONTROL_RIGHT])) {
+        update_game_object_state(pirate, 2);
         apply_force(&(pirate->body), VEC2F(1000, 0));
+    } else
+        update_game_object_state(pirate, 0);
 }
 
 static void player_control_ship(list_t *boat_list, control_t control)

@@ -14,6 +14,10 @@ sfBool pirate_collision_solving(rigid_body_t *b1, rigid_body_t *b2,
     float dist = vec_mag(rel_pos);
     sfVector2f impulse = vec_div(vec_mult(rel_pos, overlap), dist);
 
+    if (impulse.x > impulse.y)
+        impulse.y = 0;
+    else
+        impulse.x = 0;
     body_add_acc(b1, vec_mult(impulse, -1));
     return (sfTrue);
 }

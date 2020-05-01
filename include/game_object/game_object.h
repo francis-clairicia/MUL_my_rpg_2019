@@ -149,10 +149,10 @@ void set_game_object_scale_ptr(game_obj_t *obj, void *data);
 void set_game_object_frame(game_obj_t *obj, unsigned int frame);
 void set_game_object_frame_ptr(game_obj_t *obj, void *data);
 
-//Animates game object having CLOCK component with a given
-//lapse of time in ms between each frame.
-void anime_game_object(game_obj_t *obj, const int lapse);
-void anime_game_object_ptr(game_obj_t *obj, void *data);
+//Animates game object having CLOCK component with a
+//lapse of time in ms between each frame given.
+void anime_game_object(game_obj_t *obj);
+void anime_game_object_ptr(game_obj_t *obj, __attribute__((unused))void *data);
 
 // Draws the game object on a Window
 void draw_game_object(sfRenderWindow *window, game_obj_t *obj);
