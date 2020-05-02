@@ -29,6 +29,7 @@ SRC_GAME_OBJ		=	src/game_object/create/init_component/construct_advanced_compone
 						src/game_object/template/templates.c									\
 						src/game_object/add_pos.c												\
 						src/game_object/animate.c												\
+						src/game_object/attack.c												\
 						src/game_object/collision.c												\
 						src/game_object/comp_utils.c											\
 						src/game_object/draw.c													\
@@ -79,6 +80,7 @@ SRC_SCENE			= 	src/scene/battle/destroy/destroy_background.c			\
 						src/scene/topdown/init/init_boat.c						\
 						src/scene/topdown/init/init_map.c						\
 						src/scene/topdown/init/init.c							\
+						src/scene/topdown/update/boat_collision.c				\
 						src/scene/topdown/update/control_boat.c					\
 						src/scene/topdown/update/update_boat.c					\
 						src/scene/topdown/update/update.c						\

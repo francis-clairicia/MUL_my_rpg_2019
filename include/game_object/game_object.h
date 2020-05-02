@@ -61,7 +61,17 @@ typedef enum properties_e {
     BOOL,
     SIZE,
     IS_DRIVING,
-    CAN_JUMP
+    CAN_JUMP,
+    CAN_ATTACK,
+    ATTACK_SPEED,
+    ATTACK_TIME,
+    CANNON_NB,
+    XP,
+    LVL,
+    LIFE,
+    INVINCIBLE,
+    INVINCIBLE_TIME,
+    DAMAGE
 } prop_t;
 
 typedef struct component_s {
@@ -208,6 +218,8 @@ void game_object_list(list_t *list,
 void body_list(list_t *list,
                 void (*func)(rigid_body_t *, void *),
                 void *data);
+
+void game_object_attack(game_obj_t *obj, void (*attack_func)(game_obj_t *));
 
 //Returns the game object in the list which has the lowest/highest x/y
 //Returns NULL in case of error

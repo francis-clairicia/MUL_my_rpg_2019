@@ -19,4 +19,6 @@ void control_boat(control_t control, game_obj_t *boat)
         boat->body.angle_vel = boat->body.angle_vel * 0.9;
         friction_force(&(boat->body), 1000);
     }
+    if (sfKeyboard_isKeyPressed(control.keys[CONTROL_USE])) {
+    }
 }

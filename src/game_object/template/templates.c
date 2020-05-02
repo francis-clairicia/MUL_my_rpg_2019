@@ -54,7 +54,7 @@ const game_obj_constructor_t constructor_list[] = {
                     },
         .state_nb = 1,
         .mass = 600,
-        .has_comp = false
+        .has_comp = true
     },
     [BOAT2] =
     {
@@ -71,7 +71,7 @@ const game_obj_constructor_t constructor_list[] = {
                     },
         .state_nb = 1,
         .mass = 600,
-        .has_comp = false
+        .has_comp = true
     },
     [BOAT3] =
     {
@@ -88,7 +88,7 @@ const game_obj_constructor_t constructor_list[] = {
                     },
         .state_nb = 1,
         .mass = 600,
-        .has_comp = false
+        .has_comp = true
     },
     [BOAT4] =
     {
@@ -105,7 +105,7 @@ const game_obj_constructor_t constructor_list[] = {
                     },
         .state_nb = 1,
         .mass = 600,
-        .has_comp = false
+        .has_comp = true
     },
     [BOAT5] =
     {
@@ -122,7 +122,7 @@ const game_obj_constructor_t constructor_list[] = {
                     },
         .state_nb = 1,
         .mass = 500,
-        .has_comp = false
+        .has_comp = true
     },
     [SKY] =
     {
@@ -544,6 +544,292 @@ const comp_constructor_t *comp_constructor_list[] = {
             .storage_type = TYPE_INT,
             .type = CAN_JUMP,
             .data = (int[1]){0},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = XP,
+            .data = (int[1]){0},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = LVL,
+            .data = (int[1]){1},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = LIFE,
+            .data = (int[1]){100},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = DAMAGE,
+            .data = (int[1]){10},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = INVINCIBLE,
+            .data = (int[1]){0},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_CLOCK,
+            .type = INVINCIBLE_TIME,
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = CAN_ATTACK,
+            .data = (int[1]){1},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_FLOAT,
+            .type = ATTACK_SPEED,
+            .data = (float[1]){1},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_CLOCK,
+            .type = ATTACK_TIME,
+        },
+        {
+            .storage_type = TYPE_END
+        }
+    },
+    [BOAT1] =
+    (comp_constructor_t[]){
+        {
+            .storage_type = TYPE_INT,
+            .type = XP,
+            .data = (int[1]){0},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = LVL,
+            .data = (int[1]){1},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = LIFE,
+            .data = (int[1]){100},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = DAMAGE,
+            .data = (int[1]){10},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = CAN_ATTACK,
+            .data = (int[1]){1},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_FLOAT,
+            .type = ATTACK_SPEED,
+            .data = (float[1]){1},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_CLOCK,
+            .type = ATTACK_TIME,
+        },
+        {
+            .storage_type = TYPE_FLOAT,
+            .type = CANNON_NB,
+            .data = (float[1]){2},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_END
+        }
+    },
+    [BOAT2] =
+    (comp_constructor_t[]){
+        {
+            .storage_type = TYPE_INT,
+            .type = LVL,
+            .data = (int[1]){1},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = LIFE,
+            .data = (int[1]){100},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = DAMAGE,
+            .data = (int[1]){10},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = CAN_ATTACK,
+            .data = (int[1]){1},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_FLOAT,
+            .type = ATTACK_SPEED,
+            .data = (float[1]){1},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_CLOCK,
+            .type = ATTACK_TIME,
+        },
+        {
+            .storage_type = TYPE_FLOAT,
+            .type = CANNON_NB,
+            .data = (float[1]){2},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_END
+        }
+    },
+    [BOAT3] =
+    (comp_constructor_t[]){
+        {
+            .storage_type = TYPE_INT,
+            .type = LVL,
+            .data = (int[1]){1},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = LIFE,
+            .data = (int[1]){100},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = DAMAGE,
+            .data = (int[1]){10},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = CAN_ATTACK,
+            .data = (int[1]){1},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_FLOAT,
+            .type = ATTACK_SPEED,
+            .data = (float[1]){1},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_CLOCK,
+            .type = ATTACK_TIME,
+        },
+        {
+            .storage_type = TYPE_FLOAT,
+            .type = CANNON_NB,
+            .data = (float[1]){2},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_END
+        }
+    },
+    [BOAT4] =
+    (comp_constructor_t[]){
+        {
+            .storage_type = TYPE_INT,
+            .type = LVL,
+            .data = (int[1]){1},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = LIFE,
+            .data = (int[1]){100},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = DAMAGE,
+            .data = (int[1]){10},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = CAN_ATTACK,
+            .data = (int[1]){1},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_FLOAT,
+            .type = ATTACK_SPEED,
+            .data = (float[1]){1},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_CLOCK,
+            .type = ATTACK_TIME,
+        },
+        {
+            .storage_type = TYPE_FLOAT,
+            .type = CANNON_NB,
+            .data = (float[1]){2},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_END
+        }
+    },
+    [BOAT5] =
+    (comp_constructor_t[]){
+        {
+            .storage_type = TYPE_INT,
+            .type = LVL,
+            .data = (int[1]){1},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = LIFE,
+            .data = (int[1]){100},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = DAMAGE,
+            .data = (int[1]){10},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = CAN_ATTACK,
+            .data = (int[1]){1},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_FLOAT,
+            .type = ATTACK_SPEED,
+            .data = (float[1]){1},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_CLOCK,
+            .type = ATTACK_TIME,
+        },
+        {
+            .storage_type = TYPE_FLOAT,
+            .type = CANNON_NB,
+            .data = (float[1]){2},
             .data2 = NULL
         },
         {

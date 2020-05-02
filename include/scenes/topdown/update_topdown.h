@@ -12,5 +12,6 @@
 
 void update_topdown_boat(tool_t *tool, topdown_t *topdown);
 void control_boat(control_t control, game_obj_t *boat);
+sfBool boat_collision(game_obj_t *boat, list_t *list);
 
 #endif /* !UPDATE_TOPDOWN_H_ */
