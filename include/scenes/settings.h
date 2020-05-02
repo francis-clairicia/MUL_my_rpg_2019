@@ -7,7 +7,7 @@
 
 #ifndef SETTINGS_H_
 #define SETTINGS_H_
- 
+
 #include "struct.h"
 
 typedef struct settings_s

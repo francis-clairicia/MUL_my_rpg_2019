@@ -40,8 +40,7 @@ static void create_box(settings_t *sett)
     sfText_setPosition(sett->title.object, pos_txt);
 }
 
-
-sfBool init_settings(settings_t *sett) 
+sfBool init_settings(settings_t *sett)
 {
     sfFloatRect rect = {0, 0, 0, 0};
     sfColor col = init_color(9, 214, 248, 255);
@@ -53,9 +52,9 @@ sfBool init_settings(settings_t *sett)
         return (sfFalse);
     rect = sfRectangleShape_getGlobalBounds(sett->box);
     sett->nb_buttons = sizeof(sett->buttons) / sizeof(sett->buttons[0]);
-    sett->buttons[VOLUME_DOWN] = init_settings_button("-", col, 
+    sett->buttons[VOLUME_DOWN] = init_settings_button("-", col,
         VEC2F(rect.left + (rect.width / 4), rect.top + 200));
-    sett->buttons[VOLUME_UP] = init_settings_button("+", col, 
+    sett->buttons[VOLUME_UP] = init_settings_button("+", col,
         VEC2F(rect.left + (rect.width / 4 * 3), rect.top + 200));
     sett->buttons[SAVE] = init_settings_button("SAVE", col,
         VEC2F(rect.left + (rect.width / 2), rect.top + rect.height / 2));
