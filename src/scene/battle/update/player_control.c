@@ -11,17 +11,17 @@ static void player_control_player(game_obj_t *pirate, control_t control)
 {
     if (sfKeyboard_isKeyPressed(control.keys[CONTROL_LEFT])) {
         update_game_object_state(pirate, 1);
-        apply_force(&(pirate->body), VEC2F(-1000, 0));
+        apply_force(&(pirate->body), VEC2F(-100, 0));
     } else if (sfKeyboard_isKeyPressed(control.keys[CONTROL_RIGHT])) {
         update_game_object_state(pirate, 2);
-        apply_force(&(pirate->body), VEC2F(1000, 0));
+        apply_force(&(pirate->body), VEC2F(100, 0));
     } else
         update_game_object_state(pirate, 0);
     if (sfKeyboard_isKeyPressed(control.keys[CONTROL_UP]) &&
         pirate->comp[find_comp(pirate, CAN_JUMP)]->i) {
-        apply_force(&(pirate->body), VEC2F(0, -100000));
+        apply_force(&(pirate->body), VEC2F(0, -10000));
         pirate->comp[find_comp(pirate, CAN_JUMP)]->i = 0;
-        }
+    }
 }
 
 static void player_control_ship(list_t *boat_list, control_t control)
@@ -46,6 +46,5 @@ void control_player(game_obj_t *pirate, list_t *boat_list,
 {
     if (pirate->comp[find_comp(pirate, IS_DRIVING)]->i)
         player_control_ship(boat_list, control);
-    else
-        player_control_player(pirate, control);
+    player_control_player(pirate, control);
 }

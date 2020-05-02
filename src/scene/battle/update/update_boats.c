@@ -5,14 +5,15 @@
 ** update_boats
 */
 
-#include "battle.h"
+#include "update_battle.h"
 
-void update_battle_boats(tool_t *tool, list_t *list)
+void update_battle_boats(tool_t *tool, battle_t *battle)
 {
     rigid_body_t *body = NULL;
+    list_t *boat = battle->player->boat;
 
-    for (; list && list->data; list = list->next) {
-        body = &(NODE_DATA(list, game_obj_t *)->body);
+    for (; boat && boat->data; boat = boat->next) {
+        body = &(NODE_DATA(boat, game_obj_t *)->body);
         friction_force(body, 100);
         update_body(body, tool->dtime);
     }

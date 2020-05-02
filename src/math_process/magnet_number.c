@@ -43,7 +43,7 @@ bool magnet_number(float *nb, const float offset,
                     const int acc, const float magnet)
 {
     if (!nb || !acc || !magnet)
-        return;
+        return (false);
     if (*nb >= 0) {
         return (magner_pos_number(nb, offset, acc, magnet));
     } else {

@@ -45,10 +45,6 @@ typedef enum element_e {
     CLOUD6,
     CLOUD7,
     CLOUD8,
-    CLOUD9,
-    CLOUD10,
-    CLOUD11,
-    CLOUD12,
     TILLER,
     NONE
 } elem_t;

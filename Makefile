@@ -45,9 +45,9 @@ SRC_GAME_OBJ		=	src/game_object/create/init_component/construct_advanced_compone
 SRC_GAMELOOP		=	src/my_rpg.c											\
 
 SRC_SCENE			= 	src/scene/battle/destroy/destroy_background.c			\
+						src/scene/battle/destroy/destroy_clouds.c				\
 						src/scene/battle/destroy/destroy_ennemy.c				\
 						src/scene/battle/destroy/destroy_water.c				\
-						src/scene/battle/destroy/destroy_weather.c				\
 						src/scene/battle/destroy/destroy.c						\
 						src/scene/battle/init/init_background.c					\
 						src/scene/battle/init/init_boat.c						\
@@ -55,11 +55,14 @@ SRC_SCENE			= 	src/scene/battle/destroy/destroy_background.c			\
 						src/scene/battle/init/init_water.c						\
 						src/scene/battle/init/init.c							\
 						src/scene/battle/update/buoyancy_force.c				\
+						src/scene/battle/update/clean_clouds.c					\
+						src/scene/battle/update/generate_clouds.c				\
 						src/scene/battle/update/pirate_collision_solving.c		\
 						src/scene/battle/update/player_boat_interact.c			\
 						src/scene/battle/update/player_control.c				\
 						src/scene/battle/update/update_boat_param.c				\
 						src/scene/battle/update/update_boats.c					\
+						src/scene/battle/update/update_clouds.c					\
 						src/scene/battle/update/update_player.c					\
 						src/scene/battle/update/update.c						\
 						src/scene/battle/draw.c									\
@@ -112,6 +115,7 @@ SRC					=	$(MAIN)													\
 						$(SRC_UPDATE_WINDOW)									\
 						$(SRC_PHYSIC_ENGINE)									\
 						$(SRC_VECTOR_ENGINE)									\
+						$(SRC_MATH_PROCESS)										\
 						$(SRC_GAMELOOP)											\
 						$(SRC_SCENE)											\
 						$(SRC_PLAYER)											\
@@ -122,8 +126,8 @@ SRC_TEST			=	$(SRC_PLAYER)
 override CFLAGS		+=	-Wall -Wextra
 
 override CPPFLAGS	+=	-I./include/											\
-						-I./include/game_object/								\
 						-I./include/calculation/								\
+						-I./include/game_object/								\
 						-I./include/scenes/										\
 						-I./include/scenes/battle								\
 						-I./include/pirates/									\

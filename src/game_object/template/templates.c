@@ -348,7 +348,7 @@ const game_obj_constructor_t constructor_list[] = {
                     {0, 0, 640, 300}
                     },
         .state_nb = 1,
-        .mass = __FLT_MAX__,
+        .mass = 1,
         .has_comp = false
     },
     [CLOUD2] =
@@ -365,7 +365,7 @@ const game_obj_constructor_t constructor_list[] = {
                     {640, 0, 580, 200}
                     },
         .state_nb = 1,
-        .mass = __FLT_MAX__,
+        .mass = 1,
         .has_comp = false
     },
     [CLOUD3] =
@@ -382,7 +382,7 @@ const game_obj_constructor_t constructor_list[] = {
                     {641, 201, 200, 100}
                     },
         .state_nb = 1,
-        .mass = __FLT_MAX__,
+        .mass = 1,
         .has_comp = false
     },
     [CLOUD4] =
@@ -399,7 +399,7 @@ const game_obj_constructor_t constructor_list[] = {
                     {844, 214, 340, 120}
                     },
         .state_nb = 1,
-        .mass = __FLT_MAX__,
+        .mass = 1,
         .has_comp = false
     },
     [CLOUD5] =
@@ -416,7 +416,7 @@ const game_obj_constructor_t constructor_list[] = {
                     {4, 305, 820, 160}
                     },
         .state_nb = 1,
-        .mass = __FLT_MAX__,
+        .mass = 1,
         .has_comp = false
     },
     [CLOUD6] =
@@ -433,7 +433,7 @@ const game_obj_constructor_t constructor_list[] = {
                     {826, 339, 460, 151}
                     },
         .state_nb = 1,
-        .mass = __FLT_MAX__,
+        .mass = 1,
         .has_comp = false
     },
     [CLOUD7] =
@@ -450,7 +450,7 @@ const game_obj_constructor_t constructor_list[] = {
                     {0, 472, 699, 160}
                     },
         .state_nb = 1,
-        .mass = __FLT_MAX__,
+        .mass = 1,
         .has_comp = false
     },
     [CLOUD8] =
@@ -467,7 +467,7 @@ const game_obj_constructor_t constructor_list[] = {
                     {738, 493, 520, 140}
                     },
         .state_nb = 1,
-        .mass = __FLT_MAX__,
+        .mass = 1,
         .has_comp = false
     },
     [TILLER] =

@@ -15,9 +15,10 @@ int get_randomnb(int min, int max)
 
     if (first_call) {
         srand((size_t) &first_call);
-        first_call == false;
+        first_call = false;
     }
     if (max == min || max == 0)
         return (max);
     nb = rand() % (max - min) + min;
     return (nb);
+}

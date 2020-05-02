@@ -18,8 +18,8 @@ typedef struct battle_s
     list_t *ennemy_boat;
     list_t *ennemy_crew;
     list_t *water;
+    list_t *clouds;
     game_obj_t *background;
-    game_obj_t *weather;
 } battle_t;
 
 sfBool init_battle(tool_t *tool, battle_t *battle);
