@@ -9,12 +9,15 @@
 #include "my.h"
 #include "player.h"
 
-static control_t control_template = {
+static const control_t control_template = {
     .keys[CONTROL_UP] = sfKeyZ,
     .keys[CONTROL_DOWN] = sfKeyS,
     .keys[CONTROL_LEFT] = sfKeyQ,
     .keys[CONTROL_RIGHT] = sfKeyD,
-    .keys[CONTROL_USE] = sfKeyE
+    .keys[CONTROL_USE] = sfKeyE,
+    .keys[CONTROL_ATTACK1] = sfKeyJ,
+    .keys[CONTROL_ATTACK2] = sfKeyK
+
 };
 
 static FILE *open_control_save(char const *folder)

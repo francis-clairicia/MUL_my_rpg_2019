@@ -598,12 +598,6 @@ const comp_constructor_t *comp_constructor_list[] = {
             .type = INVINCIBLE_TIME,
         },
         {
-            .storage_type = TYPE_INT,
-            .type = CAN_ATTACK,
-            .data = (int[1]){1},
-            .data2 = NULL
-        },
-        {
             .storage_type = TYPE_FLOAT,
             .type = ATTACK_SPEED,
             .data = (float[1]){1},
@@ -641,12 +635,6 @@ const comp_constructor_t *comp_constructor_list[] = {
             .storage_type = TYPE_INT,
             .type = DAMAGE,
             .data = (int[1]){10},
-            .data2 = NULL
-        },
-        {
-            .storage_type = TYPE_INT,
-            .type = CAN_ATTACK,
-            .data = (int[1]){1},
             .data2 = NULL
         },
         {
@@ -690,12 +678,6 @@ const comp_constructor_t *comp_constructor_list[] = {
             .data2 = NULL
         },
         {
-            .storage_type = TYPE_INT,
-            .type = CAN_ATTACK,
-            .data = (int[1]){1},
-            .data2 = NULL
-        },
-        {
             .storage_type = TYPE_FLOAT,
             .type = ATTACK_SPEED,
             .data = (float[1]){1},
@@ -733,12 +715,6 @@ const comp_constructor_t *comp_constructor_list[] = {
             .storage_type = TYPE_INT,
             .type = DAMAGE,
             .data = (int[1]){10},
-            .data2 = NULL
-        },
-        {
-            .storage_type = TYPE_INT,
-            .type = CAN_ATTACK,
-            .data = (int[1]){1},
             .data2 = NULL
         },
         {
@@ -782,12 +758,6 @@ const comp_constructor_t *comp_constructor_list[] = {
             .data2 = NULL
         },
         {
-            .storage_type = TYPE_INT,
-            .type = CAN_ATTACK,
-            .data = (int[1]){1},
-            .data2 = NULL
-        },
-        {
             .storage_type = TYPE_FLOAT,
             .type = ATTACK_SPEED,
             .data = (float[1]){1},
@@ -825,12 +795,6 @@ const comp_constructor_t *comp_constructor_list[] = {
             .storage_type = TYPE_INT,
             .type = DAMAGE,
             .data = (int[1]){10},
-            .data2 = NULL
-        },
-        {
-            .storage_type = TYPE_INT,
-            .type = CAN_ATTACK,
-            .data = (int[1]){1},
             .data2 = NULL
         },
         {

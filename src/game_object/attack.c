@@ -12,8 +12,7 @@ sfBool can_game_object_attack(game_obj_t *obj)
     sfClock *clock = NULL;
     sfTime time = {0};
 
-    if (!obj || !has_comp(obj, ATTACK_TIME) || !has_comp(obj, CAN_ATTACK) ||
-                                                !has_comp(obj, ATTACK_SPEED))
+    if (!obj || !has_comp(obj, ATTACK_TIME) || !has_comp(obj, ATTACK_SPEED))
         return (sfFalse);
     clock = obj->comp[find_comp(obj, ATTACK_TIME)]->clock;
     if (!clock)
@@ -21,7 +20,6 @@ sfBool can_game_object_attack(game_obj_t *obj)
     time = sfClock_getElapsedTime(clock);
     if (sfTime_asSeconds(time) > obj->comp[find_comp(obj, ATTACK_SPEED)]->f) {
         reset_comp_clock(obj, ATTACK_TIME);
-        obj->comp[find_comp(obj, CAN_ATTACK)]->i = 1;
         return (sfTrue);
     }
     return (sfFalse);

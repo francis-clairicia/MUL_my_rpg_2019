@@ -23,9 +23,7 @@ static void update_player_s_boat(tool_t *tool, topdown_t *topdown)
 {
     game_obj_t *boat = topdown->boat;
 
-    control_boat(tool->player.control, boat);
-    if (can_game_object_attack(boat))
-        boat_attack(boat, &(topdown->bullets), 1);
+    control_boat(tool, topdown);
     boat_collision(boat, topdown->map);
     boat->body.angle_vel = MAX(boat->body.angle_vel, -180);
     boat->body.angle_vel = MIN(boat->body.angle_vel, 180);
@@ -35,6 +33,7 @@ static void update_player_s_boat(tool_t *tool, topdown_t *topdown)
     update_obb(&(boat->body));
     update_body(&(boat->body), tool->dtime);
 }
+
 void abb(list_t *list, float dtime)
 {
     game_obj_t *obj = NULL;

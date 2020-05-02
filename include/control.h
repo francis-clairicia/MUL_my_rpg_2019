@@ -16,12 +16,14 @@ typedef enum control_keys_e
     CONTROL_DOWN = 1,
     CONTROL_LEFT = 2,
     CONTROL_RIGHT = 3,
-    CONTROL_USE = 4
+    CONTROL_USE = 4,
+    CONTROL_ATTACK1 = 5,
+    CONTROL_ATTACK2 = 6
 } control_keys_t;
 
 typedef struct control_s
 {
-    sfKeyCode keys[5];
+    sfKeyCode keys[7];
 } control_t;
 
 #endif /* !CONTROL_H_ */

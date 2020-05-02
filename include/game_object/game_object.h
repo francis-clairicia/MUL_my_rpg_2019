@@ -63,7 +63,6 @@ typedef enum properties_e {
     SIZE,
     IS_DRIVING,
     CAN_JUMP,
-    CAN_ATTACK,
     ATTACK_SPEED,
     ATTACK_TIME,
     CANNON_NB,
