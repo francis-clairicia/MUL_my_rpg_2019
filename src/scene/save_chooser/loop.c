@@ -45,6 +45,15 @@ static void draw_scene(sfRenderWindow *window, save_chooser_t *chooser)
     draw_button(chooser->menu, window);
 }
 
+static scene_t load_player_and_launch_game(tool_t *tool, save_t save)
+{
+    if (!init_player(&tool->player, save))
+        return (MENU);
+    if (save.used == false)
+        return (new_player_setup(tool));
+    return (TOPDOWN);
+}
+
 scene_t launch_save_chooser(tool_t *tool, scene_t state)
 {
     int index = -1;
@@ -61,6 +70,6 @@ scene_t launch_save_chooser(tool_t *tool, scene_t state)
         state = check_event(tool, state, &index);
     }
     if (index != -1)
-        return (MENU);
+        return (load_player_and_launch_game(tool, saves[index]));
     return (state);
 }

@@ -14,26 +14,17 @@ static const player_field_init_t init_function[] = {
     NULL
 };
 
-static bool init_all_structure(player_t *player)
+bool init_player(player_t *player, save_t save)
 {
+    if (player == NULL)
+        return (false);
+    player->save = save;
+    player->crew = NULL;
+    player->boat = NULL;
+    my_memset(player->pseudo, 0, sizeof(player->pseudo));
     for (int i = 0; init_function[i] != NULL; i += 1) {
         if (init_function[i](player) == false)
             return (false);
     }
     return (true);
-}
-
-player_t *create_player(save_t save)
-{
-    player_t *player = malloc(sizeof(*player));
-
-    if (player != NULL) {
-        player->save = save;
-        my_memset(player->pseudo, 0, sizeof(player->pseudo));
-        if (!init_all_structure(player)) {
-            free(player);
-            player = NULL;
-        }
-    }
-    return (player);
 }

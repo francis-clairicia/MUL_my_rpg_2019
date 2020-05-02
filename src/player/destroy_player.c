@@ -6,10 +6,12 @@
 */
 
 #include "player.h"
+#include "game_object.h"
 
 void destroy_player(player_t *player)
 {
     if (player == NULL)
         return;
-    free(player);
+    my_free_list(&player->crew, &free_game_object);
+    my_free_list(&player->boat, &free_game_object);
 }

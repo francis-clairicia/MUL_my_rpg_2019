@@ -12,12 +12,8 @@ static button_t init_chooser_button(char const *message, sfVector2f pos)
 {
     text_t text = init_text(message, FONT_FOLDER "skull.ttf", 100);
     sfColor default_color = sfColor_fromRGB(33, 170, 217);
-    sfColor hover_color = sfColor_fromRGB(0, 220, 255);
-    sfColor active_color = sfColor_fromRGB(100, 100, 100);
     button_t button = create_button(text, default_color);
 
-    button.color[BUTTON_HOVER] = hover_color;
-    button.color[BUTTON_ACTIVE] = active_color;
     move_button(button, pos);
     set_text_origin(button.text, 0.5, 0.75);
     return (button);
@@ -25,18 +21,22 @@ static button_t init_chooser_button(char const *message, sfVector2f pos)
 
 void set_button_color_for_saves(button_t buttons[3], save_t saves[3])
 {
-    int i = 0;
-    sfColor default_color = sfColor_fromRGB(175, 175, 175);
-    sfColor hover_color = sfColor_fromRGB(200, 200, 200);
+    sfColor default_color = sfColor_fromRGB(33, 170, 217);
+    sfColor hover_color = sfColor_fromRGB(0, 220, 255);
     sfColor active_color = sfColor_fromRGB(100, 100, 100);
+    sfColor disabled_color = sfColor_fromRGB(175, 175, 175);
+    sfColor disabled_hover_color = sfColor_fromRGB(200, 200, 200);
+    sfColor disabled_active_color = sfColor_fromRGB(100, 100, 100);
 
-    if (buttons == NULL || saves == NULL)
-        return;
-    for (i = 0; i < 3; i += 1) {
-        if (saves[i].used == false) {
+    for (int i = 0; buttons != NULL && saves != NULL && i < 3; i += 1) {
+        if (saves[i].used) {
             buttons[i].color[BUTTON_NORMAL] = default_color;
             buttons[i].color[BUTTON_HOVER] = hover_color;
             buttons[i].color[BUTTON_ACTIVE] = active_color;
+        } else {
+            buttons[i].color[BUTTON_NORMAL] = disabled_color;
+            buttons[i].color[BUTTON_HOVER] = disabled_hover_color;
+            buttons[i].color[BUTTON_ACTIVE] = disabled_active_color;
         }
     }
 }

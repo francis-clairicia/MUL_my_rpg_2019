@@ -42,7 +42,7 @@ static void set_ally_boat_pos(player_t *player, list_t *water_list)
 
 static sfBool init_ally_boat(player_t *player, battle_t *battle)
 {
-    char *boat_path = join_path("saves/save01", "boat");
+    char *boat_path = join_path(player->save.folder, "boat");
 
     player->boat = load_config_from_file(boat_path, boat_config);
     if (!(player->boat) || !boat_path)

@@ -37,6 +37,7 @@ sfBool init_menu(menu_t *menu)
     menu->buttons[MENU_PLAY] = init_menu_button("Play", VEC2F(x, y));
     menu->buttons[MENU_SETT] = init_menu_button("Settings", VEC2F(x, y + 200));
     menu->buttons[MENU_QUIT] = init_menu_button("Quit", VEC2F(x, y + 400));
+    set_text_origin(menu->buttons[MENU_SETT].text, 0.5, 0.8);
     return (sfTrue);
 }
 

@@ -10,9 +10,10 @@
 void destroy_battle(battle_t *battle)
 {
     if (!battle)
-        return ;
+        return;
     destroy_battle_background(battle);
     destroy_battle_ennemy(battle);
     destroy_battle_water(battle);
     destroy_battle_clouds(battle);
+    destroy_player(battle->player);
 }

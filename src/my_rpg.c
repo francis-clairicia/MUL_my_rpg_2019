@@ -45,6 +45,7 @@ static sfBool init_window(tool_t *tools)
 
 static void destroy_window(tool_t *tools)
 {
+    destroy_player(&tools->player);
     destroy_menu(&tools->menu);
     destroy_settings(&tools->settings);
     destroy_save_chooser(&tools->chooser);
@@ -55,7 +56,7 @@ static void destroy_window(tool_t *tools)
 int my_rpg(void)
 {
     tool_t tools;
-    scene_t state = TOPDOWN;
+    scene_t state = MENU;
 
     if (!init_window(&tools))
         return (84);

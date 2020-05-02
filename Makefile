@@ -72,6 +72,8 @@ SRC_SCENE			= 	src/scene/battle/destroy/destroy_background.c			\
 						src/scene/menu/loop.c									\
 						src/scene/save_chooser/init.c							\
 						src/scene/save_chooser/loop.c							\
+						src/scene/save_chooser/new_player/new_player_scene.c	\
+						src/scene/save_chooser/new_player/get_pseudo.c			\
 						src/scene/settings/init.c								\
 						src/scene/settings/loop.c								\
 						src/scene/topdown/destroy/destroy_boat.c				\
@@ -114,7 +116,7 @@ SRC_MATH_PROCESS	=	src/math_process/get_randnb.c							\
 
 SRC_LOADER			=	src/loader/load_config_from_file.c
 
-SRC_PLAYER			=	src/player/create_player.c								\
+SRC_PLAYER			=	src/player/init_player.c								\
 						src/player/destroy_player.c								\
 						src/player/save_player_data.c							\
 						src/player/load_saves.c									\
@@ -123,8 +125,7 @@ SRC_PLAYER			=	src/player/create_player.c								\
 						src/player/control/init_control.c						\
 						src/player/control/save_control.c						\
 
-SRC					=	$(MAIN)													\
-						$(SRC_GAME_OBJ)											\
+SRC_TEST			=	$(SRC_GAME_OBJ)											\
 						$(SRC_INPUT_HANDLING)									\
 						$(SRC_UPDATE_WINDOW)									\
 						$(SRC_PHYSIC_ENGINE)									\
@@ -135,7 +136,7 @@ SRC					=	$(MAIN)													\
 						$(SRC_PLAYER)											\
 						$(SRC_LOADER)
 
-SRC_TEST			=	$(SRC_PLAYER)
+SRC					=	$(MAIN) $(SRC_TEST)
 
 override CFLAGS		+=	-Wall -Wextra
 
@@ -186,7 +187,7 @@ tests_run:	CFLAGS += --coverage
 tests_run:	$(MY_LIBS)
 	@find -name "*.gc*" -delete
 	$(CC) -o unit_tests $(SRC_TEST) tests/*.c $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(LDLIBS)
-	-./unit_tests
+	-./unit_tests 2>&1 | grep -v "libgcov"
 	$(RM) unit_tests test*.gc*
 	mkdir -p coverage
 	mv *.gc* coverage/
