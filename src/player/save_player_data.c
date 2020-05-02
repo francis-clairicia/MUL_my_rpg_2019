@@ -29,7 +29,7 @@ static bool write_in_config(player_t *player)
     fd = open(config, O_WRONLY | O_CREAT | O_TRUNC, 0644);
     if (fd < 0)
         return (false);
-    my_putstr_fd(fd, "IN_USE=1");
+    my_putstr_fd(fd, "IN_USE=1\n");
     close(fd);
     player->save.used = true;
     return (true);

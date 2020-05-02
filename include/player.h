@@ -23,7 +23,7 @@ typedef struct player
     sfVector2f pos;
 } player_t;
 
-player_t *create_player(save_t save);
+bool init_player(player_t *player, save_t save);
 void destroy_player(player_t *player);
 bool save_player_data(player_t *player);
 

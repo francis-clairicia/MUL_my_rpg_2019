@@ -20,6 +20,7 @@ scene_t launch_battle(tool_t *tool, scene_t state)
         draw_battle(tool, battle);
         sfRenderWindow_display(tool->window);
     }
+    save_player_data(battle.player);
     destroy_battle(&battle);
     return (state);
 }
