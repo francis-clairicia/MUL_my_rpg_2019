@@ -14,10 +14,11 @@
 typedef struct topdown_s
 {
     game_obj_t *boat;
+    list_t *bullets;
     list_t *ally_boat;
     list_t *ennemy_boat;
     list_t *mercenary_boat;
-    list_t *commercial_boat;
+    list_t *golden_boat;
     list_t *map;
 } topdown_t;
 

@@ -13,7 +13,6 @@ void update_battle_player(tool_t *tool, battle_t *battle)
     game_obj_t *pirate = NULL;
 
     pirate = NODE_DATA(player_list, game_obj_t *);
-    anime_game_object(pirate);
     body_add_acc(&(pirate->body), VEC2F(0, GRAVITY));
     control_player(pirate, tool->player.boat, tool->player.control);
     pirate_boat_interact(tool, tool->player.boat);

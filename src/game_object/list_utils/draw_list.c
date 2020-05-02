@@ -9,7 +9,12 @@
 
 void draw_game_object_list(sfRenderWindow *window, list_t *list)
 {
+    game_obj_t *obj = NULL;
+
     for (; list && list->data; list = list->next) {
-        draw_game_object(window, (game_obj_t *)list->data);
+        obj = NODE_DATA(list, game_obj_t *);
+        if (!obj)
+            continue;
+        draw_game_object(window, obj);
     }
 }

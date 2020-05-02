@@ -25,6 +25,7 @@ typedef enum element_e {
     BOAT3,
     BOAT4,
     BOAT5,
+    BULLET,
     SKY,
     WATER,
     WATER2,

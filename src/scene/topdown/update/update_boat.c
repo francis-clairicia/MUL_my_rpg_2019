@@ -37,5 +37,5 @@ void update_topdown_boat(tool_t *tool, topdown_t *topdown)
     update_boat(tool->dtime, topdown->ally_boat, topdown->map);
     update_boat(tool->dtime, topdown->ennemy_boat, topdown->map);
     update_boat(tool->dtime, topdown->mercenary_boat, topdown->map);
-    update_boat(tool->dtime, topdown->commercial_boat, topdown->map);
+    update_boat(tool->dtime, topdown->golden_boat, topdown->map);
 }

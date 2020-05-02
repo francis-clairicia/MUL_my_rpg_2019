@@ -14,6 +14,8 @@ void draw_game_object(sfRenderWindow *window, game_obj_t *obj)
 
     if (!window || !obj)
         return;
+    if (has_comp(obj, CLOCK))
+        anime_game_object(obj);
     state = obj->state;
     update_hitbox(obj);
     sfSprite_setPosition(obj->sprite, obj->body.pos);

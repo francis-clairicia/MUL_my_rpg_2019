@@ -13,8 +13,8 @@ void destroy_topdown_boat(topdown_t *topdown)
         free_game_object(topdown->boat);
     if (topdown->ally_boat)
         my_free_list(&(topdown->ally_boat), free_game_object);
-    if (topdown->commercial_boat)
-        my_free_list(&(topdown->commercial_boat), free_game_object);
+    if (topdown->golden_boat)
+        my_free_list(&(topdown->golden_boat), free_game_object);
     if (topdown->ennemy_boat)
         my_free_list(&(topdown->ennemy_boat), free_game_object);
     if (topdown->mercenary_boat)
