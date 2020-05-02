@@ -6,3 +6,11 @@
 */
 
 #include "topdown.h"
+
+void boat_attack(game_obj_t *boat, list_t **bullets, sfBool side)
+{
+    game_obj_t *bullet = create_game_obj(BULLET);
+
+    if (!boat || !bullets || !bullet)
+        return ;
+}

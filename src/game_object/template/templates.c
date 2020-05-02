@@ -124,6 +124,23 @@ const game_obj_constructor_t constructor_list[] = {
         .mass = 500,
         .has_comp = true
     },
+    [BULLET] =
+    {
+        .path = "assets/img/bullet.png",
+        .frame_nb = (unsigned int[]){
+                    1
+                    },
+        .lapse = NULL,
+        .origin = (sfVector2f[]){
+                    {4, 4}
+                    },
+        .view_box = (sfIntRect[]){
+                    {0, 0, 8, 8}
+                    },
+        .state_nb = 1,
+        .mass = 20,
+        .has_comp = true
+    },
     [SKY] =
     {
         .path = "assets/img/sky.png",
@@ -148,7 +165,7 @@ const game_obj_constructor_t constructor_list[] = {
                     4
                     },
         .lapse = (unsigned int[]){
-                    100,
+                    750,
                     },
         .origin = (sfVector2f[]){
                     {16, 16}
@@ -831,6 +848,16 @@ const comp_constructor_t *comp_constructor_list[] = {
             .type = CANNON_NB,
             .data = (float[1]){2},
             .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_END
+        }
+    },
+    [BULLET] =
+    (comp_constructor_t[]){
+        {
+            .storage_type = TYPE_INT,
+            .type = DAMAGE
         },
         {
             .storage_type = TYPE_END

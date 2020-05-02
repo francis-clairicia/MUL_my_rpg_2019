@@ -220,7 +220,7 @@ void body_list(list_t *list,
                 void (*func)(rigid_body_t *, void *),
                 void *data);
 
-void game_object_attack(game_obj_t *obj, void (*attack_func)(game_obj_t *));
+sfBool can_game_object_attack(game_obj_t *obj);
 
 //Returns the game object in the list which has the lowest/highest x/y
 //Returns NULL in case of error
