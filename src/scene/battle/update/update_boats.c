@@ -15,6 +15,7 @@ void update_battle_boats(tool_t *tool, battle_t *battle)
     for (; boat && boat->data; boat = boat->next) {
         body = &(NODE_DATA(boat, game_obj_t *)->body);
         friction_force(body, 100);
+        body->vel = vec_lim(body->vel, VEC2F(100, 100), VEC2F(-100, -100));
         update_body(body, tool->dtime);
     }
 }

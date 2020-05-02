@@ -5,8 +5,22 @@
 ** init_boat
 */
 
-#include "battle.h"
 #include "my.h"
+#include "battle.h"
+#include "loader.h"
+
+static load_config_t boat_config[] =
+{
+    {"WOOD1_RECT", 0, WOOD1_RECT},
+    {"WOOD1_LEFT_TRIANGLE", 0, WOOD1_LEFT_TRIANGLE},
+    {"WOOD1_RIGHT_TRIANGLE", 0, WOOD1_RIGHT_TRIANGLE},
+    {"WOOD2_RECT", 0, WOOD2_RECT},
+    {"WOOD2_LEFT_TRIANGLE", 0, WOOD2_LEFT_TRIANGLE},
+    {"WOOD2_RIGHT_TRIANGLE", 0, WOOD2_RIGHT_TRIANGLE},
+    {"TILLER", 0, TILLER},
+    {"FENCE", 0, FENCE},
+    {NULL, 0, -1}
+};
 
 void update_boat_size(list_t *boat);
 
@@ -30,7 +44,7 @@ static sfBool init_ally_boat(player_t *player, battle_t *battle)
 {
     char *boat_path = join_path("saves/save01", "boat");
 
-    player->boat = load_boat_from_file(boat_path);
+    player->boat = load_config_from_file(boat_path, boat_config);
     if (!(player->boat) || !boat_path)
         return (sfFalse);
     free(boat_path);

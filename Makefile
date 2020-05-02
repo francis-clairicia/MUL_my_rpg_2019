@@ -69,10 +69,21 @@ SRC_SCENE			= 	src/scene/battle/destroy/destroy_background.c			\
 						src/scene/battle/loop.c									\
 						src/scene/menu/init.c									\
 						src/scene/menu/loop.c									\
+						src/scene/save_chooser/init.c							\
+						src/scene/save_chooser/loop.c							\
 						src/scene/settings/init.c								\
 						src/scene/settings/loop.c								\
-						src/scene/save_chooser/init.c							\
-						src/scene/save_chooser/loop.c
+						src/scene/topdown/destroy/destroy_boat.c				\
+						src/scene/topdown/destroy/destroy_map.c					\
+						src/scene/topdown/destroy/destroy.c						\
+						src/scene/topdown/init/init_boat.c						\
+						src/scene/topdown/init/init_map.c						\
+						src/scene/topdown/init/init.c							\
+						src/scene/topdown/update/control_boat.c					\
+						src/scene/topdown/update/update_boat.c					\
+						src/scene/topdown/update/update.c						\
+						src/scene/topdown/draw.c								\
+						src/scene/topdown/loop.c								\
 
 
 SRC_INPUT_HANDLING	=	src/input_handling/mouse_input.c
@@ -98,7 +109,7 @@ SRC_PHYSIC_ENGINE	=	src/physic_engine/force/apply_force.c					\
 SRC_MATH_PROCESS	=	src/math_process/get_randnb.c							\
 						src/math_process/magnet_number.c						\
 
-SRC_BOAT			=	src/boat/load_boat_from_file.c
+SRC_LOADER			=	src/loader/load_config_from_file.c
 
 SRC_PLAYER			=	src/player/create_player.c								\
 						src/player/destroy_player.c								\
@@ -119,7 +130,7 @@ SRC					=	$(MAIN)													\
 						$(SRC_GAMELOOP)											\
 						$(SRC_SCENE)											\
 						$(SRC_PLAYER)											\
-						$(SRC_BOAT)
+						$(SRC_LOADER)
 
 SRC_TEST			=	$(SRC_PLAYER)
 
@@ -130,6 +141,7 @@ override CPPFLAGS	+=	-I./include/											\
 						-I./include/game_object/								\
 						-I./include/scenes/										\
 						-I./include/scenes/battle								\
+						-I./include/scenes/topdown								\
 						-I./include/pirates/									\
 
 MY_LIBS				=	-lmy -lcsfml

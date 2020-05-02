@@ -14,7 +14,6 @@
 void update_battle_boats(tool_t *tool, battle_t *battle);
 void buoyancy_boat_water(list_t *boat, list_t *water);
 void update_boat_size(list_t *boat);
-list_t *load_boat_from_file(char const *file);
 
 void update_battle_player(tool_t *tool, battle_t *battle);
 void control_player(game_obj_t *pirate, list_t *boat_list,

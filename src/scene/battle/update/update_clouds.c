@@ -15,6 +15,8 @@ void update_battle_clouds(tool_t *tool, battle_t *battle)
     generate_clouds(tool, &(battle->clouds));
     for (; cloud_list; cloud_list = cloud_list->next) {
         cloud = NODE_DATA(cloud_list, game_obj_t *);
+        cloud->body.vel = vec_lim(cloud->body.vel,
+                                    VEC2F(100, 100), VEC2F(-100, -100));
         update_body(&(cloud->body), tool->dtime);
     }
     clean_clouds(tool, battle);

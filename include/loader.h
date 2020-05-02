@@ -1,26 +1,26 @@
 /*
-** EPITECH PROJECT, 2019
+** EPITECH PROJECT, 2020
 ** MUL_my_rpg_2019
 ** File description:
-** boat.h
+** loader
 */
 
-#ifndef HEADER_BOAT
-#define HEADER_BOAT
+#ifndef LOADER_H_
+#define LOADER_H_
 
 #include "mylist.h"
 #include "game_object.h"
 
-typedef struct boat_config
+typedef struct load_config
 {
     char const *variable;
     char on_txt;
     int element;
-} boat_config_t;
+} load_config_t;
 
-list_t *load_boat_from_file(char const *file);
+list_t *load_config_from_file(char const *file, load_config_t config_table[]);
 
-static inline int get_element(boat_config_t config_table[], char c)
+static inline int get_element(load_config_t config_table[], char c)
 {
     int i = 0;
 
@@ -31,4 +31,4 @@ static inline int get_element(boat_config_t config_table[], char c)
     return (-1);
 }
 
-#endif
+#endif /* !LOADER_H_ */

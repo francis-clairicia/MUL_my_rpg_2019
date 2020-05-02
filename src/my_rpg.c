@@ -11,7 +11,8 @@
 static const scene_loop_t scene_launcher[] = {
     [MENU] = &launch_menu,
     [SAVE_CHOOSE] = &launch_save_chooser,
-    [BATTLE] = &launch_battle
+    [BATTLE] = &launch_battle,
+    [TOPDOWN] = &launch_topdown,
 };
 
 static sfBool init_scene(tool_t *tools)
@@ -54,7 +55,7 @@ static void destroy_window(tool_t *tools)
 int my_rpg(void)
 {
     tool_t tools;
-    scene_t state = MENU;
+    scene_t state = TOPDOWN;
 
     if (!init_window(&tools))
         return (84);

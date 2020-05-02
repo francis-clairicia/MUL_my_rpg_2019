@@ -13,8 +13,8 @@
 
 #define GRAVITY (0.98)
 
-#define RAD(degree) (degree * (M_PI / 180))
-#define DEG(radian) (radian * (180 / M_PI))
+#define RAD(degree) (degree * M_PI / 180)
+#define DEG(radian) (radian * 180 / M_PI)
 
 typedef struct rigid_body_s
 {

@@ -13,8 +13,8 @@ void traction_force(rigid_body_t *body, float intensity)
 
     if (!body)
         return ;
-    head.x = cos((RAD(body->angle + 90)));
-    head.y = sin((RAD(body->angle + 90)));
+    head.x = cos(RAD((body->angle + 90)));
+    head.y = sin(RAD((body->angle + 90)));
     head = vec_norm(head);
     head = vec_mult(head, intensity);
     apply_force(body, head);

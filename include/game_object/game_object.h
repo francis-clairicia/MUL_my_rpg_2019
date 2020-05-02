@@ -28,6 +28,8 @@ typedef enum element_e {
     SKY,
     WATER,
     WATER2,
+    SAND,
+    DIRT,
     RAIN,
     WOOD1_RECT,
     WOOD1_LEFT_TRIANGLE,

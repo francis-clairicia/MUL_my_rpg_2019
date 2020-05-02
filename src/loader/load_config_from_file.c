@@ -2,27 +2,15 @@
 ** EPITECH PROJECT, 2019
 ** MUL_my_rpg_2019
 ** File description:
-** load_boat_from_file.c
+** load_config_from_file.c
 */
 
 #include <fcntl.h>
 #include <unistd.h>
 #include "rpg.h"
-#include "boat.h"
+#include "loader.h"
 
-static boat_config_t config_table[] = {
-    {"WOOD1_RECT", 0, WOOD1_RECT},
-    {"WOOD1_LEFT_TRIANGLE", 0, WOOD1_LEFT_TRIANGLE},
-    {"WOOD1_RIGHT_TRIANGLE", 0, WOOD1_RIGHT_TRIANGLE},
-    {"WOOD2_RECT", 0, WOOD2_RECT},
-    {"WOOD2_LEFT_TRIANGLE", 0, WOOD2_LEFT_TRIANGLE},
-    {"WOOD2_RIGHT_TRIANGLE", 0, WOOD2_RIGHT_TRIANGLE},
-    {"TILLER", 0, TILLER},
-    {"FENCE", 0, FENCE},
-    {NULL, 0, -1}
-};
-
-static bool set_variable_value(char const *line)
+static bool set_variable_value(char const *line, load_config_t config_table[])
 {
     int equal_index = my_strchr_index(line, '=');
     char const *var = NULL;
@@ -38,7 +26,7 @@ static bool set_variable_value(char const *line)
     return (true);
 }
 
-static bool set_config(char const *file)
+static bool set_config(char const *file, load_config_t config_table[])
 {
     char extension[] = ".conf";
     char conf[my_strlen(file) + my_strlen(extension) + 1];
@@ -49,7 +37,7 @@ static bool set_config(char const *file)
     my_strcat(my_strcpy(conf, file), extension);
     fd = open(conf, O_RDONLY);
     while (status == true && get_next_line(&line, fd))
-        status = set_variable_value(line);
+        status = set_variable_value(line, config_table);
     if (line != NULL)
         free(line);
     if (fd != -1)
@@ -57,7 +45,8 @@ static bool set_config(char const *file)
     return ((fd != -1) && status == true);
 }
 
-static bool create_line(list_t **list, char const *line, size_t line_nb)
+static bool create_line(list_t **list, char const *line, size_t line_nb,
+                                            load_config_t config_table[])
 {
     int element;
     game_obj_t *obj = NULL;
@@ -77,7 +66,8 @@ static bool create_line(list_t **list, char const *line, size_t line_nb)
     return (true);
 }
 
-static bool load_boat(list_t **list, char const *file)
+static bool load_config(list_t **list, char const *file,
+                            load_config_t config_table[])
 {
     char extension[] = ".txt";
     char txt[my_strlen(file) + my_strlen(extension) + 1];
@@ -89,7 +79,7 @@ static bool load_boat(list_t **list, char const *file)
     my_strcat(my_strcpy(txt, file), extension);
     fd = open(txt, O_RDONLY);
     while (status == true && get_next_line(&line, fd))
-        status = create_line(list, line, line_nb++);
+        status = create_line(list, line, line_nb++, config_table);
     if (line != NULL)
         free(line);
     if (fd != -1)
@@ -97,13 +87,14 @@ static bool load_boat(list_t **list, char const *file)
     return ((fd != -1) && (status == true));
 }
 
-list_t *load_boat_from_file(char const *file)
+list_t *load_config_from_file(char const *file, load_config_t config_table[])
 {
     list_t *list = NULL;
 
-    if (file == NULL || !set_config(file))
+    if (file == NULL || !config_table ||
+        !set_config(file, config_table))
         return (NULL);
-    if (!load_boat(&list, file))
+    if (!load_config(&list, file, config_table))
         my_free_list(&list, &free_game_object);
     return (list);
 }

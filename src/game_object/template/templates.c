@@ -47,13 +47,13 @@ const game_obj_constructor_t constructor_list[] = {
                     },
         .lapse = NULL,
         .origin = (sfVector2f[]){
-                    {32, 32}
+                    {16, 32}
                     },
         .view_box = (sfIntRect[]){
                     {0, 0, 32, 64}
                     },
         .state_nb = 1,
-        .mass = 2000,
+        .mass = 600,
         .has_comp = false
     },
     [BOAT2] =
@@ -64,13 +64,13 @@ const game_obj_constructor_t constructor_list[] = {
                     },
         .lapse = NULL,
         .origin = (sfVector2f[]){
-                    {0, 0}
+                    {16, 32}
                     },
         .view_box = (sfIntRect[]){
                     {0, 64, 32, 64}
                     },
         .state_nb = 1,
-        .mass = 2000,
+        .mass = 600,
         .has_comp = false
     },
     [BOAT3] =
@@ -81,13 +81,13 @@ const game_obj_constructor_t constructor_list[] = {
                     },
         .lapse = NULL,
         .origin = (sfVector2f[]){
-                    {0, 0}
+                    {16, 32}
                     },
         .view_box = (sfIntRect[]){
                     {0, 128, 32, 64}
                     },
         .state_nb = 1,
-        .mass = 2000,
+        .mass = 600,
         .has_comp = false
     },
     [BOAT4] =
@@ -98,13 +98,13 @@ const game_obj_constructor_t constructor_list[] = {
                     },
         .lapse = NULL,
         .origin = (sfVector2f[]){
-                    {0, 0}
+                    {16, 32}
                     },
         .view_box = (sfIntRect[]){
                     {0, 192, 32, 64}
                     },
         .state_nb = 1,
-        .mass = 2000,
+        .mass = 600,
         .has_comp = false
     },
     [BOAT5] =
@@ -115,13 +115,13 @@ const game_obj_constructor_t constructor_list[] = {
                     },
         .lapse = NULL,
         .origin = (sfVector2f[]){
-                    {0, 0}
+                    {16, 32}
                     },
         .view_box = (sfIntRect[]){
                     {0, 256, 32, 64}
                     },
         .state_nb = 1,
-        .mass = 2000,
+        .mass = 500,
         .has_comp = false
     },
     [SKY] =
@@ -158,7 +158,7 @@ const game_obj_constructor_t constructor_list[] = {
                     },
         .state_nb = 1,
         .mass = __FLT_MAX__,
-        .has_comp = false
+        .has_comp = true
     },
     [WATER2] =
     {
@@ -178,6 +178,44 @@ const game_obj_constructor_t constructor_list[] = {
         .state_nb = 1,
         .mass = __FLT_MAX__,
         .has_comp = true
+    },
+    [SAND] =
+    {
+        .path = "assets/img/sand.png",
+        .frame_nb = (unsigned int[]){
+                    1
+                    },
+        .lapse = (unsigned int[]){
+                    100
+                    },
+        .origin = (sfVector2f[]){
+                    {16, 16}
+                    },
+        .view_box = (sfIntRect[]){
+                    {0, 0, 32, 32}
+                    },
+        .state_nb = 1,
+        .mass = __FLT_MAX__,
+        .has_comp = false
+    },
+    [DIRT] =
+    {
+        .path = "assets/img/dirt.png",
+        .frame_nb = (unsigned int[]){
+                    1
+                    },
+        .lapse = (unsigned int[]){
+                    100
+                    },
+        .origin = (sfVector2f[]){
+                    {16, 16}
+                    },
+        .view_box = (sfIntRect[]){
+                    {0, 0, 32, 32}
+                    },
+        .state_nb = 1,
+        .mass = __FLT_MAX__,
+        .has_comp = false
     },
     [RAIN] =
     {
@@ -485,7 +523,7 @@ const game_obj_constructor_t constructor_list[] = {
                     },
         .state_nb = 1,
         .mass = 690,
-        .has_comp = false
+        .has_comp = true
     },
 };
 
@@ -507,6 +545,16 @@ const comp_constructor_t *comp_constructor_list[] = {
             .type = CAN_JUMP,
             .data = (int[1]){0},
             .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_END
+        }
+    },
+    [WATER] =
+    (comp_constructor_t[]){
+        {
+            .storage_type = TYPE_CLOCK,
+            .type = CLOCK
         },
         {
             .storage_type = TYPE_END
@@ -583,6 +631,18 @@ const comp_constructor_t *comp_constructor_list[] = {
         }
     },
     [WOOD2_RIGHT_TRIANGLE] =
+    (comp_constructor_t[]){
+        {
+            .storage_type = TYPE_VECTOR_2F,
+            .type = SIZE,
+            .data = (sfVector2f [1]){{0, 0}},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_END
+        }
+    },
+    [TILLER] =
     (comp_constructor_t[]){
         {
             .storage_type = TYPE_VECTOR_2F,

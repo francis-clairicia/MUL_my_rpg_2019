@@ -10,7 +10,6 @@
 
 #include "rpg.h"
 #include "game_object.h"
-#include "boat.h"
 
 typedef struct battle_s
 {
