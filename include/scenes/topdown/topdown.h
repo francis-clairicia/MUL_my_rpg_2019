@@ -30,4 +30,6 @@ void draw_topdown(tool_t *tool, topdown_t topdown);
 
 void destroy_topdown(topdown_t *topdown);
 
+void boat_attack(game_obj_t *boat, list_t **bullets, sfBool side);
+
 #endif /* !TOPDOWN_H_ */

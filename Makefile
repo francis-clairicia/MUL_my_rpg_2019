@@ -80,6 +80,7 @@ SRC_SCENE			= 	src/scene/battle/destroy/destroy_background.c			\
 						src/scene/topdown/init/init_boat.c						\
 						src/scene/topdown/init/init_map.c						\
 						src/scene/topdown/init/init.c							\
+						src/scene/topdown/update/boat_attack.c					\
 						src/scene/topdown/update/boat_collision.c				\
 						src/scene/topdown/update/control_boat.c					\
 						src/scene/topdown/update/update_boat.c					\

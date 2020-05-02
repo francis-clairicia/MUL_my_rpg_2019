@@ -34,8 +34,6 @@ sfBool reset_comp_clock(game_obj_t *obj, prop_t type)
     i = find_comp(obj, type);
     if (!(obj->comp[i]))
         return (sfFalse);
-    my_memset((char *)obj->comp[i] + sizeof(prop_t), '\0',
-            sizeof(component_t) - sizeof(prop_t));
     if (!(obj->comp[i]->clock))
         return (sfFalse);
     sfClock_restart(obj->comp[i]->clock);

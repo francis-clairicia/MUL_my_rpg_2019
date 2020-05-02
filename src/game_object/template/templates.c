@@ -660,9 +660,9 @@ const comp_constructor_t *comp_constructor_list[] = {
             .type = ATTACK_TIME,
         },
         {
-            .storage_type = TYPE_FLOAT,
+            .storage_type = TYPE_INT,
             .type = CANNON_NB,
-            .data = (float[1]){2},
+            .data = (int[1]){1},
             .data2 = NULL
         },
         {
@@ -708,7 +708,7 @@ const comp_constructor_t *comp_constructor_list[] = {
         {
             .storage_type = TYPE_FLOAT,
             .type = CANNON_NB,
-            .data = (float[1]){2},
+            .data = (float[1]){1},
             .data2 = NULL
         },
         {
@@ -754,7 +754,7 @@ const comp_constructor_t *comp_constructor_list[] = {
         {
             .storage_type = TYPE_FLOAT,
             .type = CANNON_NB,
-            .data = (float[1]){2},
+            .data = (float[1]){1},
             .data2 = NULL
         },
         {
@@ -800,7 +800,7 @@ const comp_constructor_t *comp_constructor_list[] = {
         {
             .storage_type = TYPE_FLOAT,
             .type = CANNON_NB,
-            .data = (float[1]){2},
+            .data = (float[1]){1},
             .data2 = NULL
         },
         {
@@ -846,7 +846,7 @@ const comp_constructor_t *comp_constructor_list[] = {
         {
             .storage_type = TYPE_FLOAT,
             .type = CANNON_NB,
-            .data = (float[1]){2},
+            .data = (float[1]){1},
             .data2 = NULL
         },
         {
@@ -857,7 +857,9 @@ const comp_constructor_t *comp_constructor_list[] = {
     (comp_constructor_t[]){
         {
             .storage_type = TYPE_INT,
-            .type = DAMAGE
+            .type = DAMAGE,
+            .data = (int [1]){0},
+            .data2 = NULL
         },
         {
             .storage_type = TYPE_END

@@ -7,10 +7,41 @@
 
 #include "topdown.h"
 
+static game_obj_t *init_bullet(game_obj_t *boat, int index,
+                        sfBool side, sfVector2f flank)
+{
+    size_t bullet_nb = boat->comp[find_comp(boat, CANNON_NB)]->i;
+    sfVector2f impulse = vec_norm(vec_normal(flank));
+    game_obj_t *new_bullet = create_game_obj(BULLET);
+
+    if (!new_bullet)
+        return (NULL);
+    set_game_object_pos(new_bullet, vec_add(boat->body.obb[3 - side],
+                vec_mult(flank, (float)(index + 1) / (float)(bullet_nb + 1))));
+    if (!side)
+        impulse = vec_mult(impulse, -1);
+    impulse = vec_mult(impulse, 10000);
+    new_bullet->comp[find_comp(new_bullet, DAMAGE)]->i =
+                    boat->comp[find_comp(boat, DAMAGE)]->i;
+    apply_force(&(new_bullet->body), impulse);
+    return (new_bullet);
+}
+
 void boat_attack(game_obj_t *boat, list_t **bullets, sfBool side)
 {
-    game_obj_t *bullet = create_game_obj(BULLET);
+    register size_t index = 0;
+    size_t bullet_nb = boat->comp[find_comp(boat, CANNON_NB)]->i;
+    sfVector2f flank = VEC2F(0, 0);
 
-    if (!boat || !bullets || !bullet)
+    update_game_object_center(boat);
+    update_obb(&(boat->body));
+    if (side)
+        flank = vec_sub(boat->body.obb[1], boat->body.obb[2]);
+    else
+        flank = vec_sub(boat->body.obb[0], boat->body.obb[3]);
+    if (!bullets || !bullet_nb)
         return ;
+    for (; index < bullet_nb; index += 1) {
+        MY_PUT_IN_LIST(bullets, init_bullet(boat, index, side, flank));
+    }
 }
