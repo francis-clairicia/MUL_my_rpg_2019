@@ -65,16 +65,18 @@ static void draw_settings(sfRenderWindow *window, settings_t *sett)
 
 scene_t launch_settings(tool_t *tools, scene_t state)
 {
-    if (state != SETTINGS)
-        tools->settings.previous_state = state;
+    if (!init_settings(&(tools->settings), tools->view))
+        return (state);
+    tools->settings.previous_state = state;
     state = SETTINGS;
     set_text_origin(tools->settings.buttons[VOLUME_UP].text, 0.5, 1.2);
     set_text_origin(tools->settings.buttons[VOLUME_DOWN].text, 0.5, 3);
     while (state == SETTINGS) {
-        draw_settings(tools->window, &tools->settings);
         update_tool(tools);
+        draw_settings(tools->window, &tools->settings);
         sfRenderWindow_display(tools->window);
         state = check_event(tools, state);
     }
+    destroy_settings(&(tools->settings));
     return (state);
 }

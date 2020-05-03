@@ -19,8 +19,6 @@ static sfBool init_scene(tool_t *tools)
 {
     if (!init_menu(&(tools->menu)) || !init_save_chooser(&tools->chooser))
         return (sfFalse);
-    if (!init_settings(&(tools->settings)))
-        return (sfFalse);
     return (sfTrue);
 }
 
@@ -40,8 +38,6 @@ static sfBool init_window(tool_t *tools)
     update_tool(tools);
     if (!init_scene(tools))
         return (sfFalse);
-    if (!init_control(&tools->player))
-        return (sfFalse);
     return (sfTrue);
 }
 
@@ -49,7 +45,6 @@ static void destroy_window(tool_t *tools)
 {
     destroy_player(&tools->player);
     destroy_menu(&tools->menu);
-    destroy_settings(&tools->settings);
     destroy_save_chooser(&tools->chooser);
     sfView_destroy(tools->view);
     sfClock_destroy(tools->clock);

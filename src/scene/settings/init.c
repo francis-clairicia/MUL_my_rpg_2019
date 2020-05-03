@@ -26,11 +26,12 @@ static button_t init_settings_button(char const *message,
     return (button);
 }
 
-static sfBool create_box(settings_t *sett)
+static sfBool create_box(settings_t *sett, sfView *view)
 {
-    sfVector2f pos = init_vector2f(500, 100);
-    sfVector2f pos_txt = init_vector2f(pos.x + (pos.x / 2), pos.y);
     sfVector2f size = init_vector2f(1000, 800);
+    sfVector2f center = sfView_getCenter(view);
+    sfVector2f pos = {center.x - (size.x / 2), center.y - (size.y / 2)};
+    sfVector2f pos_txt = init_vector2f(pos.x + (pos.x / 2), pos.y);
 
     sett->box = sfRectangleShape_create();
     if (!sett->box)
@@ -46,12 +47,12 @@ static sfBool create_box(settings_t *sett)
     return (sfTrue);
 }
 
-sfBool init_settings(settings_t *sett)
+sfBool init_settings(settings_t *sett, sfView *view)
 {
     sfFloatRect rect = {0, 0, 0, 0};
     sfColor col = sfColor_fromRGB(33, 170, 217);
 
-    if (sett == NULL || !create_box(sett))
+    if (sett == NULL || !create_box(sett, view))
         return (sfFalse);
     rect = sfRectangleShape_getGlobalBounds(sett->box);
     sett->nb_buttons = sizeof(sett->buttons) / sizeof(sett->buttons[0]);
