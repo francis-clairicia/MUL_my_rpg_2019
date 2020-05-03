@@ -15,10 +15,12 @@ const game_obj_constructor_t constructor_list[] = {
                     4,
                     10,
                     10,
+                    6,
                     6
                     },
         .lapse = (unsigned int[]){
                     2000,
+                    100,
                     100,
                     100,
                     100
@@ -27,15 +29,17 @@ const game_obj_constructor_t constructor_list[] = {
                     {42, 60},
                     {50, 60},
                     {35, 60},
-                    {55, 60}
+                    {55, 60},
+                    {41, 60}
                     },
         .view_box = (sfIntRect[]){
                     {0, 0, 69, 60},
                     {0, 60, 84, 60},
                     {0, 120, 84, 60},
-                    {0, 180, 96, 60}
+                    {0, 180, 96, 60},
+                    {0, 240, 96, 60}
                     },
-        .state_nb = 4,
+        .state_nb = 5,
         .mass = 20,
         .has_comp = true
     },

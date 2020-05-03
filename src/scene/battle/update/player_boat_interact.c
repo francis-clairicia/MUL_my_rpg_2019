@@ -7,7 +7,7 @@
 
 #include "update_battle.h"
 
-void player_boat_collision(game_obj_t *pirate, game_obj_t *boat)
+static void player_boat_collision(game_obj_t *pirate, game_obj_t *boat)
 {
     if (!boat || !pirate)
         return;
@@ -18,7 +18,7 @@ void player_boat_collision(game_obj_t *pirate, game_obj_t *boat)
         pirate->comp[find_comp(pirate, CAN_JUMP)]->i = 1;
 }
 
-void player_control_boat(game_obj_t *pirate, game_obj_t *boat,
+static void player_control_boat(game_obj_t *pirate, game_obj_t *boat,
                             control_t control)
 {
     static sfBool key_pressed = sfFalse;
@@ -26,7 +26,8 @@ void player_control_boat(game_obj_t *pirate, game_obj_t *boat,
     if (!boat || !pirate)
         return;
     if (sfKeyboard_isKeyPressed(control.keys[CONTROL_USE])) {
-        if (!key_pressed && is_game_object_collision(pirate, boat)) {
+        if (!key_pressed && (is_game_object_collision(pirate, boat) ||
+            pirate->comp[find_comp(pirate, IS_DRIVING)]->i)) {
             pirate->comp[find_comp(pirate, IS_DRIVING)]->i ^= 1;
             pirate->body.vel = VEC2F(0, 0);
         }
