@@ -7,15 +7,40 @@
 
 #include "rpg.h"
 
+static int button_event(button_t *buttons, int nb_buttons, sfEvent event,
+    int prev_state)
+{
+    int i = 0;
+
+    while (i < nb_buttons) {
+        if (is_button_clicked(buttons[i], event) == sfTrue)
+            break;
+        i += 1;
+    }
+    if (i == VOLUME_UP || i == VOLUME_DOWN) {
+        return (SETTINGS);
+    } else if (i == SAVE) {
+        return (SETTINGS);
+    } else {
+        if (i == CLOSE) {
+            return (prev_state);
+        } else if (i == BACK_MENU) {
+            return (MENU);
+        }
+    }
+    return (SETTINGS);
+}
 
 static int check_event(tool_t *tools, int state)
 {
-    settings_t *settings = &tools->settings;
+    settings_t *sett = &tools->settings;
 
     while (sfRenderWindow_pollEvent(tools->window, &tools->event)) {
         if (tools->event.type == sfEvtClosed)
             return (NO_SCENE);
     }
+    state = button_event(sett->buttons, sett->nb_buttons, tools->event, 
+        sett->previous_state);
     return (state);
 }
 

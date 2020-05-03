@@ -34,8 +34,9 @@ static int check_event(tool_t *tools, int state)
         if (tools->event.type == sfEvtClosed)
             return (NO_SCENE);
         state = button_event(menu->buttons, tools->event, state);
-        if (state == SETTINGS)
+        if (state == SETTINGS) {
             state = launch_settings(tools, state);
+        }
     }
     return (state);
 }

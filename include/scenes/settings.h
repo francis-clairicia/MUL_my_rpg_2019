@@ -16,14 +16,15 @@ typedef struct settings_s
     button_t buttons[5];
     int nb_buttons;
     text_t title;
+    int previous_state;
 }settings_t;
 
 enum SETTINGS_BUTTONS {
     VOLUME_DOWN,
     VOLUME_UP,
     SAVE,
-    BACK_MENU,
-    CLOSE
+    CLOSE,
+    BACK_MENU
 };
 
 /* Settings */
