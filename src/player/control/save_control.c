@@ -12,10 +12,13 @@
 static FILE *open_control_save(char const *folder)
 {
     char *control_save = join_path(folder, CONTROL_SAVE_FILE);
+    FILE *fp = NULL;
 
     if (control_save == NULL)
         return (NULL);
-    return (fopen(control_save, "w"));
+    fp = fopen(control_save, "wb");
+    free(control_save);
+    return (fp);
 }
 
 static bool write_controls(control_t *control, FILE *save)

@@ -72,6 +72,7 @@ SRC_SCENE			= 	src/scene/battle/destroy/destroy_background.c			\
 						src/scene/menu/loop.c									\
 						src/scene/save_chooser/init.c							\
 						src/scene/save_chooser/loop.c							\
+						src/scene/save_chooser/draw.c							\
 						src/scene/save_chooser/new_player/new_player_scene.c	\
 						src/scene/save_chooser/new_player/get_pseudo.c			\
 						src/scene/settings/init.c								\
@@ -127,6 +128,8 @@ SRC_PLAYER			=	src/player/init_player.c								\
 						src/player/pseudo/save_pseudo.c							\
 						src/player/control/init_control.c						\
 						src/player/control/save_control.c						\
+						src/player/level/init_level.c							\
+						src/player/level/save_level.c							\
 
 SRC_TEST			=	$(SRC_GAME_OBJ)											\
 						$(SRC_INPUT_HANDLING)									\

@@ -14,12 +14,14 @@ static button_t init_chooser_button(char const *message, sfVector2f pos)
     sfColor default_color = sfColor_fromRGB(33, 170, 217);
     button_t button = create_button(text, default_color);
 
-    move_button(button, pos);
+    button.color[BUTTON_HOVER] = sfColor_fromRGB(0, 220, 255);
+    button.color[BUTTON_ACTIVE] = sfColor_fromRGB(100, 100, 100);
+    set_pos_button(button, pos);
     set_text_origin(button.text, 0.5, 0.75);
     return (button);
 }
 
-void set_button_color_for_saves(button_t buttons[3], save_t saves[3])
+void set_button_color_for_saves(button_t buttons[3], player_t players[3])
 {
     sfColor default_color = sfColor_fromRGB(33, 170, 217);
     sfColor hover_color = sfColor_fromRGB(0, 220, 255);
@@ -28,8 +30,8 @@ void set_button_color_for_saves(button_t buttons[3], save_t saves[3])
     sfColor disabled_hover_color = sfColor_fromRGB(200, 200, 200);
     sfColor disabled_active_color = sfColor_fromRGB(100, 100, 100);
 
-    for (int i = 0; buttons != NULL && saves != NULL && i < 3; i += 1) {
-        if (saves[i].used) {
+    for (int i = 0; buttons != NULL && players != NULL && i < 3; i += 1) {
+        if (players[i].save.used) {
             buttons[i].color[BUTTON_NORMAL] = default_color;
             buttons[i].color[BUTTON_HOVER] = hover_color;
             buttons[i].color[BUTTON_ACTIVE] = active_color;
@@ -54,8 +56,6 @@ sfBool init_save_chooser(save_chooser_t *chooser)
     for (i = 0; i < 3; i += 1)
         chooser->saves[i] = init_chooser_button(messages[i], pos[i]);
     chooser->menu = init_chooser_button("Menu", VEC2F(1900, 980));
-    chooser->menu.color[BUTTON_HOVER] = sfColor_fromRGB(0, 220, 255);
-    chooser->menu.color[BUTTON_ACTIVE] = sfColor_fromRGB(100, 100, 100);
     set_button_origin(chooser->menu, 1, 1);
     return (true);
 }
