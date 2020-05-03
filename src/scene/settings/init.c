@@ -9,7 +9,8 @@
 #include "vector_engine.h"
 
 
-static button_t init_settings_button(char const *message, sfColor col, sfVector2f pos)
+static button_t init_settings_button(char const *message,
+    sfColor col, sfVector2f pos)
 {
     text_t text = init_text(message, FONT_FOLDER "skull.ttf", 120);
     sfColor default_color = col;
@@ -25,19 +26,24 @@ static button_t init_settings_button(char const *message, sfColor col, sfVector2
     return (button);
 }
 
-static void create_box(settings_t *sett)
+static sfBool create_box(settings_t *sett)
 {
     sfVector2f pos = init_vector2f(500, 100);
     sfVector2f pos_txt = init_vector2f(pos.x + (pos.x / 2), pos.y);
     sfVector2f size = init_vector2f(1000, 800);
 
     sett->box = sfRectangleShape_create();
+    if (!sett->box)
+        return (sfFalse);
     sfRectangleShape_setFillColor(sett->box, init_color(0, 31, 139, 255));
     sfRectangleShape_setOutlineColor(sett->box, init_color(9, 214, 248, 255));
     sfRectangleShape_setPosition(sett->box, pos);
     sfRectangleShape_setSize(sett->box, size);
     sett->title = init_text("SETTINGS", FONT_FOLDER "skull.ttf", 100);
+    if (!sett->title.object)
+        return (sfFalse);
     sfText_setPosition(sett->title.object, pos_txt);
+    return (sfTrue);
 }
 
 sfBool init_settings(settings_t *sett)
@@ -45,10 +51,7 @@ sfBool init_settings(settings_t *sett)
     sfFloatRect rect = {0, 0, 0, 0};
     sfColor col = init_color(9, 214, 248, 255);
 
-    if (sett == NULL)
-        return (sfFalse);
-    create_box(sett);
-    if (!sett->box || !sett->title.object)
+    if (sett == NULL || !create_box(sett))
         return (sfFalse);
     rect = sfRectangleShape_getGlobalBounds(sett->box);
     sett->nb_buttons = sizeof(sett->buttons) / sizeof(sett->buttons[0]);

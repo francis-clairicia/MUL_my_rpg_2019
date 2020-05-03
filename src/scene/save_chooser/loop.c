@@ -7,18 +7,15 @@
 
 #include "rpg.h"
 
-static int button_event(button_t buttons[3], sfEvent event, int state,
-    int *save_id)
+static int button_event(button_t buttons[3], sfEvent event)
 {
     int i = 0;
 
     for (i = 0; i < 3; i += 1) {
         if (is_button_clicked(buttons[i], event))
-            break;
+            return (i);
     }
-    if (i != 3)
-        *save_id = i;
-    return (state);
+    return (-1);
 }
 
 static int check_event(tool_t *tools, int state, int *save_id)
@@ -30,7 +27,7 @@ static int check_event(tool_t *tools, int state, int *save_id)
             return (NO_SCENE);
         if (is_button_clicked(chooser->menu, tools->event))
             return (MENU);
-        state = button_event(chooser->saves, tools->event, state, save_id);
+        *save_id = button_event(chooser->saves, tools->event);
     }
     return (state);
 }
@@ -48,7 +45,7 @@ static void draw_scene(sfRenderWindow *window, save_chooser_t *chooser)
 static scene_t load_player_and_launch_game(tool_t *tool, save_t save)
 {
     if (!init_player(&tool->player, save))
-        return (MENU);
+        return (SAVE_CHOOSE);
     if (save.used == false)
         return (new_player_setup(tool));
     return (TOPDOWN);

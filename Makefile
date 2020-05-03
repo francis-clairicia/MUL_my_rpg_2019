@@ -182,7 +182,7 @@ compress:
 
 debug:	CFLAGS += -g
 debug:	$(MY_LIBS)
-	$(CC) -o $@ $(SRC) $(LDFLAGS) $(LDLIBS) $(CFLAGS) $(CPPFLAGS)
+	$(CC) -o $(NAME) $(SRC) $(LDFLAGS) $(LDLIBS) $(CFLAGS) $(CPPFLAGS)
 
 tests_run:	LDLIBS += -lcriterion
 tests_run:	CFLAGS += --coverage

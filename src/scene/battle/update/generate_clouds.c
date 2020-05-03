@@ -44,7 +44,7 @@ void generate_clouds(tool_t *tool, list_t **clouds)
     new_cloud = create_game_obj(clouds_template[index]);
     if (!new_cloud)
         return ;
-    MY_PUT_IN_LIST(clouds, new_cloud);
+    MY_APPEND_TO_LIST(clouds, new_cloud);
     if (get_randomnb(0, 2))
         generate_cloud_right(tool, new_cloud);
     else

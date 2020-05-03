@@ -54,6 +54,8 @@ sfBool init_save_chooser(save_chooser_t *chooser)
     for (i = 0; i < 3; i += 1)
         chooser->saves[i] = init_chooser_button(messages[i], pos[i]);
     chooser->menu = init_chooser_button("Menu", VEC2F(1900, 980));
+    chooser->menu.color[BUTTON_HOVER] = sfColor_fromRGB(0, 220, 255);
+    chooser->menu.color[BUTTON_ACTIVE] = sfColor_fromRGB(100, 100, 100);
     set_button_origin(chooser->menu, 1, 1);
     return (true);
 }

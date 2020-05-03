@@ -83,6 +83,7 @@ scene_t get_pseudo_new_player(tool_t *tools)
         return (NO_SCENE);
     while (!validated && state == NEW_PLAYER) {
         sfRenderWindow_clear(tools->window, tools->chooser.background);
+        update_tool(tools);
         draw_scene(tools->window, frame, tools->player.pseudo);
         sfRenderWindow_display(tools->window);
         state = check_event(tools, state, &validated);
