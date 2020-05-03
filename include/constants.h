@@ -9,6 +9,7 @@
 #define HEADER_CONSTANTS
 
 #define IMG_FOLDER "./assets/img/"
+#define SOUND_FOLDER "./assets/sounds/"
 #define FONT_FOLDER "./assets/font/"
 #define SAVE_FOLDER "./saves/"
 
