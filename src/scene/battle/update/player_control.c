@@ -7,6 +7,18 @@
 
 #include "battle.h"
 
+static void player_control_attack(game_obj_t *pirate, control_t control)
+{
+    if (sfKeyboard_isKeyPressed(control.keys[CONTROL_ATTACK1])) {
+        pirate->body.vel.x = 0;
+        update_game_object_state(pirate, 4);
+    }
+    if (sfKeyboard_isKeyPressed(control.keys[CONTROL_ATTACK2])) {
+        pirate->body.vel.x = 0;
+        update_game_object_state(pirate, 3);
+    }
+}
+
 static void player_control_player(game_obj_t *pirate, control_t control)
 {
     if (sfKeyboard_isKeyPressed(control.keys[CONTROL_LEFT])) {
@@ -18,10 +30,12 @@ static void player_control_player(game_obj_t *pirate, control_t control)
     } else
         update_game_object_state(pirate, 0);
     if (sfKeyboard_isKeyPressed(control.keys[CONTROL_UP]) &&
-        pirate->comp[find_comp(pirate, CAN_JUMP)]->i) {
+        pirate->comp[find_comp(pirate, CAN_JUMP)]->i &&
+        !pirate->comp[find_comp(pirate, IS_DRIVING)]->i) {
         apply_force(&(pirate->body), VEC2F(0, -10000));
         pirate->comp[find_comp(pirate, CAN_JUMP)]->i = 0;
     }
+    player_control_attack(pirate, control);
 }
 
 static void player_control_ship(list_t *boat_list, control_t control)
