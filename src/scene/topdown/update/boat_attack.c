@@ -9,10 +9,10 @@
 
 static void set_bullet_team(game_obj_t *boat, game_obj_t *bullet)
 {
-    if (boat->state == 1 || boat->state == 2)
-        bullet->comp[find_comp(bullet, ALLY)]->i = 0;
-    else if (boat->state == 0 || boat->state == 3)
+    if (boat->type == BOAT1 || boat->type == BOAT4)
         bullet->comp[find_comp(bullet, ALLY)]->i = 1;
+    else
+        bullet->comp[find_comp(bullet, ALLY)]->i = 0;
 }
 
 static game_obj_t *init_bullet(game_obj_t *boat, int index,

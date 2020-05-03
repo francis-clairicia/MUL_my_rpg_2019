@@ -79,7 +79,9 @@ typedef enum properties_e {
     ALLY,
     FIRE_SOUND,
     HIT_SOUND,
-    DEATH_SOUND
+    DEATH_SOUND,
+    VIEW_RANGE,
+    FIRE_RANGE
 } prop_t;
 
 typedef struct component_s {

@@ -53,7 +53,7 @@ void update_topdown_buoys(tool_t *tool, topdown_t *topdown)
     list_t *list = topdown->map;
     game_obj_t *obj = NULL;
 
-    if (get_randomnb(0, 10 / tool->dtime))
+    if (get_randomnb(0, 6 / tool->dtime))
         return;
     for (;list; list = list->next) {
         obj = NODE_DATA(list, game_obj_t *);
@@ -62,7 +62,6 @@ void update_topdown_buoys(tool_t *tool, topdown_t *topdown)
         if ((obj->type == BUOY1 || obj->type == BUOY2) &&
             !get_randomnb(0, 3)) {
             generate_new_boat(obj, topdown);
-            break;
         }
     }
 }

@@ -48,4 +48,7 @@ float vec_dot(sfVector2f vec1, sfVector2f vec2);
 //Returns the cross product of 2 vectors
 float vec_cross(sfVector2f vec1, sfVector2f vec2);
 
+//Returns the angle between 2 given vectors
+float vec_angle(sfVector2f vec1, sfVector2f vec2);
+
 #endif

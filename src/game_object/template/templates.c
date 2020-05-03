@@ -706,7 +706,7 @@ const comp_constructor_t *comp_constructor_list[] = {
         {
             .storage_type = TYPE_INT,
             .type = DAMAGE,
-            .data = (int[1]){10},
+            .data = (int[1]){20},
             .data2 = NULL
         },
         {
@@ -770,7 +770,7 @@ const comp_constructor_t *comp_constructor_list[] = {
         {
             .storage_type = TYPE_FLOAT,
             .type = ATTACK_SPEED,
-            .data = (float[1]){1},
+            .data = (float[1]){3},
             .data2 = NULL
         },
         {
@@ -778,9 +778,9 @@ const comp_constructor_t *comp_constructor_list[] = {
             .type = ATTACK_TIME,
         },
         {
-            .storage_type = TYPE_FLOAT,
+            .storage_type = TYPE_INT,
             .type = CANNON_NB,
-            .data = (float[1]){1},
+            .data = (int[1]){3},
             .data2 = NULL
         },
         {
@@ -800,6 +800,18 @@ const comp_constructor_t *comp_constructor_list[] = {
             .type = DEATH_SOUND,
             .data = (char *)"assets/sounds/boat_death.ogg",
             .data2 = (float [1]){10}
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = VIEW_RANGE,
+            .data = (int [1]){1000},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = FIRE_RANGE,
+            .data = (int [1]){300},
+            .data2 = NULL
         },
         {
             .storage_type = TYPE_END
@@ -822,13 +834,13 @@ const comp_constructor_t *comp_constructor_list[] = {
         {
             .storage_type = TYPE_INT,
             .type = DAMAGE,
-            .data = (int[1]){10},
+            .data = (int[1]){2},
             .data2 = NULL
         },
         {
             .storage_type = TYPE_FLOAT,
             .type = ATTACK_SPEED,
-            .data = (float[1]){1},
+            .data = (float[1]){2},
             .data2 = NULL
         },
         {
@@ -836,9 +848,9 @@ const comp_constructor_t *comp_constructor_list[] = {
             .type = ATTACK_TIME,
         },
         {
-            .storage_type = TYPE_FLOAT,
+            .storage_type = TYPE_INT,
             .type = CANNON_NB,
-            .data = (float[1]){1},
+            .data = (int[1]){2},
             .data2 = NULL
         },
         {
@@ -858,6 +870,18 @@ const comp_constructor_t *comp_constructor_list[] = {
             .type = DEATH_SOUND,
             .data = (char *)"assets/sounds/boat_death.ogg",
             .data2 = (float [1]){10}
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = VIEW_RANGE,
+            .data = (int [1]){750},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = FIRE_RANGE,
+            .data = (int [1]){200},
+            .data2 = NULL
         },
         {
             .storage_type = TYPE_END
@@ -894,9 +918,9 @@ const comp_constructor_t *comp_constructor_list[] = {
             .type = ATTACK_TIME,
         },
         {
-            .storage_type = TYPE_FLOAT,
+            .storage_type = TYPE_INT,
             .type = CANNON_NB,
-            .data = (float[1]){1},
+            .data = (int[1]){1},
             .data2 = NULL
         },
         {
@@ -916,6 +940,18 @@ const comp_constructor_t *comp_constructor_list[] = {
             .type = DEATH_SOUND,
             .data = (char *)"assets/sounds/boat_death.ogg",
             .data2 = (float [1]){10}
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = VIEW_RANGE,
+            .data = (int [1]){500},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = FIRE_RANGE,
+            .data = (int [1]){200},
+            .data2 = NULL
         },
         {
             .storage_type = TYPE_END
@@ -952,9 +988,9 @@ const comp_constructor_t *comp_constructor_list[] = {
             .type = ATTACK_TIME,
         },
         {
-            .storage_type = TYPE_FLOAT,
+            .storage_type = TYPE_INT,
             .type = CANNON_NB,
-            .data = (float[1]){1},
+            .data = (int[1]){1},
             .data2 = NULL
         },
         {

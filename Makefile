@@ -87,6 +87,7 @@ SRC_SCENE			= 	src/scene/battle/destroy/destroy_background.c			\
 						src/scene/topdown/update/boat_attack.c					\
 						src/scene/topdown/update/boat_collision.c				\
 						src/scene/topdown/update/boat_death.c					\
+						src/scene/topdown/update/boat_ia.c						\
 						src/scene/topdown/update/control_boat.c					\
 						src/scene/topdown/update/update_boat_state.c			\
 						src/scene/topdown/update/update_boat.c					\
@@ -102,7 +103,8 @@ SRC_INPUT_HANDLING	=	src/input_handling/mouse_input.c
 
 SRC_UPDATE_WINDOW 	=	src/update_window/update_tool.c
 
-SRC_VECTOR_ENGINE 	=	src/vector_engine/vec_basic.c							\
+SRC_VECTOR_ENGINE 	=	src/vector_engine/vec_angle.c							\
+						src/vector_engine/vec_basic.c							\
 						src/vector_engine/vec_cross.c							\
 						src/vector_engine/vec_dot.c								\
 						src/vector_engine/vec_lim.c								\

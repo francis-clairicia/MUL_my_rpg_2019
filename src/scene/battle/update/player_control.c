@@ -32,7 +32,7 @@ static void player_control_player(game_obj_t *pirate, control_t control)
     if (sfKeyboard_isKeyPressed(control.keys[CONTROL_UP]) &&
         pirate->comp[find_comp(pirate, CAN_JUMP)]->i &&
         !pirate->comp[find_comp(pirate, IS_DRIVING)]->i) {
-        apply_force(&(pirate->body), VEC2F(0, -10000));
+        apply_force(&(pirate->body), VEC2F(0, -1000));
         pirate->comp[find_comp(pirate, CAN_JUMP)]->i = 0;
     }
     player_control_attack(pirate, control);

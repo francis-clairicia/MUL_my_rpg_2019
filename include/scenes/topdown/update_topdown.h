@@ -18,6 +18,13 @@ void update_topdown_boat_state(game_obj_t *boat);
 void check_topdown_player_death(game_obj_t *boat, scene_t *state);
 sfBool boat_border(game_obj_t *boat, sfVector2f map_size);
 
+//Boat IA
+//Set ptarget if not null else select the closest boat in boat_list
+//Follow the target if boat is in view range
+//Fire at target if boat is in fire range
+void update_topdown_boat_ia(game_obj_t *boat, list_t *boat_list,
+                            game_obj_t *ptarget, list_t **bullets);
+
 //Update view
 void update_topdown_view(tool_t *tool, topdown_t *topdown);
 
