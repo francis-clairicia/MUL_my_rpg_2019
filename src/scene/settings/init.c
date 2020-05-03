@@ -35,8 +35,8 @@ static sfBool create_box(settings_t *sett)
     sett->box = sfRectangleShape_create();
     if (!sett->box)
         return (sfFalse);
-    sfRectangleShape_setFillColor(sett->box, init_color(0, 31, 139, 255));
-    sfRectangleShape_setOutlineColor(sett->box, init_color(9, 214, 248, 255));
+    sfRectangleShape_setFillColor(sett->box, sfColor_fromRGB(0, 31, 139));
+    sfRectangleShape_setOutlineColor(sett->box, sfColor_fromRGB(9, 214, 248));
     sfRectangleShape_setPosition(sett->box, pos);
     sfRectangleShape_setSize(sett->box, size);
     sett->title = init_text("SETTINGS", FONT_FOLDER "skull.ttf", 100);
@@ -49,7 +49,7 @@ static sfBool create_box(settings_t *sett)
 sfBool init_settings(settings_t *sett)
 {
     sfFloatRect rect = {0, 0, 0, 0};
-    sfColor col = init_color(9, 214, 248, 255);
+    sfColor col = sfColor_fromRGB(33, 170, 217);
 
     if (sett == NULL || !create_box(sett))
         return (sfFalse);

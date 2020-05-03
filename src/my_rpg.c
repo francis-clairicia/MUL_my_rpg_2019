@@ -63,6 +63,8 @@ int my_rpg(void)
     if (!init_window(&tools))
         return (84);
     while (sfRenderWindow_isOpen(tools.window)) {
+        if (state != SETTINGS)
+            tools.settings.previous_state = state;
         state = scene_launcher[state](&tools, state);
         if (state == NO_SCENE)
             sfRenderWindow_close(tools.window);
