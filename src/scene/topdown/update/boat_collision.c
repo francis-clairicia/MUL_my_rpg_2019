@@ -22,7 +22,8 @@ static void boat_collision_damage(game_obj_t *boat)
     update_topdown_boat_state(boat);
 }
 
-static sfBool boat_resolve_collision(rigid_body_t *b1, rigid_body_t *b2, float overlap)
+static sfBool boat_resolve_collision(rigid_body_t *b1, rigid_body_t *b2,
+                                                            float overlap)
 {
     sfVector2f rel_pos = vec_sub(b2->center, b1->center);
     float dist = vec_mag(rel_pos);

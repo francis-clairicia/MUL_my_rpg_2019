@@ -20,8 +20,9 @@ void clean_clouds(tool_t *tool, battle_t *battle)
             continue;
         }
         if ((cloud->body.vel.x > 0 && cloud->body.pos.x > tool->size.x) ||
-        (cloud->body.vel.x < 0 && cloud->body.pos.x + cloud->view_box[cloud->state].width < 0)) {
-           my_delete_node(&(battle->clouds), node_index, &free_game_object);
+            (cloud->body.vel.x < 0 && cloud->body.pos.x +
+            cloud->view_box[cloud->state].width < 0)) {
+            my_delete_node(&(battle->clouds), node_index, &free_game_object);
         } else {
             node_index += 1;
         }
