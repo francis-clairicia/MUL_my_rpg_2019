@@ -29,10 +29,12 @@ static sfBool init_window(tool_t *tools)
     tools->window = create_window(1920, 1080, 32, "My_RPG");
     if (!(tools->window))
         return (sfFalse);
+    sfRenderWindow_setFramerateLimit(tools->window, 60);
     tools->view = sfView_createFromRect((sfFloatRect){0, 0, 1920, 1080});
     tools->clock = sfClock_create();
     if (!(tools->view) || !(tools->clock))
         return (sfFalse);
+    sfRenderWindow_setView(tools->window, tools->view);
     my_memset(&(tools->player), 0, sizeof(player_t));
     init_mouse_tool(tools);
     update_tool(tools);

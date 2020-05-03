@@ -16,8 +16,8 @@ static const control_t control_template = {
     .keys[CONTROL_RIGHT] = sfKeyD,
     .keys[CONTROL_USE] = sfKeyE,
     .keys[CONTROL_ATTACK1] = sfKeyJ,
-    .keys[CONTROL_ATTACK2] = sfKeyK
-
+    .keys[CONTROL_ATTACK2] = sfKeyK,
+    .keys[CONTROL_CAMERA] = sfKeyC
 };
 
 static FILE *open_control_save(char const *folder)

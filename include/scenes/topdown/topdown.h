@@ -20,6 +20,7 @@ typedef struct topdown_s
     list_t *mercenary_boat;
     list_t *golden_boat;
     list_t *map;
+    sfVector2f map_size;
 } topdown_t;
 
 sfBool init_topdown(topdown_t *topdown);
