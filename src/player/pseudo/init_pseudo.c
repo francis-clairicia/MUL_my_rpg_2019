@@ -12,10 +12,13 @@
 static FILE *open_pseudo_save(char const *folder)
 {
     char *save = join_path(folder, PSEUDO_SAVE_FILE);
+    FILE *fp = NULL;
 
     if (save == NULL)
         return (NULL);
-    return (fopen(save, "r"));
+    fp = fopen(save, "rb");
+    free(save);
+    return (fp);
 }
 
 static bool load_pseudo(char pseudo[21], FILE *save)

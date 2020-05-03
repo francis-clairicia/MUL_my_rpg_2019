@@ -23,10 +23,13 @@ static const control_t control_template = {
 static FILE *open_control_save(char const *folder)
 {
     char *control_save = join_path(folder, CONTROL_SAVE_FILE);
+    FILE *fp = NULL;
 
     if (control_save == NULL)
         return (NULL);
-    return (fopen(control_save, "r"));
+    fp = fopen(control_save, "rb");
+    free(control_save);
+    return (fp);
 }
 
 static bool load_controls(control_t *control, FILE *save)

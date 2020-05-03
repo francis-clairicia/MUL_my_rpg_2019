@@ -9,8 +9,6 @@
 
 void destroy_battle_ennemy(battle_t *battle)
 {
-    if (battle->ennemy_boat)
-        my_free_list(&(battle->ennemy_boat), free_game_object);
-    if (battle->ennemy_crew)
-        my_free_list(&(battle->ennemy_crew), free_game_object);
+    my_free_list(&(battle->ennemy_boat), free_game_object);
+    my_free_list(&(battle->ennemy_crew), free_game_object);
 }

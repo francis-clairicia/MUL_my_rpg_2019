@@ -11,6 +11,7 @@
 static const player_field_init_t init_function[] = {
     &init_pseudo,
     &init_control,
+    &init_level,
     NULL
 };
 

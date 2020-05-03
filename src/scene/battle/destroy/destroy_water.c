@@ -9,6 +9,5 @@
 
 void destroy_battle_water(battle_t *battle)
 {
-    if (battle->water)
-        my_free_list(&(battle->water), free_game_object);
+    my_free_list(&(battle->water), free_game_object);
 }

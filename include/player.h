@@ -17,12 +17,14 @@ typedef struct player
 {
     control_t control;
     char pseudo[21];
+    int level;
     save_t save;
     list_t *crew;
     list_t *boat;
     sfVector2f pos;
 } player_t;
 
+bool load_all_saves(player_t players[3]);
 bool init_player(player_t *player, save_t save);
 void destroy_player(player_t *player);
 bool save_player_data(player_t *player);
@@ -30,9 +32,11 @@ bool save_player_data(player_t *player);
 typedef bool (*player_field_init_t)(player_t *);
 bool init_pseudo(player_t *player);
 bool init_control(player_t *player);
+bool init_level(player_t *player);
 
 typedef bool (*player_field_save_t)(player_t *);
 bool save_pseudo(player_t *player);
 bool save_control(player_t *player);
+bool save_level(player_t *player);
 
 #endif

@@ -9,6 +9,5 @@
 
 void destroy_topdown_map(topdown_t *topdown)
 {
-    if (topdown->map)
-        my_free_list(&(topdown->map), free_game_object);
+    my_free_list(&(topdown->map), free_game_object);
 }

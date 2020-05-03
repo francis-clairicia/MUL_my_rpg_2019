@@ -52,6 +52,7 @@ static void destroy_window(tool_t *tools)
     destroy_settings(&tools->settings);
     destroy_save_chooser(&tools->chooser);
     sfView_destroy(tools->view);
+    sfClock_destroy(tools->clock);
     sfRenderWindow_destroy(tools->window);
 }
 
@@ -63,8 +64,6 @@ int my_rpg(void)
     if (!init_window(&tools))
         return (84);
     while (sfRenderWindow_isOpen(tools.window)) {
-        if (state != SETTINGS)
-            tools.settings.previous_state = state;
         state = scene_launcher[state](&tools, state);
         if (state == NO_SCENE)
             sfRenderWindow_close(tools.window);

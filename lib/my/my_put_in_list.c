@@ -15,10 +15,12 @@ int my_put_in_list(list_t **list, long data)
         return (0);
     element->data = data;
     element->next = *list;
-    if (*list == NULL)
+    if (*list == NULL) {
         element->previous = element;
-    else
+    } else {
         element->previous = (*list)->previous;
+        (*list)->previous = element;
+    }
     *list = element;
     return (1);
 }

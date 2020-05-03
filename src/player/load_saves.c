@@ -9,7 +9,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include "my.h"
-#include "save.h"
+#include "player.h"
 
 static void create_config_file(char const *config)
 {
@@ -41,14 +41,17 @@ bool load_one_save(save_t *save, char const *folder)
     return (true);
 }
 
-bool load_all_saves(save_t saves[3])
+bool load_all_saves(player_t players[3])
 {
     int i = 0;
+    save_t save;
 
-    if (saves == NULL)
+    if (players == NULL)
         return (false);
     for (i = 0; i < 3; i += 1) {
-        if (!load_one_save(&saves[i], save_folders[i]))
+        if (!load_one_save(&save, save_folders[i]))
+            return (false);
+        if (!init_player(&players[i], save))
             return (false);
     }
     return (true);

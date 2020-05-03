@@ -32,21 +32,15 @@ static int check_event(tool_t *tools, int state, int *save_id)
     return (state);
 }
 
-static void draw_scene(sfRenderWindow *window, save_chooser_t *chooser)
+static scene_t load_player_and_launch_game(tool_t *tool, player_t players[3],
+    int save_chosen)
 {
-    int i = 0;
-
-    sfRenderWindow_clear(window, chooser->background);
-    for (i = 0; i < 3; i += 1)
-        draw_button(chooser->saves[i], window);
-    draw_button(chooser->menu, window);
-}
-
-static scene_t load_player_and_launch_game(tool_t *tool, save_t save)
-{
-    if (!init_player(&tool->player, save))
-        return (SAVE_CHOOSE);
-    if (save.used == false)
+    tool->player = players[save_chosen];
+    for (int i = 0; i < 3; i += 1) {
+        if (i != save_chosen)
+            destroy_player(&players[i]);
+    }
+    if (tool->player.save.used == false)
         return (new_player_setup(tool));
     return (TOPDOWN);
 }
@@ -54,19 +48,19 @@ static scene_t load_player_and_launch_game(tool_t *tool, save_t save)
 scene_t launch_save_chooser(tool_t *tool, scene_t state)
 {
     int index = -1;
-    save_t saves[3];
+    player_t players[3];
 
-    if (!load_all_saves(saves))
+    if (!load_all_saves(players))
         return (MENU);
-    set_button_color_for_saves(tool->chooser.saves, saves);
+    set_button_color_for_saves(tool->chooser.saves, players);
     while (state == SAVE_CHOOSE && index == -1) {
         sfRenderWindow_clear(tool->window, sfBlack);
         update_tool(tool);
-        draw_scene(tool->window, &tool->chooser);
+        draw_save_chooser(tool->window, &tool->chooser, players);
         sfRenderWindow_display(tool->window);
         state = check_event(tool, state, &index);
     }
     if (index != -1)
-        return (load_player_and_launch_game(tool, saves[index]));
+        return (load_player_and_launch_game(tool, players, index));
     return (state);
 }

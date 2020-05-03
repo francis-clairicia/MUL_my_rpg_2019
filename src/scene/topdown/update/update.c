@@ -15,7 +15,7 @@ void update_topdown(tool_t *tool, topdown_t *topdown, scene_t *state)
     update_topdown_view(tool, topdown);
     update_topdown_buoys(tool, topdown);
     if (sfKeyboard_isKeyPressed(sfKeyEscape))
-        *state = MENU;
+        *state = launch_settings(tool, TOPDOWN);
     if (sfKeyboard_isKeyPressed(sfKeyF12))
         *state = BATTLE;
 }

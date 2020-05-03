@@ -14,13 +14,12 @@ scene_t launch_battle(tool_t *tool, scene_t state)
     if (!tool || !init_battle(tool, &battle))
         return (MENU);
     while (state == BATTLE) {
-        sfRenderWindow_clear(tool->window, sfBlack);
         update_tool(tool);
         update_battle(tool, &battle, &state);
+        sfRenderWindow_clear(tool->window, sfBlack);
         draw_battle(tool, battle);
         sfRenderWindow_display(tool->window);
     }
-    save_player_data(battle.player);
     destroy_battle(&battle);
     return (state);
 }

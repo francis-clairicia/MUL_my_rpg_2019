@@ -46,13 +46,19 @@ static int check_event(tool_t *tools, int state, bool *validated)
 static void draw_scene(sfRenderWindow *window, sfRectangleShape *frame,
     char const *pseudo)
 {
+    char title_message[] = "Enter your new pseudo";
+    text_t title = init_text(title_message, FONT_FOLDER "skull.ttf", 90);
     text_t text = init_text(pseudo, FONT_FOLDER "skull.ttf", 100);
     sfVector2u size = sfRenderWindow_getSize(window);
 
-    sfRenderWindow_drawRectangleShape(window, frame, NULL);
+    set_text_origin(title, 0.5, 0);
+    sfText_setPosition(title.object, VEC2F(size.x / 2, size.y * 0.1));
     set_text_origin(text, 0.5, 0.5);
     sfText_setPosition(text.object, VEC2F(size.x / 2, size.y / 2));
+    draw_text(title, window);
+    sfRenderWindow_drawRectangleShape(window, frame, NULL);
     draw_text(text, window);
+    destroy_text(title);
     destroy_text(text);
 }
 

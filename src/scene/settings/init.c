@@ -70,6 +70,10 @@ sfBool init_settings(settings_t *sett)
 
 void destroy_settings(settings_t *settings)
 {
+    if (!settings)
+        return;
     sfRectangleShape_destroy(settings->box);
     destroy_text(settings->title);
+    for (int i = 0; i < settings->nb_buttons; i += 1)
+        destroy_button(settings->buttons[i]);
 }

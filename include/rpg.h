@@ -16,5 +16,6 @@
 #include "my.h"
 #include "scenes.h"
 #include "tools.h"
+#include "vector_engine.h"
 
 #endif /* !RPG_H_ */
