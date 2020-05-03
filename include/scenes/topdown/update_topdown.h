@@ -21,6 +21,9 @@ sfBool boat_border(game_obj_t *boat, sfVector2f map_size);
 //Update view
 void update_topdown_view(tool_t *tool, topdown_t *topdown);
 
+//Update buoys
+void update_topdown_buoys(tool_t *tool, topdown_t *topdown);
+
 //Update bullets
 void update_topdown_bullet(tool_t *tool, topdown_t *topdown);
 

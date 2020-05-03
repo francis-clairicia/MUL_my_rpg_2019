@@ -89,6 +89,7 @@ SRC_SCENE			= 	src/scene/battle/destroy/destroy_background.c			\
 						src/scene/topdown/update/update_boat_state.c			\
 						src/scene/topdown/update/update_boat.c					\
 						src/scene/topdown/update/update_bullet.c				\
+						src/scene/topdown/update/update_buoys.c					\
 						src/scene/topdown/update/update_view.c					\
 						src/scene/topdown/update/update.c						\
 						src/scene/topdown/draw.c								\

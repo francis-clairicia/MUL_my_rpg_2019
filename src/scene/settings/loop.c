@@ -40,7 +40,7 @@ static int check_event(tool_t *tools, int state)
         if (tools->event.type == sfEvtClosed)
             return (NO_SCENE);
     }
-    state = button_event(sett->buttons, sett->nb_buttons, tools->event, 
+    state = button_event(sett->buttons, sett->nb_buttons, tools->event,
         sett->previous_state);
     return (state);
 }
@@ -56,7 +56,7 @@ static void draw_settings(sfRenderWindow *window, settings_t *sett)
         nb_buttons -= 1;
         prev_pos = sfRectangleShape_getPosition(sett->buttons[CLOSE].rect);
         rect = sfRectangleShape_getGlobalBounds(sett->box);
-        sfRectangleShape_setPosition(sett->buttons[CLOSE].rect, 
+        sfRectangleShape_setPosition(sett->buttons[CLOSE].rect,
             VEC2F(rect.left + rect.width / 2, rect.top + rect.height / 4 * 3));
     }
     sfRenderWindow_drawRectangleShape(window, sett->box, NULL);

@@ -86,3 +86,27 @@ game_obj_t *find_game_object_highest_x(list_t *list)
     }
     return (save);
 }
+
+game_obj_t *find_closest_game_object(game_obj_t *obj, list_t *list)
+{
+    float best_dist = __FLT_MAX__;
+    game_obj_t *tmp = NULL;
+    game_obj_t *save = NULL;
+    sfVector2f pos = VEC2F(0, 0);
+    float magn = 0;
+
+    if (!obj)
+        return (NULL);
+    for (; list && list->data; list = list->next) {
+        tmp = NODE_DATA(list, game_obj_t *);
+        if (!obj)
+            continue;
+        pos = vec_sub(obj->body.pos, tmp->body.pos);
+        magn = vec_mag(pos);
+        if (magn < best_dist) {
+            best_dist = magn;
+            save = tmp;
+        }
+    }
+    return (save);
+}

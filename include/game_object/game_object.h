@@ -236,6 +236,10 @@ game_obj_t *find_game_object_lowest_x(list_t *list);
 game_obj_t *find_game_object_highest_x(list_t *list);
 game_obj_t *find_game_object_lowest_y(list_t *list);
 
+//Returns the closest game object in the list of the given game object
+//Returns NULL in case of error
+game_obj_t *find_closest_game_object(game_obj_t *obj, list_t *list);
+
 //Finds a component with the given type and set new given value.
 sfBool set_comp_int(game_obj_t *obj, prop_t type, int nb);
 sfBool set_comp_float(game_obj_t *obj, prop_t type, float nb);

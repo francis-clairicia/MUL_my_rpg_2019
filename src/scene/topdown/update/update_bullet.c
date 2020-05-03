@@ -12,6 +12,8 @@ static void damage_boat_from_bullet(game_obj_t *bullet, game_obj_t *boat)
     int damage = bullet->comp[find_comp(bullet, DAMAGE)]->i;
     sfSound *sound = NULL;
 
+    if (boat->comp[find_comp(boat, LIFE)]->i <= 0)
+        return ;
     boat->comp[find_comp(boat, LIFE)]->i -= damage;
     update_topdown_boat_state(boat);
     sound = boat->comp[find_comp(boat, HIT_SOUND)]->sound;

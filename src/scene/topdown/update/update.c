@@ -13,6 +13,7 @@ void update_topdown(tool_t *tool, topdown_t *topdown, scene_t *state)
     update_topdown_bullet(tool, topdown);
     check_topdown_player_death(topdown->boat, state);
     update_topdown_view(tool, topdown);
+    update_topdown_buoys(tool, topdown);
     if (sfKeyboard_isKeyPressed(sfKeyEscape))
         *state = MENU;
     if (sfKeyboard_isKeyPressed(sfKeyF12))
