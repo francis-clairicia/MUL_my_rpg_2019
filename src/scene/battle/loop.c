@@ -16,7 +16,7 @@ scene_t launch_battle(tool_t *tool, scene_t state)
     while (state == BATTLE) {
         update_tool(tool);
         update_battle(tool, &battle, &state);
-        sfRenderWindow_clear(tool->window, sfBlack);
+        sfRenderWindow_clear(tool->window, sfBlack); 
         draw_battle(tool, battle);
         sfRenderWindow_display(tool->window);
     }

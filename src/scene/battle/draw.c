@@ -14,4 +14,5 @@ void draw_battle(tool_t *tool, battle_t battle)
     draw_game_object_list(tool->window, battle.water);
     draw_game_object_list(tool->window, battle.player->crew);
     draw_game_object_list(tool->window, battle.clouds);
+    draw_game_object_list(tool->window, battle.rain);
 }

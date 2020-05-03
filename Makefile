@@ -54,6 +54,7 @@ SRC_SCENE			= 	src/scene/battle/destroy/destroy_background.c			\
 						src/scene/battle/init/init_boat.c						\
 						src/scene/battle/init/init_player.c						\
 						src/scene/battle/init/init_water.c						\
+						src/scene/battle/init/init_rain.c						\
 						src/scene/battle/init/init.c							\
 						src/scene/battle/update/buoyancy_force.c				\
 						src/scene/battle/update/clean_clouds.c					\

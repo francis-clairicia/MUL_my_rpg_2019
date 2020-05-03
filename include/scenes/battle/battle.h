@@ -18,6 +18,7 @@ typedef struct battle_s
     list_t *ennemy_crew;
     list_t *water;
     list_t *clouds;
+    list_t *rain;
     game_obj_t *background;
 } battle_t;
 
