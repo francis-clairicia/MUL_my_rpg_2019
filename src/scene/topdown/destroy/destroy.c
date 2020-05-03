@@ -9,5 +9,6 @@
 
 void destroy_topdown(topdown_t *topdown)
 {
+    destroy_topdown_boat(topdown);
     destroy_topdown_map(topdown);
 }

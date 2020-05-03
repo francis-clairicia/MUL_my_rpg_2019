@@ -8,14 +8,15 @@
 #include "update_topdown.h"
 #include "math_process.h"
 
-static void update_boat(float dtime, list_t *boat_list, list_t *map)
+static void update_boat(float dtime, list_t *boat_list, topdown_t *topdown)
 {
     game_obj_t *boat = NULL;
 
     for (; boat_list && boat_list->data; boat_list = boat_list->next) {
         boat = NODE_DATA(boat_list, game_obj_t *);
-        boat_collision(boat, map);
+        boat_collision(boat, topdown->map);
         update_body(&(boat->body), dtime);
+        boat_border(boat, topdown->map_size);
     }
 }
 
@@ -25,6 +26,7 @@ static void update_player_s_boat(tool_t *tool, topdown_t *topdown)
 
     control_boat(tool, topdown);
     boat_collision(boat, topdown->map);
+    boat_border(boat, topdown->map_size);
     boat->body.angle_vel = MAX(boat->body.angle_vel, -180);
     boat->body.angle_vel = MIN(boat->body.angle_vel, 180);
     boat->body.angle_vel = boat->body.angle_vel * 0.99;
@@ -49,9 +51,9 @@ void abb(list_t *list, float dtime)
 void update_topdown_boat(tool_t *tool, topdown_t *topdown)
 {
     update_player_s_boat(tool, topdown);
-    update_boat(tool->dtime, topdown->ally_boat, topdown->map);
-    update_boat(tool->dtime, topdown->ennemy_boat, topdown->map);
-    update_boat(tool->dtime, topdown->mercenary_boat, topdown->map);
-    update_boat(tool->dtime, topdown->golden_boat, topdown->map);
+    update_boat(tool->dtime, topdown->ally_boat, topdown);
+    update_boat(tool->dtime, topdown->ennemy_boat, topdown);
+    update_boat(tool->dtime, topdown->mercenary_boat, topdown);
+    update_boat(tool->dtime, topdown->golden_boat, topdown);
     abb(topdown->bullets, tool->dtime);
 }

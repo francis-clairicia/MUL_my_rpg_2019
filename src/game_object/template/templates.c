@@ -238,6 +238,74 @@ const game_obj_constructor_t constructor_list[] = {
         .mass = __FLT_MAX__,
         .has_comp = false
     },
+    [BUOY1] =
+    {
+        .path = "assets/img/buoy.png",
+        .frame_nb = (unsigned int[]){
+                    1
+                    },
+        .lapse = NULL,
+        .origin = (sfVector2f[]){
+                    {16, 16}
+                    },
+        .view_box = (sfIntRect[]){
+                    {0, 0, 32, 32}
+                    },
+        .state_nb = 1,
+        .mass = __FLT_MAX__,
+        .has_comp = false
+    },
+    [BUOY2] =
+    {
+        .path = "assets/img/buoy.png",
+        .frame_nb = (unsigned int[]){
+                    1
+                    },
+        .lapse = NULL,
+        .origin = (sfVector2f[]){
+                    {16, 16}
+                    },
+        .view_box = (sfIntRect[]){
+                    {32, 0, 32, 32}
+                    },
+        .state_nb = 1,
+        .mass = __FLT_MAX__,
+        .has_comp = false
+    },
+    [BUOY3] =
+    {
+        .path = "assets/img/buoy.png",
+        .frame_nb = (unsigned int[]){
+                    1
+                    },
+        .lapse = NULL,
+        .origin = (sfVector2f[]){
+                    {16, 16}
+                    },
+        .view_box = (sfIntRect[]){
+                    {64, 0, 32, 32}
+                    },
+        .state_nb = 1,
+        .mass = __FLT_MAX__,
+        .has_comp = false
+    },
+    [BUOY4] =
+    {
+        .path = "assets/img/buoy.png",
+        .frame_nb = (unsigned int[]){
+                    1
+                    },
+        .lapse = NULL,
+        .origin = (sfVector2f[]){
+                    {16, 16}
+                    },
+        .view_box = (sfIntRect[]){
+                    {96, 0, 32, 32}
+                    },
+        .state_nb = 1,
+        .mass = __FLT_MAX__,
+        .has_comp = false
+    },
     [RAIN] =
     {
         .path = "assets/img/rain.png",
