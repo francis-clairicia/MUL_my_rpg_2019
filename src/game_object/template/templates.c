@@ -658,6 +658,24 @@ const comp_constructor_t *comp_constructor_list[] = {
             .data2 = NULL
         },
         {
+            .storage_type = TYPE_SOUND,
+            .type = FIRE_SOUND,
+            .data = (char *)"assets/sounds/boat_fire.ogg",
+            .data2 = (float [1]){10}
+        },
+        {
+            .storage_type = TYPE_SOUND,
+            .type = HIT_SOUND,
+            .data = (char *)"assets/sounds/boat_hit.ogg",
+            .data2 = (float [1]){10}
+        },
+        {
+            .storage_type = TYPE_SOUND,
+            .type = DEATH_SOUND,
+            .data = (char *)"assets/sounds/boat_death.ogg",
+            .data2 = (float [1]){10}
+        },
+        {
             .storage_type = TYPE_END
         }
     },
@@ -696,6 +714,24 @@ const comp_constructor_t *comp_constructor_list[] = {
             .type = CANNON_NB,
             .data = (float[1]){1},
             .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_SOUND,
+            .type = FIRE_SOUND,
+            .data = (char *)"assets/sounds/boat_fire.ogg",
+            .data2 = (float [1]){10}
+        },
+        {
+            .storage_type = TYPE_SOUND,
+            .type = HIT_SOUND,
+            .data = (char *)"assets/sounds/boat_hit.ogg",
+            .data2 = (float [1]){10}
+        },
+        {
+            .storage_type = TYPE_SOUND,
+            .type = DEATH_SOUND,
+            .data = (char *)"assets/sounds/boat_death.ogg",
+            .data2 = (float [1]){10}
         },
         {
             .storage_type = TYPE_END
@@ -738,6 +774,24 @@ const comp_constructor_t *comp_constructor_list[] = {
             .data2 = NULL
         },
         {
+            .storage_type = TYPE_SOUND,
+            .type = FIRE_SOUND,
+            .data = (char *)"assets/sounds/boat_fire.ogg",
+            .data2 = (float [1]){10}
+        },
+        {
+            .storage_type = TYPE_SOUND,
+            .type = HIT_SOUND,
+            .data = (char *)"assets/sounds/boat_hit.ogg",
+            .data2 = (float [1]){10}
+        },
+        {
+            .storage_type = TYPE_SOUND,
+            .type = DEATH_SOUND,
+            .data = (char *)"assets/sounds/boat_death.ogg",
+            .data2 = (float [1]){10}
+        },
+        {
             .storage_type = TYPE_END
         }
     },
@@ -778,6 +832,24 @@ const comp_constructor_t *comp_constructor_list[] = {
             .data2 = NULL
         },
         {
+            .storage_type = TYPE_SOUND,
+            .type = FIRE_SOUND,
+            .data = (char *)"assets/sounds/boat_fire.ogg",
+            .data2 = (float [1]){10}
+        },
+        {
+            .storage_type = TYPE_SOUND,
+            .type = HIT_SOUND,
+            .data = (char *)"assets/sounds/boat_hit.ogg",
+            .data2 = (float [1]){10}
+        },
+        {
+            .storage_type = TYPE_SOUND,
+            .type = DEATH_SOUND,
+            .data = (char *)"assets/sounds/boat_death.ogg",
+            .data2 = (float [1]){10}
+        },
+        {
             .storage_type = TYPE_END
         }
     },
@@ -816,6 +888,24 @@ const comp_constructor_t *comp_constructor_list[] = {
             .type = CANNON_NB,
             .data = (float[1]){1},
             .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_SOUND,
+            .type = FIRE_SOUND,
+            .data = (char *)"assets/sounds/boat_fire.ogg",
+            .data2 = (float [1]){10}
+        },
+        {
+            .storage_type = TYPE_SOUND,
+            .type = HIT_SOUND,
+            .data = (char *)"assets/sounds/boat_hit.ogg",
+            .data2 = (float [1]){10}
+        },
+        {
+            .storage_type = TYPE_SOUND,
+            .type = DEATH_SOUND,
+            .data = (char *)"assets/sounds/boat_death.ogg",
+            .data2 = (float [1]){10}
         },
         {
             .storage_type = TYPE_END

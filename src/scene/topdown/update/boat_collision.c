@@ -7,7 +7,22 @@
 
 #include "update_topdown.h"
 
-sfBool boat_resolve_collision(rigid_body_t *b1, rigid_body_t *b2, float overlap)
+static void boat_collision_damage(game_obj_t *boat)
+{
+    sfSound *sound = NULL;
+
+    if (!has_comp(boat, HIT_SOUND))
+        return;
+    sound = boat->comp[find_comp(boat, HIT_SOUND)]->sound;
+    if (sound)
+        sfSound_play(sound);
+    if (!has_comp(boat, LIFE))
+        return;
+    boat->comp[find_comp(boat, LIFE)]->i -= 5;
+    update_topdown_boat_state(boat);
+}
+
+static sfBool boat_resolve_collision(rigid_body_t *b1, rigid_body_t *b2, float overlap)
 {
     sfVector2f rel_pos = vec_sub(b2->center, b1->center);
     float dist = vec_mag(rel_pos);
@@ -38,5 +53,7 @@ sfBool boat_collision(game_obj_t *boat, list_t *list)
             collided |= game_object_collision(boat, obj,
                                 boat_resolve_collision);
     }
+    if (collided)
+        boat_collision_damage(boat);
     return (collided);
 }

@@ -71,7 +71,10 @@ typedef enum properties_e {
     LIFE,
     INVINCIBLE,
     INVINCIBLE_TIME,
-    DAMAGE
+    DAMAGE,
+    FIRE_SOUND,
+    HIT_SOUND,
+    DEATH_SOUND
 } prop_t;
 
 typedef struct component_s {

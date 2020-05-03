@@ -27,6 +27,18 @@ static game_obj_t *init_bullet(game_obj_t *boat, int index,
     return (new_bullet);
 }
 
+static void play_attack_sound(game_obj_t *boat)
+{
+    sfSound *sound = NULL;
+
+    if (!has_comp(boat, FIRE_SOUND))
+        return;
+    sound = boat->comp[find_comp(boat, FIRE_SOUND)]->sound;
+    if (!sound)
+        return;
+    sfSound_play(sound);
+}
+
 void boat_attack(game_obj_t *boat, list_t **bullets, sfBool side)
 {
     register size_t index = 0;
@@ -44,4 +56,5 @@ void boat_attack(game_obj_t *boat, list_t **bullets, sfBool side)
     for (; index < bullet_nb; index += 1) {
         MY_PUT_IN_LIST(bullets, init_bullet(boat, index, side, flank));
     }
+    play_attack_sound(boat);
 }

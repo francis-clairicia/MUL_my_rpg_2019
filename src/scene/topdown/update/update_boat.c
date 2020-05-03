@@ -45,6 +45,7 @@ void abb(list_t *list, float dtime)
         update_body(&(obj->body), dtime);
     }
 }
+
 void update_topdown_boat(tool_t *tool, topdown_t *topdown)
 {
     update_player_s_boat(tool, topdown);

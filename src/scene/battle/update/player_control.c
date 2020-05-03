@@ -11,11 +11,11 @@ static void player_control_attack(game_obj_t *pirate, control_t control)
 {
     if (sfKeyboard_isKeyPressed(control.keys[CONTROL_ATTACK1])) {
         pirate->body.vel.x = 0;
-        update_game_object_state(pirate, 4);
+        update_game_object_state(pirate, 3);
     }
     if (sfKeyboard_isKeyPressed(control.keys[CONTROL_ATTACK2])) {
         pirate->body.vel.x = 0;
-        update_game_object_state(pirate, 3);
+        update_game_object_state(pirate, 4);
     }
 }
 
