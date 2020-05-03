@@ -7,6 +7,10 @@
 
 #include "topdown.h"
 
+static void set_bullet_team(game_obj_t *boat, game_obj_t *bullet)
+{
+}
+
 static game_obj_t *init_bullet(game_obj_t *boat, int index,
                         sfBool side, sfVector2f flank)
 {

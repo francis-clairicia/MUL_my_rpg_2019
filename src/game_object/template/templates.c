@@ -988,6 +988,12 @@ const comp_constructor_t *comp_constructor_list[] = {
             .data2 = NULL
         },
         {
+            .storage_type = TYPE_INT,
+            .type = ALLY,
+            .data = (int [1]){0},
+            .data2 = NULL
+        },
+        {
             .storage_type = TYPE_END
         }
     },

@@ -76,6 +76,7 @@ typedef enum properties_e {
     INVINCIBLE,
     INVINCIBLE_TIME,
     DAMAGE,
+    ALLY,
     FIRE_SOUND,
     HIT_SOUND,
     DEATH_SOUND
