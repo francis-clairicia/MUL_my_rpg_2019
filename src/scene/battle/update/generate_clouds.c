@@ -14,7 +14,7 @@ static const elem_t clouds_template[] =
     CLOUD5, CLOUD6, CLOUD7, CLOUD8
 };
 
-static void generate_cloud_left(tool_t *tool, game_obj_t *cloud)
+static void generate_cloud_left(game_obj_t *cloud)
 {
     sfVector2f pos = VEC2F(0, 0);
 
@@ -48,5 +48,5 @@ void generate_clouds(tool_t *tool, list_t **clouds)
     if (get_randomnb(0, 2))
         generate_cloud_right(tool, new_cloud);
     else
-        generate_cloud_left(tool, new_cloud);
+        generate_cloud_left(new_cloud);
 }

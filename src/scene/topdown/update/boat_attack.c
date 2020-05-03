@@ -9,6 +9,10 @@
 
 static void set_bullet_team(game_obj_t *boat, game_obj_t *bullet)
 {
+    if (boat->state == 1 || boat->state == 2)
+        bullet->comp[find_comp(bullet, ALLY)]->i = 0;
+    else if (boat->state == 0 || boat->state == 3)
+        bullet->comp[find_comp(bullet, ALLY)]->i = 1;
 }
 
 static game_obj_t *init_bullet(game_obj_t *boat, int index,
@@ -28,6 +32,7 @@ static game_obj_t *init_bullet(game_obj_t *boat, int index,
     new_bullet->comp[find_comp(new_bullet, DAMAGE)]->i =
                     boat->comp[find_comp(boat, DAMAGE)]->i;
     apply_force(&(new_bullet->body), impulse);
+    set_bullet_team(boat, new_bullet);
     return (new_bullet);
 }
 
@@ -58,7 +63,7 @@ void boat_attack(game_obj_t *boat, list_t **bullets, sfBool side)
     if (!bullets || !bullet_nb)
         return ;
     for (; index < bullet_nb; index += 1) {
-        MY_PUT_IN_LIST(bullets, init_bullet(boat, index, side, flank));
+        MY_APPEND_TO_LIST(bullets, init_bullet(boat, index, side, flank));
     }
     play_attack_sound(boat);
 }
