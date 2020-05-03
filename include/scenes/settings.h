@@ -28,7 +28,7 @@ enum SETTINGS_BUTTONS {
 };
 
 /* Settings */
-sfBool init_settings(settings_t *settings);
+sfBool init_settings(settings_t *settings, sfView *view);
 void destroy_settings(settings_t *settings);
 
 #endif /* !SETTINGS_H_ */

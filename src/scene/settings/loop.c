@@ -65,6 +65,8 @@ static void draw_settings(sfRenderWindow *window, settings_t *sett)
 
 scene_t launch_settings(tool_t *tools, scene_t state)
 {
+    if (!init_settings(&(tools->settings), tools->view))
+        return (state);
     if (state != SETTINGS)
         tools->settings.previous_state = state;
     state = SETTINGS;
@@ -76,5 +78,6 @@ scene_t launch_settings(tool_t *tools, scene_t state)
         sfRenderWindow_display(tools->window);
         state = check_event(tools, state);
     }
+    destroy_settings(&(tools->settings));
     return (state);
 }
