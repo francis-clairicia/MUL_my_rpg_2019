@@ -6,11 +6,12 @@
 */
 
 #include "game_object_constructor.h"
+#include "constants.h"
 
 const game_obj_constructor_t constructor_list[] = {
     [PIRATE] =
     {
-        .path = "assets/img/pirate.png",
+        .path = IMG_FOLDER "pirate.png",
         .frame_nb = (unsigned int[]){
                     4,
                     10,
@@ -45,7 +46,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [BOAT1] =
     {
-        .path = "assets/img/boats.png",
+        .path = IMG_FOLDER "boats.png",
         .frame_nb = (unsigned int[]){
                     4,
                     },
@@ -62,7 +63,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [BOAT2] =
     {
-        .path = "assets/img/boats.png",
+        .path = IMG_FOLDER "boats.png",
         .frame_nb = (unsigned int[]){
                     4
                     },
@@ -79,7 +80,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [BOAT3] =
     {
-        .path = "assets/img/boats.png",
+        .path = IMG_FOLDER "boats.png",
         .frame_nb = (unsigned int[]){
                     4
                     },
@@ -96,7 +97,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [BOAT4] =
     {
-        .path = "assets/img/boats.png",
+        .path = IMG_FOLDER "boats.png",
         .frame_nb = (unsigned int[]){
                     4
                     },
@@ -113,7 +114,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [BOAT5] =
     {
-        .path = "assets/img/boats.png",
+        .path = IMG_FOLDER "boats.png",
         .frame_nb = (unsigned int[]){
                     4
                     },
@@ -130,7 +131,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [BULLET] =
     {
-        .path = "assets/img/bullet.png",
+        .path = IMG_FOLDER "bullet.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -147,7 +148,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [SKY] =
     {
-        .path = "assets/img/sky.png",
+        .path = IMG_FOLDER "sky.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -164,7 +165,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [WATER] =
     {
-        .path = "assets/img/water.png",
+        .path = IMG_FOLDER "water.png",
         .frame_nb = (unsigned int[]){
                     4
                     },
@@ -183,7 +184,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [WATER2] =
     {
-        .path = "assets/img/water2.png",
+        .path = IMG_FOLDER "water2.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -202,7 +203,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [SAND] =
     {
-        .path = "assets/img/sand.png",
+        .path = IMG_FOLDER "sand.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -221,7 +222,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [DIRT] =
     {
-        .path = "assets/img/dirt.png",
+        .path = IMG_FOLDER "dirt.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -240,7 +241,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [BUOY1] =
     {
-        .path = "assets/img/buoy.png",
+        .path = IMG_FOLDER "buoy.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -257,7 +258,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [BUOY2] =
     {
-        .path = "assets/img/buoy.png",
+        .path = IMG_FOLDER "buoy.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -274,7 +275,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [BUOY3] =
     {
-        .path = "assets/img/buoy.png",
+        .path = IMG_FOLDER "buoy.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -291,7 +292,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [BUOY4] =
     {
-        .path = "assets/img/buoy.png",
+        .path = IMG_FOLDER "buoy.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -308,7 +309,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [RAIN] =
     {
-        .path = "assets/img/rain.png",
+        .path = IMG_FOLDER "rain.png",
         .frame_nb = (unsigned int[]){
                     22
                     },
@@ -327,7 +328,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [WOOD1_RECT] =
     {
-        .path = "assets/img/wood1.png",
+        .path = IMG_FOLDER "wood1.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -344,7 +345,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [WOOD1_LEFT_TRIANGLE] =
     {
-        .path = "assets/img/wood1.png",
+        .path = IMG_FOLDER "wood1.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -361,7 +362,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [WOOD1_RIGHT_TRIANGLE] =
     {
-        .path = "assets/img/wood1.png",
+        .path = IMG_FOLDER "wood1.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -378,7 +379,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [WOOD2_RECT] =
     {
-        .path = "assets/img/wood2.png",
+        .path = IMG_FOLDER "wood2.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -395,7 +396,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [WOOD2_LEFT_TRIANGLE] =
     {
-        .path = "assets/img/wood2.png",
+        .path = IMG_FOLDER "wood2.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -412,7 +413,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [WOOD2_RIGHT_TRIANGLE] =
     {
-        .path = "assets/img/wood2.png",
+        .path = IMG_FOLDER "wood2.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -429,7 +430,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [FENCE] =
     {
-        .path = "assets/img/fence.png",
+        .path = IMG_FOLDER "fence.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -446,7 +447,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [LADDER] =
     {
-        .path = "assets/img/ladder.png",
+        .path = IMG_FOLDER "ladder.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -463,7 +464,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [CLOUD1] =
     {
-        .path = "assets/img/cloud.png",
+        .path = IMG_FOLDER "cloud.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -480,7 +481,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [CLOUD2] =
     {
-        .path = "assets/img/cloud.png",
+        .path = IMG_FOLDER "cloud.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -497,7 +498,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [CLOUD3] =
     {
-        .path = "assets/img/cloud.png",
+        .path = IMG_FOLDER "cloud.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -514,7 +515,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [CLOUD4] =
     {
-        .path = "assets/img/cloud.png",
+        .path = IMG_FOLDER "cloud.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -531,7 +532,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [CLOUD5] =
     {
-        .path = "assets/img/cloud.png",
+        .path = IMG_FOLDER "cloud.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -548,7 +549,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [CLOUD6] =
     {
-        .path = "assets/img/cloud.png",
+        .path = IMG_FOLDER "cloud.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -565,7 +566,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [CLOUD7] =
     {
-        .path = "assets/img/cloud.png",
+        .path = IMG_FOLDER "cloud.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -582,7 +583,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [CLOUD8] =
     {
-        .path = "assets/img/cloud.png",
+        .path = IMG_FOLDER "cloud.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -599,7 +600,7 @@ const game_obj_constructor_t constructor_list[] = {
     },
     [TILLER] =
     {
-        .path = "assets/img/tiller.png",
+        .path = IMG_FOLDER "tiller.png",
         .frame_nb = (unsigned int[]){
                     1
                     },
@@ -728,19 +729,19 @@ const comp_constructor_t *comp_constructor_list[] = {
         {
             .storage_type = TYPE_SOUND,
             .type = FIRE_SOUND,
-            .data = (char *)"assets/sounds/boat_fire.ogg",
+            .data = (char *)SOUND_FOLDER "boat_fire.ogg",
             .data2 = (float [1]){10}
         },
         {
             .storage_type = TYPE_SOUND,
             .type = HIT_SOUND,
-            .data = (char *)"assets/sounds/boat_hit.ogg",
+            .data = (char *)SOUND_FOLDER "boat_hit.ogg",
             .data2 = (float [1]){10}
         },
         {
             .storage_type = TYPE_SOUND,
             .type = DEATH_SOUND,
-            .data = (char *)"assets/sounds/boat_death.ogg",
+            .data = (char *)SOUND_FOLDER "boat_death.ogg",
             .data2 = (float [1]){10}
         },
         {
@@ -786,19 +787,19 @@ const comp_constructor_t *comp_constructor_list[] = {
         {
             .storage_type = TYPE_SOUND,
             .type = FIRE_SOUND,
-            .data = (char *)"assets/sounds/boat_fire.ogg",
+            .data = (char *)SOUND_FOLDER "boat_fire.ogg",
             .data2 = (float [1]){10}
         },
         {
             .storage_type = TYPE_SOUND,
             .type = HIT_SOUND,
-            .data = (char *)"assets/sounds/boat_hit.ogg",
+            .data = (char *)SOUND_FOLDER "boat_hit.ogg",
             .data2 = (float [1]){10}
         },
         {
             .storage_type = TYPE_SOUND,
             .type = DEATH_SOUND,
-            .data = (char *)"assets/sounds/boat_death.ogg",
+            .data = (char *)SOUND_FOLDER "boat_death.ogg",
             .data2 = (float [1]){10}
         },
         {
@@ -844,19 +845,19 @@ const comp_constructor_t *comp_constructor_list[] = {
         {
             .storage_type = TYPE_SOUND,
             .type = FIRE_SOUND,
-            .data = (char *)"assets/sounds/boat_fire.ogg",
+            .data = (char *)SOUND_FOLDER "boat_fire.ogg",
             .data2 = (float [1]){10}
         },
         {
             .storage_type = TYPE_SOUND,
             .type = HIT_SOUND,
-            .data = (char *)"assets/sounds/boat_hit.ogg",
+            .data = (char *)SOUND_FOLDER "boat_hit.ogg",
             .data2 = (float [1]){10}
         },
         {
             .storage_type = TYPE_SOUND,
             .type = DEATH_SOUND,
-            .data = (char *)"assets/sounds/boat_death.ogg",
+            .data = (char *)SOUND_FOLDER "boat_death.ogg",
             .data2 = (float [1]){10}
         },
         {
@@ -902,19 +903,19 @@ const comp_constructor_t *comp_constructor_list[] = {
         {
             .storage_type = TYPE_SOUND,
             .type = FIRE_SOUND,
-            .data = (char *)"assets/sounds/boat_fire.ogg",
+            .data = (char *)SOUND_FOLDER "boat_fire.ogg",
             .data2 = (float [1]){10}
         },
         {
             .storage_type = TYPE_SOUND,
             .type = HIT_SOUND,
-            .data = (char *)"assets/sounds/boat_hit.ogg",
+            .data = (char *)SOUND_FOLDER "boat_hit.ogg",
             .data2 = (float [1]){10}
         },
         {
             .storage_type = TYPE_SOUND,
             .type = DEATH_SOUND,
-            .data = (char *)"assets/sounds/boat_death.ogg",
+            .data = (char *)SOUND_FOLDER "boat_death.ogg",
             .data2 = (float [1]){10}
         },
         {
@@ -960,19 +961,19 @@ const comp_constructor_t *comp_constructor_list[] = {
         {
             .storage_type = TYPE_SOUND,
             .type = FIRE_SOUND,
-            .data = (char *)"assets/sounds/boat_fire.ogg",
+            .data = (char *)SOUND_FOLDER "boat_fire.ogg",
             .data2 = (float [1]){10}
         },
         {
             .storage_type = TYPE_SOUND,
             .type = HIT_SOUND,
-            .data = (char *)"assets/sounds/boat_hit.ogg",
+            .data = (char *)SOUND_FOLDER "boat_hit.ogg",
             .data2 = (float [1]){10}
         },
         {
             .storage_type = TYPE_SOUND,
             .type = DEATH_SOUND,
-            .data = (char *)"assets/sounds/boat_death.ogg",
+            .data = (char *)SOUND_FOLDER "boat_death.ogg",
             .data2 = (float [1]){10}
         },
         {
