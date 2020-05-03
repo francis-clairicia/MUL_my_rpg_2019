@@ -8,26 +8,23 @@
 #include "rpg.h"
 #include "vector_engine.h"
 
-static int button_event(button_t *buttons, int nb_buttons, sfEvent event,
-    int prev_state)
+static int button_event(tool_t *tools, settings_t *sett)
 {
     int i = 0;
 
-    while (i < nb_buttons) {
-        if (is_button_clicked(buttons[i], event) == sfTrue)
+    while (i < sett->nb_buttons) {
+        if (is_button_clicked(sett->buttons[i], tools->event) == sfTrue)
             break;
         i += 1;
     }
+    if (i == CLOSE)
+        return (sett->previous_state);
+    if (i == BACK_MENU)
+        return (MENU);
     if (i == VOLUME_UP || i == VOLUME_DOWN) {
         return (SETTINGS);
-    } else if (i == SAVE) {
-        return (SETTINGS);
-    } else {
-        if (i == CLOSE) {
-            return (prev_state);
-        } else if (i == BACK_MENU && prev_state != MENU) {
-            return (MENU);
-        }
+    } else if (i == SAVE && sett->previous_state != MENU) {
+        save_player_data(&tools->player);
     }
     return (SETTINGS);
 }
@@ -39,9 +36,8 @@ static int check_event(tool_t *tools, int state)
     while (sfRenderWindow_pollEvent(tools->window, &tools->event)) {
         if (tools->event.type == sfEvtClosed)
             return (NO_SCENE);
+        state = button_event(tools, sett);
     }
-    state = button_event(sett->buttons, sett->nb_buttons, tools->event, 
-        sett->previous_state);
     return (state);
 }
 
@@ -69,8 +65,14 @@ static void draw_settings(sfRenderWindow *window, settings_t *sett)
 
 scene_t launch_settings(tool_t *tools, scene_t state)
 {
+    if (state != SETTINGS)
+        tools->settings.previous_state = state;
+    state = SETTINGS;
+    set_text_origin(tools->settings.buttons[VOLUME_UP].text, 0.5, 1.2);
+    set_text_origin(tools->settings.buttons[VOLUME_DOWN].text, 0.5, 3);
     while (state == SETTINGS) {
         draw_settings(tools->window, &tools->settings);
+        update_tool(tools);
         sfRenderWindow_display(tools->window);
         state = check_event(tools, state);
     }

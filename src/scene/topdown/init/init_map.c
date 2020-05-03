@@ -20,7 +20,7 @@ static load_config_t map_config[] =
     {NULL, 0, -1}
 };
 
-static sfBool set_topwdon_map_size(topdown_t *topdown)
+static sfBool set_topdown_map_size(topdown_t *topdown)
 {
     game_obj_t *highest_x = find_game_object_highest_x(topdown->map);
     game_obj_t *highest_y = find_game_object_highest_y(topdown->map);
@@ -36,7 +36,7 @@ sfBool init_topdown_map(topdown_t *topdown)
     topdown->map = load_config_from_file("assets/config/map", map_config);
     if (!topdown->map)
         return (sfFalse);
-    if (!set_topwdon_map_size(topdown))
+    if (!set_topdown_map_size(topdown))
         return (sfFalse);
     return (sfTrue);
 }

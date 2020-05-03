@@ -14,8 +14,8 @@ typedef enum SCENES_NUMBER
 {
     NO_SCENE = -1,
     NEW_PLAYER = -2,
+    SETTINGS = -3,
     MENU = 0,
-    SETTINGS,
     SAVE_CHOOSE,
     PERSO_CREATION,
     WORLD,

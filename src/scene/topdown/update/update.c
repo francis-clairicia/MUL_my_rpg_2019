@@ -14,7 +14,7 @@ void update_topdown(tool_t *tool, topdown_t *topdown, scene_t *state)
     check_topdown_player_death(topdown->boat, state);
     update_topdown_view(tool, topdown);
     if (sfKeyboard_isKeyPressed(sfKeyEscape))
-        *state = MENU;
+        *state = launch_settings(tool, TOPDOWN);
     if (sfKeyboard_isKeyPressed(sfKeyF12))
         *state = BATTLE;
 }

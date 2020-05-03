@@ -9,6 +9,5 @@
 
 void destroy_battle_clouds(battle_t *battle)
 {
-    if (battle->clouds)
-        my_free_list(&(battle->clouds), free_game_object);
+    my_free_list(&(battle->clouds), free_game_object);
 }
