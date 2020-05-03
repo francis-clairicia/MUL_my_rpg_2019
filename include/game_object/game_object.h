@@ -31,6 +31,10 @@ typedef enum element_e {
     WATER2,
     SAND,
     DIRT,
+    BUOY1,
+    BUOY2,
+    BUOY3,
+    BUOY4,
     RAIN,
     WOOD1_RECT,
     WOOD1_LEFT_TRIANGLE,
@@ -72,6 +76,7 @@ typedef enum properties_e {
     INVINCIBLE,
     INVINCIBLE_TIME,
     DAMAGE,
+    ALLY,
     FIRE_SOUND,
     HIT_SOUND,
     DEATH_SOUND

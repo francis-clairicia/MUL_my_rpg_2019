@@ -13,6 +13,10 @@ static load_config_t map_config[] =
     {"WATER", 0, WATER},
     {"SAND", 0, SAND},
     {"DIRT", 0, DIRT},
+    {"BUOY1", 0, BUOY1},
+    {"BUOY2", 0, BUOY2},
+    {"BUOY3", 0, BUOY3},
+    {"BUOY4", 0, BUOY4},
     {NULL, 0, -1}
 };
 
