@@ -78,6 +78,7 @@ SRC_SCENE			= 	src/scene/battle/destroy/destroy_background.c			\
 						src/scene/settings/init.c								\
 						src/scene/settings/loop.c								\
 						src/scene/topdown/destroy/destroy_boat.c				\
+						src/scene/topdown/destroy/destroy_bullets.c				\
 						src/scene/topdown/destroy/destroy_map.c					\
 						src/scene/topdown/destroy/destroy.c						\
 						src/scene/topdown/init/init_boat.c						\
@@ -90,6 +91,7 @@ SRC_SCENE			= 	src/scene/battle/destroy/destroy_background.c			\
 						src/scene/topdown/update/update_boat_state.c			\
 						src/scene/topdown/update/update_boat.c					\
 						src/scene/topdown/update/update_bullet.c				\
+						src/scene/topdown/update/update_buoys.c					\
 						src/scene/topdown/update/update_view.c					\
 						src/scene/topdown/update/update.c						\
 						src/scene/topdown/draw.c								\

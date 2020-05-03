@@ -52,7 +52,7 @@ static void draw_settings(sfRenderWindow *window, settings_t *sett)
         nb_buttons -= 1;
         prev_pos = sfRectangleShape_getPosition(sett->buttons[CLOSE].rect);
         rect = sfRectangleShape_getGlobalBounds(sett->box);
-        sfRectangleShape_setPosition(sett->buttons[CLOSE].rect, 
+        sfRectangleShape_setPosition(sett->buttons[CLOSE].rect,
             VEC2F(rect.left + rect.width / 2, rect.top + rect.height / 4 * 3));
     }
     sfRenderWindow_drawRectangleShape(window, sett->box, NULL);
