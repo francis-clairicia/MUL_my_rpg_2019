@@ -81,7 +81,8 @@ typedef enum properties_e {
     HIT_SOUND,
     DEATH_SOUND,
     VIEW_RANGE,
-    FIRE_RANGE
+    FIRE_RANGE,
+    DEAD_COUNTER
 } prop_t;
 
 typedef struct component_s {

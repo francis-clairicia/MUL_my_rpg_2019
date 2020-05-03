@@ -14,6 +14,7 @@ static scene_t keyboard_event(tool_t *tool)
         return (launch_settings(tool, BATTLE));
     if (tool->event.key.code == sfKeyF12)
         return (TOPDOWN);
+    return (BATTLE);
 }
 
 static scene_t check_event(tool_t *tool, scene_t state)

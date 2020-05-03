@@ -13,6 +13,7 @@ static scene_t keyboard_event(tool_t *tool)
         return (launch_settings(tool, TOPDOWN));
     if (tool->event.key.code == sfKeyF12)
         return (BATTLE);
+    return (TOPDOWN);
 }
 
 static scene_t check_event(tool_t *tool, scene_t state)
@@ -33,5 +34,6 @@ void update_topdown(tool_t *tool, topdown_t *topdown, scene_t *state)
     check_topdown_player_death(topdown->boat, state);
     update_topdown_view(tool, topdown);
     update_topdown_buoys(tool, topdown);
+    clean_topdown_dead_boats(tool, topdown);
     *state = check_event(tool, *state);
 }

@@ -5,7 +5,7 @@
 ** boat_ia
 */
 
-#include "topdown.h"
+#include "update_topdown.h"
 
 static void ia_attack(game_obj_t *boat, list_t **bullets, sfBool side)
 {

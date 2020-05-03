@@ -5,7 +5,7 @@
 ** control_boat
 */
 
-#include "topdown.h"
+#include "update_topdown.h"
 
 static void control_boat_attack(tool_t *tool, topdown_t *topdown,
                                                 game_obj_t *boat)

@@ -23,14 +23,12 @@ typedef struct topdown_s
     sfVector2f map_size;
 } topdown_t;
 
-sfBool init_topdown(topdown_t *topdown);
+sfBool init_topdown(tool_t *tool, topdown_t *topdown);
 
 void update_topdown(tool_t *tool, topdown_t *topdown, scene_t *state);
 
 void draw_topdown(tool_t *tool, topdown_t topdown);
 
-void destroy_topdown(topdown_t *topdown);
-
-void boat_attack(game_obj_t *boat, list_t **bullets, sfBool side);
+void destroy_topdown(tool_t *tool, topdown_t *topdown);
 
 #endif /* !TOPDOWN_H_ */

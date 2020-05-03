@@ -13,6 +13,17 @@
 #include "save.h"
 #include "control.h"
 
+typedef struct player_data
+{
+    int xp;
+    int lvl;
+    int life;
+    int damage;
+    int cannon_nb;
+    int dead_counter;
+    float attack_speed;
+} player_data_t;
+
 typedef struct player
 {
     control_t control;
@@ -22,6 +33,8 @@ typedef struct player
     list_t *crew;
     list_t *boat;
     sfVector2f pos;
+    player_data_t p_data;
+    sfBool new_player;
 } player_t;
 
 bool load_all_saves(player_t players[3]);

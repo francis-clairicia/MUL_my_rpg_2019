@@ -12,6 +12,6 @@
 
 void destroy_topdown_map(topdown_t *topdown);
 void destroy_topdown_bullets(topdown_t *topdown);
-void destroy_topdown_boat(topdown_t *topdown);
+void destroy_topdown_boat(tool_t *tool, topdown_t *topdown);
 
 #endif /* !DESTROY_TOPDOWN_H_ */

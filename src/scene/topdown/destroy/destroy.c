@@ -7,9 +7,9 @@
 
 #include "destroy_topdown.h"
 
-void destroy_topdown(topdown_t *topdown)
+void destroy_topdown(tool_t *tool, topdown_t *topdown)
 {
-    destroy_topdown_boat(topdown);
+    destroy_topdown_boat(tool, topdown);
     destroy_topdown_map(topdown);
     destroy_topdown_bullets(topdown);
 }

@@ -11,7 +11,7 @@ scene_t launch_topdown(tool_t *tool, scene_t state)
 {
     topdown_t topdown;
 
-    if (!tool || !init_topdown(&topdown))
+    if (!tool || !init_topdown(tool, &topdown))
         return (MENU);
     while (sfRenderWindow_isOpen(tool->window) && state == TOPDOWN) {
         sfRenderWindow_clear(tool->window, sfBlack);
@@ -22,6 +22,6 @@ scene_t launch_topdown(tool_t *tool, scene_t state)
     }
     sfView_reset(tool->view, FRECT(0, 0, 1920, 1080));
     sfRenderWindow_setView(tool->window, tool->view);
-    destroy_topdown(&topdown);
+    destroy_topdown(tool, &topdown);
     return (state);
 }

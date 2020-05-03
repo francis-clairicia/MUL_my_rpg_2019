@@ -11,6 +11,6 @@
 #include "topdown.h"
 
 sfBool init_topdown_map(topdown_t *topdown);
-sfBool init_topdown_boat(topdown_t *topdown);
+sfBool init_topdown_boat(player_t player, topdown_t *topdown);
 
 #endif /* !INIT_TOPDOWN_H_ */
