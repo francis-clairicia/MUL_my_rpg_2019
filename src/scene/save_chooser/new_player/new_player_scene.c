@@ -21,7 +21,6 @@ scene_t new_player_setup(tool_t *tool)
         if (state != NEW_PLAYER)
             return (state);
     }
-    tool->player.new_player = sfTrue;
     save_player_data(&tool->player);
     return (TOPDOWN);
 }

@@ -39,7 +39,7 @@ static char *get_level(int level)
 static void draw_player_infos(sfRenderWindow *window, player_t *player)
 {
     sfVector2u size = sfRenderWindow_getSize(window);
-    char *level_msg = get_level(player->level);
+    char *level_msg = get_level(player->data.lvl);
     sfRectangleShape *frame = load_box(size, VEC2F(size.x - 100, 100));
     text_t pseudo = init_text(player->pseudo, FONT_FOLDER "skull.ttf", 50);
     text_t level = init_text(level_msg, FONT_FOLDER "skull.ttf", 50);

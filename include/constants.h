@@ -13,4 +13,7 @@
 #define FONT_FOLDER "./assets/font/"
 #define SAVE_FOLDER "./saves/"
 
+#define PIRATE_LIFE 100
+#define BOAT_LIFE 100
+
 #endif

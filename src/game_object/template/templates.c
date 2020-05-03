@@ -651,7 +651,13 @@ const comp_constructor_t *comp_constructor_list[] = {
         {
             .storage_type = TYPE_INT,
             .type = LIFE,
-            .data = (int[1]){100},
+            .data = (int[1]){PIRATE_LIFE},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = MAX_LIFE,
+            .data = (int[1]){PIRATE_LIFE},
             .data2 = NULL
         },
         {
@@ -695,25 +701,31 @@ const comp_constructor_t *comp_constructor_list[] = {
         {
             .storage_type = TYPE_INT,
             .type = LVL,
-            .data = (int[1]){1},
+            .data = (int[1]){0},
             .data2 = NULL
         },
         {
             .storage_type = TYPE_INT,
             .type = LIFE,
-            .data = (int[1]){100},
+            .data = (int[1]){0},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = MAX_LIFE,
+            .data = (int[1]){BOAT_LIFE},
             .data2 = NULL
         },
         {
             .storage_type = TYPE_INT,
             .type = DAMAGE,
-            .data = (int[1]){20},
+            .data = (int[1]){0},
             .data2 = NULL
         },
         {
             .storage_type = TYPE_FLOAT,
             .type = ATTACK_SPEED,
-            .data = (float[1]){1},
+            .data = (float[1]){0},
             .data2 = NULL
         },
         {
@@ -723,7 +735,7 @@ const comp_constructor_t *comp_constructor_list[] = {
         {
             .storage_type = TYPE_INT,
             .type = CANNON_NB,
-            .data = (int[1]){1},
+            .data = (int[1]){0},
             .data2 = NULL
         },
         {
@@ -742,6 +754,18 @@ const comp_constructor_t *comp_constructor_list[] = {
             .storage_type = TYPE_SOUND,
             .type = DEATH_SOUND,
             .data = (char *)SOUND_FOLDER "boat_death.ogg",
+            .data2 = (float [1]){10}
+        },
+        {
+            .storage_type = TYPE_SOUND,
+            .type = LVL_UP_SOUND,
+            .data = (char *)SOUND_FOLDER "level_up.ogg",
+            .data2 = (float [1]){10}
+        },
+        {
+            .storage_type = TYPE_SOUND,
+            .type = XP_SOUND,
+            .data = (char *)SOUND_FOLDER "xp.ogg",
             .data2 = (float [1]){10}
         },
         {
@@ -765,7 +789,13 @@ const comp_constructor_t *comp_constructor_list[] = {
         {
             .storage_type = TYPE_INT,
             .type = LIFE,
-            .data = (int[1]){100},
+            .data = (int[1]){BOAT_LIFE},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = MAX_LIFE,
+            .data = (int[1]){BOAT_LIFE},
             .data2 = NULL
         },
         {
@@ -835,7 +865,13 @@ const comp_constructor_t *comp_constructor_list[] = {
         {
             .storage_type = TYPE_INT,
             .type = LIFE,
-            .data = (int[1]){100},
+            .data = (int[1]){BOAT_LIFE},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = MAX_LIFE,
+            .data = (int[1]){BOAT_LIFE},
             .data2 = NULL
         },
         {
@@ -905,7 +941,13 @@ const comp_constructor_t *comp_constructor_list[] = {
         {
             .storage_type = TYPE_INT,
             .type = LIFE,
-            .data = (int[1]){100},
+            .data = (int[1]){BOAT_LIFE},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = MAX_LIFE,
+            .data = (int[1]){BOAT_LIFE},
             .data2 = NULL
         },
         {
@@ -975,7 +1017,13 @@ const comp_constructor_t *comp_constructor_list[] = {
         {
             .storage_type = TYPE_INT,
             .type = LIFE,
-            .data = (int[1]){100},
+            .data = (int[1]){BOAT_LIFE},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = MAX_LIFE,
+            .data = (int[1]){BOAT_LIFE},
             .data2 = NULL
         },
         {

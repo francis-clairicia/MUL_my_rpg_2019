@@ -7,17 +7,6 @@
 
 #include "topdown.h"
 
-static void play_boat_death_sound(game_obj_t *boat)
-{
-    sfSound *sound = NULL;
-
-    if (has_comp(boat, DEATH_SOUND)) {
-        sound = boat->comp[find_comp(boat, DEATH_SOUND)]->sound;
-        if (sound)
-            sfSound_play(sound);
-    }
-}
-
 void check_topdown_player_death(game_obj_t *boat, scene_t *state)
 {
 
@@ -27,6 +16,6 @@ void check_topdown_player_death(game_obj_t *boat, scene_t *state)
         return;
     if (boat->comp[find_comp(boat, LIFE)]->i <= 0) {
         *state = MENU;
-        play_boat_death_sound(boat);
+        play_game_object_sound(boat, DEATH_SOUND);
     }
 }

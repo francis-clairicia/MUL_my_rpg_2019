@@ -31,7 +31,7 @@ static sfBool create_box(settings_t *sett, sfView *view)
     sfVector2f size = init_vector2f(1000, 800);
     sfVector2f center = sfView_getCenter(view);
     sfVector2f pos = {center.x - (size.x / 2), center.y - (size.y / 2)};
-    sfVector2f pos_txt = init_vector2f(pos.x + (pos.x / 2), pos.y);
+    sfVector2f pos_txt = init_vector2f(pos.x + (size.x / 2), pos.y);
 
     sett->box = sfRectangleShape_create();
     if (!sett->box)
@@ -43,6 +43,7 @@ static sfBool create_box(settings_t *sett, sfView *view)
     sett->title = init_text("SETTINGS", FONT_FOLDER "skull.ttf", 100);
     if (!sett->title.object)
         return (sfFalse);
+    set_text_origin(sett->title, 0.5, 0);
     sfText_setPosition(sett->title.object, pos_txt);
     return (sfTrue);
 }

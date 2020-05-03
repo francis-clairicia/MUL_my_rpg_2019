@@ -25,7 +25,7 @@ static void update_topdown_view_borders(tool_t *tool, topdown_t *topdown)
 
 void update_topdown_view(tool_t *tool, topdown_t *topdown)
 {
-    if (sfKeyboard_isKeyPressed(tool->player.control.keys[CONTROL_CAMERA]))
+    if (topdown->camera == CENTERED)
         sfView_setCenter(tool->view, topdown->boat->body.pos);
     else
         update_topdown_view_borders(tool, topdown);

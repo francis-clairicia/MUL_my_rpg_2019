@@ -6,12 +6,33 @@
 */
 
 #include "topdown.h"
+#include "update_topdown.h"
+
+static const int XP_PER_BOAT[][2] = {
+    {BOAT2, 5},
+    {BOAT3, 7}
+};
+
+static int get_xp_gained(int dead_boat)
+{
+    int size = sizeof(XP_PER_BOAT) / sizeof(XP_PER_BOAT[0]);
+
+    for (int i = 0; i < size; i += 1) {
+        if (XP_PER_BOAT[i][0] == dead_boat)
+            return (XP_PER_BOAT[i][1]);
+    }
+    return (0);
+}
 
 static void update_player_stat(game_obj_t *boat, game_obj_t *dead_boat)
 {
-    if (dead_boat && (dead_boat->type == BOAT2 || dead_boat->type == BOAT3) &&
-        has_comp(boat, DEAD_COUNTER))
-        boat->comp[find_comp(boat, DEAD_COUNTER)]->i += 1;
+    int xp_gained = 0;
+
+    if (dead_boat && has_comp(boat, DEAD_COUNTER)) {
+        xp_gained = get_xp_gained(dead_boat->type);
+        boat->comp[find_comp(boat, XP)]->i += xp_gained;
+        boat->comp[find_comp(boat, DEAD_COUNTER)]->i += (xp_gained > 0);
+    }
 }
 
 static void clean_dead_boats(game_obj_t *boat, list_t **boat_list)
@@ -30,20 +51,15 @@ static void clean_dead_boats(game_obj_t *boat, list_t **boat_list)
             update_player_stat(boat, tmp);
             my_delete_node_from_node(boat_list, list, free_game_object);
             clean_dead_boats(boat, boat_list);
+            break;
         }
     }
 }
 
-void clean_topdown_dead_boats(tool_t *tool, topdown_t *topdown)
+void clean_topdown_dead_boats(topdown_t *topdown)
 {
-    static float time_buffer = 0;
-
-    time_buffer += tool->dtime;
-    if (time_buffer > 5) {
-        clean_dead_boats(topdown->boat, &(topdown->ally_boat));
-        clean_dead_boats(topdown->boat, &(topdown->ennemy_boat));
-        clean_dead_boats(topdown->boat, &(topdown->golden_boat));
-        clean_dead_boats(topdown->boat, &(topdown->mercenary_boat));
-        time_buffer = 0;
-    }
+    clean_dead_boats(topdown->boat, &(topdown->ally_boat));
+    clean_dead_boats(topdown->boat, &(topdown->ennemy_boat));
+    clean_dead_boats(topdown->boat, &(topdown->golden_boat));
+    clean_dead_boats(topdown->boat, &(topdown->mercenary_boat));
 }

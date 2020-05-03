@@ -73,12 +73,15 @@ typedef enum properties_e {
     XP,
     LVL,
     LIFE,
+    MAX_LIFE,
     INVINCIBLE,
     INVINCIBLE_TIME,
     DAMAGE,
     ALLY,
     FIRE_SOUND,
     HIT_SOUND,
+    LVL_UP_SOUND,
+    XP_SOUND,
     DEATH_SOUND,
     VIEW_RANGE,
     FIRE_RANGE,
@@ -179,6 +182,9 @@ void draw_game_object(sfRenderWindow *window, game_obj_t *obj);
 
 //Draws every game object in list (from mylist.h)
 void draw_game_object_list(sfRenderWindow *window, list_t *list);
+
+//Play a sound conatained in object
+void play_game_object_sound(game_obj_t *obj, prop_t sound_type);
 
 //Returns the center of a given game object considering
 //the hitbox, the pos and the origin of the actual state

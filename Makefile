@@ -35,6 +35,7 @@ SRC_GAME_OBJ		=	src/game_object/create/init_component/construct_advanced_compone
 						src/game_object/draw.c													\
 						src/game_object/find.c													\
 						src/game_object/get_center.c											\
+						src/game_object/play_sound.c											\
 						src/game_object/set_frame.c												\
 						src/game_object/set_origin.c											\
 						src/game_object/set_pos.c												\
@@ -53,8 +54,8 @@ SRC_SCENE			= 	src/scene/battle/destroy/destroy_background.c			\
 						src/scene/battle/init/init_background.c					\
 						src/scene/battle/init/init_boat.c						\
 						src/scene/battle/init/init_player.c						\
-						src/scene/battle/init/init_water.c						\
 						src/scene/battle/init/init_rain.c						\
+						src/scene/battle/init/init_water.c						\
 						src/scene/battle/init/init.c							\
 						src/scene/battle/update/buoyancy_force.c				\
 						src/scene/battle/update/clean_clouds.c					\
@@ -95,6 +96,7 @@ SRC_SCENE			= 	src/scene/battle/destroy/destroy_background.c			\
 						src/scene/topdown/update/update_boat.c					\
 						src/scene/topdown/update/update_bullet.c				\
 						src/scene/topdown/update/update_buoys.c					\
+						src/scene/topdown/update/update_level.c					\
 						src/scene/topdown/update/update_view.c					\
 						src/scene/topdown/update/update.c						\
 						src/scene/topdown/draw.c								\
@@ -135,8 +137,8 @@ SRC_PLAYER			=	src/player/init_player.c								\
 						src/player/pseudo/save_pseudo.c							\
 						src/player/control/init_control.c						\
 						src/player/control/save_control.c						\
-						src/player/level/init_level.c							\
-						src/player/level/save_level.c							\
+						src/player/data/init_data.c								\
+						src/player/data/save_data.c								\
 
 SRC_TEST			=	$(SRC_GAME_OBJ)											\
 						$(SRC_INPUT_HANDLING)									\

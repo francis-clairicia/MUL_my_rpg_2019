@@ -11,7 +11,7 @@
 #include <math.h>
 #include "vector_engine.h"
 
-#define GRAVITY (0.98)
+#define GRAVITY (9.8)
 
 #define RAD(degree) (degree * M_PI / 180)
 #define DEG(radian) (radian * 180 / M_PI)

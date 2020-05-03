@@ -9,13 +9,7 @@
 
 static void boat_collision_damage(game_obj_t *boat)
 {
-    sfSound *sound = NULL;
-
-    if (!has_comp(boat, HIT_SOUND))
-        return;
-    sound = boat->comp[find_comp(boat, HIT_SOUND)]->sound;
-    if (sound)
-        sfSound_play(sound);
+    play_game_object_sound(boat, HIT_SOUND);
     if (!has_comp(boat, LIFE))
         return;
     boat->comp[find_comp(boat, LIFE)]->i -= 5;

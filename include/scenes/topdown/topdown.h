@@ -11,6 +11,12 @@
 #include "rpg.h"
 #include "game_object.h"
 
+typedef enum camera_mode_e
+{
+    CENTERED,
+    GLOBAL
+} camera_mode_t;
+
 typedef struct topdown_s
 {
     game_obj_t *boat;
@@ -21,6 +27,7 @@ typedef struct topdown_s
     list_t *golden_boat;
     list_t *map;
     sfVector2f map_size;
+    camera_mode_t camera;
 } topdown_t;
 
 sfBool init_topdown(tool_t *tool, topdown_t *topdown);
@@ -29,6 +36,6 @@ void update_topdown(tool_t *tool, topdown_t *topdown, scene_t *state);
 
 void draw_topdown(tool_t *tool, topdown_t topdown);
 
-void destroy_topdown(tool_t *tool, topdown_t *topdown);
+void destroy_topdown(topdown_t *topdown);
 
 #endif /* !TOPDOWN_H_ */
