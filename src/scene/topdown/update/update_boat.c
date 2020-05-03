@@ -36,18 +36,6 @@ static void update_player_s_boat(tool_t *tool, topdown_t *topdown)
     update_body(&(boat->body), tool->dtime);
 }
 
-void abb(list_t *list, float dtime)
-{
-    game_obj_t *obj = NULL;
-
-    for (; list; list = list->next) {
-        obj = NODE_DATA(list, game_obj_t *);
-        if (!obj)
-            continue;
-        update_body(&(obj->body), dtime);
-    }
-}
-
 void update_topdown_boat(tool_t *tool, topdown_t *topdown)
 {
     update_player_s_boat(tool, topdown);
@@ -55,5 +43,4 @@ void update_topdown_boat(tool_t *tool, topdown_t *topdown)
     update_boat(tool->dtime, topdown->ennemy_boat, topdown);
     update_boat(tool->dtime, topdown->mercenary_boat, topdown);
     update_boat(tool->dtime, topdown->golden_boat, topdown);
-    abb(topdown->bullets, tool->dtime);
 }

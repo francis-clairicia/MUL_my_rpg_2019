@@ -6,6 +6,7 @@
 */
 
 #include "rpg.h"
+#include "vector_engine.h"
 
 static int button_event(button_t *buttons, int nb_buttons, sfEvent event,
     int prev_state)
@@ -24,7 +25,7 @@ static int button_event(button_t *buttons, int nb_buttons, sfEvent event,
     } else {
         if (i == CLOSE) {
             return (prev_state);
-        } else if (i == BACK_MENU) {
+        } else if (i == BACK_MENU && prev_state != MENU) {
             return (MENU);
         }
     }
@@ -44,14 +45,26 @@ static int check_event(tool_t *tools, int state)
     return (state);
 }
 
-static void draw_settings(sfRenderWindow *window, settings_t *settings)
+static void draw_settings(sfRenderWindow *window, settings_t *sett)
 {
     int i = 0;
+    int nb_buttons = sett->nb_buttons;
+    sfVector2f prev_pos = {0, 0};
+    sfFloatRect rect = {0, 0, 0, 0};
 
-    sfRenderWindow_drawRectangleShape(window, settings->box, NULL);
-    sfRenderWindow_drawText(window, settings->title.object, NULL);
-    for (i = 0; i < settings->nb_buttons; i += 1)
-        draw_button(settings->buttons[i], window);
+    if (sett->previous_state == MENU) {
+        nb_buttons -= 1;
+        prev_pos = sfRectangleShape_getPosition(sett->buttons[CLOSE].rect);
+        rect = sfRectangleShape_getGlobalBounds(sett->box);
+        sfRectangleShape_setPosition(sett->buttons[CLOSE].rect, 
+            VEC2F(rect.left + rect.width / 2, rect.top + rect.height / 4 * 3));
+    }
+    sfRenderWindow_drawRectangleShape(window, sett->box, NULL);
+    sfRenderWindow_drawText(window, sett->title.object, NULL);
+    for (i = 0; i < nb_buttons; i += 1)
+        draw_button(sett->buttons[i], window);
+    if (sett->previous_state == MENU)
+        sfRectangleShape_setPosition(sett->buttons[CLOSE].rect, prev_pos);
 }
 
 scene_t launch_settings(tool_t *tools, scene_t state)

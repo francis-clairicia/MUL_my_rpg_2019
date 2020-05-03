@@ -43,10 +43,17 @@ static sfBool boat_resolve_collision(rigid_body_t *b1, rigid_body_t *b2,
 
 sfBool boat_border(game_obj_t *boat, sfVector2f map_size)
 {
-    if (boat->body.pos.x < 0 || boat->body.pos.x > map_size.x)
+    sfBool collided = sfFalse;
+
+    if (boat->body.pos.x < 0 || boat->body.pos.x > map_size.x) {
         boat->body.vel.x *= -1;
-    if (boat->body.pos.y < 0 || boat->body.pos.y > map_size.y)
+        collided |= sfTrue;
+    }
+    if (boat->body.pos.y < 0 || boat->body.pos.y > map_size.y) {
+        collided |= sfTrue;
         boat->body.vel.y *= -1;
+    }
+    return (collided);
 }
 
 sfBool boat_collision(game_obj_t *boat, list_t *list)

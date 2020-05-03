@@ -7,7 +7,7 @@
 
 #include "update_battle.h"
 
-void update_battle_player(tool_t *tool, battle_t *battle)
+void update_battle_player(tool_t *tool, __attribute__((unused))battle_t *battle)
 {
     list_t *player_list = tool->player.crew;
     game_obj_t *pirate = NULL;

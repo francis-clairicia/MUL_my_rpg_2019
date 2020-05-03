@@ -8,6 +8,16 @@
 #include <stdlib.h>
 #include "game_object.h"
 
+static void free_sound(component_t *comp)
+{
+    sfSoundBuffer *sb = NULL;
+
+    sb = (sfSoundBuffer *)sfSound_getBuffer(comp->sound);
+    if (sb)
+        sfSoundBuffer_destroy(sb);
+    sfSound_destroy(comp->sound);
+}
+
 sfBool free_comp(component_t *comp)
 {
     if (!comp)
@@ -19,7 +29,7 @@ sfBool free_comp(component_t *comp)
     if (comp->text)
         sfText_destroy(comp->text);
     if (comp->sound)
-        sfSound_destroy(comp->sound);
+        free_sound(comp);
     return (sfTrue);
 }
 
