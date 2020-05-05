@@ -8,6 +8,18 @@
 #include "init_topdown.h"
 #include "loader.h"
 
+static config_t map_config[] =
+{
+    {'W', WATER},
+    {'S', SAND},
+    {'D', DIRT},
+    {'1', BUOY1},
+    {'2', BUOY2},
+    {'3', BUOY3},
+    {'4', BUOY4},
+    {0, -1}
+};
+
 static sfBool set_topdown_map_size(topdown_t *topdown)
 {
     game_obj_t *highest_x = find_game_object_highest_x(topdown->map);
@@ -43,7 +55,7 @@ void sort_map_list(list_t **list)
 
 sfBool init_topdown_map(topdown_t *topdown)
 {
-    topdown->map = load_file_with_config("assets/config/map", map_config);
+    topdown->map = load_file_with_config(CONFIG_FOLDER "map.txt", map_config);
 
     if (!topdown->map)
         return (sfFalse);

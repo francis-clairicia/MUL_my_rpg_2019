@@ -28,7 +28,10 @@ bool load_one_save(save_t *save, char const *folder)
     if (config == NULL)
         return (false);
     fd = open(config, O_RDONLY);
-    while (get_next_line(&line, fd) && my_strncmp(line, "IN_USE=", 7) != 0);
+    while (get_next_line_2(&line, fd)) {
+        if (my_strncmp(line, "IN_USE=", 7) == 0)
+            break;
+    }
     close(fd);
     save->folder = folder;
     if (line == NULL) {

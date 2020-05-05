@@ -11,24 +11,14 @@
 #include "mylist.h"
 #include "game_object.h"
 
-typedef struct load_config
+typedef struct config
 {
-    char const *variable;
     char on_txt;
     int element;
-} load_config_t;
+} config_t;
 
-list_t *load_config_from_file(char const *file, load_config_t config_table[]);
-
-static inline int get_element(load_config_t config_table[], char c)
-{
-    int i = 0;
-
-    for (i = 0; config_table && config_table[i].variable != NULL; i += 1) {
-        if (config_table[i].on_txt == c)
-            return (config_table[i].element);
-    }
-    return (-1);
-}
+list_t *load_file_with_config(char const *file, const config_t config_table[]);
+list_t *create_list_from_array(char * const *array,
+    const config_t config_table[]);
 
 #endif /* !LOADER_H_ */

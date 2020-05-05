@@ -14,6 +14,7 @@ static const player_field_save_t save_function[] = {
     &save_pseudo,
     &save_control,
     &save_data,
+    &save_boat_layout,
     NULL
 };
 

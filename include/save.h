@@ -27,6 +27,7 @@ static const char * const save_folders[] = {
 #define PSEUDO_SAVE_FILE "pseudo.sav"
 #define DATA_SAVE_FILE "data.sav"
 #define CONTROL_SAVE_FILE "controls.sav"
+#define BOAT_SAVE_FILE "boat.sav"
 
 bool load_one_save(save_t *save, char const *folder);
 

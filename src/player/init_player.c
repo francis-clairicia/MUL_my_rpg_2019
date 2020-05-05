@@ -12,6 +12,7 @@ static const player_field_init_t init_function[] = {
     &init_pseudo,
     &init_control,
     &init_data,
+    &init_boat_layout,
     NULL
 };
 
@@ -20,6 +21,7 @@ bool init_player(player_t *player, save_t save)
     if (player == NULL)
         return (false);
     player->save = save;
+    player->boat_layout = NULL;
     player->crew = NULL;
     player->boat = NULL;
     my_memset(player->pseudo, 0, sizeof(player->pseudo));

@@ -43,7 +43,7 @@ static sfBool init_window(tool_t *tools)
 
 static void destroy_window(tool_t *tools)
 {
-    destroy_player(&tools->player);
+    destroy_player(&tools->player, true);
     destroy_menu(&tools->menu);
     destroy_save_chooser(&tools->chooser);
     sfView_destroy(tools->view);

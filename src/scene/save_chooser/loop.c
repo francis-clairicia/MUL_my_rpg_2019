@@ -38,7 +38,7 @@ static scene_t load_player_and_launch_game(tool_t *tool, player_t players[3],
     tool->player = players[save_chosen];
     for (int i = 0; i < 3; i += 1) {
         if (i != save_chosen)
-            destroy_player(&players[i]);
+            destroy_player(&players[i], true);
     }
     if (tool->player.save.used == false)
         return (new_player_setup(tool));

@@ -128,7 +128,7 @@ SRC_PHYSIC_ENGINE	=	src/physic_engine/force/apply_force.c					\
 SRC_MATH_PROCESS	=	src/math_process/get_randnb.c							\
 						src/math_process/magnet_number.c						\
 
-SRC_LOADER			=	src/loader/load_config_from_file.c
+SRC_LOADER			=	src/loader/load_config.c
 
 SRC_PLAYER			=	src/player/init_player.c								\
 						src/player/destroy_player.c								\
@@ -140,6 +140,9 @@ SRC_PLAYER			=	src/player/init_player.c								\
 						src/player/control/save_control.c						\
 						src/player/data/init_data.c								\
 						src/player/data/save_data.c								\
+						src/player/boat/init_boat.c								\
+						src/player/boat/read_file.c								\
+						src/player/boat/save_boat.c								\
 
 SRC_TEST			=	$(SRC_GAME_OBJ)											\
 						$(SRC_INPUT_HANDLING)									\

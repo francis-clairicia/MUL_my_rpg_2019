@@ -11,6 +11,7 @@
 #define IMG_FOLDER "./assets/img/"
 #define SOUND_FOLDER "./assets/sounds/"
 #define FONT_FOLDER "./assets/font/"
+#define CONFIG_FOLDER "./assets/config/"
 #define SAVE_FOLDER "./saves/"
 
 #define PIRATE_LIFE 100

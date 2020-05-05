@@ -9,17 +9,17 @@
 #include "battle.h"
 #include "loader.h"
 
-static load_config_t boat_config[] =
+static config_t boat_config[] =
 {
-    {"WOOD1_RECT", 0, WOOD1_RECT},
-    {"WOOD1_LEFT_TRIANGLE", 0, WOOD1_LEFT_TRIANGLE},
-    {"WOOD1_RIGHT_TRIANGLE", 0, WOOD1_RIGHT_TRIANGLE},
-    {"WOOD2_RECT", 0, WOOD2_RECT},
-    {"WOOD2_LEFT_TRIANGLE", 0, WOOD2_LEFT_TRIANGLE},
-    {"WOOD2_RIGHT_TRIANGLE", 0, WOOD2_RIGHT_TRIANGLE},
-    {"TILLER", 0, TILLER},
-    {"FENCE", 0, FENCE},
-    {NULL, 0, -1}
+    {'X', WOOD1_RECT},
+    {'L', WOOD1_LEFT_TRIANGLE},
+    {'R', WOOD1_RIGHT_TRIANGLE},
+    {'x', WOOD2_RECT},
+    {'l', WOOD2_LEFT_TRIANGLE},
+    {'r', WOOD2_RIGHT_TRIANGLE},
+    {'T', TILLER},
+    {'F', FENCE},
+    {0, -1}
 };
 
 void update_boat_size(list_t *boat);
@@ -42,12 +42,9 @@ static void set_ally_boat_pos(player_t *player, list_t *water_list)
 
 static sfBool init_ally_boat(player_t *player, battle_t *battle)
 {
-    char *boat_path = join_path(player->save.folder, "boat");
-
-    player->boat = load_config_from_file(boat_path, boat_config);
-    if (!(player->boat) || !boat_path)
+    player->boat = create_list_from_array(player->boat_layout, boat_config);
+    if (!(player->boat))
         return (sfFalse);
-    free(boat_path);
     battle->player = player;
     update_boat_size(player->boat);
     set_ally_boat_pos(player, battle->water);
@@ -56,8 +53,7 @@ static sfBool init_ally_boat(player_t *player, battle_t *battle)
 
 sfBool init_battle_boat(player_t *player, battle_t *battle)
 {
-    if (!player->boat &&
-        !init_ally_boat(player, battle))
+    if (!player->boat && !init_ally_boat(player, battle))
         return (sfFalse);
     return (sfTrue);
 }
