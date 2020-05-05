@@ -31,9 +31,9 @@ void update_ia_attack(game_obj_t *boat, game_obj_t *target, list_t **bullets)
         return ;
     }
     if (vec_angle(head, dir) > vec_angle(head, vec_mult(dir, -1))) {
-        boat->body.torque -= 1;
+        boat->body.torque -= 2;
     } else
-        boat->body.torque += 1;
+        boat->body.torque += 2;
 }
 
 void update_ia_track(game_obj_t *boat, game_obj_t *target)
@@ -49,9 +49,9 @@ void update_ia_track(game_obj_t *boat, game_obj_t *target)
         return ;
     }
     if (vec_angle(head, dir_nrm) < vec_angle(head, vec_mult(dir_nrm, -1))) {
-        boat->body.torque -= 1;
+        boat->body.torque -= 2;
     } else
-        boat->body.torque += 1;
+        boat->body.torque += 2;
 }
 
 static game_obj_t *get_closest_target(game_obj_t *boat, game_obj_t *ptarget,

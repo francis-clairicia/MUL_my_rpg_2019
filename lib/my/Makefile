@@ -67,6 +67,7 @@ LINKED_LIST	=	my_put_in_list.c			\
 				my_rev_list.c				\
 				my_node.c					\
 				my_find_node.c				\
+				my_put_node_as_end.c		\
 				my_delete_node.c			\
 				my_delete_node_from.c
 

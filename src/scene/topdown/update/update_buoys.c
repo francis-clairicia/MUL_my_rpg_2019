@@ -23,5 +23,7 @@ void update_topdown_buoys(tool_t *tool, topdown_t *topdown)
         if (obj->type >= BUOY1 && obj->type <= BUOY4) {
             generate_new_boat(obj, topdown, tool);
         }
+        if (obj->type == WATER)
+            break;
     }
 }

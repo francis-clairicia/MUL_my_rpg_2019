@@ -32,6 +32,7 @@ list_t *my_find_node(list_t *list, list_t *node_to_find, int *index);
 void my_delete_node(list_t **list, int i, void (*free_function)());
 void my_delete_node_from_data(list_t **list, long data, void (*free_func)());
 void my_delete_node_from_node(list_t **list, list_t *node, void (*free_func)());
+void my_put_node_as_end(list_t **list, list_t *node);
 
 #define MY_APPEND_TO_LIST(list, data) my_append_to_list(list, (long)data)
 #define MY_PUT_IN_LIST(list, data) my_put_in_list(list, (long)data)
