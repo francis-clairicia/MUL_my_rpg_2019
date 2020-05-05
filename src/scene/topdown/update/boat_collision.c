@@ -62,6 +62,8 @@ sfBool boat_collision(game_obj_t *boat, list_t *list)
         if (obj->type == SAND || obj->type == DIRT)
             collided |= game_object_collision(boat, obj,
                                 boat_resolve_collision);
+        if (obj->type == WATER)
+            break;
     }
     if (collided)
         boat_collision_damage(boat);

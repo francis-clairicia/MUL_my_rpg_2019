@@ -31,6 +31,28 @@ static sfBool set_topdown_map_size(topdown_t *topdown)
     return (sfTrue);
 }
 
+void sort_map_list(list_t **list)
+{
+    list_t *save = NULL;
+    game_obj_t *obj = NULL;
+    list_t *tmp = NULL;
+
+    if (!list)
+        return;
+    for (tmp = *list; tmp; tmp = tmp->next) {
+        obj = NODE_DATA(tmp, game_obj_t *);
+        if (!obj)
+            continue;
+        if (obj->type != WATER && save) {
+            my_put_node_as_end(list, save);
+            sort_map_list(list);
+            return;
+        }
+        if (obj->type == WATER)
+            save = tmp;
+    }
+}
+
 sfBool init_topdown_map(topdown_t *topdown)
 {
     topdown->map = load_config_from_file("assets/config/map", map_config);
@@ -38,5 +60,6 @@ sfBool init_topdown_map(topdown_t *topdown)
         return (sfFalse);
     if (!set_topdown_map_size(topdown))
         return (sfFalse);
+    sort_map_list(&(topdown->map));
     return (sfTrue);
 }
