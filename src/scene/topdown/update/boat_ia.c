@@ -14,7 +14,7 @@ static void ia_attack(game_obj_t *boat, list_t **bullets, sfBool side)
     }
 }
 
-void mak(game_obj_t *boat, game_obj_t *target, list_t **bullets)
+void update_ia_attack(game_obj_t *boat, game_obj_t *target, list_t **bullets)
 {
     sfVector2f head = vec_sub(boat->body.obb[1], boat->body.obb[2]);
     sfVector2f dir = vec_sub(target->body.pos, boat->body.pos);
