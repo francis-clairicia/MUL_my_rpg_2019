@@ -38,6 +38,7 @@ static void update_xp(game_obj_t *boat)
         boat->comp[find_comp(boat, LVL)]->i += xp / xp_for_level_up;
         boat->comp[find_comp(boat, XP)]->i = xp % xp_for_level_up;
         play_game_object_sound(boat, LVL_UP_SOUND);
+        update_topdown_boat_state(boat);
     } else if (last_xp != xp)
         play_game_object_sound(boat, XP_SOUND);
     last_xp = boat->comp[find_comp(boat, XP)]->i;

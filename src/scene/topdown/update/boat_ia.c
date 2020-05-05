@@ -14,7 +14,7 @@ static void ia_attack(game_obj_t *boat, list_t **bullets, sfBool side)
     }
 }
 
-void update_ia_attack(game_obj_t *boat, game_obj_t *target, list_t **bullets)
+void mak(game_obj_t *boat, game_obj_t *target, list_t **bullets)
 {
     sfVector2f head = vec_sub(boat->body.obb[1], boat->body.obb[2]);
     sfVector2f dir = vec_sub(target->body.pos, boat->body.pos);
@@ -60,6 +60,8 @@ static game_obj_t *get_closest_target(game_obj_t *boat, game_obj_t *ptarget,
     game_obj_t *l_target = find_closest_game_object(boat, boat_list);
     sfVector2f b_pos = boat->body.pos;
 
+    if (!ptarget && !l_target)
+        return (NULL);
     if (!ptarget && l_target)
         return (l_target);
     if (ptarget && !l_target)

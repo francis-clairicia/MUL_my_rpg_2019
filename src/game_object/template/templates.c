@@ -170,7 +170,7 @@ const game_obj_constructor_t constructor_list[] = {
                     4
                     },
         .lapse = (unsigned int[]){
-                    750,
+                    500,
                     },
         .origin = (sfVector2f[]){
                     {16, 16}

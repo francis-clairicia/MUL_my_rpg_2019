@@ -33,6 +33,7 @@ void update_topdown_view(tool_t *tool, topdown_t *topdown);
 
 //Update buoys
 void update_topdown_buoys(tool_t *tool, topdown_t *topdown);
+void generate_new_boat(game_obj_t *buoy, topdown_t *topdown, tool_t *tool);
 
 //Update bullets
 void update_topdown_bullet(tool_t *tool, topdown_t *topdown);
