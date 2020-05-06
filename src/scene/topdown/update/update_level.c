@@ -23,6 +23,7 @@ static void fill_boat_player_data(game_obj_t *boat, player_t *player)
     if (has_comp(boat, ATTACK_SPEED))
         player->data.attack_speed = comp_value(boat, ATTACK_SPEED)->f;
     player->data.pos = boat->body.pos;
+    player->max_xp = comp_value(boat, MAX_XP)->i;
 }
 
 static void update_xp(game_obj_t *boat)
@@ -31,6 +32,7 @@ static void update_xp(game_obj_t *boat)
     int xp = comp_value(boat, XP)->i;
     int xp_for_level_up = round(10 + 5 * sqrt(level - 1));
 
+    comp_value(boat, MAX_XP)->i = xp_for_level_up;
     if (xp / xp_for_level_up > 0) {
         comp_value(boat, XP)->i = xp % xp_for_level_up;
         comp_value(boat, LVL)->i += (xp / xp_for_level_up);

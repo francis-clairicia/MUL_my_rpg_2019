@@ -7,32 +7,24 @@
 
 #include "topdown.h"
 
-static void set_bullet_team(game_obj_t *boat, game_obj_t *bullet)
-{
-    if (boat->type == BOAT1 || boat->type == BOAT4)
-        comp_value(bullet, ALLY)->i = 1;
-    else
-        comp_value(bullet, ALLY)->i = 0;
-}
-
 static game_obj_t *init_bullet(game_obj_t *boat, int index,
                         sfBool side, sfVector2f flank)
 {
     size_t bullet_nb = comp_value(boat, CANNON_NB)->i;
     sfVector2f impulse = vec_norm(vec_normal(flank));
-    game_obj_t *new_bullet = create_game_obj(BULLET);
+    game_obj_t *bullet = create_game_obj(BULLET);
 
-    if (!new_bullet)
+    if (!bullet)
         return (NULL);
-    set_game_object_pos(new_bullet, vec_add(boat->body.obb[3 - side],
+    set_game_object_pos(bullet, vec_add(boat->body.obb[3 - side],
                 vec_mult(flank, (float)(index + 1) / (float)(bullet_nb + 1))));
     if (!side)
         impulse = vec_mult(impulse, -1);
     impulse = vec_mult(impulse, 10000);
-    comp_value(new_bullet, DAMAGE)->i = comp_value(boat, DAMAGE)->i;
-    apply_force(&(new_bullet->body), impulse);
-    set_bullet_team(boat, new_bullet);
-    return (new_bullet);
+    comp_value(bullet, DAMAGE)->i = comp_value(boat, DAMAGE)->i;
+    apply_force(&(bullet->body), impulse);
+    comp_value(bullet, ALLY)->i = (boat->type == BOAT1 || boat->type == BOAT4);
+    return (bullet);
 }
 
 void boat_attack(game_obj_t *boat, list_t **bullets, sfBool side)

@@ -10,7 +10,7 @@
 
 #include <SFML/System/Vector2.h>
 #include <SFML/Graphics/RenderWindow.h>
-#include "menu.h"
+#include "scenes/menu.h"
 #include "save_chooser.h"
 #include "player.h"
 #include "settings.h"

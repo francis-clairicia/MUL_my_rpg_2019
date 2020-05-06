@@ -6,6 +6,7 @@
 */
 
 #include "topdown.h"
+#include "hud.h"
 
 scene_t launch_topdown(tool_t *tool, scene_t state)
 {
@@ -18,10 +19,10 @@ scene_t launch_topdown(tool_t *tool, scene_t state)
         update_tool(tool);
         update_topdown(tool, &topdown, &state);
         draw_topdown(tool, topdown);
+        display_hud(tool);
         sfRenderWindow_display(tool->window);
     }
-    sfView_reset(tool->view, FRECT(0, 0, 1920, 1080));
-    sfRenderWindow_setView(tool->window, tool->view);
+    set_tool_view(tool, FRECT(0, 0, 1920, 1080));
     destroy_topdown(&topdown);
     return (state);
 }

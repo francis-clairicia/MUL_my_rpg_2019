@@ -6,6 +6,7 @@
 */
 
 #include "topdown.h"
+#include "math_process.h"
 
 static void update_topdown_view_borders(tool_t *tool, topdown_t *topdown)
 {
@@ -39,6 +40,7 @@ void update_view_zoom(tool_t *tool, topdown_t *topdown)
     sfBool zoom_down = (code == tool->player.control.keys[CONTROL_ZOOM_DOWN]);
     float offset = 0.1;
     float new_value = 0;
+    sfVector2f view_size;
 
     if (!(zoom_up ^ zoom_down))
         return;
@@ -47,6 +49,10 @@ void update_view_zoom(tool_t *tool, topdown_t *topdown)
     if (new_value < topdown->zoom.min || new_value > topdown->zoom.max)
         return;
     sfView_zoom(tool->view, 1 - offset);
+    view_size = sfView_getSize(tool->view);
+    view_size.x = MIN(view_size.x, topdown->map_size.x);
+    view_size.y = MIN(view_size.y, topdown->map_size.y);
+    sfView_setSize(tool->view, view_size);
     topdown->zoom.actual = new_value;
 }
 

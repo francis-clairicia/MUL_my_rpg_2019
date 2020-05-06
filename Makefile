@@ -135,6 +135,11 @@ SRC_PLAYER			=	src/player/init_player.c								\
 						src/player/destroy_player.c								\
 						src/player/save_player_data.c							\
 						src/player/load_saves.c									\
+						src/player/hud/display_hud.c							\
+						src/player/hud/display_pseudo.c							\
+						src/player/hud/display_level.c							\
+						src/player/hud/display_xp.c								\
+						src/player/hud/display_xp_bar.c							\
 						src/player/pseudo/init_pseudo.c							\
 						src/player/pseudo/save_pseudo.c							\
 						src/player/control/init_control.c						\

@@ -9,10 +9,19 @@
 
 static scene_t keyboard_event(tool_t *tool, topdown_t *topdown)
 {
+    sfView *view = NULL;
+    scene_t scene = 0;
+
     if (tool->event.key.code == sfKeyEscape) {
+        view = sfView_copy(tool->view);
+        if (!view)
+            return (TOPDOWN);
         set_tool_view(tool, FRECT(0, 0, 1920, 1080));
         draw_topdown(tool, *topdown);
-        return (launch_settings(tool, TOPDOWN));
+        scene = launch_settings(tool, TOPDOWN);
+        sfView_destroy(tool->view);
+        tool->view = view;
+        return (scene);
     }
     if (tool->event.key.code == sfKeyF12)
         return (BATTLE);
