@@ -324,7 +324,7 @@ const game_obj_constructor_t constructor_list[] = {
                     },
         .state_nb = 1,
         .mass = __FLT_MAX__,
-        .has_comp = false
+        .has_comp = true
     },
     [WOOD1_RECT] =
     {
@@ -1232,6 +1232,16 @@ const comp_constructor_t *comp_constructor_list[] = {
         },
         {
             .storage_type = TYPE_END
+        }
+    },
+    [RAIN] =
+    (comp_constructor_t []){
+        {
+            .storage_type = TYPE_CLOCK,
+            .type = CLOCK,
+        },
+        {
+            .storage_type = TYPE_END,
         }
     }
 };
