@@ -10,17 +10,17 @@
 
 static void redirect_boat_ia(game_obj_t *boat, topdown_t *topdown)
 {
-    if (boat->type == BOAT2)
-        update_topdown_boat_ia(boat, topdown->ally_boat, topdown->boat,
-                                            &(topdown->bullets));
-    if (boat->type == BOAT3)
-        update_topdown_boat_ia(boat, topdown->ally_boat, topdown->boat,
-                                            &(topdown->bullets));
+    game_obj_t *player = topdown->boat;
+    list_t *ally = topdown->ally_boat;
+    list_t *enemy = topdown->ennemy_boat;
+    list_t *mercenary = topdown->mercenary_boat;
+    list_t **bullets = &(topdown->bullets);
+
+    if (boat->type == BOAT2 || boat->type == BOAT3)
+        update_topdown_boat_ia(boat, ally, player, bullets);
     if (boat->type == BOAT4) {
-        update_topdown_boat_ally_ia(boat, topdown->ennemy_boat, topdown->boat,
-                                            &(topdown->bullets));
-        update_topdown_boat_ally_ia(boat, topdown->mercenary_boat, topdown->boat,
-                                            &(topdown->bullets));
+        update_topdown_boat_ally_ia(boat, enemy, player, bullets);
+        update_topdown_boat_ally_ia(boat, mercenary, player, bullets);
     }
 }
 

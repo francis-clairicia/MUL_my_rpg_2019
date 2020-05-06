@@ -30,10 +30,10 @@ static void player_control_player(game_obj_t *pirate, control_t control)
     } else
         update_game_object_state(pirate, 0);
     if (sfKeyboard_isKeyPressed(control.keys[CONTROL_UP]) &&
-        pirate->comp[find_comp(pirate, CAN_JUMP)]->i &&
-        !pirate->comp[find_comp(pirate, IS_DRIVING)]->i) {
+        comp_value(pirate, CAN_JUMP)->i &&
+        !comp_value(pirate, IS_DRIVING)->i) {
         apply_force(&(pirate->body), VEC2F(0, -1000));
-        pirate->comp[find_comp(pirate, CAN_JUMP)]->i = 0;
+        comp_value(pirate, CAN_JUMP)->i = 0;
     }
     player_control_attack(pirate, control);
 }
@@ -58,7 +58,7 @@ static void player_control_ship(list_t *boat_list, control_t control)
 void control_player(game_obj_t *pirate, list_t *boat_list,
                                         control_t control)
 {
-    if (pirate->comp[find_comp(pirate, IS_DRIVING)]->i)
+    if (comp_value(pirate, IS_DRIVING)->i)
         player_control_ship(boat_list, control);
     player_control_player(pirate, control);
 }

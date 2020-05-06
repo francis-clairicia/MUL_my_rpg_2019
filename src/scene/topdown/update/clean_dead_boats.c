@@ -13,13 +13,18 @@ static const int XP_PER_BOAT[][2] = {
     {BOAT3, 7}
 };
 
-static int get_xp_gained(int dead_boat)
+static int get_xp_gained(game_obj_t *dead_boat)
 {
     int size = sizeof(XP_PER_BOAT) / sizeof(XP_PER_BOAT[0]);
 
     for (int i = 0; i < size; i += 1) {
-        if (XP_PER_BOAT[i][0] == dead_boat)
-            return (XP_PER_BOAT[i][1]);
+        if (XP_PER_BOAT[i][0] != (int)(dead_boat->type))
+            continue;
+        if (!has_comp(dead_boat, DEAD_BY_BULLET))
+            continue;
+        if (!(comp_value(dead_boat, DEAD_BY_BULLET)->i))
+            continue;
+        return (XP_PER_BOAT[i][1]);
     }
     return (0);
 }
@@ -29,9 +34,12 @@ static void update_player_stat(game_obj_t *boat, game_obj_t *dead_boat)
     int xp_gained = 0;
 
     if (dead_boat && has_comp(boat, DEAD_COUNTER)) {
-        xp_gained = get_xp_gained(dead_boat->type);
-        boat->comp[find_comp(boat, XP)]->i += xp_gained;
-        boat->comp[find_comp(boat, DEAD_COUNTER)]->i += (xp_gained > 0);
+        xp_gained = get_xp_gained(dead_boat);
+        comp_value(boat, XP)->i += xp_gained;
+        if (xp_gained > 0) {
+            comp_value(boat, EARN_XP)->i = true;
+            comp_value(boat, DEAD_COUNTER)->i += 1;
+        }
     }
 }
 
@@ -47,7 +55,7 @@ static void clean_dead_boats(game_obj_t *boat, list_t **boat_list)
         tmp = NODE_DATA(list, game_obj_t *);
         if (!tmp || !has_comp(tmp, LIFE))
             continue;
-        if (tmp->comp[find_comp(tmp, LIFE)]->i <= 0) {
+        if (comp_value(tmp, LIFE)->i <= 0) {
             update_player_stat(boat, tmp);
             my_delete_node_from_node(boat_list, list, free_game_object);
             clean_dead_boats(boat, boat_list);

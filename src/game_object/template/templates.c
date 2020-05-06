@@ -644,6 +644,18 @@ const comp_constructor_t *comp_constructor_list[] = {
         },
         {
             .storage_type = TYPE_INT,
+            .type = MAX_XP,
+            .data = (int[1]){0},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = EARN_XP,
+            .data = (int[1]){0},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
             .type = LVL,
             .data = (int[1]){1},
             .data2 = NULL
@@ -695,6 +707,18 @@ const comp_constructor_t *comp_constructor_list[] = {
         {
             .storage_type = TYPE_INT,
             .type = XP,
+            .data = (int[1]){0},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = MAX_XP,
+            .data = (int[1]){0},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = EARN_XP,
             .data = (int[1]){0},
             .data2 = NULL
         },
@@ -851,6 +875,12 @@ const comp_constructor_t *comp_constructor_list[] = {
             .data2 = NULL
         },
         {
+            .storage_type = TYPE_INT,
+            .type = DEAD_BY_BULLET,
+            .data = (int[1]){0},
+            .data2 = NULL
+        },
+        {
             .storage_type = TYPE_END
         }
     },
@@ -927,6 +957,12 @@ const comp_constructor_t *comp_constructor_list[] = {
             .data2 = NULL
         },
         {
+            .storage_type = TYPE_INT,
+            .type = DEAD_BY_BULLET,
+            .data = (int[1]){0},
+            .data2 = NULL
+        },
+        {
             .storage_type = TYPE_END
         }
     },
@@ -1000,6 +1036,12 @@ const comp_constructor_t *comp_constructor_list[] = {
             .storage_type = TYPE_INT,
             .type = FIRE_RANGE,
             .data = (int [1]){200},
+            .data2 = NULL
+        },
+        {
+            .storage_type = TYPE_INT,
+            .type = DEAD_BY_BULLET,
+            .data = (int[1]){0},
             .data2 = NULL
         },
         {

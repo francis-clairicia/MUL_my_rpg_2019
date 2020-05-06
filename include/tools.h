@@ -10,7 +10,7 @@
 
 #include <SFML/System/Vector2.h>
 #include <SFML/Graphics/RenderWindow.h>
-#include "menu.h"
+#include "scenes/menu.h"
 #include "save_chooser.h"
 #include "player.h"
 #include "settings.h"
@@ -56,5 +56,7 @@ typedef struct tool_s {
 void init_mouse_tool(tool_t *tool);
 void update_mouse_tool(tool_t *tool);
 void update_tool(tool_t *tool);
+void update_window_anchor(tool_t *tool);
+void set_tool_view(tool_t *tool, sfFloatRect rect);
 
 #endif

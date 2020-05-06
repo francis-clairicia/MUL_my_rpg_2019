@@ -34,7 +34,7 @@ static void set_ally_boat_pos(player_t *player, list_t *water_list)
     if (!water || !boat)
         return ;
     pos = vec_mult(boat->body.pos, -1);
-    size = boat->comp[find_comp(boat, SIZE)]->v2f;
+    size = comp_value(boat, SIZE)->v2f;
     game_object_list(player->boat, add_game_object_pos_ptr, &pos);
     pos = VEC2F(0, water->body.pos.y - size.y - 46);
     game_object_list(player->boat, add_game_object_pos_ptr, &pos);

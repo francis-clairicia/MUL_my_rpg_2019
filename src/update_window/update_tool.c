@@ -8,7 +8,7 @@
 #include "vector_engine.h"
 #include "rpg.h"
 
-static void update_window_anchor(tool_t *tool)
+void update_window_anchor(tool_t *tool)
 {
     tool->anchor.topleft = sfRenderWindow_mapPixelToCoords(tool->window,
                                             VEC2I(0, 0),

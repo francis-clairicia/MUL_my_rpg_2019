@@ -17,7 +17,8 @@ static const control_t control_template = {
     .keys[CONTROL_USE] = sfKeyE,
     .keys[CONTROL_ATTACK1] = sfKeyJ,
     .keys[CONTROL_ATTACK2] = sfKeyL,
-    .keys[CONTROL_CAMERA] = sfKeyC
+    .keys[CONTROL_ZOOM_UP] = sfKeyI,
+    .keys[CONTROL_ZOOM_DOWN] = sfKeyK,
 };
 
 static FILE *open_control_save(char const *folder)
@@ -34,8 +35,10 @@ static FILE *open_control_save(char const *folder)
 
 static bool load_controls(control_t *control, FILE *save)
 {
-    if (save == NULL)
-        return (false);
+    if (save == NULL) {
+        *control = control_template;
+        return (true);
+    }
     return (fread(control, sizeof(control_t), 1, save) > 0);
 }
 

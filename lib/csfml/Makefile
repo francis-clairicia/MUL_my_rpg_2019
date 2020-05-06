@@ -11,6 +11,7 @@ SRC		= 	button.c 					\
 			button_event.c 				\
 			init_objects.c 				\
 			scale_object.c 				\
+			set_origin.c 				\
 			clock.c 					\
 			init_text.c					\
 			draw_text.c					\

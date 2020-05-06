@@ -36,6 +36,7 @@ void update_topdown_boat_ally_ia(game_obj_t *boat, list_t *boat_list,
 
 //Update view
 void update_topdown_view(tool_t *tool, topdown_t *topdown);
+void update_view_zoom(tool_t *tool, topdown_t *topdown);
 
 //Update buoys
 void update_topdown_buoys(tool_t *tool, topdown_t *topdown);

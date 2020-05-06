@@ -12,7 +12,7 @@ static void boat_collision_damage(game_obj_t *boat)
     play_game_object_sound(boat, HIT_SOUND);
     if (!has_comp(boat, LIFE))
         return;
-    boat->comp[find_comp(boat, LIFE)]->i -= 5;
+    comp_value(boat, LIFE)->i -= 5;
     update_topdown_boat_state(boat);
 }
 

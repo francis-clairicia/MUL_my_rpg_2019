@@ -121,7 +121,10 @@ void decrement_pos(float *pos, float offset, int max_value, int reset);
 int random_value(int modulo);
 
 /* clock.c */
-
 int elapsed_time(float milliseconds, sfClock *clock);
+
+/* Origins */
+void set_sprite_origin(sfSprite *sprite, float x, float y);
+void set_rect_origin(sfRectangleShape *rectangle, float x, float y);
 
 #endif /* !PROTO_H_ */

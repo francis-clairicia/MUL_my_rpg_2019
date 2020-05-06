@@ -14,11 +14,11 @@ sfBool can_game_object_attack(game_obj_t *obj)
 
     if (!obj || !has_comp(obj, ATTACK_TIME) || !has_comp(obj, ATTACK_SPEED))
         return (sfFalse);
-    clock = obj->comp[find_comp(obj, ATTACK_TIME)]->clock;
+    clock = comp_value(obj, ATTACK_TIME)->clock;
     if (!clock)
         return (sfFalse);
     time = sfClock_getElapsedTime(clock);
-    if (sfTime_asSeconds(time) > obj->comp[find_comp(obj, ATTACK_SPEED)]->f) {
+    if (sfTime_asSeconds(time) > comp_value(obj, ATTACK_SPEED)->f) {
         reset_comp_clock(obj, ATTACK_TIME);
         return (sfTrue);
     }

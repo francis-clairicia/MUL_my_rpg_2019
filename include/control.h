@@ -19,12 +19,13 @@ typedef enum control_keys_e
     CONTROL_USE = 4,
     CONTROL_ATTACK1 = 5,
     CONTROL_ATTACK2 = 6,
-    CONTROL_CAMERA = 7,
+    CONTROL_ZOOM_UP = 7,
+    CONTROL_ZOOM_DOWN = 8,
 } control_keys_t;
 
 typedef struct control_s
 {
-    sfKeyCode keys[8];
+    sfKeyCode keys[9];
 } control_t;
 
 #endif /* !CONTROL_H_ */

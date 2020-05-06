@@ -78,8 +78,8 @@ void update_topdown_boat_ia(game_obj_t *boat, list_t *boat_list,
     target = get_closest_target(boat, ptarget, boat_list);
     if (!target)
         return ;
-    fire_range = boat->comp[find_comp(boat, FIRE_RANGE)]->i;
-    view_range = boat->comp[find_comp(boat, VIEW_RANGE)]->i;
+    fire_range = comp_value(boat, FIRE_RANGE)->i;
+    view_range = comp_value(boat, VIEW_RANGE)->i;
     update_game_object_center(boat);
     update_obb(&(boat->body));
     distance = vec_mag(vec_sub(boat->body.pos, target->body.pos));

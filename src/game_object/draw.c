@@ -25,8 +25,8 @@ static sfBool init_hp_bar(sfRectangleShape *hp_bar[])
 
 static void setup_hp_bar(game_obj_t *obj, sfRectangleShape *hp_bar[])
 {
-    int hp = obj->comp[find_comp(obj, LIFE)]->i;
-    int max_hp = obj->comp[find_comp(obj, MAX_LIFE)]->i;
+    int hp = comp_value(obj, LIFE)->i;
+    int max_hp = comp_value(obj, MAX_LIFE)->i;
     sfFloatRect rect = obj->hitbox;
     sfVector2f max_hp_size = {rect.width, 5};
     sfVector2f hp_size = {max_hp_size.x * hp / max_hp, max_hp_size.y};

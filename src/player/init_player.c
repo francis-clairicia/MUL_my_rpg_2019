@@ -20,12 +20,8 @@ bool init_player(player_t *player, save_t save)
 {
     if (player == NULL)
         return (false);
+    my_memset(player, 0, sizeof(*player));
     player->save = save;
-    player->boat_layout = NULL;
-    player->crew = NULL;
-    player->boat = NULL;
-    my_memset(player->pseudo, 0, sizeof(player->pseudo));
-    my_memset(&player->data, 0, sizeof(player->data));
     for (int i = 0; init_function[i] != NULL; i += 1) {
         if (init_function[i](player) == false)
             return (false);

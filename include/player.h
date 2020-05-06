@@ -34,6 +34,7 @@ typedef struct player
     list_t *crew;
     list_t *boat;
     player_data_t data;
+    int max_xp;
 } player_t;
 
 bool load_all_saves(player_t players[3]);

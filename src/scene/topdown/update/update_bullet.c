@@ -9,19 +9,18 @@
 
 static void damage_boat_from_bullet(game_obj_t *bullet, game_obj_t *boat)
 {
-    int damage = bullet->comp[find_comp(bullet, DAMAGE)]->i;
-    sfSound *sound = NULL;
+    int damage = comp_value(bullet, DAMAGE)->i;
 
     if (!boat || !bullet || !damage)
         return;
-    if (boat->comp[find_comp(boat, LIFE)]->i <= 0)
-        return ;
-    boat->comp[find_comp(boat, LIFE)]->i -= damage;
-    bullet->comp[find_comp(bullet, DAMAGE)]->i = 0;
+    if (comp_value(boat, LIFE)->i <= 0)
+        return;
+    comp_value(boat, LIFE)->i -= damage;
+    comp_value(bullet, DAMAGE)->i = 0;
     update_topdown_boat_state(boat);
-    sound = boat->comp[find_comp(boat, HIT_SOUND)]->sound;
-    if (sound)
-        sfSound_play(sound);
+    play_game_object_sound(boat, HIT_SOUND);
+    if (comp_value(boat, LIFE)->i <= 0 && has_comp(boat, DEAD_BY_BULLET))
+        comp_value(boat, DEAD_BY_BULLET)->i = true;
 }
 
 static void check_bullet_boat_list(game_obj_t *bullet, list_t *boat_list,
@@ -44,7 +43,7 @@ static void check_bullet_with_all_boat(game_obj_t *bullet, topdown_t *topdown)
 {
     if (!has_comp(bullet, ALLY))
         return ;
-    if (bullet->comp[find_comp(bullet, ALLY)]->i == 1) {
+    if (comp_value(bullet, ALLY)->i == 1) {
         check_bullet_boat_list(bullet, topdown->ennemy_boat, NULL);
         check_bullet_boat_list(bullet, topdown->mercenary_boat, NULL);
         check_bullet_boat_list(bullet, topdown->golden_boat, NULL);
@@ -65,7 +64,8 @@ static void clean_bullet_from_map(list_t **bullet_list, sfVector2f map_size)
         if (!bullet)
             continue;
         if (bullet->body.pos.x < 0 || bullet->body.pos.x > map_size.x ||
-            bullet->body.pos.y < 0 || bullet->body.pos.y > map_size.y) {
+            bullet->body.pos.y < 0 || bullet->body.pos.y > map_size.y ||
+            comp_value(bullet, DAMAGE)->i == 0) {
             my_delete_node_from_node(bullet_list, list, free_game_object);
             return;
         }
