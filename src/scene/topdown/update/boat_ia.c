@@ -5,14 +5,7 @@
 ** boat_ia
 */
 
-#include "update_topdown.h"
-
-static void ia_attack(game_obj_t *boat, list_t **bullets, sfBool side)
-{
-    if (can_game_object_attack(boat)) {
-        boat_attack(boat, bullets, side);
-    }
-}
+#include "ia.h"
 
 void update_ia_attack(game_obj_t *boat, game_obj_t *target, list_t **bullets)
 {
@@ -23,17 +16,17 @@ void update_ia_attack(game_obj_t *boat, game_obj_t *target, list_t **bullets)
 
     friction_force(&(boat->body), 1000);
     if (angle < 100 && angle > 80) {
-        if (vec_angle(head_nrm, dir) > vec_angle(vec_mult(head_nrm, -1), dir))
+        if (vec_angle(dir, head_nrm) > vec_angle(dir, vec_mult(head_nrm, -1)))
             ia_attack(boat, bullets, 0);
         else
             ia_attack(boat, bullets, 1);
         boat->body.angle_vel *= 0.9;
         return ;
     }
-    if (vec_angle(head, dir) > vec_angle(head, vec_mult(dir, -1))) {
-        boat->body.torque -= 2;
-    } else
+    if (vec_angle(dir, head_nrm) > vec_angle(dir, vec_mult(head_nrm, -1))) {
         boat->body.torque += 2;
+    } else
+        boat->body.torque -= 2;
 }
 
 void update_ia_track(game_obj_t *boat, game_obj_t *target)
@@ -94,4 +87,30 @@ void update_topdown_boat_ia(game_obj_t *boat, list_t *boat_list,
         update_ia_track(boat, target);
     else if (distance < fire_range)
         update_ia_attack(boat, target, bullets);
+}
+
+void update_topdown_boat_ally_ia(game_obj_t *boat, list_t *boat_list,
+                                game_obj_t *ptarget, list_t **bullets)
+{
+    game_obj_t *target = NULL;
+    float dist_targ = 0;
+    float dist_ptarg = 0;
+    float fire_range = 0;
+    float view_range = 0;
+
+    if (!has_comp(boat, FIRE_RANGE) || !has_comp(boat, VIEW_RANGE))
+        return ;
+    target = find_closest_game_object(boat, boat_list);
+    if (!target || !boat)
+        return ;
+    fire_range = boat->comp[find_comp(boat, FIRE_RANGE)]->i;
+    view_range = boat->comp[find_comp(boat, VIEW_RANGE)]->i;
+    update_game_object_center(boat);
+    update_obb(&(boat->body));
+    dist_targ = vec_mag(vec_sub(boat->body.pos, target->body.pos));
+    dist_ptarg = vec_mag(vec_sub(boat->body.pos, ptarget->body.pos));
+    if (dist_targ < fire_range)
+        update_ia_attack(boat, target, bullets);
+    else if (dist_ptarg < view_range && dist_ptarg > fire_range)
+        update_ia_track(boat, ptarget);
 }

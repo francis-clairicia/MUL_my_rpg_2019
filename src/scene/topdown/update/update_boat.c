@@ -17,9 +17,9 @@ static void redirect_boat_ia(game_obj_t *boat, topdown_t *topdown)
         update_topdown_boat_ia(boat, topdown->ally_boat, topdown->boat,
                                             &(topdown->bullets));
     if (boat->type == BOAT4) {
-        update_topdown_boat_ia(boat, topdown->ennemy_boat, NULL,
+        update_topdown_boat_ally_ia(boat, topdown->ennemy_boat, topdown->boat,
                                             &(topdown->bullets));
-        update_topdown_boat_ia(boat, topdown->mercenary_boat, NULL,
+        update_topdown_boat_ally_ia(boat, topdown->mercenary_boat, topdown->boat,
                                             &(topdown->bullets));
     }
 }
