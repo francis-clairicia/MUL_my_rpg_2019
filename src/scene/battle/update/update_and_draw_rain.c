@@ -7,11 +7,6 @@
 
 #include "battle.h"
 
-void update_rain()
-{
-
-}
-
 void draw_one_rain_list(tool_t *tool, game_obj_t *rain)
 {
     sfVector2f size = rain->body.size;
@@ -32,7 +27,7 @@ void draw_rain(tool_t *tool, list_t *rain_list)
     game_obj_t *rain = NULL;
 
     while (actual != NULL) {
-        rain = NODE_DATA(rain_list, game_obj_t *);
+        rain = NODE_DATA(actual, game_obj_t *);
         draw_one_rain_list(tool, rain);
         actual = actual->next;
     }
