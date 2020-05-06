@@ -27,7 +27,6 @@ int random_value(int modulo)
 {
     int nb = 0;
 
-    srand(0);
     nb = rand() % modulo;
     return (nb);
 }
