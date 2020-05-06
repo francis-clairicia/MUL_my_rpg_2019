@@ -63,6 +63,9 @@ void free_game_object(game_obj_t *obj)
         free(obj->origin);
     if (obj->frame_nb)
         free(obj->frame_nb);
+    if (obj->lapse)
+        free(obj->lapse);
+    free(obj);
 }
 
 sfBool free_game_object_list(game_obj_t *obj)
