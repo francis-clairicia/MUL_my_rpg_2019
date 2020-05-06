@@ -11,10 +11,9 @@ static void player_boat_collision(game_obj_t *pirate, game_obj_t *boat)
 {
     if (!boat || !pirate)
         return;
-    if (boat->type < WOOD1_RECT ||
-        boat->type > WOOD1_RIGHT_TRIANGLE)
-        return ;
-    if (game_object_collision(pirate, boat, pirate_collision_solving))
+    if ((boat->type == WOOD1_RECT || boat->type == WOOD1_RECT ||
+        boat->type <= WOOD1_RIGHT_TRIANGLE) &&
+        game_object_collision(pirate, boat, pirate_collision_solving))
         comp_value(pirate, CAN_JUMP)->i = 1;
 }
 
