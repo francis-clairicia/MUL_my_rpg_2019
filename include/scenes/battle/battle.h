@@ -30,4 +30,6 @@ void update_battle(tool_t *tool, battle_t *battle, scene_t *state);
 
 void draw_battle(tool_t *tool, battle_t battle);
 
+void draw_rain(tool_t *tool, list_t *rain_list);
+
 #endif /* !BATTLE_H_ */

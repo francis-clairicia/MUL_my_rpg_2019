@@ -14,5 +14,6 @@ void destroy_battle_background(battle_t *battle);
 void destroy_battle_clouds(battle_t *battle);
 void destroy_battle_ennemy(battle_t *battle);
 void destroy_battle_water(battle_t *battle);
+void destroy_battle_water(battle_t *battle);
 
 #endif /* !DESTROY_BATTLE_H_ */

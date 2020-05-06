@@ -68,6 +68,7 @@ SRC_SCENE			= 	src/scene/battle/destroy/destroy_background.c			\
 						src/scene/battle/update/update_clouds.c					\
 						src/scene/battle/update/update_player.c					\
 						src/scene/battle/update/update.c						\
+						src/scene/battle/update/update_and_draw_rain.c			\
 						src/scene/battle/draw.c									\
 						src/scene/battle/loop.c									\
 						src/scene/menu/init.c									\
