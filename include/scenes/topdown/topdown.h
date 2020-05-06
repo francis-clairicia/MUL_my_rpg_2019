@@ -11,11 +11,12 @@
 #include "rpg.h"
 #include "game_object.h"
 
-typedef enum camera_mode_e
+struct zoom_s
 {
-    CENTERED,
-    GLOBAL
-} camera_mode_t;
+    float actual;
+    float min;
+    float max;
+};
 
 typedef struct topdown_s
 {
@@ -27,7 +28,7 @@ typedef struct topdown_s
     list_t *golden_boat;
     list_t *map;
     sfVector2f map_size;
-    camera_mode_t camera;
+    struct zoom_s zoom;
 } topdown_t;
 
 sfBool init_topdown(tool_t *tool, topdown_t *topdown);

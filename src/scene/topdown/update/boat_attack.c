@@ -10,15 +10,15 @@
 static void set_bullet_team(game_obj_t *boat, game_obj_t *bullet)
 {
     if (boat->type == BOAT1 || boat->type == BOAT4)
-        bullet->comp[find_comp(bullet, ALLY)]->i = 1;
+        comp_value(bullet, ALLY)->i = 1;
     else
-        bullet->comp[find_comp(bullet, ALLY)]->i = 0;
+        comp_value(bullet, ALLY)->i = 0;
 }
 
 static game_obj_t *init_bullet(game_obj_t *boat, int index,
                         sfBool side, sfVector2f flank)
 {
-    size_t bullet_nb = boat->comp[find_comp(boat, CANNON_NB)]->i;
+    size_t bullet_nb = comp_value(boat, CANNON_NB)->i;
     sfVector2f impulse = vec_norm(vec_normal(flank));
     game_obj_t *new_bullet = create_game_obj(BULLET);
 
@@ -29,8 +29,7 @@ static game_obj_t *init_bullet(game_obj_t *boat, int index,
     if (!side)
         impulse = vec_mult(impulse, -1);
     impulse = vec_mult(impulse, 10000);
-    new_bullet->comp[find_comp(new_bullet, DAMAGE)]->i =
-                    boat->comp[find_comp(boat, DAMAGE)]->i;
+    comp_value(new_bullet, DAMAGE)->i = comp_value(boat, DAMAGE)->i;
     apply_force(&(new_bullet->body), impulse);
     set_bullet_team(boat, new_bullet);
     return (new_bullet);
@@ -39,7 +38,7 @@ static game_obj_t *init_bullet(game_obj_t *boat, int index,
 void boat_attack(game_obj_t *boat, list_t **bullets, sfBool side)
 {
     register size_t index = 0;
-    size_t bullet_nb = boat->comp[find_comp(boat, CANNON_NB)]->i;
+    size_t bullet_nb = comp_value(boat, CANNON_NB)->i;
     sfVector2f flank = VEC2F(0, 0);
 
     update_game_object_center(boat);

@@ -16,7 +16,7 @@ static float is_diving(list_t *boat_list, list_t *water_list)
 
     if (!boat || !water)
         return (0);
-    boat_y = boat->body.pos.y + boat->comp[find_comp(boat, SIZE)]->v2f.y -
+    boat_y = boat->body.pos.y + comp_value(boat, SIZE)->v2f.y -
                                                 boat->origin[boat->state].y;
     water_y = water->body.pos.y - water->origin[water->state].y;
     return ((boat_y - water_y));
@@ -29,7 +29,7 @@ static float get_boat_width(list_t *boat_list)
 
     if (!boat)
         return (0);
-    width = boat->comp[find_comp(boat, SIZE)]->v2f.x;
+    width = comp_value(boat, SIZE)->v2f.x;
     return (width);
 }
 

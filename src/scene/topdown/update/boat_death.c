@@ -14,7 +14,7 @@ void check_topdown_player_death(game_obj_t *boat, scene_t *state)
         return ;
     if (!has_comp(boat, LIFE))
         return;
-    if (boat->comp[find_comp(boat, LIFE)]->i <= 0) {
+    if (comp_value(boat, LIFE)->i <= 0) {
         *state = MENU;
         play_game_object_sound(boat, DEATH_SOUND);
     }

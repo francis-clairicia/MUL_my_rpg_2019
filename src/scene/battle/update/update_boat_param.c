@@ -27,5 +27,5 @@ void update_boat_size(list_t *boat)
             (down_boat->view_box[down_boat->state].height -
             down_boat->origin[down_boat->state].y);
     size.y -= (up_boat->body.pos.y - up_boat->origin[up_boat->state].y);
-    first_obj->comp[find_comp(first_obj, SIZE)]->v2f = size;
+    comp_value(first_obj, SIZE)->v2f = size;
 }

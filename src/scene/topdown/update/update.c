@@ -10,14 +10,13 @@
 static scene_t keyboard_event(tool_t *tool, topdown_t *topdown)
 {
     if (tool->event.key.code == sfKeyEscape) {
-        sfView_reset(tool->view, FRECT(0, 0, 1920, 1080));
-        sfRenderWindow_setView(tool->window, tool->view);
+        set_tool_view(tool, FRECT(0, 0, 1920, 1080));
+        draw_topdown(tool, *topdown);
         return (launch_settings(tool, TOPDOWN));
     }
     if (tool->event.key.code == sfKeyF12)
         return (BATTLE);
-    if (tool->event.key.code == tool->player.control.keys[CONTROL_CAMERA])
-        topdown->camera = !(topdown->camera);
+    update_view_zoom(tool, topdown);
     return (TOPDOWN);
 }
 

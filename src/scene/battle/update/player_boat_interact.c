@@ -15,7 +15,7 @@ static void player_boat_collision(game_obj_t *pirate, game_obj_t *boat)
         boat->type > WOOD1_RIGHT_TRIANGLE)
         return ;
     if (game_object_collision(pirate, boat, pirate_collision_solving))
-        pirate->comp[find_comp(pirate, CAN_JUMP)]->i = 1;
+        comp_value(pirate, CAN_JUMP)->i = 1;
 }
 
 static void player_control_boat(game_obj_t *pirate, game_obj_t *boat,
@@ -27,8 +27,8 @@ static void player_control_boat(game_obj_t *pirate, game_obj_t *boat,
         return;
     if (sfKeyboard_isKeyPressed(control.keys[CONTROL_USE])) {
         if (!key_pressed && (is_game_object_collision(pirate, boat) ||
-            pirate->comp[find_comp(pirate, IS_DRIVING)]->i)) {
-            pirate->comp[find_comp(pirate, IS_DRIVING)]->i ^= 1;
+            comp_value(pirate, IS_DRIVING)->i)) {
+            comp_value(pirate, IS_DRIVING)->i ^= 1;
             pirate->body.vel = VEC2F(0, 0);
         }
         key_pressed = sfTrue;

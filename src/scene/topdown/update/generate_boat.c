@@ -47,7 +47,7 @@ static void generate_ally_boat(game_obj_t *buoy, topdown_t *topdown,
 
     if (!is_game_object_collision(boat, buoy))
         return;
-    if (!has_comp(boat, XP) || boat->comp[find_comp(boat, XP)]->i < 20)
+    if (!has_comp(boat, XP) || comp_value(boat, XP)->i < 20)
         return;
     if (!sfKeyboard_isKeyPressed(tool->player.control.keys[CONTROL_USE]))
         key_pressed = sfFalse;
@@ -56,7 +56,7 @@ static void generate_ally_boat(game_obj_t *buoy, topdown_t *topdown,
     if (key_pressed) {
         new_boat = create_game_obj(BOAT4);
         if (new_boat) {
-            boat->comp[find_comp(boat, XP)]->i -= 20;
+            comp_value(boat, XP)->i -= 20;
             MY_APPEND_TO_LIST(&(topdown->ally_boat), new_boat);
             set_game_object_pos(new_boat, buoy->body.pos);
         }
@@ -71,7 +71,7 @@ static void generate_golden_boat(game_obj_t *buoy, topdown_t *topdown,
 
     if (!has_comp(boat, DEAD_COUNTER))
         return;
-    if (boat->comp[find_comp(boat, DEAD_COUNTER)]->i < 100)
+    if (comp_value(boat, DEAD_COUNTER)->i < 100)
         return;
     if (!get_randomnb(0, 100)) {
         new_boat = create_game_obj(BOAT5);

@@ -106,7 +106,8 @@ SRC_SCENE			= 	src/scene/battle/destroy/destroy_background.c			\
 
 SRC_INPUT_HANDLING	=	src/input_handling/mouse_input.c
 
-SRC_UPDATE_WINDOW 	=	src/update_window/update_tool.c
+SRC_UPDATE_WINDOW 	=	src/update_window/update_tool.c							\
+						src/update_window/set_view.c
 
 SRC_VECTOR_ENGINE 	=	src/vector_engine/vec_angle.c							\
 						src/vector_engine/vec_basic.c							\

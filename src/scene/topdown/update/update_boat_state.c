@@ -13,7 +13,7 @@ void update_topdown_boat_state(game_obj_t *boat)
 
     if (!has_comp(boat, LIFE))
         return ;
-    boat_life = boat->comp[find_comp(boat, LIFE)]->i;
+    boat_life = comp_value(boat, LIFE)->i;
     if (boat_life > 70)
         set_game_object_frame(boat, 0);
     if (boat_life < 70 && boat_life > 35)

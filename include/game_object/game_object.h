@@ -71,6 +71,7 @@ typedef enum properties_e {
     ATTACK_TIME,
     CANNON_NB,
     XP,
+    EARN_XP,
     LVL,
     LIFE,
     MAX_LIFE,
@@ -151,6 +152,9 @@ int find_comp(game_obj_t *obj, prop_t type);
 //Returns true if it has the wanted comp
 //Returns false in other cases
 bool has_comp(game_obj_t *obj, const prop_t type);
+
+//Get a component value
+#define comp_value(obj,type) (obj)->comp[find_comp(obj,type)]
 
 //Sets game object'sprite position and update sprite
 void set_game_object_pos(game_obj_t *obj, sfVector2f pos);

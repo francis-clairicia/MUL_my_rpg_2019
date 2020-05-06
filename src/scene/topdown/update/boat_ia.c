@@ -26,7 +26,7 @@ void update_ia_attack(game_obj_t *boat, game_obj_t *target, list_t **bullets)
         if (vec_angle(head_nrm, dir) > vec_angle(vec_mult(head_nrm, -1), dir))
             ia_attack(boat, bullets, 0);
         else
-            boat_attack(boat, bullets, 1);
+            ia_attack(boat, bullets, 1);
         boat->body.angle_vel *= 0.9;
         return ;
     }
@@ -85,8 +85,8 @@ void update_topdown_boat_ia(game_obj_t *boat, list_t *boat_list,
     target = get_closest_target(boat, ptarget, boat_list);
     if (!target)
         return ;
-    fire_range = boat->comp[find_comp(boat, FIRE_RANGE)]->i;
-    view_range = boat->comp[find_comp(boat, VIEW_RANGE)]->i;
+    fire_range = comp_value(boat, FIRE_RANGE)->i;
+    view_range = comp_value(boat, VIEW_RANGE)->i;
     update_game_object_center(boat);
     update_obb(&(boat->body));
     distance = vec_mag(vec_sub(boat->body.pos, target->body.pos));

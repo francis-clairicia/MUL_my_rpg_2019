@@ -15,5 +15,8 @@ sfBool init_topdown(tool_t *tool, topdown_t *topdown)
     if (!init_topdown_map(topdown) ||
         !init_topdown_boat(tool->player, topdown))
         return (sfFalse);
+    topdown->zoom.actual = 1;
+    topdown->zoom.min = 0.5;
+    topdown->zoom.max = 1.5;
     return (sfTrue);
 }

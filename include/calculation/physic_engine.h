@@ -11,6 +11,10 @@
 #include <math.h>
 #include "vector_engine.h"
 
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
+
 #define GRAVITY (9.8)
 
 #define RAD(degree) (degree * M_PI / 180)

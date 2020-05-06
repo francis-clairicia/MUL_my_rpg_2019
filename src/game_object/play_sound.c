@@ -13,7 +13,7 @@ void play_game_object_sound(game_obj_t *obj, prop_t sound_type)
 
     if (!obj || !has_comp(obj, sound_type))
         return;
-    sound = obj->comp[find_comp(obj, sound_type)]->sound;
+    sound = comp_value(obj, sound_type)->sound;
     if (!sound)
         return;
     if (sfSound_getStatus(sound) != sfPlaying)
