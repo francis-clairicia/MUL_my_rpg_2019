@@ -26,6 +26,7 @@ static int valid_environment(char **envp)
 
 int main(int ac UNUSED, char **av UNUSED, char **envp)
 {
+    srand(0);
     if (!valid_environment(envp))
         return (84);
     return (my_rpg());

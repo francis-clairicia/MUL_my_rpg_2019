@@ -10,6 +10,7 @@
 
 #include "rpg.h"
 #include "game_object.h"
+#include "weather.h"
 
 typedef struct battle_s
 {
@@ -20,6 +21,7 @@ typedef struct battle_s
     list_t *clouds;
     list_t *rain;
     game_obj_t *background;
+    int weather;
 } battle_t;
 
 sfBool init_battle(tool_t *tool, battle_t *battle);
